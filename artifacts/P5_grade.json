@@ -1,0 +1,31 @@
+{
+  "problem_id": "P5",
+  "question": "Compute Cov(X,Y) and Cor(X,Y) for overlapping sums of exponential variables",
+  "required_items": [
+    "Cov(X,Y) = 2",
+    "Cor(X,Y) = 8/n",
+    "Identify overlap size = 8",
+    "Use linearity of covariance",
+    "Calculate Var(X) = n/4 and Var(Y) = n/4",
+    "Show exponential(2) has variance 1/4"
+  ],
+  "solution_check": {
+    "covariance_correct": true,
+    "correlation_correct": true,
+    "overlap_identified": true,
+    "linearity_used": true,
+    "variances_calculated": true,
+    "exponential_variance_used": true,
+    "verification_included": true
+  },
+  "numeric_verification": {
+    "covariance_value": 2,
+    "correlation_n8": 1.0,
+    "correlation_n16": 0.5,
+    "overlap_size": 8,
+    "exponential_variance": 0.25,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Complete analysis of overlapping sums with correct identification of overlap and proper use of linearity"
+}

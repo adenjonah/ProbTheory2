@@ -1,0 +1,26 @@
+\textbf{Problem 4(d): Find the probability that Alicia arrives less than five minutes after Bernardo.}
+
+We want $P(A < B + 5)$, which is equivalent to $P(A - B < 5)$.
+
+Using the geometric method from part (c)(ii):
+
+The sample space is $[0,60] \times [0,60]$ with total area $3600$.
+
+The event $\{A < B + 5\}$ is the region below the line $a = b + 5$.
+
+To find this area, it's easier to calculate the complement. The region above the line $a = b + 5$ forms a triangle.
+
+The line $a = b + 5$ intersects:
+- The left edge ($b = 0$) at $a = 5$
+- The top edge ($a = 60$) at $b = 55$
+
+The triangle above the line has vertices at $(5, 0)$, $(60, 0)$, and $(60, 55)$.
+
+Area of triangle = $\frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times 55 \times 55 = \frac{3025}{2} = 1512.5$
+
+Area below the line = Total area - Area above = $3600 - 1512.5 = 2087.5$
+
+Therefore:
+$$P(A < B + 5) = \frac{2087.5}{3600} = \frac{4175}{7200} = \frac{167}{288}$$
+
+Converting to decimal: $P(A < B + 5) = \frac{167}{288} \approx 0.5799$

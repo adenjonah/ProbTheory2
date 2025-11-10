@@ -1,0 +1,28 @@
+\textbf{Problem 4(c): Find the probability that Alicia arrives before 12:15 and Bernardo arrives between 12:30 and 12:45 in two ways.}
+
+We want $P(A < 15 \text{ and } 30 < B < 45)$.
+
+\textbf{Method (i): Using independence}
+
+Since $A$ and $B$ are independent:
+$$P(A < 15 \text{ and } 30 < B < 45) = P(A < 15) \cdot P(30 < B < 45)$$
+
+For uniform distributions:
+$$P(A < 15) = \frac{15}{60} = \frac{1}{4}$$
+$$P(30 < B < 45) = \frac{45 - 30}{60} = \frac{15}{60} = \frac{1}{4}$$
+
+Therefore:
+$$P(A < 15 \text{ and } 30 < B < 45) = \frac{1}{4} \cdot \frac{1}{4} = \frac{1}{16}$$
+
+\textbf{Method (ii): Geometric area calculation}
+
+The sample space is the square $[0,60] \times [0,60]$ with total area $60 \times 60 = 3600$.
+
+The event $\{A < 15 \text{ and } 30 < B < 45\}$ corresponds to the rectangle $[0,15) \times (30,45)$.
+
+Area of this rectangle = $15 \times 15 = 225$.
+
+Therefore:
+$$P(A < 15 \text{ and } 30 < B < 45) = \frac{225}{3600} = \frac{1}{16}$$
+
+Both methods give the same answer: $\boxed{\frac{1}{16}}$.

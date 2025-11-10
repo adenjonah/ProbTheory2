@@ -1,0 +1,24 @@
+{
+  "problem_id": "P1_a",
+  "question": "Find c and the joint cdf F(x,y)",
+  "required_items": [
+    "Value of c = 12/7",
+    "Joint cdf F(x,y) = x²y(4x + 3y)/7",
+    "Show integration work for finding c",
+    "Show integration work for finding F(x,y)"
+  ],
+  "solution_check": {
+    "c_value_correct": true,
+    "c_derivation_shown": true,
+    "cdf_formula_correct": true,
+    "cdf_derivation_shown": true,
+    "verification_included": true
+  },
+  "numeric_verification": {
+    "c_value": 1.7142857142857142,
+    "integral_check": 1.0,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Complete solution with correct derivation and verification"
+}

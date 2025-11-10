@@ -1,0 +1,33 @@
+\textbf{Problem 1(d): Find the covariance and correlation of $X$ and $Y$.}
+
+First, we need $E[Y]$ and $E[XY]$.
+
+\textbf{Expected value $E[Y]$:}
+$$E[Y] = \int_0^1 y \cdot f_Y(y) \, dy = \int_0^1 y \left( \frac{4}{7} + \frac{6y}{7} \right) dy$$
+$$= \frac{1}{7} \int_0^1 (4y + 6y^2) \, dy = \frac{1}{7} \left[ 2y^2 + 2y^3 \right]_0^1$$
+$$= \frac{1}{7}(2 + 2) = \frac{4}{7}$$
+
+\textbf{Joint moment $E[XY]$:}
+$$E[XY] = \int_0^1 \int_0^1 xy \cdot f(x,y) \, dx \, dy = \int_0^1 \int_0^1 xy \cdot \frac{12}{7}(x^2 + xy) \, dx \, dy$$
+$$= \frac{12}{7} \int_0^1 \int_0^1 xy(x^2 + xy) \, dx \, dy = \frac{12}{7} \int_0^1 \int_0^1 (x^3y + x^2y^2) \, dx \, dy$$
+$$= \frac{12}{7} \int_0^1 \left[ \frac{x^4y}{4} + \frac{x^3y^2}{3} \right]_0^1 dy = \frac{12}{7} \int_0^1 \left( \frac{y}{4} + \frac{y^2}{3} \right) dy$$
+$$= \frac{12}{7} \left[ \frac{y^2}{8} + \frac{y^3}{9} \right]_0^1 = \frac{12}{7} \left( \frac{1}{8} + \frac{1}{9} \right)$$
+$$= \frac{12}{7} \cdot \frac{17}{72} = \frac{17}{42}$$
+
+\textbf{Covariance:}
+$$\text{Cov}(X,Y) = E[XY] - E[X]E[Y] = \frac{17}{42} - \frac{5}{7} \cdot \frac{4}{7}$$
+$$= \frac{17}{42} - \frac{20}{49} = \frac{17 \cdot 7 - 20 \cdot 6}{294} = \frac{119 - 120}{294} = -\frac{1}{294}$$
+
+For correlation, we need $\text{Var}(Y)$:
+$$\text{Var}(Y) = E[Y^2] - (E[Y])^2$$
+
+$$E[Y^2] = \int_0^1 y^2 \left( \frac{4}{7} + \frac{6y}{7} \right) dy = \frac{1}{7} \int_0^1 (4y^2 + 6y^3) \, dy$$
+$$= \frac{1}{7} \left[ \frac{4y^3}{3} + \frac{6y^4}{4} \right]_0^1 = \frac{1}{7} \left( \frac{4}{3} + \frac{3}{2} \right) = \frac{1}{7} \cdot \frac{17}{6} = \frac{17}{42}$$
+
+$$\text{Var}(Y) = \frac{17}{42} - \left(\frac{4}{7}\right)^2 = \frac{17}{42} - \frac{16}{49} = \frac{17 \cdot 7 - 16 \cdot 6}{294} = \frac{119 - 96}{294} = \frac{23}{294}$$
+
+\textbf{Correlation:}
+$$\text{Cor}(X,Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{-\frac{1}{294}}{\sqrt{\frac{23}{490} \cdot \frac{23}{294}}}$$
+$$= \frac{-\frac{1}{294}}{\sqrt{\frac{529}{144060}}} = \frac{-\frac{1}{294}}{\frac{23}{379.55}} = -\frac{\sqrt{15}}{69}$$
+
+\textbf{Verification:} $\text{Cov}(X,Y) = -0.00340$ ✓, $\text{Cor}(X,Y) = -0.0561$ ✓

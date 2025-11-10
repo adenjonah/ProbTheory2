@@ -1,0 +1,26 @@
+{
+  "problem_id": "P1_c",
+  "question": "Find E[X] and Var(X)",
+  "required_items": [
+    "E[X] = 5/7",
+    "Var(X) = 23/490",
+    "Show calculation of E[X]",
+    "Show calculation of E[X²]",
+    "Show Var(X) = E[X²] - (E[X])²"
+  ],
+  "solution_check": {
+    "E_X_correct": true,
+    "Var_X_correct": true,
+    "E_X_derivation_shown": true,
+    "E_X2_derivation_shown": true,
+    "variance_formula_used": true,
+    "verification_included": true
+  },
+  "numeric_verification": {
+    "E_X_value": 0.7142857142857143,
+    "Var_X_value": 0.04693877551020408,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Correct expected value and variance with complete derivations"
+}

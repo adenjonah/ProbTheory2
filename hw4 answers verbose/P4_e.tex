@@ -1,0 +1,30 @@
+\textbf{Problem 4(e): Now suppose that Alicia and Bernardo are both rather impatient and will leave if they have to wait more than 15 minutes for the other to arrive. What is the probability that Alicia and Bernardo will have lunch together?}
+
+They will have lunch together if and only if $|A - B| \leq 15$, which is equivalent to $-15 \leq A - B \leq 15$, or $B - 15 \leq A \leq B + 15$.
+
+Using the geometric method:
+
+The sample space is $[0,60] \times [0,60]$ with total area $3600$.
+
+The meeting region is the area between the lines $a = b - 15$ and $a = b + 15$.
+
+It's easier to calculate the area where they \emph{don't} meet, which consists of two triangles:
+
+\textbf{Upper triangle} (above $a = b + 15$):
+- The line $a = b + 15$ intersects the bottom edge at $(15, 0)$ and the right edge at $(60, 45)$
+- Triangle vertices: $(15, 0)$, $(60, 0)$, $(60, 45)$
+- Area = $\frac{1}{2} \times 45 \times 45 = \frac{2025}{2} = 1012.5$
+
+\textbf{Lower triangle} (below $a = b - 15$):
+- The line $a = b - 15$ intersects the left edge at $(0, 15)$ and the top edge at $(45, 60)$
+- Triangle vertices: $(0, 15)$, $(0, 60)$, $(45, 60)$
+- Area = $\frac{1}{2} \times 45 \times 45 = \frac{2025}{2} = 1012.5$
+
+Total area where they don't meet = $1012.5 + 1012.5 = 2025$
+
+Area where they do meet = $3600 - 2025 = 1575$
+
+Therefore:
+$$P(\text{they have lunch together}) = \frac{1575}{3600} = \frac{7}{16}$$
+
+\textbf{Verification:} $\frac{1575}{3600} = \frac{1575 \div 225}{3600 \div 225} = \frac{7}{16}$ ✓

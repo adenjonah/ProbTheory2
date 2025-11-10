@@ -1,0 +1,30 @@
+{
+  "problem_id": "P1_d",
+  "question": "Find the covariance and correlation of X and Y",
+  "required_items": [
+    "Cov(X,Y) = -1/294",
+    "Cor(X,Y) = -√15/69",
+    "Show calculation of E[Y]",
+    "Show calculation of E[XY]",
+    "Show Cov(X,Y) = E[XY] - E[X]E[Y]",
+    "Show calculation of Var(Y)",
+    "Show Cor(X,Y) = Cov(X,Y)/√(Var(X)Var(Y))"
+  ],
+  "solution_check": {
+    "Cov_XY_correct": true,
+    "Cor_XY_correct": true,
+    "E_Y_calculated": true,
+    "E_XY_calculated": true,
+    "Var_Y_calculated": true,
+    "covariance_formula_used": true,
+    "correlation_formula_used": true,
+    "verification_included": true
+  },
+  "numeric_verification": {
+    "Cov_XY_value": -0.003401360544217687,
+    "Cor_XY_value": -0.05613019342329589,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Complete covariance and correlation analysis with all intermediate steps"
+}

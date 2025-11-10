@@ -1,0 +1,88 @@
+=== PROBLEM 4: Don't be late! ===
+A and B are independent uniform random variables on [0,60]
+
+=== Part (a): Joint pdf f(a,b) and joint cdf F(a,b) ===
+For uniform distribution on [0,60]:
+f_A(a) = 1/60 for a ∈ [0,60], 0 otherwise
+f_B(b) = 1/60 for b ∈ [0,60], 0 otherwise
+
+Since A and B are independent:
+f(a,b) = f_A(a) * f_B(b) = (1/60) * (1/60) = 1/3600 for (a,b) ∈ [0,60] × [0,60]
+
+Joint cdf F(a,b) = P(A ≤ a, B ≤ b):
+For 0 ≤ a ≤ 60 and 0 ≤ b ≤ 60:
+F(a,b) = ∫₀ᵃ ∫₀ᵇ (1/3600) du dv = (1/3600) * a * b = ab/3600
+
+=== Part (b): P(Alicia arrives before 12:30) ===
+12:30 is 30 minutes after noon
+P(A < 30) = F_A(30) = 30/60 = 1/2
+P(A < 30) = 0.5
+
+=== Part (c): P(A < 15 and 30 < B < 45) ===
+12:15 is 15 minutes after noon
+12:30 is 30 minutes after noon
+12:45 is 45 minutes after noon
+
+Method (i): Using independence
+P(A < 15) = 15/60 = 1/4
+P(30 < B < 45) = (45-30)/60 = 15/60 = 1/4
+P(A < 15 and 30 < B < 45) = P(A < 15) * P(30 < B < 45) = (1/4) * (1/4) = 1/16
+Result: 0.0625
+
+Method (ii): Area calculation
+Total area of [0,60] × [0,60] = 60 * 60 = 3600
+Area of [0,15] × [30,45] = 15 * 15 = 225
+Probability = 225/3600 = 1/16
+Result: 0.0625
+Both methods agree: True
+
+=== Part (d): P(A < B + 5) ===
+We want P(A - B < 5), or equivalently P(A < B + 5)
+This is the region below the line a = b + 5
+
+Using geometric approach:
+Total area = 60 × 60 = 3600
+We want the area below the line a = b + 5 within [0,60] × [0,60]
+
+The line a = b + 5 intersects:
+- Left edge (b = 0): a = 5
+- Bottom edge (a = 0): b = -5 (outside domain)
+- Top edge (a = 60): b = 55
+- Right edge (b = 60): a = 65 (outside domain)
+
+The region above the line a = b + 5 is a triangle with vertices:
+(5, 0), (60, 0), (60, 55)
+Area above line = (1/2) * base * height = (1/2) * 55 * 55 = 1512.5
+Area below line = 3600 - 1512.5 = 2087.5
+P(A < B + 5) = 2087.5/3600 = 0.5798611...
+P(A < B + 5) = 0.579861
+As fraction: 2087.5/3600 = 16700/28800 = 668/1152
+
+=== Part (e): Both wait at most 15 minutes ===
+They meet if |A - B| ≤ 15
+This is equivalent to -15 ≤ A - B ≤ 15, or B - 15 ≤ A ≤ B + 15
+
+Geometric approach:
+We want the region between lines a = b - 15 and a = b + 15
+Total area = 60 × 60 = 3600
+
+Area outside the strip (where they don't meet):
+Upper triangle: above a = b + 15
+- Vertices: (15, 0), (60, 0), (60, 45)
+- Area = (1/2) * 45 * 45 = 1012.5
+
+Lower triangle: below a = b - 15
+- Vertices: (0, 15), (0, 60), (45, 60)
+- Area = (1/2) * 45 * 45 = 1012.5
+
+Total area where they don't meet = 1012.5 + 1012.5 = 2025
+Area where they do meet = 3600 - 2025 = 1575
+P(they meet) = 1575/3600 = 7/16
+P(they meet) = 0.437500 = 1575/3600 = 7/16
+
+=== VERIFICATION ===
+Part (b): P(A < 30) = 0.5
+Part (c): P(A < 15, 30 < B < 45) = 0.0625 = 0.0625
+Part (d): P(A < B + 5) = 0.579861
+Part (e): P(|A - B| ≤ 15) = 0.437500 = 7/16
+Saved visualization to figures/P4_e_meeting_region.png

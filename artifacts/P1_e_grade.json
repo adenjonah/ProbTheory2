@@ -1,0 +1,23 @@
+{
+  "problem_id": "P1_e",
+  "question": "Are X and Y independent?",
+  "required_items": [
+    "Clear statement that X and Y are NOT independent",
+    "Check if f(x,y) = f_X(x) * f_Y(y)",
+    "Show the difference is non-zero",
+    "Alternative: reference non-zero covariance"
+  ],
+  "solution_check": {
+    "independence_conclusion_correct": true,
+    "independence_test_performed": true,
+    "product_of_marginals_computed": true,
+    "difference_shown_nonzero": true,
+    "verification_included": true
+  },
+  "numeric_verification": {
+    "covariance_nonzero": true,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Correct independence analysis with proper mathematical justification"
+}

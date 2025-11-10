@@ -1,0 +1,96 @@
+{
+  "title": "hw4",
+  "problems": [
+    {
+      "id": "P1",
+      "title": "Problem 1",
+      "description": "Joint pdf analysis with f(x,y) = c(x^2 + xy) on [0,1] × [0,1]",
+      "subproblems": [
+        {
+          "id": "P1_a",
+          "text": "Find c and the joint cdf F(x,y)."
+        },
+        {
+          "id": "P1_b", 
+          "text": "Find the marginal cumulative distribution functions F_X and F_Y and the marginal pdf f_X and f_Y."
+        },
+        {
+          "id": "P1_c",
+          "text": "Find E[X] and Var(X)."
+        },
+        {
+          "id": "P1_d",
+          "text": "Find the covariance and correlation of X and Y."
+        },
+        {
+          "id": "P1_e",
+          "text": "Are X and Y independent?"
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "title": "Problem 2. Independence",
+      "description": "Joint pmf table analysis for independence",
+      "subproblems": [
+        {
+          "id": "P2",
+          "text": "Suppose X and Y are random variables with the following joint pmf. Are X and Y independent?"
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "title": "Problem 3. Correlation", 
+      "description": "Binary random variables with parameter c",
+      "subproblems": [
+        {
+          "id": "P3_a",
+          "text": "Determine the joint distribution of X and Y, Cov(X,Y), and Cor(X,Y)."
+        },
+        {
+          "id": "P3_b",
+          "text": "For what value(s) of c are X and Y independent? For what value(s) of c are X and Y 100% correlated?"
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "title": "Problem 4. Don't be late!",
+      "description": "Uniform arrival times for lunch meeting",
+      "subproblems": [
+        {
+          "id": "P4_a",
+          "text": "Find the joint pdf f(a,b) and joint cdf F(a,b)."
+        },
+        {
+          "id": "P4_b",
+          "text": "Find the probability that Alicia arrives before 12:30."
+        },
+        {
+          "id": "P4_c",
+          "text": "Find the probability that Alicia arrives before 12:15 and Bernardo arrives between 12:30 and 12:45 in two ways: (i) By using the fact that A and B are independent. (ii) By shading the corresponding area of the square [0,60] × [0,60] and finding what proportion of the square is shaded."
+        },
+        {
+          "id": "P4_d",
+          "text": "Find the probability that Alicia arrives less than five minutes after Bernardo. (Hint: use method (ii) from part (c).)"
+        },
+        {
+          "id": "P4_e",
+          "text": "Now suppose that Alicia and Bernardo are both rather impatient and will leave if they have to wait more than 15 minutes for the other to arrive. What is the probability that Alicia and Bernardo will have lunch together?"
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "title": "Problem 5. Overlapping sums",
+      "description": "Covariance of overlapping sums of exponential random variables",
+      "subproblems": [
+        {
+          "id": "P5",
+          "text": "Suppose X_1, X_2, ... are independent exponential(2) random variables. Suppose also that X is the sum of the first n and Y is the sum of X_{n-7} to X_{2n-8}. Compute Cov(X,Y) and Cor(X,Y). You should assume that n ≥ 8."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "problem_id": "P4_b",
+  "question": "Find the probability that Alicia arrives before 12:30",
+  "required_items": [
+    "P(A < 30) = 1/2",
+    "Identify 12:30 as 30 minutes after noon",
+    "Use uniform distribution property"
+  ],
+  "solution_check": {
+    "probability_correct": true,
+    "time_conversion_correct": true,
+    "uniform_property_used": true
+  },
+  "numeric_verification": {
+    "probability_value": 0.5,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Correct probability calculation with proper time conversion"
+}

@@ -1,0 +1,25 @@
+{
+  "problem_id": "P4_c",
+  "question": "Find P(A < 15 and 30 < B < 45) using two methods",
+  "required_items": [
+    "Method (i): P(A < 15) * P(30 < B < 45) = 1/16",
+    "Method (ii): Area calculation = 225/3600 = 1/16",
+    "Show both methods give same answer",
+    "Proper time conversions"
+  ],
+  "solution_check": {
+    "method_i_correct": true,
+    "method_ii_correct": true,
+    "both_methods_shown": true,
+    "results_match": true,
+    "time_conversions_correct": true
+  },
+  "numeric_verification": {
+    "probability_method_1": 0.0625,
+    "probability_method_2": 0.0625,
+    "methods_agree": true,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Both methods correctly implemented with matching results"
+}

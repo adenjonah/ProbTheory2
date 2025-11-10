@@ -1,0 +1,26 @@
+{
+  "problem_id": "P1_b",
+  "question": "Find the marginal cumulative distribution functions F_X and F_Y and the marginal pdf f_X and f_Y",
+  "required_items": [
+    "Marginal pdf f_X(x) = 6x(2x+1)/7",
+    "Marginal pdf f_Y(y) = (4+6y)/7", 
+    "Marginal cdf F_X(x) = 2x²(4x+3)/7",
+    "Marginal cdf F_Y(y) = y(4+3y)/7",
+    "Show integration work"
+  ],
+  "solution_check": {
+    "f_X_correct": true,
+    "f_Y_correct": true,
+    "F_X_correct": true,
+    "F_Y_correct": true,
+    "derivation_shown": true,
+    "verification_included": true
+  },
+  "numeric_verification": {
+    "marginal_X_integral": 1.0,
+    "marginal_Y_integral": 1.0,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "All marginal distributions correctly computed with proper verification"
+}

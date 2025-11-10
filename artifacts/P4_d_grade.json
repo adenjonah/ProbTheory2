@@ -1,0 +1,25 @@
+{
+  "problem_id": "P4_d",
+  "question": "Find the probability that Alicia arrives less than five minutes after Bernardo",
+  "required_items": [
+    "P(A < B + 5) = 167/288 ≈ 0.5799",
+    "Use geometric method as suggested",
+    "Calculate area below line a = b + 5",
+    "Show triangle calculation"
+  ],
+  "solution_check": {
+    "probability_correct": true,
+    "geometric_method_used": true,
+    "triangle_area_calculated": true,
+    "complement_approach_used": true,
+    "line_intersections_identified": true
+  },
+  "numeric_verification": {
+    "probability_value": 0.579861,
+    "triangle_area": 1512.5,
+    "total_area": 3600,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Correct geometric calculation with proper triangle area computation"
+}

@@ -1,0 +1,29 @@
+{
+  "problem_id": "P3_b",
+  "question": "For what values of c are X and Y independent? For what values are they 100% correlated?",
+  "required_items": [
+    "Independence: c = 1/4",
+    "Perfect positive correlation: c = 1/2", 
+    "Perfect negative correlation: c = 0",
+    "Show constraint verification: 0 ≤ c ≤ 1/2",
+    "Show independence condition: Cov(X,Y) = 0",
+    "Show perfect correlation condition: |Cor(X,Y)| = 1"
+  ],
+  "solution_check": {
+    "independence_value_correct": true,
+    "perfect_correlation_values_correct": true,
+    "constraints_verified": true,
+    "independence_condition_used": true,
+    "correlation_condition_used": true,
+    "verification_included": true
+  },
+  "numeric_verification": {
+    "independence_c": 0.25,
+    "perfect_pos_corr_c": 0.5,
+    "perfect_neg_corr_c": 0.0,
+    "all_within_constraints": true,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Correct identification of all critical values with proper constraint verification"
+}

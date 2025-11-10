@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Homework 4}
+\date{October 28, 2025}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Problem 1.}
+
+Suppose $X$ and $Y$ have joint pdf $f(x,y) = c(x^2 + xy)$ on $[0,1] \times [0,1]$.
+
+(a) Find $c$ and the joint cdf $F(x,y)$.
+
+Setting $\int_0^1 \int_0^1 c(x^2 + xy) \, dx \, dy = 1$:
+$$c \int_0^1 \int_0^1 (x^2 + xy) \, dx \, dy = c \cdot \frac{7}{12} = 1$$
+Therefore $c = \frac{12}{7}$.
+
+$$F(x,y) = \int_0^y \int_0^x \frac{12}{7}(u^2 + uv) \, du \, dv = \frac{x^2y(4x + 3y)}{7}$$
+
+(b) Find the marginal cumulative distribution functions $F_X$ and $F_Y$ and the marginal pdf $f_X$ and $f_Y$.
+
+$$f_X(x) = \int_0^1 \frac{12}{7}(x^2 + xy) \, dy = \frac{6x(2x + 1)}{7}$$
+$$f_Y(y) = \int_0^1 \frac{12}{7}(x^2 + xy) \, dx = \frac{4 + 6y}{7}$$
+$$F_X(x) = \frac{2x^2(4x + 3)}{7}, \quad F_Y(y) = \frac{y(4 + 3y)}{7}$$
+
+(c) Find $E[X]$ and $\text{Var}(X)$.
+
+$$E[X] = \int_0^1 x \cdot \frac{6x(2x + 1)}{7} \, dx = \frac{5}{7}$$
+$$E[X^2] = \int_0^1 x^2 \cdot \frac{6x(2x + 1)}{7} \, dx = \frac{39}{70}$$
+$$\text{Var}(X) = \frac{39}{70} - \left(\frac{5}{7}\right)^2 = \frac{23}{490}$$
+
+(d) Find the covariance and correlation of $X$ and $Y$.
+
+$$E[Y] = \frac{4}{7}, \quad E[XY] = \frac{17}{42}$$
+$$\text{Cov}(X,Y) = \frac{17}{42} - \frac{5}{7} \cdot \frac{4}{7} = -\frac{1}{294}$$
+$$\text{Var}(Y) = \frac{23}{294}, \quad \text{Cor}(X,Y) = -\frac{\sqrt{15}}{69}$$
+
+(e) Are $X$ and $Y$ independent?
+
+No. Since $\text{Cov}(X,Y) \neq 0$, $X$ and $Y$ are not independent.
+
+\textbf{Problem 2. Independence}
+
+Marginal pmfs: $P(X=i) = P(Y=j) = \frac{1}{3}$ for $i,j \in \{1,2,3\}$.
+
+For independence, we need $P(X=i,Y=j) = \frac{1}{9}$ for all $i,j$.
+However, $P(X=1,Y=1) = \frac{1}{18} \neq \frac{1}{9}$.
+
+Therefore, $X$ and $Y$ are not independent.
+
+\textbf{Problem 3. Correlation}
+
+(a) Joint distribution:
+\begin{align}
+P(X=1,Y=1) &= c\\
+P(X=1,Y=-1) &= \frac{1}{2} - c\\
+P(X=-1,Y=1) &= \frac{1}{2} - c\\
+P(X=-1,Y=-1) &= c
+\end{align}
+
+$E[X] = E[Y] = 0$, $E[XY] = 4c - 1$
+
+$\text{Cov}(X,Y) = 4c - 1$, $\text{Cor}(X,Y) = 4c - 1$
+
+(b) Independence: $\text{Cov}(X,Y) = 0 \Rightarrow c = \frac{1}{4}$
+
+100\% correlation: $|4c - 1| = 1 \Rightarrow c = 0$ or $c = \frac{1}{2}$
+
+\textbf{Problem 4. Don't be late!}
+
+(a) $f(a,b) = \frac{1}{3600}$ for $(a,b) \in [0,60] \times [0,60]$
+
+$F(a,b) = \frac{ab}{3600}$ for $0 \leq a,b \leq 60$
+
+(b) $P(A < 30) = \frac{30}{60} = \frac{1}{2}$
+
+(c) (i) $P(A < 15) \cdot P(30 < B < 45) = \frac{1}{4} \cdot \frac{1}{4} = \frac{1}{16}$
+
+(ii) Area = $\frac{15 \times 15}{60 \times 60} = \frac{1}{16}$
+
+(d) Area below $a = b + 5$: $P(A < B + 5) = \frac{2087.5}{3600} = \frac{167}{288}$
+
+(e) Area between $a = b \pm 15$: $P(|A - B| \leq 15) = \frac{1575}{3600} = \frac{7}{16}$
+
+\textbf{Problem 5. Overlapping sums}
+
+$X = X_1 + \cdots + X_n$, $Y = X_{n-7} + \cdots + X_{2n-8}$
+
+Overlap: $X_{n-7}, \ldots, X_n$ (8 terms)
+
+$\text{Cov}(X,Y) = 8 \times \text{Var}(X_i) = 8 \times \frac{1}{4} = 2$
+
+$\text{Var}(X) = \text{Var}(Y) = \frac{n}{4}$
+
+$\text{Cor}(X,Y) = \frac{2}{\sqrt{\frac{n}{4} \cdot \frac{n}{4}}} = \frac{8}{n}$
+
+\end{document}

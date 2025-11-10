@@ -1,0 +1,24 @@
+\textbf{Problem 4(a): Find the joint pdf $f(a,b)$ and joint cdf $F(a,b)$.}
+
+Since $A$ and $B$ are independent uniformly distributed random variables on $[0,60]$:
+
+\textbf{Marginal pdfs:}
+$$f_A(a) = \frac{1}{60} \text{ for } a \in [0,60], \quad 0 \text{ otherwise}$$
+$$f_B(b) = \frac{1}{60} \text{ for } b \in [0,60], \quad 0 \text{ otherwise}$$
+
+\textbf{Joint pdf:}
+Since $A$ and $B$ are independent:
+$$f(a,b) = f_A(a) \cdot f_B(b) = \frac{1}{60} \cdot \frac{1}{60} = \frac{1}{3600}$$
+for $(a,b) \in [0,60] \times [0,60]$, and $f(a,b) = 0$ otherwise.
+
+\textbf{Joint cdf:}
+For $0 \leq a \leq 60$ and $0 \leq b \leq 60$:
+$$F(a,b) = P(A \leq a, B \leq b) = \int_0^a \int_0^b f(u,v) \, du \, dv$$
+$$= \int_0^a \int_0^b \frac{1}{3600} \, du \, dv = \frac{1}{3600} \int_0^a \int_0^b 1 \, du \, dv$$
+$$= \frac{1}{3600} \cdot a \cdot b = \frac{ab}{3600}$$
+
+For other ranges:
+- $F(a,b) = 0$ if $a < 0$ or $b < 0$
+- $F(a,b) = \frac{a}{60}$ if $0 \leq a \leq 60$ and $b > 60$
+- $F(a,b) = \frac{b}{60}$ if $a > 60$ and $0 \leq b \leq 60$  
+- $F(a,b) = 1$ if $a > 60$ and $b > 60$

@@ -1,0 +1,83 @@
+=== PROBLEM 5: Overlapping sums ===
+X₁, X₂, ... are independent exponential(2) random variables
+X = sum of first n variables: X = X₁ + X₂ + ... + Xₙ
+Y = sum from Xₙ₋₇ to X₂ₙ₋₈: Y = Xₙ₋₇ + Xₙ₋₆ + ... + X₂ₙ₋₈
+Assume n ≥ 8
+
+=== Analysis of the sums ===
+X includes: X₁, X₂, ..., Xₙ
+Y includes: Xₙ₋₇, Xₙ₋₆, ..., X₂ₙ₋₈
+
+Finding the overlap:
+X includes indices: 1, 2, ..., n
+Y includes indices: n-7, n-6, ..., 2n-8
+
+For overlap, we need indices that appear in both ranges:
+Overlap occurs when: max(1, n-7) ≤ i ≤ min(n, 2n-8)
+
+Since n ≥ 8:
+- n-7 ≥ 1, so max(1, n-7) = n-7
+- 2n-8 ≥ n when 2n-8 ≥ n, i.e., n ≥ 8 ✓
+- So min(n, 2n-8) = n
+
+Therefore, overlap indices: n-7, n-6, n-5, n-4, n-3, n-2, n-1, n
+Number of overlapping terms: 8
+
+=== Variance calculations ===
+For exponential(2): Var(Xᵢ) = 1/2² = 1/4
+
+Size of X: n terms
+Size of Y: (2n-8) - (n-7) + 1 = 2n - 8 - n + 7 + 1 = n terms
+Size of overlap: 8 terms
+
+=== Covariance calculation ===
+Cov(X, Y) = Cov(∑ᵢ₌₁ⁿ Xᵢ, ∑ⱼ₌ₙ₋₇²ⁿ⁻⁸ Xⱼ)
+
+Using linearity of covariance:
+Cov(X, Y) = ∑ᵢ₌₁ⁿ ∑ⱼ₌ₙ₋₇²ⁿ⁻⁸ Cov(Xᵢ, Xⱼ)
+
+Since the Xᵢ are independent:
+Cov(Xᵢ, Xⱼ) = 0 if i ≠ j
+Cov(Xᵢ, Xⱼ) = Var(Xᵢ) = 1/4 if i = j
+
+Therefore, Cov(X, Y) equals the sum of variances of overlapping terms:
+Cov(X, Y) = ∑ᵢ₌ₙ₋₇ⁿ Var(Xᵢ) = ∑ᵢ₌ₙ₋₇ⁿ (1/4) = 8 × (1/4) = 2
+Cov(X, Y) = 2
+
+=== Variance of X and Y ===
+Var(X) = Var(∑ᵢ₌₁ⁿ Xᵢ) = ∑ᵢ₌₁ⁿ Var(Xᵢ) = n × (1/4) = n/4
+Var(Y) = Var(∑ⱼ₌ₙ₋₇²ⁿ⁻⁸ Xⱼ) = ∑ⱼ₌ₙ₋₇²ⁿ⁻⁸ Var(Xⱼ) = n × (1/4) = n/4
+Var(X) = n/4
+Var(Y) = n/4
+
+=== Correlation calculation ===
+Cor(X, Y) = Cov(X, Y) / √(Var(X) × Var(Y))
+         = 2 / √(n/4 × n/4)
+         = 2 / √((n/4) × (n/4))
+         = 2 / √(n²/16)
+         = 2 / (n/4)
+         = 8/n
+Cor(X, Y) = 8/n
+
+=== VERIFICATION ===
+Let's verify with a specific value, say n = 8:
+n = 8:
+Cov(X, Y) = 2
+Var(X) = 2.0
+Var(Y) = 2.0
+Cor(X, Y) = 1.0
+
+Checking correlation formula:
+Cor(X, Y) = 2 / √(2.0 × 2.0) = 2 / 2.0 = 1.0
+Matches 8/n = 8/8 = 1.0 ✓
+
+Let's also verify with n = 16:
+n = 16: Cor(X, Y) = 8/16 = 0.5
+
+=== SUMMARY ===
+Cov(X, Y) = 2
+Cor(X, Y) = 8/n
+
+The overlap size is always 8 terms regardless of n (as long as n ≥ 8)
+This gives a constant covariance of 2
+The correlation decreases as n increases because the variances grow with n

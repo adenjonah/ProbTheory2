@@ -1,0 +1,28 @@
+{
+  "problem_id": "P4_e",
+  "question": "Probability that Alicia and Bernardo will have lunch together (wait ≤ 15 minutes)",
+  "required_items": [
+    "P(|A - B| ≤ 15) = 7/16",
+    "Identify condition as -15 ≤ A - B ≤ 15",
+    "Calculate area between lines a = b - 15 and a = b + 15",
+    "Show two triangle calculations"
+  ],
+  "solution_check": {
+    "probability_correct": true,
+    "condition_identified": true,
+    "strip_region_described": true,
+    "two_triangles_calculated": true,
+    "complement_approach_used": true,
+    "final_fraction_simplified": true
+  },
+  "numeric_verification": {
+    "probability_value": 0.4375,
+    "fraction_value": 0.4375,
+    "upper_triangle_area": 1012.5,
+    "lower_triangle_area": 1012.5,
+    "meeting_area": 1575,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Correct geometric analysis with proper strip calculation and triangle areas"
+}

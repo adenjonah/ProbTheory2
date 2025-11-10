@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+
+\title{Homework 4}
+\date{October 28, 2025}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Problem 1.}
+
+Suppose $X$ and $Y$ have joint pdf $f(x,y) = c(x^2 + xy)$ on $[0,1] \times [0,1]$.
+
+(a) Find $c$ and the joint cdf $F(x,y)$.
+
+\vspace{2in}
+
+(b) Find the marginal cumulative distribution functions $F_X$ and $F_Y$ and the marginal pdf $f_X$ and $f_Y$.
+
+\vspace{2in}
+
+(c) Find $E[X]$ and $\text{Var}(X)$.
+
+\vspace{2in}
+
+(d) Find the covariance and correlation of $X$ and $Y$.
+
+\vspace{2in}
+
+(e) Are $X$ and $Y$ independent?
+
+\vspace{1in}
+
+\textbf{Problem 2. Independence}
+
+Suppose $X$ and $Y$ are random variables with the following joint pmf. Are $X$ and $Y$ independent?
+
+\begin{center}
+\begin{tabular}{c|ccc}
+$X \backslash Y$ & 1 & 2 & 3 \\
+\hline
+1 & 1/18 & 1/9 & 1/6 \\
+2 & 1/9 & 1/6 & 1/18 \\
+3 & 1/6 & 1/18 & 1/9 \\
+\end{tabular}
+\end{center}
+
+\vspace{2in}
+
+\textbf{Problem 3. Correlation}
+
+Suppose $X$ and $Y$ are random variables with
+\begin{align}
+P(X = 1) = P(X = -1) = \frac{1}{2}, \quad P(Y = 1) = P(Y = -1) = \frac{1}{2}.
+\end{align}
+
+Let $c = P(X = 1 \text{ and } Y = 1)$.
+
+(a) Determine the joint distribution of $X$ and $Y$, $\text{Cov}(X,Y)$, and $\text{Cor}(X,Y)$.
+
+\vspace{2in}
+
+(b) For what value(s) of $c$ are $X$ and $Y$ independent? For what value(s) of $c$ are $X$ and $Y$ 100\% correlated?
+
+\vspace{2in}
+
+\textbf{Problem 4. Don't be late!}
+
+Alicia and Bernardo are trying to meet for lunch and both will arrive, independently of each other, uniformly and at random between noon and 1 pm. Let $A$ and $B$ be the number of minutes after noon at which Alicia and Bernardo arrive, respectively. Then $A$ and $B$ are independent uniformly distributed random variables on $[0,60]$.
+
+Hint: For parts (c-e) you might find it easiest to find the fraction of the square $[0,60] \times [0,60]$ filled by the event.
+
+(a) Find the joint pdf $f(a,b)$ and joint cdf $F(a,b)$.
+
+\vspace{2in}
+
+(b) Find the probability that Alicia arrives before 12:30.
+
+\vspace{1in}
+
+(c) Find the probability that Alicia arrives before 12:15 and Bernardo arrives between 12:30 and 12:45 in two ways:
+
+(i) By using the fact that $A$ and $B$ are independent.
+
+\vspace{1in}
+
+(ii) By shading the corresponding area of the square $[0,60] \times [0,60]$ and finding what proportion of the square is shaded.
+
+\vspace{1in}
+
+(d) Find the probability that Alicia arrives less than five minutes after Bernardo. (Hint: use method (ii) from part (c).)
+
+\vspace{2in}
+
+(e) Now suppose that Alicia and Bernardo are both rather impatient and will leave if they have to wait more than 15 minutes for the other to arrive. What is the probability that Alicia and Bernardo will have lunch together?
+
+\vspace{2in}
+
+\textbf{Problem 5. Overlapping sums}
+
+Suppose $X_1, X_2, \ldots$ are independent exponential(2) random variables. Suppose also that $X$ is the sum of the first $n$ and $Y$ is the sum of $X_{n-7}$ to $X_{2n-8}$. Compute $\text{Cov}(X,Y)$ and $\text{Cor}(X,Y)$. You should assume that $n \geq 8$.
+
+Hints: The variance of an exponential($\lambda$) random variable is $1/\lambda^2$. Use the linearity rules for covariance. What is the size of the overlap?
+
+\vspace{3in}
+
+\end{document}

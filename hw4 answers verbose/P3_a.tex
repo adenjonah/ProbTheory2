@@ -1,0 +1,33 @@
+\textbf{Problem 3(a): Determine the joint distribution of $X$ and $Y$, $\text{Cov}(X,Y)$, and $\text{Cor}(X,Y)$.}
+
+Given: $P(X = 1) = P(X = -1) = \frac{1}{2}$, $P(Y = 1) = P(Y = -1) = \frac{1}{2}$, and $c = P(X = 1 \text{ and } Y = 1)$.
+
+\textbf{Joint distribution:}
+Using the constraint that marginal probabilities must be consistent:
+\begin{align}
+P(X = 1, Y = 1) &= c\\
+P(X = 1, Y = -1) &= P(X = 1) - P(X = 1, Y = 1) = \frac{1}{2} - c\\
+P(X = -1, Y = 1) &= P(Y = 1) - P(X = 1, Y = 1) = \frac{1}{2} - c\\
+P(X = -1, Y = -1) &= 1 - c - \left(\frac{1}{2} - c\right) - \left(\frac{1}{2} - c\right) = c
+\end{align}
+
+\textbf{Expected values:}
+$$E[X] = 1 \cdot \frac{1}{2} + (-1) \cdot \frac{1}{2} = 0$$
+$$E[Y] = 1 \cdot \frac{1}{2} + (-1) \cdot \frac{1}{2} = 0$$
+
+\textbf{Joint moment $E[XY]$:}
+\begin{align}
+E[XY] &= (1)(1) \cdot c + (1)(-1) \cdot \left(\frac{1}{2} - c\right) + (-1)(1) \cdot \left(\frac{1}{2} - c\right) + (-1)(-1) \cdot c\\
+&= c - \left(\frac{1}{2} - c\right) - \left(\frac{1}{2} - c\right) + c\\
+&= c - \frac{1}{2} + c - \frac{1}{2} + c + c = 4c - 1
+\end{align}
+
+\textbf{Covariance:}
+$$\text{Cov}(X,Y) = E[XY] - E[X]E[Y] = (4c - 1) - (0)(0) = 4c - 1$$
+
+\textbf{Variances:}
+$$\text{Var}(X) = E[X^2] - (E[X])^2 = 1 - 0^2 = 1$$
+$$\text{Var}(Y) = E[Y^2] - (E[Y])^2 = 1 - 0^2 = 1$$
+
+\textbf{Correlation:}
+$$\text{Cor}(X,Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{4c - 1}{\sqrt{1 \cdot 1}} = 4c - 1$$

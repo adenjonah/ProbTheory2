@@ -1,0 +1,236 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+
+\noindent
+\textbf{Probability}\\
+\textbf{Problem Set 4}
+
+\bigskip
+
+\noindent \textbf{Name:} Jonah Aden \hfill \textbf{Date:} November 5, 2025
+
+\bigskip
+
+% ============================================================================
+% PROBLEM 1
+% ============================================================================
+
+\textbf{Problem 1.}
+
+Suppose $X$ and $Y$ have joint pdf $f(x,y) = c(x^2 + xy)$ on $[0,1] \times [0,1]$.
+
+(a) Find $c$ and the joint cdf $F(x,y)$.
+
+\vspace{0.5em}
+$c = 12/7$
+
+$F(x,y) = x^2 y(4x + 3y)/7$
+
+\vspace{1em}
+
+(b) Find the marginal cumulative distribution functions $F_X$ and $F_Y$ and the marginal pdf $f_X$ and $f_Y$.
+
+\vspace{0.5em}
+\begin{itemize}[leftmargin=1em, itemsep=0.3em]
+\item $f_X(x) = 6x(2x + 1)/7$
+\item $f_Y(y) = (4 + 6y)/7$
+\item $F_X(x) = 2x^2(4x + 3)/7$
+\item $F_Y(y) = y(4 + 3y)/7$
+\end{itemize}
+
+\vspace{1em}
+
+(c) Find $E[X]$ and $\text{Var}(X)$.
+
+\vspace{0.5em}
+\begin{itemize}[leftmargin=1em, itemsep=0.3em]
+\item $E[X] = 5/7$
+\item $\text{Var}(X) = 23/490$
+\end{itemize}
+
+\vspace{1em}
+
+(d) Find the covariance and correlation of $X$ and $Y$.
+
+\vspace{0.5em}
+\begin{itemize}[leftmargin=1em, itemsep=0.3em]
+\item $\text{Cov}(X,Y) = -1/294$
+\item $\text{Cor}(X,Y) = -\sqrt{15}/69$
+\end{itemize}
+
+\vspace{1em}
+
+(e) Are $X$ and $Y$ independent?
+
+\vspace{0.5em}
+No. Since $\text{Cov}(X,Y) \neq 0$, $X$ and $Y$ are not independent.
+
+\newpage
+
+% ============================================================================
+% PROBLEM 2
+% ============================================================================
+
+\textbf{Problem 2. Independence}
+
+Suppose $X$ and $Y$ are random variables with the following joint pmf. Are $X$ and $Y$ independent?
+
+\begin{center}
+\begin{tabular}{c|ccc}
+$X \backslash Y$ & 1 & 2 & 3 \\
+\hline
+1 & 1/18 & 1/9 & 1/6 \\
+2 & 1/9 & 1/6 & 1/18 \\
+3 & 1/6 & 1/18 & 1/9 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.5em}
+No, X and Y are not independent. 
+
+\vspace{0.5em}
+\textbf{Explanation:}
+\begin{itemize}[leftmargin=1em, itemsep=0.3em]
+\item Marginal probabilities: $P(X=i) = P(Y=j) = 1/3$ for all $i,j$
+\item For independence we need: $P(X=i,Y=j) = 1/9$ for all pairs
+\item However: $P(X=1,Y=1) = 1/18 \neq 1/9$
+\end{itemize}
+
+\newpage
+
+% ============================================================================
+% PROBLEM 3
+% ============================================================================
+
+\textbf{Problem 3. Correlation}
+
+Suppose $X$ and $Y$ are random variables with
+\begin{align}
+P(X = 1) = P(X = -1) = \frac{1}{2}, \quad P(Y = 1) = P(Y = -1) = \frac{1}{2}.
+\end{align}
+
+Let $c = P(X = 1 \text{ and } Y = 1)$.
+
+(a) Determine the joint distribution of $X$ and $Y$, $\text{Cov}(X,Y)$, and $\text{Cor}(X,Y)$.
+
+\vspace{0.5em}
+\textbf{Joint distribution:}
+\begin{itemize}[leftmargin=1em, itemsep=0.3em]
+\item $P(X=1,Y=1) = c$
+\item $P(X=1,Y=-1) = 1/2 - c$  
+\item $P(X=-1,Y=1) = 1/2 - c$
+\item $P(X=-1,Y=-1) = c$
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Covariance and Correlation:}
+\begin{itemize}[leftmargin=1em, itemsep=0.3em]
+\item $\text{Cov}(X,Y) = 4c - 1$
+\item $\text{Cor}(X,Y) = 4c - 1$
+\end{itemize}
+
+\vspace{1em}
+
+(b) For what value(s) of $c$ are $X$ and $Y$ independent? For what value(s) of $c$ are $X$ and $Y$ 100\% correlated?
+
+\vspace{0.5em}
+\begin{itemize}[leftmargin=1em, itemsep=0.5em]
+\item \textbf{Independence:} $c = 1/4$ (when $\text{Cov}(X,Y) = 0$)
+\item \textbf{100\% correlation:} $c = 0$ or $c = 1/2$ (when $|\text{Cor}(X,Y)| = 1$)
+\end{itemize}
+
+\newpage
+
+% ============================================================================
+% PROBLEM 4
+% ============================================================================
+
+\textbf{Problem 4. Don't be late!}
+
+Alicia and Bernardo are trying to meet for lunch and both will arrive, independently of each other, uniformly and at random between noon and 1 pm. Let $A$ and $B$ be the number of minutes after noon at which Alicia and Bernardo arrive, respectively. Then $A$ and $B$ are independent uniformly distributed random variables on $[0,60]$.
+
+Hint: For parts (c-e) you might find it easiest to find the fraction of the square $[0,60] \times [0,60]$ filled by the event.
+
+(a) Find the joint pdf $f(a,b)$ and joint cdf $F(a,b)$.
+
+\vspace{0.5em}
+\begin{itemize}[leftmargin=1em, itemsep=0.3em]
+\item $f(a,b) = 1/3600$ for $(a,b)$ in $[0,60] \times [0,60]$
+\item $F(a,b) = ab/3600$ for $0 \leq a,b \leq 60$
+\end{itemize}
+
+\vspace{1em}
+
+(b) Find the probability that Alicia arrives before 12:30.
+
+\vspace{0.5em}
+$P(A < 30) = 30/60 = 1/2$
+
+\vspace{1em}
+
+(c) Find the probability that Alicia arrives before 12:15 and Bernardo arrives between 12:30 and 12:45 in two ways:
+
+\vspace{0.5em}
+(i) By using the fact that $A$ and $B$ are independent.
+
+\vspace{0.3em}
+$P(A < 15) \times P(30 < B < 45) = (1/4) \times (1/4) = 1/16$
+
+\vspace{0.5em}
+(ii) By shading the corresponding area of the square $[0,60] \times [0,60]$ and finding what proportion of the square is shaded.
+
+\vspace{0.3em}
+Area $= (15 \times 15)/(60 \times 60) = 1/16$
+
+\vspace{1em}
+
+(d) Find the probability that Alicia arrives less than five minutes after Bernardo. (Hint: use method (ii) from part (c).)
+
+\vspace{0.5em}
+$P(A < B + 5) = 2087.5/3600 = 167/288$
+
+\vspace{1em}
+
+(e) Now suppose that Alicia and Bernardo are both rather impatient and will leave if they have to wait more than 15 minutes for the other to arrive. What is the probability that Alicia and Bernardo will have lunch together?
+
+\vspace{0.5em}
+$P(|A - B| \leq 15) = 1575/3600 = 7/16$
+
+\newpage
+
+% ============================================================================
+% PROBLEM 5
+% ============================================================================
+
+\textbf{Problem 5. Overlapping sums}
+
+Suppose $X_1, X_2, \ldots$ are independent exponential(2) random variables. Suppose also that $X$ is the sum of the first $n$ and $Y$ is the sum of $X_{n-7}$ to $X_{2n-8}$. Compute $\text{Cov}(X,Y)$ and $\text{Cor}(X,Y)$. You should assume that $n \geq 8$.
+
+Hints: The variance of an exponential($\lambda$) random variable is $1/\lambda^2$. Use the linearity rules for covariance. What is the size of the overlap?
+
+\vspace{0.5em}
+\textbf{Setup:}
+\begin{itemize}[leftmargin=1em, itemsep=0.3em]
+\item $X = X_1 + X_2 + \cdots + X_n$
+\item $Y = X_{n-7} + X_{n-6} + \cdots + X_{2n-8}$
+\item Overlap: $X_{n-7}, X_{n-6}, \ldots, X_n$ (8 terms)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Solution:}
+\begin{itemize}[leftmargin=1em, itemsep=0.3em]
+\item Since $\text{Var}(X_i) = 1/4$ for exponential(2):
+\item $\text{Cov}(X,Y) = 8 \times (1/4) = 2$
+\item $\text{Var}(X) = \text{Var}(Y) = n/4$
+\item $\text{Cor}(X,Y) = 2/\sqrt{(n/4)(n/4)} = 8/n$
+\end{itemize}
+
+\end{document}

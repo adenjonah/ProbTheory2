@@ -1,0 +1,26 @@
+{
+  "problem_id": "P2",
+  "question": "Are X and Y independent based on joint pmf table?",
+  "required_items": [
+    "Calculate marginal pmfs",
+    "Check if P(X=i,Y=j) = P(X=i)*P(Y=j) for all i,j",
+    "Clear conclusion that X and Y are NOT independent",
+    "Show specific counterexamples"
+  ],
+  "solution_check": {
+    "marginal_X_calculated": true,
+    "marginal_Y_calculated": true,
+    "independence_test_performed": true,
+    "counterexamples_shown": true,
+    "conclusion_correct": true,
+    "verification_included": true
+  },
+  "numeric_verification": {
+    "marginal_probabilities_sum_to_1": true,
+    "joint_probabilities_sum_to_1": true,
+    "independence_violations_identified": true,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Complete independence analysis with correct marginals and clear counterexamples"
+}

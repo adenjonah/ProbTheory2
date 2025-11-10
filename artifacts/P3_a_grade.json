@@ -1,0 +1,26 @@
+{
+  "problem_id": "P3_a",
+  "question": "Determine the joint distribution of X and Y, Cov(X,Y), and Cor(X,Y)",
+  "required_items": [
+    "Complete joint distribution table in terms of c",
+    "Cov(X,Y) = 4c - 1",
+    "Cor(X,Y) = 4c - 1",
+    "Show calculation of E[X], E[Y], E[XY]",
+    "Show that Var(X) = Var(Y) = 1"
+  ],
+  "solution_check": {
+    "joint_distribution_correct": true,
+    "covariance_formula_correct": true,
+    "correlation_formula_correct": true,
+    "expected_values_calculated": true,
+    "variances_calculated": true,
+    "derivation_complete": true
+  },
+  "numeric_verification": {
+    "probabilities_sum_to_1": true,
+    "marginal_consistency": true,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Complete joint distribution analysis with correct covariance and correlation formulas"
+}

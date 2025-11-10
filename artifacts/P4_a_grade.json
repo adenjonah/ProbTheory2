@@ -1,0 +1,23 @@
+{
+  "problem_id": "P4_a",
+  "question": "Find the joint pdf f(a,b) and joint cdf F(a,b)",
+  "required_items": [
+    "Joint pdf f(a,b) = 1/3600 for (a,b) ∈ [0,60] × [0,60]",
+    "Joint cdf F(a,b) = ab/3600 for 0 ≤ a ≤ 60, 0 ≤ b ≤ 60",
+    "Use independence of A and B",
+    "Show marginal pdfs are uniform"
+  ],
+  "solution_check": {
+    "joint_pdf_correct": true,
+    "joint_cdf_correct": true,
+    "independence_used": true,
+    "marginal_pdfs_identified": true,
+    "domain_specified": true
+  },
+  "numeric_verification": {
+    "pdf_value": 0.0002777777777777778,
+    "tolerance_met": true
+  },
+  "grade": 100,
+  "comments": "Correct joint pdf and cdf with proper use of independence"
+}

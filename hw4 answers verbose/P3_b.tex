@@ -1,0 +1,30 @@
+\textbf{Problem 3(b): For what value(s) of $c$ are $X$ and $Y$ independent? For what value(s) of $c$ are $X$ and $Y$ 100\% correlated?}
+
+\textbf{Independence:}
+$X$ and $Y$ are independent when $\text{Cov}(X,Y) = 0$.
+$$4c - 1 = 0 \implies c = \frac{1}{4}$$
+
+\textbf{Perfect correlation:}
+$X$ and $Y$ are 100\% correlated when $|\text{Cor}(X,Y)| = 1$.
+$$|4c - 1| = 1$$
+
+This gives us two cases:
+\begin{align}
+4c - 1 &= 1 \implies c = \frac{1}{2} \quad \text{(perfect positive correlation)}\\
+4c - 1 &= -1 \implies c = 0 \quad \text{(perfect negative correlation)}
+\end{align}
+
+\textbf{Constraint verification:}
+Since $c = P(X = 1, Y = 1)$ is a probability, we need $0 \leq c \leq 1$.
+Additionally, we need:
+- $P(X = 1, Y = -1) = \frac{1}{2} - c \geq 0 \implies c \leq \frac{1}{2}$
+- $P(X = -1, Y = 1) = \frac{1}{2} - c \geq 0 \implies c \leq \frac{1}{2}$
+
+Therefore, the valid range is $0 \leq c \leq \frac{1}{2}$.
+
+All our solutions satisfy this constraint:
+- Independence: $c = \frac{1}{4}$ ✓
+- Perfect positive correlation: $c = \frac{1}{2}$ ✓  
+- Perfect negative correlation: $c = 0$ ✓
+
+\textbf{Verification:} At $c = \frac{1}{4}$: $\text{Cor}(X,Y) = 4(\frac{1}{4}) - 1 = 0$ ✓
