@@ -1,0 +1,18 @@
+{
+  "document": "hw5_Final.tex",
+  "grade": 100,
+  "rubric": {
+    "P1_a": {"points": 10, "earned": 10, "note": "Correct probability 0.2238"},
+    "P1_b": {"points": 10, "earned": 10, "note": "Correct value a = 1 + √6"},
+    "P1_c": {"points": 10, "earned": 10, "note": "Correct conditional probability 0.2565"},
+    "P2": {"points": 10, "earned": 10, "note": "Correct probability 0.1587"},
+    "P3": {"points": 15, "earned": 15, "note": "Correct mean and simulation probability"},
+    "P4": {"points": 10, "earned": 10, "note": "Correct conditional probability 0.2525"},
+    "P5": {"points": 15, "earned": 15, "note": "All five parameters correct"},
+    "P6": {"points": 20, "earned": 20, "note": "All estimates and probabilities correct"},
+    "presentation": {"points": 0, "earned": 0, "note": "Clean, polished presentation"}
+  },
+  "total": 100,
+  "comments": "All problems answered correctly with concise, clear solutions"
+}
+

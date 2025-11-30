@@ -1,0 +1,97 @@
+============================================================
+Problem 3: Product of Lognormal Variables
+============================================================
+
+Parameters:
+log(X) ~ N(μ_X=1.6, σ²_X=4.5), σ_X=2.121320
+log(Y) ~ N(μ_Y=3.0, σ²_Y=6.0), σ_Y=2.449490
+X and Y are independent
+
+Since X and Y are independent:
+log(XY) = log(X) + log(Y) ~ N(μ_XY, σ²_XY)
+μ_XY = μ_X + μ_Y = 1.6 + 3.0 = 4.6
+σ²_XY = σ²_X + σ²_Y = 4.5 + 6.0 = 10.5
+σ_XY = 3.240370
+
+Mean of XY:
+For lognormal variable with parameters (μ, σ²):
+E[XY] = exp(μ_XY + σ²_XY/2)
+      = exp(4.6 + 10.5/2)
+      = exp(9.85)
+      = 18958.3548020438
+
+Theoretical P(XY > 10):
+P(XY > 10) = P(log(XY) > log(10))
+           = P(log(XY) > 2.3025850930)
+           = 1 - Φ((log(10) - μ_XY) / σ_XY)
+           = 1 - Φ((2.3025850930 - 4.6) / 3.240370)
+           = 1 - Φ(-0.7089976328)
+           = 0.7608370271
+
+============================================================
+SIMULATION:
+============================================================
+Sample size: n = 10000000
+
+Mean of XY:
+  Simulation:  18895.5136206813
+  Theoretical: 18958.3548020438
+  Difference:  6.284118e+01
+  Relative error: 3.314696e-03
+
+P(XY > 10):
+  Simulation:  0.7608301000
+  Theoretical: 0.7608370271
+  Difference:  6.927086e-06
+
+============================================================
+EXACT SYMBOLIC COMPUTATION:
+============================================================
+μ_XY = 23/5
+σ²_XY = 21/2
+E[XY] = exp(μ_XY + σ²_XY/2)
+      = exp(23/5 + 21/2/2)
+      = exp(197/20)
+      = exp(197/20)
+
+Numerical from symbolic: 18958.3548020438
+Direct numerical:        18958.3548020438
+Difference: 7.28e-12
+
+============================================================
+ADDITIONAL SAMPLE STATISTICS:
+============================================================
+Median of XY (simulation): 99.337782
+Median of XY (theoretical): 99.484316
+Std of XY (simulation): 1147596.698128
+Std of XY (theoretical): 3612773.188240
+
+Percentiles of XY:
+  25th percentile: 11.181349
+  50th percentile: 99.337782
+  75th percentile: 883.593178
+  90th percentile: 6326.464164
+  95th percentile: 20546.990774
+  99th percentile: 187894.755389
+
+============================================================
+VERIFICATION:
+============================================================
+Mean check: |simulation - theoretical| / theoretical
+          = 3.314696e-03
+          < 0.01: True
+
+Probability check: |simulation - theoretical|
+                 = 6.927086e-06
+                 < 1e-3: True
+
+============================================================
+FINAL ANSWERS:
+============================================================
+Mean of XY: 18958.3548020438
+          ≈ 18958.35
+
+P(XY > 10) (simulation): 0.7608301000
+                       ≈ 0.760830
+
+Random seed: 123456

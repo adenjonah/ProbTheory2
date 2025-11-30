@@ -1,0 +1,107 @@
+============================================================
+Problem 6: Stock Returns Analysis
+============================================================
+
+Downloading data from 2015-11-10 to 2025-11-10...
+SP500 data: 2514 days
+VIX data: 2514 days
+Common trading days: 2513
+
+============================================================
+STATISTICS:
+============================================================
+
+SP500 Returns:
+  Mean: 0.0005327547 (0.053275%)
+  Std:  0.0114532746 (1.145327%)
+
+VIX Returns:
+  Mean: 0.0034527745 (0.345277%)
+  Std:  0.0863738468 (8.637385%)
+
+Correlation between SP500 and VIX returns:
+  ρ = -0.7142796652
+
+============================================================
+PROBABILITY THAT SP500 RETURNS < 3.0%:
+============================================================
+
+Empirical probability:
+  Number of days with returns < 3.0%: 2493
+  Total days: 2513
+  P(returns < 3.0%) = 0.9920413848
+
+Theoretical probability (fitted normal):
+  z-score = (0.03 - 0.0005327547) / 0.0114532746
+          = 2.5728227377
+  P(returns < 3.0%) = Φ(2.5728227377)
+                             = 0.9949563571
+
+Difference: 0.0029149723
+
+============================================================
+ADDITIONAL STATISTICS:
+============================================================
+
+SP500 Returns Percentiles:
+  1th percentile: -0.033436 (-3.3436%)
+  5th percentile: -0.017085 (-1.7085%)
+  10th percentile: -0.011093 (-1.1093%)
+  25th percentile: -0.003707 (-0.3707%)
+  50th percentile: 0.000741 (0.0741%)
+  75th percentile: 0.005802 (0.5802%)
+  90th percentile: 0.011659 (1.1659%)
+  95th percentile: 0.015818 (1.5818%)
+  99th percentile: 0.026448 (2.6448%)
+
+VIX Returns Percentiles:
+  1th percentile: -0.168043 (-16.8043%)
+  5th percentile: -0.102602 (-10.2602%)
+  10th percentile: -0.078554 (-7.8554%)
+  25th percentile: -0.042553 (-4.2553%)
+  50th percentile: -0.007036 (-0.7036%)
+  75th percentile: 0.035354 (3.5354%)
+  90th percentile: 0.087968 (8.7968%)
+  95th percentile: 0.140770 (14.0770%)
+  99th percentile: 0.284609 (28.4609%)
+
+============================================================
+NORMALITY TESTS:
+============================================================
+
+SP500 Returns Shapiro-Wilk test:
+  Statistic: 0.867372
+  p-value: 7.357092e-42
+  Normal (p > 0.05)? False
+
+SP500 Returns Distribution Shape:
+  Skewness: -0.371891 (normal = 0)
+  Excess Kurtosis: 15.479316 (normal = 0)
+
+============================================================
+CREATING PLOTS:
+============================================================
+Saved figure: figures/P6_stock_returns_analysis.png
+
+============================================================
+SAVING SUMMARY:
+============================================================
+Saved: artifacts/P6_summary_statistics.csv
+
+============================================================
+FINAL ANSWERS:
+============================================================
+
+SP500 Returns:
+  Mean: 0.053275%
+  Standard Deviation: 1.145327%
+
+VIX Returns:
+  Mean: 0.345277%
+  Standard Deviation: 8.637385%
+
+Correlation: -0.714280
+
+P(SP500 returns < 3%):
+  Empirical: 0.992041 (99.2041%)
+  Theoretical (normal): 0.994956 (99.4956%)

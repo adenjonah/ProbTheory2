@@ -1,0 +1,43 @@
+\noindent
+\textbf{Problem 3: Product of Lognormal Variables}
+
+\vspace{0.5em}
+\noindent
+Given that $X$ and $Y$ are independent with $\log(X) \sim N(1.6, 4.5)$ and $\log(Y) \sim N(3, 6)$.
+
+\vspace{0.5em}
+\noindent
+Since $X$ and $Y$ are independent:
+$$\log(XY) = \log(X) + \log(Y) \sim N(\mu_{XY}, \sigma^2_{XY})$$
+where $\mu_{XY} = 1.6 + 3.0 = 4.6$ and $\sigma^2_{XY} = 4.5 + 6.0 = 10.5$.
+
+\vspace{0.5em}
+\noindent
+\textbf{Mean of XY:} For a lognormal variable with parameters $(\mu, \sigma^2)$, the mean is $E[Z] = e^{\mu + \sigma^2/2}$.
+$$E[XY] = \exp\left(\mu_{XY} + \frac{\sigma^2_{XY}}{2}\right) = \exp\left(\frac{23}{5} + \frac{21}{4}\right) = \exp\left(\frac{197}{20}\right) = e^{9.85}$$
+$$\boxed{E[XY] \approx 18{,}958.35}$$
+
+\vspace{0.5em}
+\noindent
+\textbf{P(XY > 10):} Using simulation with 10,000,000 samples:
+$$P(XY > 10) = P(\log(XY) > \log(10))$$
+
+Theoretical calculation:
+$$P(\log(XY) > \log(10)) = 1 - \Phi\left(\frac{\log(10) - 4.6}{3.2404}\right) = 1 - \Phi(-0.7090) \approx 0.7608$$
+
+Simulation result (seed = 123456):
+$$\boxed{P(XY > 10) \approx 0.7608}$$
+
+\vspace{1em}
+\noindent
+\textbf{Verification:}
+\begin{itemize}
+    \item Parameters: $\mu_{XY} = \frac{23}{5}$, $\sigma^2_{XY} = \frac{21}{2}$
+    \item Mean (simulation): 18,895.51; Mean (theoretical): 18,958.35
+    \item Relative error: $3.31 \times 10^{-3} < 0.01$ (pass)
+    \item $P(XY > 10)$ (simulation): 0.760830; $P(XY > 10)$ (theoretical): 0.760837
+    \item Difference: $6.93 \times 10^{-6} < 10^{-3}$ (pass)
+    \item Median (simulation): 99.34; Median (theoretical): 99.48
+    \item Random seed: 123456
+\end{itemize}
+

@@ -1,0 +1,39 @@
+\noindent
+\textbf{Problem 4: Conditional Probability in Bivariate Normal}
+
+\vspace{0.5em}
+\noindent
+Let $A$ and $B$ denote the scores on tests A and B, which have a bivariate normal distribution with:
+$$\mu_A = 85, \quad \sigma_A = 10, \quad \mu_B = 90, \quad \sigma_B = 16, \quad \rho = 0.8$$
+
+\vspace{0.5em}
+\noindent
+For bivariate normal random variables, the conditional distribution $B \mid A = a$ is normal with:
+$$E[B \mid A = a] = \mu_B + \rho\frac{\sigma_B}{\sigma_A}(a - \mu_A)$$
+$$\text{Var}(B \mid A = a) = \sigma_B^2(1 - \rho^2)$$
+
+\vspace{0.5em}
+\noindent
+For $a = 80$:
+$$E[B \mid A = 80] = 90 + \frac{4}{5} \cdot \frac{16}{10}(80 - 85) = 90 + 1.28 \cdot (-5) = \frac{418}{5} = 83.6$$
+$$\text{Var}(B \mid A = 80) = 16^2\left(1 - \left(\frac{4}{5}\right)^2\right) = 256 \cdot \frac{9}{25} = \frac{2304}{25} = 92.16$$
+$$\sigma(B \mid A = 80) = \frac{48}{5} = 9.6$$
+
+\vspace{0.5em}
+\noindent
+Therefore:
+$$P(B > 90 \mid A = 80) = 1 - \Phi\left(\frac{90 - 83.6}{9.6}\right) = 1 - \Phi\left(\frac{2}{3}\right) \approx \boxed{0.2525}$$
+
+\vspace{1em}
+\noindent
+\textbf{Verification:}
+\begin{itemize}
+    \item Exact symbolic: $E[B|A=80] = \frac{418}{5} = 83.6$
+    \item Exact symbolic: $\text{Var}(B|A=80) = \frac{2304}{25} = 92.16$, $\sigma = \frac{48}{5} = 9.6$
+    \item Standardized value: $z = \frac{2}{3} \approx 0.6667$
+    \item Theoretical probability: $P(B > 90 \mid A = 80) = 0.252493$
+    \item Monte Carlo verification (352,842 samples with $|A - 80| < 0.5$): 0.253266
+    \item Difference: $7.74 \times 10^{-4} < 5 \times 10^{-3}$ (pass)
+    \item Random seed: 123456
+\end{itemize}
+

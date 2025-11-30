@@ -1,0 +1,30 @@
+\noindent
+\textbf{(b)} Find the constant $a$ if we know $aX + Y$ and $X + 2Y$ are independent.
+
+\vspace{0.5em}
+\noindent
+For two linear combinations of jointly normal variables to be independent, their covariance must equal zero. We have:
+$$\text{Cov}(aX + Y, X + 2Y) = a\sigma_X^2 + (2a+1)\text{Cov}(X,Y) + 2\sigma_Y^2$$
+
+Since $\text{Cov}(X,Y) = \rho\sigma_X\sigma_Y = -\frac{2}{3}\sqrt{2}\sqrt{3} = -\frac{2\sqrt{6}}{3}$, setting the covariance to zero:
+$$a\sigma_X^2 + (2a+1)\rho\sigma_X\sigma_Y + 2\sigma_Y^2 = 0$$
+$$a(2) + (2a+1)\left(-\frac{2\sqrt{6}}{3}\right) + 2(3) = 0$$
+
+Solving for $a$:
+$$a\left(2 - \frac{4\sqrt{6}}{3}\right) = -\left(-\frac{2\sqrt{6}}{3} + 6\right)$$
+$$a = \frac{-6 + \frac{2\sqrt{6}}{3}}{2 - \frac{4\sqrt{6}}{3}} = \boxed{1 + \sqrt{6}}$$
+
+Numerically, $a \approx 3.4495$.
+
+\vspace{1em}
+\noindent
+\textbf{Verification:}
+\begin{itemize}
+    \item Exact symbolic value: $a = 1 + \sqrt{6}$
+    \item Numerical value: $a = 3.449489743$
+    \item Covariance check: $\text{Cov}(aX + Y, X + 2Y) = 0$ (within machine precision)
+    \item Monte Carlo verification (n=1,000,000): Sample $\text{Cov} = -7.27 \times 10^{-3}$, Sample $\text{Corr} = -6.76 \times 10^{-4}$
+    \item Check: $|\text{Cov}| < 10^{-2}$ (pass)
+    \item Random seed: 123456
+\end{itemize}
+

@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+
+\noindent
+\textbf{Probability}\\
+\textbf{Problem Set 5}
+
+\bigskip
+
+\noindent \textbf{Name:} Jonah Aden \hfill \textbf{Date:} November 25, 2025
+
+\bigskip
+
+\textbf{Problem 1.}
+
+Let $X$ and $Y$ be jointly normal random variables with parameters $\mu_X = 1$, $\sigma_X^2 = 2$, $\mu_Y = -2$, $\sigma_Y^2 = 3$, and $\rho = -\frac{2}{3}$.
+
+\begin{enumerate}
+    \item[(a)] Find $P(X + Y > 0)$.
+    
+    Let $Z = X + Y$. Then $Z$ is normal with mean $\mu_Z$ and variance $\sigma_Z^2$ where:
+    $$\mu_Z = -1, \quad \sigma_Z^2 = 5 - \frac{4\sqrt{6}}{3}$$
+    
+    Therefore:
+    $$P(X + Y > 0) \approx 0.2238$$
+    
+    \item[(b)] Find the constant $a$ if we know $aX + Y$ and $X + 2Y$ are independent.
+    
+    For independence, $\text{Cov}(aX + Y, X + 2Y) = 0$. Solving:
+    $$a = 1 + \sqrt{6} \approx 3.4495$$
+    
+    \item[(c)] Find $P(X + Y > 0 \mid 2X - Y = 0)$.
+    
+    Let $U = X + Y$ and $V = 2X - Y$. The conditional distribution $U$ given $V = 0$ is normal with:
+    $$E[U | V = 0] = -\frac{99}{47} + \frac{24\sqrt{6}}{47}, \quad \text{Var}(U | V = 0) = \frac{198 - 48\sqrt{6}}{47}$$
+    
+    Therefore:
+    $$P(X + Y > 0 \text{ given } 2X - Y = 0) \approx 0.2565$$
+\end{enumerate}
+
+\bigskip
+
+\textbf{Problem 2.}
+
+Let $X$ have the lognormal distribution with parameters 3 and 1.44. Find the probability that $X < 6.05$.
+
+\noindent
+If $X$ is Lognormal(3, 1.44), then $\log(X)$ is normal with mean 3 and variance 1.44.
+$$P(X < 6.05) \approx 0.1587$$
+
+\bigskip
+
+\textbf{Problem 3.}
+
+Let $X$ and $Y$ be independent random variables such that $\log(X)$ has the normal distribution with mean 1.6 and variance 4.5 and $\log(Y)$ has the normal distribution with mean 3 and variance 6. Find the mean of the product $XY$ and the probability that $XY > 10$. Use simulation to evaluate the probability.
+
+\noindent
+Since $X$ and $Y$ are independent, $\log(XY)$ is normal with mean 4.6 and variance 10.5.
+
+\noindent
+Mean: $E[XY] = e^{9.85} \approx 18{,}958.35$
+
+\noindent
+Probability (simulation, n = 10,000,000): $P(XY > 10) \approx 0.7608$
+
+\bigskip
+
+\textbf{Problem 4.}
+
+Suppose that two different tests A and B are to be given to a student chosen at random from a certain population. Suppose also that the mean score on test A is 85, and the standard deviation is 10; the mean score on test B is 90, and the standard deviation is 16; the scores on the two tests have a bivariate normal distribution; and the correlation of the two scores is 0.8. If the student's score on test A is 80, what is the probability that her score on test B will be higher than 90?
+
+\noindent
+The conditional distribution $B$ given $A = 80$ is normal with:
+$$E[B | A = 80] = 83.6, \quad \sigma(B | A = 80) = 9.6$$
+
+Therefore:
+$$P(B > 90 \text{ given } A = 80) \approx 0.2525$$
+
+\bigskip
+
+\textbf{Problem 5.}
+
+Suppose that $X_1$ and $X_2$ have a bivariate normal distribution for which $E(X_1|X_2) = 3.7 - 0.15X_2$, $E(X_2|X_1) = 0.4 - 0.6X_1$, and $\text{Var}(X_2|X_1) = 3.64$. Find the mean and the variance of $X_1$, the mean and the variance of $X_2$, and the correlation of $X_1$ and $X_2$.
+
+\noindent
+From the conditional expectations, we find $\rho^2 = 0.09$, so $\rho = -0.3$.
+
+\noindent
+From $\text{Var}(X_2|X_1) = 3.64$: $\sigma_2^2 = 4$, $\sigma_1^2 = 1$.
+
+\noindent
+From the constant terms: $\mu_1 = 4$, $\mu_2 = -2$.
+
+\noindent
+\textbf{Answers:} $\mu_1 = 4$, $\sigma_1^2 = 1$, $\mu_2 = -2$, $\sigma_2^2 = 4$, $\rho = -0.3$
+
+\bigskip
+
+\textbf{Problem 6.}
+
+Using Yahoo Finance data from November 10, 2015 to November 10, 2025 (2,513 trading days):
+
+\noindent
+\textbf{Parameter Estimates:}
+
+SP500 Returns: Mean = 0.0533\%, Std = 1.145\%
+
+VIX Returns: Mean = 0.345\%, Std = 8.637\%
+
+Correlation: $\rho = -0.7143$
+
+\vspace{0.5em}
+\noindent
+\textbf{Probability that SP500 returns are less than 3\%:}
+
+Empirical: 0.9920
+
+Theoretical (normal): 0.9950
+
+\end{document}
+

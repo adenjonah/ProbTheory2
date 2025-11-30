@@ -1,0 +1,34 @@
+{
+  "problem_id": "P5",
+  "prompt": "Find bivariate normal parameters from conditional distributions",
+  "grade": 100,
+  "rubric": {
+    "correct_rho": {
+      "points": 20,
+      "earned": 20,
+      "note": "Correctly found ρ = -3/10 = -0.3"
+    },
+    "correct_variances": {
+      "points": 20,
+      "earned": 20,
+      "note": "Correctly found σ₁² = 1 and σ₂² = 4"
+    },
+    "correct_means": {
+      "points": 20,
+      "earned": 20,
+      "note": "Correctly found μ₁ = 4 and μ₂ = -2"
+    },
+    "verification": {
+      "points": 20,
+      "earned": 20,
+      "note": "All conditional expectations verified"
+    },
+    "systematic_solution": {
+      "points": 20,
+      "earned": 20,
+      "note": "Clear systematic solution with all parameters"
+    }
+  },
+  "comments": "Complete parameter recovery from conditional distributions"
+}
+

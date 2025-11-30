@@ -1,0 +1,64 @@
+\noindent
+\textbf{Problem 6: Stock Returns}
+
+\vspace{0.5em}
+\noindent
+Using Yahoo Finance data from November 10, 2015 to November 10, 2025 (2,513 trading days):
+
+\vspace{0.5em}
+\noindent
+\textbf{(1) Data Download:} Downloaded SP500 (\textasciicircum GSPC) and VIX (\textasciicircum VIX) historical data.
+
+\vspace{0.5em}
+\noindent
+\textbf{(2) Daily Returns:} Calculated as percentage change in closing prices: $r_t = \frac{P_t - P_{t-1}}{P_{t-1}}$.
+
+\vspace{0.5em}
+\noindent
+\textbf{(3) Parameter Estimates:}
+
+\noindent
+SP500 Returns:
+\begin{itemize}
+    \item Mean: $\bar{r}_{SP500} = 0.000533$ (0.0533\% per day)
+    \item Standard Deviation: $s_{SP500} = 0.011453$ (1.145\% per day)
+\end{itemize}
+
+\noindent
+VIX Returns:
+\begin{itemize}
+    \item Mean: $\bar{r}_{VIX} = 0.003453$ (0.345\% per day)
+    \item Standard Deviation: $s_{VIX} = 0.086374$ (8.637\% per day)
+\end{itemize}
+
+\noindent
+Correlation: $\rho(r_{SP500}, r_{VIX}) = \boxed{-0.7143}$
+
+\vspace{0.5em}
+\noindent
+\textbf{(4) Probability Calculations:}
+
+\noindent
+Empirical probability (from data):
+$$P(r_{SP500} < 3\%) = \frac{2493}{2513} = \boxed{0.9920} \text{ (99.20\%)}$$
+
+\noindent
+Theoretical probability (fitted normal distribution):
+$$P(r_{SP500} < 3\%) = \Phi\left(\frac{0.03 - 0.000533}{0.011453}\right) = \Phi(2.5728) = \boxed{0.9950} \text{ (99.50\%)}$$
+
+The difference of 0.30\% suggests the empirical distribution has heavier tails than the normal distribution.
+
+\vspace{1em}
+\noindent
+\textbf{Verification:}
+\begin{itemize}
+    \item Data period: November 10, 2015 to November 10, 2025
+    \item Total trading days: 2,513
+    \item Shapiro-Wilk test: $p = 7.36 \times 10^{-42}$ (rejects normality)
+    \item Skewness: $-0.372$ (left-skewed)
+    \item Excess kurtosis: $15.479$ (heavy tails)
+    \item Difference (empirical vs theoretical): $|0.9920 - 0.9950| = 0.0030$
+    \item Figure saved: \texttt{figures/P6\_stock\_returns\_analysis.png}
+    \item Summary statistics saved: \texttt{artifacts/P6\_summary\_statistics.csv}
+\end{itemize}
+

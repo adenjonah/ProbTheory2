@@ -1,0 +1,30 @@
+\noindent
+\textbf{(a)} Find $P(X + Y > 0)$.
+
+\vspace{0.5em}
+\noindent
+Let $Z = X + Y$. Since $X$ and $Y$ are jointly normal, $Z$ is also normal with:
+$$\mu_Z = \mu_X + \mu_Y = 1 + (-2) = -1$$
+$$\sigma_Z^2 = \sigma_X^2 + \sigma_Y^2 + 2\rho\sigma_X\sigma_Y = 2 + 3 + 2\left(-\frac{2}{3}\right)\sqrt{2}\sqrt{3} = 5 - \frac{4\sqrt{6}}{3}$$
+
+Thus $\sigma_Z = \sqrt{5 - \frac{4\sqrt{6}}{3}} = \frac{\sqrt{45 - 12\sqrt{6}}}{3} \approx 1.3168$.
+
+\vspace{0.5em}
+\noindent
+The probability is:
+$$P(X + Y > 0) = P(Z > 0) = 1 - \Phi\left(\frac{0 - (-1)}{\sigma_Z}\right) = 1 - \Phi\left(\frac{\sqrt{3}}{\sqrt{15 - 4\sqrt{6}}}\right)$$
+
+Numerically, this equals $1 - \Phi(0.7594) \approx \boxed{0.2238}$.
+
+\vspace{1em}
+\noindent
+\textbf{Verification:}
+\begin{itemize}
+    \item Exact symbolic computation: $\sigma_Z^2 = 5 - \frac{4\sqrt{6}}{3} \approx 1.7340$
+    \item Standardized value: $z = \frac{\sqrt{3}}{\sqrt{15 - 4\sqrt{6}}} \approx 0.7594$
+    \item Theoretical probability: $P(X + Y > 0) = 0.223805$
+    \item Monte Carlo verification (n=10,000,000): 0.223609
+    \item Difference: $1.96 \times 10^{-4} < 10^{-3}$ (pass)
+    \item Random seed: 123456
+\end{itemize}
+

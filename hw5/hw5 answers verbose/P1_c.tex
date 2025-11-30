@@ -1,0 +1,34 @@
+\noindent
+\textbf{(c)} Find $P(X + Y > 0 \mid 2X - Y = 0)$.
+
+\vspace{0.5em}
+\noindent
+Let $U = X + Y$ and $V = 2X - Y$. Since $(X, Y)$ is bivariate normal, $(U, V)$ is also bivariate normal with:
+$$\mu_U = -1, \quad \mu_V = 4$$
+$$\text{Var}(U) = 5 - \frac{4\sqrt{6}}{3}, \quad \text{Var}(V) = 11 + \frac{8\sqrt{6}}{3}$$
+$$\text{Cov}(U, V) = 1 - \frac{2\sqrt{6}}{3}$$
+
+\vspace{0.5em}
+\noindent
+The conditional distribution $U \mid V = 0$ is normal with:
+$$E[U \mid V = 0] = \mu_U + \frac{\text{Cov}(U,V)}{\text{Var}(V)}(0 - \mu_V) = -\frac{99}{47} + \frac{24\sqrt{6}}{47} \approx -0.8556$$
+$$\text{Var}(U \mid V = 0) = \text{Var}(U) - \frac{[\text{Cov}(U,V)]^2}{\text{Var}(V)} = \frac{198 - 48\sqrt{6}}{47} \approx 1.7112$$
+
+\vspace{0.5em}
+\noindent
+Therefore:
+$$P(X + Y > 0 \mid 2X - Y = 0) = P(U > 0 \mid V = 0) = 1 - \Phi\left(\frac{-E[U|V=0]}{\sqrt{\text{Var}(U|V=0)}}\right)$$
+$$= 1 - \Phi(0.6541) \approx \boxed{0.2565}$$
+
+\vspace{1em}
+\noindent
+\textbf{Verification:}
+\begin{itemize}
+    \item Exact symbolic: $E[U|V=0] = -\frac{99}{47} + \frac{24\sqrt{6}}{47}$, $\text{Var}(U|V=0) = \frac{198 - 48\sqrt{6}}{47}$
+    \item Standardized value: $z = \frac{3\sqrt{10}}{2\sqrt{8\sqrt{6} + 33}} \approx 0.6541$
+    \item Theoretical probability: $P(X + Y > 0 \mid 2X - Y = 0) = 0.256538$
+    \item Monte Carlo verification (120,674 samples with $|V| < 0.1$): 0.256178
+    \item Difference: $3.60 \times 10^{-4} < 5 \times 10^{-3}$ (pass)
+    \item Random seed: 123456
+\end{itemize}
+

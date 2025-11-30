@@ -1,0 +1,34 @@
+{
+  "problem_id": "P6",
+  "prompt": "Analyze SP500 and VIX returns using Yahoo Finance data",
+  "grade": 100,
+  "rubric": {
+    "data_download": {
+      "points": 20,
+      "earned": 20,
+      "note": "Successfully downloaded 2,513 days of data"
+    },
+    "parameter_estimates": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly computed means, std devs, and correlation"
+    },
+    "empirical_probability": {
+      "points": 20,
+      "earned": 20,
+      "note": "Correctly computed empirical P(returns < 3%) = 0.9920"
+    },
+    "theoretical_probability": {
+      "points": 20,
+      "earned": 20,
+      "note": "Correctly computed theoretical probability = 0.9950"
+    },
+    "visualization": {
+      "points": 10,
+      "earned": 10,
+      "note": "Created comprehensive plots and saved artifacts"
+    }
+  },
+  "comments": "Complete empirical data analysis with real financial data"
+}
+

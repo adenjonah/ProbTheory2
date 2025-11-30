@@ -1,0 +1,29 @@
+{
+  "problem_id": "P2",
+  "prompt": "Find P(X ≤ 6.05) for lognormal X with parameters 3 and 1.44",
+  "grade": 100,
+  "rubric": {
+    "correct_transformation": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly transformed to P(log(X) ≤ log(6.05))"
+    },
+    "correct_standardization": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly standardized with z = -0.9999514"
+    },
+    "correct_probability": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly computed P(X ≤ 6.05) = 0.1587"
+    },
+    "verification": {
+      "points": 10,
+      "earned": 10,
+      "note": "Monte Carlo and scipy verification passed"
+    }
+  },
+  "comments": "Correct lognormal probability calculation"
+}
+

@@ -1,0 +1,54 @@
+\noindent
+\textbf{Problem 5: Bivariate Normal Parameters}
+
+\vspace{0.5em}
+\noindent
+Given conditional distributions:
+$$E[X_1|X_2] = 3.7 - 0.15X_2, \quad E[X_2|X_1] = 0.4 - 0.6X_1, \quad \text{Var}(X_2|X_1) = 3.64$$
+
+\vspace{0.5em}
+\noindent
+For bivariate normal $(X_1, X_2)$:
+$$E[X_1|X_2] = \mu_1 + \rho\frac{\sigma_1}{\sigma_2}(X_2 - \mu_2), \quad E[X_2|X_1] = \mu_2 + \rho\frac{\sigma_2}{\sigma_1}(X_1 - \mu_1)$$
+
+Comparing coefficients:
+$$\rho\frac{\sigma_1}{\sigma_2} = -0.15, \quad \rho\frac{\sigma_2}{\sigma_1} = -0.6$$
+
+Multiplying these equations: $\rho^2 = (-0.15)(-0.6) = 0.09$, so $\rho = \pm 0.3$.
+
+Since both coefficients are negative, $\rho = -\frac{3}{10} = -0.3$.
+
+\vspace{0.5em}
+\noindent
+From $\text{Var}(X_2|X_1) = \sigma_2^2(1 - \rho^2) = 3.64$:
+$$\sigma_2^2 = \frac{3.64}{1 - 0.09} = \frac{3.64}{0.91} = 4$$
+
+From $\rho(\sigma_1/\sigma_2) = -0.15$ and $\rho = -0.3$, $\sigma_2 = 2$:
+$$\sigma_1 = \frac{-0.15 \times 2}{-0.3} = 1, \quad \text{so} \quad \sigma_1^2 = 1$$
+
+\vspace{0.5em}
+\noindent
+For the means, from the constant terms:
+$$\mu_1 + 0.15\mu_2 = 3.7 \quad \text{and} \quad \mu_2 + 0.6\mu_1 = 0.4$$
+
+Solving: $\mu_2 = 0.4 - 0.6\mu_1$, substituting into first equation:
+$$\mu_1 + 0.15(0.4 - 0.6\mu_1) = 3.7 \implies 0.91\mu_1 = 3.64 \implies \mu_1 = 4$$
+$$\mu_2 = 0.4 - 0.6(4) = -2$$
+
+\vspace{0.5em}
+\noindent
+\textbf{Final Answers:}
+$$\boxed{\mu_1 = 4, \quad \sigma_1^2 = 1, \quad \mu_2 = -2, \quad \sigma_2^2 = 4, \quad \rho = -0.3}$$
+
+\vspace{1em}
+\noindent
+\textbf{Verification:}
+\begin{itemize}
+    \item Conditional expectation checks: $E[X_1|X_2=0] = 3.7$ ✓, $E[X_1|X_2=10] = 2.2$ ✓
+    \item $E[X_2|X_1=0] = 0.4$ ✓, $E[X_2|X_1=5] = -2.6$ ✓
+    \item $\text{Var}(X_2|X_1) = 3.64$ ✓
+    \item Monte Carlo (n=1,000,000): Sample means $(4.001, -2.000)$, variances $(0.998, 4.000)$, correlation $-0.300$
+    \item All checks pass (within numerical precision)
+    \item Random seed: 123456
+\end{itemize}
+

@@ -1,0 +1,29 @@
+{
+  "problem_id": "P1_b",
+  "prompt": "Find constant a for independence of aX + Y and X + 2Y",
+  "grade": 100,
+  "rubric": {
+    "independence_condition": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly set Cov(aX + Y, X + 2Y) = 0"
+    },
+    "algebraic_derivation": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly derived covariance expression and solved for a"
+    },
+    "correct_answer": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly found a = 1 + √6"
+    },
+    "verification": {
+      "points": 10,
+      "earned": 10,
+      "note": "Verified Cov = 0 within machine precision"
+    }
+  },
+  "comments": "Exact symbolic solution with numerical verification"
+}
+

@@ -1,0 +1,29 @@
+{
+  "problem_id": "P1_a",
+  "prompt": "Find P(X + Y > 0) where X and Y are jointly normal",
+  "grade": 100,
+  "rubric": {
+    "correct_distribution": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly identified Z = X + Y as normal"
+    },
+    "correct_parameters": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly computed μ_Z = -1 and σ²_Z = 5 - 4√6/3"
+    },
+    "correct_probability": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly computed P(Z > 0) = 0.2238"
+    },
+    "verification": {
+      "points": 10,
+      "earned": 10,
+      "note": "Monte Carlo verification passed (error < 1e-3)"
+    }
+  },
+  "comments": "Complete and correct solution with symbolic computation and verification"
+}
+

@@ -1,0 +1,74 @@
+{
+  "homework": "hw5",
+  "problems": [
+    {
+      "id": "P1",
+      "title": "Bivariate Normal",
+      "subproblems": [
+        {
+          "id": "P1_a",
+          "prompt": "Find P(X + Y > 0) where X and Y are jointly normal with μ_X = 1, σ²_X = 2, μ_Y = -2, σ²_Y = 3, ρ = -2/3"
+        },
+        {
+          "id": "P1_b",
+          "prompt": "Find the constant a if we know aX + Y and X + 2Y are independent"
+        },
+        {
+          "id": "P1_c",
+          "prompt": "Find P(X + Y > 0 | 2X - Y = 0)"
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "title": "Lognormal Distribution",
+      "subproblems": [
+        {
+          "id": "P2",
+          "prompt": "Let X have the lognormal distribution with parameters 3 and 1.44. Find P(X ≤ 6.05)"
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "title": "Product of Lognormal Variables",
+      "subproblems": [
+        {
+          "id": "P3",
+          "prompt": "Find mean of XY and P(XY > 10) using simulation, where log(X) ~ N(1.6, 4.5) and log(Y) ~ N(3, 6)"
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "title": "Conditional Probability in Bivariate Normal",
+      "subproblems": [
+        {
+          "id": "P4",
+          "prompt": "Find P(B > 90 | A = 80) for test scores with bivariate normal distribution"
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "title": "Bivariate Normal Parameters",
+      "subproblems": [
+        {
+          "id": "P5",
+          "prompt": "Find means, variances, and correlation from conditional expectations"
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "title": "Stock Returns",
+      "subproblems": [
+        {
+          "id": "P6",
+          "prompt": "Analyze SP500 and VIX returns using Yahoo Finance data"
+        }
+      ]
+    }
+  ]
+}
+

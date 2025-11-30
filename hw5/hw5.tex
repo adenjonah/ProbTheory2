@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Homework 5 Problems}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1 (Bivariate Normal)}
+
+Let $X$ and $Y$ be jointly normal random variables with parameters $\mu_X = 1$, $\sigma_X^2 = 2$, $\mu_Y = -2$, $\sigma_Y^2 = 3$, and $\rho = -\frac{2}{3}$.
+
+\begin{enumerate}
+    \item[(a)] Find $P(X + Y > 0)$.
+    
+    \item[(b)] Find the constant $a$ if we know $aX + Y$ and $X + 2Y$ are independent.
+    
+    \item[(c)] Find $P(X + Y > 0 \mid 2X - Y = 0)$.
+\end{enumerate}
+
+\section*{Problem 2 (Lognormal Distribution)}
+
+Let $X$ have the lognormal distribution with parameters 3 and 1.44. Find the probability that $X \leq 6.05$.
+
+\section*{Problem 3 (Product of Lognormal Variables)}
+
+Let $X$ and $Y$ be independent random variables such that $\log(X)$ has the normal distribution with mean 1.6 and variance 4.5 and $\log(Y)$ has the normal distribution with mean 3 and variance 6. Find the mean of the product $XY$ and the probability that $XY > 10$. Use simulation to evaluate the probability.
+
+\section*{Problem 4 (Conditional Probability in Bivariate Normal)}
+
+Suppose that two different tests A and B are to be given to a student chosen at random from a certain population. Suppose also that the mean score on test A is 85, and the standard deviation is 10; the mean score on test B is 90, and the standard deviation is 16; the scores on the two tests have a bivariate normal distribution; and the correlation of the two scores is 0.8. If the student's score on test A is 80, what is the probability that her score on test B will be higher than 90?
+
+\section*{Problem 5 (Bivariate Normal Parameters)}
+
+Suppose that $X_1$ and $X_2$ have a bivariate normal distribution for which $E(X_1|X_2) = 3.7 - 0.15X_2$, $E(X_2|X_1) = 0.4 - 0.6X_1$, and $\text{Var}(X_2|X_1) = 3.64$. Find the mean and the variance of $X_1$, the mean and the variance of $X_2$, and the correlation of $X_1$ and $X_2$.
+
+\section*{Problem 6 (Stock Returns)}
+
+Using Yahoo Finance data via the \texttt{quantmod} package in R:
+
+\begin{enumerate}
+    \item Download SP500 (\textasciicircum GSPC) and VIX (\textasciicircum VIX) data from November 10, 2015 to November 10, 2025
+    
+    \item Calculate daily returns for both series
+    
+    \item Estimate the following parameters:
+    \begin{itemize}
+        \item Mean and standard deviation of SP500 returns
+        \item Mean and standard deviation of VIX returns
+        \item Correlation between SP500 and VIX returns
+    \end{itemize}
+    
+    \item Calculate:
+    \begin{itemize}
+        \item Empirical probability that SP500 returns are less than 3\%
+        \item Theoretical probability from the fitted normal distribution that SP500 returns are less than 3\%
+    \end{itemize}
+\end{enumerate}
+
+\end{document}
+

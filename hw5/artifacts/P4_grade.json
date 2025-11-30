@@ -1,0 +1,29 @@
+{
+  "problem_id": "P4",
+  "prompt": "Find P(B > 90 | A = 80) for bivariate normal test scores",
+  "grade": 100,
+  "rubric": {
+    "conditional_distribution": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly derived conditional distribution B | A = 80"
+    },
+    "correct_parameters": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly computed E[B|A=80] = 83.6 and σ(B|A=80) = 9.6"
+    },
+    "correct_probability": {
+      "points": 30,
+      "earned": 30,
+      "note": "Correctly computed P(B > 90 | A = 80) = 0.2525"
+    },
+    "verification": {
+      "points": 10,
+      "earned": 10,
+      "note": "Monte Carlo verification passed"
+    }
+  },
+  "comments": "Correct conditional probability for bivariate normal"
+}
+
