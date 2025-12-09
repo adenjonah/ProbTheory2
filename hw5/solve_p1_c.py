@@ -184,3 +184,4 @@ print("="*60)
 print(f"P(X + Y > 0 | 2X - Y = 0) = {prob:.10f}")
 print(f"                          ≈ {prob:.6f}")
 
+

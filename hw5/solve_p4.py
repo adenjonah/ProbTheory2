@@ -157,3 +157,4 @@ print(f"P(B > 90 | A = 80) = 1 - Φ({z_score:.10f})")
 print(f"                   = {prob:.10f}")
 print(f"                   ≈ {prob:.6f}")
 
+

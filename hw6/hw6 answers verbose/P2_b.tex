@@ -1,0 +1,30 @@
+% Problem 2(b): Posterior after n rolls of 7
+
+\textbf{Posterior probability for each die after $n$ rolls of 7:}
+
+Only the 8, 12, and 20-sided dice can roll 7. For a $k$-sided die with $k \geq 7$:
+$$P(\text{$n$ rolls of 7} \mid k\text{-sided}) = \left(\frac{1}{k}\right)^n$$
+
+Let $S_n = \left(\frac{1}{8}\right)^n + \left(\frac{1}{12}\right)^n + \left(\frac{1}{20}\right)^n$ be the normalizing constant.
+
+\textbf{Posterior formulas:}
+\begin{align*}
+P(\text{4-sided} \mid \text{data}) &= 0 \\
+P(\text{6-sided} \mid \text{data}) &= 0 \\
+P(\text{8-sided} \mid \text{data}) &= \frac{(1/8)^n}{S_n} \\
+P(\text{12-sided} \mid \text{data}) &= \frac{(1/12)^n}{S_n} \\
+P(\text{20-sided} \mid \text{data}) &= \frac{(1/20)^n}{S_n}
+\end{align*}
+
+\textbf{Limits as $n \to \infty$:}
+
+Multiplying numerator and denominator by $8^n$:
+$$P(\text{8-sided} \mid \text{data}) = \frac{1}{1 + (8/12)^n + (8/20)^n} = \frac{1}{1 + (2/3)^n + (2/5)^n}$$
+
+As $n \to \infty$: $(2/3)^n \to 0$ and $(2/5)^n \to 0$, so:
+$$\boxed{P(\text{8-sided} \mid \text{data}) \to 1, \quad P(\text{12-sided} \mid \text{data}) \to 0, \quad P(\text{20-sided} \mid \text{data}) \to 0}$$
+
+\textbf{Explanation:} The 8-sided die has the highest probability of rolling 7 ($1/8 > 1/12 > 1/20$). Observing many 7s is most consistent with the 8-sided die, so its posterior probability converges to 1.
+
+\textbf{Verification:} For $n=100$, numerically $P(\text{8-sided}) \approx 1.0$, $P(\text{12-sided}) \approx 2.5 \times 10^{-18}$, $P(\text{20-sided}) \approx 1.6 \times 10^{-40}$. $\checkmark$
+

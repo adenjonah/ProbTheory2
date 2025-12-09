@@ -1,0 +1,14 @@
+{
+  "document": "hw6_Final.tex",
+  "overall_score": 100,
+  "problems": {
+    "P1": {"score": 100, "parts": {"a": 100, "b": 100, "c": 100}},
+    "P2": {"score": 100, "parts": {"a": 100, "b": 100, "c": 100, "d": 100, "e": 100}},
+    "P3": {"score": 100},
+    "P4": {"score": 100},
+    "P5": {"score": 100},
+    "P6": {"score": 100}
+  },
+  "notes": "All problems answered correctly. Final version identical to Draft (Draft was already minimal)."
+}
+

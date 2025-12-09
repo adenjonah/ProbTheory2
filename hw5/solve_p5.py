@@ -240,3 +240,4 @@ print(f"μ₂ = {mu_2_sym} = {mu_2_num}")
 print(f"σ₂² = {sp.simplify(sigma2_2_sym)} = {sigma2_2}")
 print(f"ρ = {rho_sym} = {rho_num}")
 
+

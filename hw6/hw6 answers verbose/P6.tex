@@ -1,0 +1,26 @@
+% Problem 6: Bayesian posterior with non-uniform prior
+
+\textbf{Given:} Proportion $\theta$ of defective items unknown. Prior: $\xi(\theta) = 2(1-\theta)$ for $\theta \in (0, 1)$. Data: 8 items selected, 3 defective. Find the posterior distribution.
+
+\textbf{Solution:}
+
+\textbf{Prior:} $\xi(\theta) = 2(1-\theta)$ for $\theta \in (0, 1)$
+
+Note: This is $\text{Beta}(1, 2)$ since $\text{Beta}(1,2)$ has pdf $\frac{1}{B(1,2)} (1-\theta)^1 = 2(1-\theta)$.
+
+\textbf{Likelihood:} $P(\text{3 defective out of 8} \mid \theta) = \binom{8}{3} \theta^3 (1-\theta)^5 \propto \theta^3 (1-\theta)^5$
+
+\textbf{Posterior:}
+$$f(\theta \mid \text{data}) \propto \xi(\theta) \cdot L(\theta) \propto 2(1-\theta) \cdot \theta^3 (1-\theta)^5 = 2\theta^3 (1-\theta)^6 \propto \theta^3 (1-\theta)^6$$
+
+Recognizing this as the Beta kernel with $\alpha = 4$ and $\beta = 7$:
+$$\theta^3 (1-\theta)^6 = \theta^{(4-1)} (1-\theta)^{(7-1)}$$
+
+Therefore:
+$$\boxed{\theta \mid \text{data} \sim \text{Beta}(4, 7)}$$
+
+\textbf{Posterior pdf:}
+$$f(\theta \mid \text{data}) = \frac{1}{B(4,7)} \theta^3 (1-\theta)^6 = 840 \, \theta^3 (1-\theta)^6 \quad \text{for } \theta \in (0, 1)$$
+
+\textbf{Verification:} $B(4, 7) = \frac{3! \cdot 6!}{10!} = \frac{4320}{3628800} = \frac{1}{840}$, so $\frac{1}{B(4,7)} = 840$. $\checkmark$
+

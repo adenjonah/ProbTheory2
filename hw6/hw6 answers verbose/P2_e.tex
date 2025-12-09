@@ -1,0 +1,15 @@
+% Problem 2(e): Limit of pmf as n → ∞
+
+\textbf{Limit of the predictive pmf as $n \to \infty$:}
+
+From part (b), as $n \to \infty$, the posterior converges to:
+$$P(\text{8-sided} \mid \text{data}) \to 1, \quad P(\text{12-sided} \mid \text{data}) \to 0, \quad P(\text{20-sided} \mid \text{data}) \to 0$$
+
+Therefore, the predictive pmf converges to the distribution of a single roll of the 8-sided die:
+
+$$\boxed{P(x_{n+1} = k) \to \begin{cases} \frac{1}{8} & k = 1, 2, \ldots, 8 \\ 0 & k = 9, 10, \ldots, 20 \end{cases}}$$
+
+\textbf{Explanation:} As we observe more and more 7s, we become increasingly certain that the 8-sided die was chosen (since it has the highest probability of rolling 7). In the limit of infinite observations of 7, we are completely certain it's the 8-sided die, so the next roll follows the uniform distribution on $\{1, 2, \ldots, 8\}$.
+
+\textbf{Verification:} This is the uniform distribution on 8 values: $8 \times \frac{1}{8} = 1$. $\checkmark$
+

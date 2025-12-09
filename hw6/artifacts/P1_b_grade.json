@@ -1,0 +1,14 @@
+{
+  "problem_id": "P1_b",
+  "score": 100,
+  "rubric": {
+    "bayes_table_correct": true,
+    "prior_correct": true,
+    "likelihood_correct": true,
+    "posterior_correct": true,
+    "strategy_identified": true,
+    "posteriors_sum_to_1": true
+  },
+  "notes": "Posterior P(H_A|data)=P(H_C|data)=1/2. Best strategy: indifferent."
+}
+

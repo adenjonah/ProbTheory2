@@ -1,0 +1,28 @@
+% Problem 4: CLT Digit Average
+
+\textbf{Given:} 16 digits chosen at random with replacement from $\{0, 1, \ldots, 9\}$. Find the probability their average lies between 4 and 6.
+
+\textbf{Solution:}
+
+For a single digit $X$ uniform on $\{0, 1, \ldots, 9\}$:
+$$E[X] = \frac{0 + 1 + \cdots + 9}{10} = \frac{45}{10} = 4.5$$
+$$E[X^2] = \frac{0^2 + 1^2 + \cdots + 9^2}{10} = \frac{285}{10} = 28.5$$
+$$\text{Var}(X) = E[X^2] - (E[X])^2 = 28.5 - 20.25 = 8.25 = \frac{33}{4}$$
+
+For $n = 16$ digits, by CLT:
+$$\bar{X}_{16} \sim N\left(4.5, \frac{33/4}{16}\right) = N\left(4.5, \frac{33}{64}\right)$$
+
+Standard deviation of $\bar{X}_{16}$: $\frac{\sigma}{\sqrt{n}} = \frac{\sqrt{33}/2}{4} = \frac{\sqrt{33}}{8}$
+
+The interval $[4, 6]$ is \textbf{not} symmetric around $\mu = 4.5$.
+
+Standardizing:
+$$z_{\text{low}} = \frac{4 - 4.5}{\sqrt{33}/8} = \frac{-0.5 \times 8}{\sqrt{33}} = \frac{-4}{\sqrt{33}}$$
+$$z_{\text{high}} = \frac{6 - 4.5}{\sqrt{33}/8} = \frac{1.5 \times 8}{\sqrt{33}} = \frac{12}{\sqrt{33}}$$
+
+Therefore:
+$$P(4 < \bar{X}_{16} < 6) = \Phi\left(\frac{12}{\sqrt{33}}\right) - \Phi\left(\frac{-4}{\sqrt{33}}\right)$$
+$$= \Phi\left(\frac{12}{\sqrt{33}}\right) + \Phi\left(\frac{4}{\sqrt{33}}\right) - 1 \approx \boxed{0.7385}$$
+
+\textbf{Verification:} $z_{\text{low}} \approx -0.6963$, $z_{\text{high}} \approx 2.0889$. $\Phi(2.0889) - \Phi(-0.6963) = 0.9816 - 0.2431 = 0.7385$. $\checkmark$
+

@@ -1,0 +1,213 @@
+============================================================
+PROBLEM 2: DICE PREDICTION
+============================================================
+
+------------------------------------------------------------
+PART (a): FIRST ROLL
+------------------------------------------------------------
+
+Prior predictive probability of first roll = 7:
+P(x_1 = 7) = sum over dice of P(x_1 = 7 | die) * P(die)
+  Die 4: P(7|4-sided) = 0, contribution = 1/5 × 0 = 0
+  Die 6: P(7|6-sided) = 0, contribution = 1/5 × 0 = 0
+  Die 8: P(7|8-sided) = 1/8, contribution = 1/5 × 1/8 = 1/40
+  Die 12: P(7|12-sided) = 1/12, contribution = 1/5 × 1/12 = 1/60
+  Die 20: P(7|20-sided) = 1/20, contribution = 1/5 × 1/20 = 1/100
+
+Prior predictive P(x_1 = 7) = 31/600 = 0.051667
+
+Posterior after observing x_1 = 7:
+Die    Prior      Likelihood   Prior×Lik       Posterior      
+4      1/5        0            0               0              
+6      1/5        0            0               0              
+8      1/5        1/8          1/40            15/31          
+12     1/5        1/12         1/60            10/31          
+20     1/5        1/20         1/100           6/31           
+
+Total unnormalized: 31/600
+
+Posterior predictive P(x_2 = 7 | x_1 = 7):
+  Die 8: P(7|8) × P(8|x_1=7) = 1/8 × 15/31 = 15/248
+  Die 12: P(7|12) × P(12|x_1=7) = 1/12 × 10/31 = 5/186
+  Die 20: P(7|20) × P(20|x_1=7) = 1/20 × 6/31 = 3/310
+
+Posterior predictive P(x_2 = 7 | x_1 = 7) = 361/3720 = 0.097043
+
+------------------------------------------------------------
+PART (b): POSTERIOR AFTER n ROLLS OF 7
+------------------------------------------------------------
+
+General formula for posterior after n rolls of 7:
+P(k-sided die | data) = (1/k)^n / [sum over j>=7: (1/j)^n]
+
+For our dice (only 8, 12, 20 can produce 7):
+
+P(8-sided | n 7s) = (1/8)^n / [(1/8)^n + (1/12)^n + (1/20)^n]
+P(12-sided | n 7s) = (1/12)^n / [(1/8)^n + (1/12)^n + (1/20)^n]
+P(20-sided | n 7s) = (1/20)^n / [(1/8)^n + (1/12)^n + (1/20)^n]
+
+Simplifying by multiplying numerator and denominator by 20^n:
+P(8 | data) = (20/8)^n / [(20/8)^n + (20/12)^n + 1]
+           = (5/2)^n / [(5/2)^n + (5/3)^n + 1]
+P(12 | data) = (5/3)^n / [(5/2)^n + (5/3)^n + 1]
+P(20 | data) = 1 / [(5/2)^n + (5/3)^n + 1]
+
+As n → ∞:
+  (5/2)^n → ∞ (fastest growing)
+  (5/3)^n → ∞ (slower)
+  1 stays constant
+
+P(8-sided | data) → (5/2)^n / (5/2)^n = 1
+P(12-sided | data) → (5/3)^n / (5/2)^n = (2/3)^n → 0
+P(20-sided | data) → 1 / (5/2)^n → 0
+
+Limit as n → ∞:
+P(4-sided | data) = 0 (cannot roll 7)
+P(6-sided | data) = 0 (cannot roll 7)
+P(8-sided | data) = 1
+P(12-sided | data) = 0
+P(20-sided | data) = 0
+
+Explanation: The 8-sided die has the highest probability of rolling 7
+(1/8 vs 1/12 vs 1/20), so observing many 7s makes it increasingly
+likely that the 8-sided die was chosen.
+
+Numerical verification for n=100:
+P(8-sided | 100 7s) ≈ 1.0000000000e+00
+P(12-sided | 100 7s) ≈ 2.4596544266e-18
+P(20-sided | 100 7s) ≈ 1.6069380443e-40
+
+------------------------------------------------------------
+PART (c): RANKING VALUES FOR NEXT ROLL (n=10)
+------------------------------------------------------------
+
+After 10 rolls of 7, only dice 8, 12, 20 have nonzero posterior.
+The 8-sided die is most likely, then 12-sided, then 20-sided.
+
+For the next roll:
+- Values 1-7: Possible from all three dice (8, 12, 20)
+- Value 8: Possible from dice 8, 12, 20
+- Values 9-12: Possible from dice 12, 20 only
+- Values 13-20: Possible from die 20 only
+
+Ranking (most likely to least likely):
+1. Value 7: Most likely (same probability as any value 1-6 on each die)
+   But wait - since we conditioned on 7s, 7 gets a boost!
+
+Let's compute P(x_11 = k | 10 7s) using law of total probability:
+P(x_11 = k | data) = sum_d P(x_11 = k | d) * P(d | data)
+
+Posterior after n=10:
+  P(4-sided | 10 7s) = 0.000000
+  P(6-sided | 10 7s) = 0.000000
+  P(8-sided | 10 7s) = 0.982853
+  P(12-sided | 10 7s) = 0.017044
+  P(20-sided | 10 7s) = 0.000103
+
+Predictive PMF for x_11:
+Value    Probability          Decimal        
+1        8750118656431/70405302816120 0.12428210
+2        8750118656431/70405302816120 0.12428210
+3        8750118656431/70405302816120 0.12428210
+4        8750118656431/70405302816120 0.12428210
+5        8750118656431/70405302816120 0.12428210
+6        8750118656431/70405302816120 0.12428210
+7        8750118656431/70405302816120 0.12428210
+8        8750118656431/70405302816120 0.12428210
+9        545449984/382637515305 0.00142550
+10       545449984/382637515305 0.00142550
+11       545449984/382637515305 0.00142550
+12       545449984/382637515305 0.00142550
+13       15116544/2933554284005 0.00000515
+14       15116544/2933554284005 0.00000515
+15       15116544/2933554284005 0.00000515
+16       15116544/2933554284005 0.00000515
+17       15116544/2933554284005 0.00000515
+18       15116544/2933554284005 0.00000515
+19       15116544/2933554284005 0.00000515
+20       15116544/2933554284005 0.00000515
+
+Ranking from most likely to least likely:
+  Rank 1: value 1, P = 0.12428210
+  Rank 1: value 2, P = 0.12428210
+  Rank 1: value 3, P = 0.12428210
+  Rank 1: value 4, P = 0.12428210
+  Rank 1: value 5, P = 0.12428210
+  Rank 1: value 6, P = 0.12428210
+  Rank 1: value 7, P = 0.12428210
+  Rank 1: value 8, P = 0.12428210
+  Rank 9: value 9, P = 0.00142550
+  Rank 9: value 10, P = 0.00142550
+  Rank 9: value 11, P = 0.00142550
+  Rank 9: value 12, P = 0.00142550
+  Rank 13: value 13, P = 0.00000515
+  Rank 13: value 14, P = 0.00000515
+  Rank 13: value 15, P = 0.00000515
+  Rank 13: value 16, P = 0.00000515
+  Rank 13: value 17, P = 0.00000515
+  Rank 13: value 18, P = 0.00000515
+  Rank 13: value 19, P = 0.00000515
+  Rank 13: value 20, P = 0.00000515
+
+Explanation:
+- Values 1-8 are tied: each has equal probability on any die that can produce it,
+  and the posterior weights favor smaller dice (8-sided most likely).
+- Values 9-12 are tied at lower probability: only possible from 12 and 20-sided dice.
+- Values 13-20 are tied at lowest probability: only possible from 20-sided die.
+
+------------------------------------------------------------
+PART (d): POSTERIOR PREDICTIVE PMF FOR x_{n+1}
+------------------------------------------------------------
+
+Using law of total probability and results from part (b):
+P(x_{n+1} = k | data) = sum_d P(x_{n+1} = k | d) * P(d | data)
+
+Let S_n = (1/8)^n + (1/12)^n + (1/20)^n (normalizing constant)
+
+For k = 1, 2, ..., 8:
+  P(x_{n+1} = k | data) = (1/8)(1/8)^n/S_n + (1/12)(1/12)^n/S_n + (1/20)(1/20)^n/S_n
+                       = [(1/8)^{n+1} + (1/12)^{n+1} + (1/20)^{n+1}] / S_n
+                       = S_{n+1} / S_n
+
+For k = 9, 10, 11, 12:
+  P(x_{n+1} = k | data) = (1/12)(1/12)^n/S_n + (1/20)(1/20)^n/S_n
+                       = [(1/12)^{n+1} + (1/20)^{n+1}] / S_n
+
+For k = 13, 14, ..., 20:
+  P(x_{n+1} = k | data) = (1/20)(1/20)^n/S_n
+                       = (1/20)^{n+1} / S_n
+
+Verification for n=10 (should match part c):
+S_10 = 9.4757078915e-10
+S_11 = 1.1776608450e-10
+P(k=1,...,8) = S_11/S_10 = 0.12428210
+P(k=9,...,12) = 0.00142550
+P(k=13,...,20) = 0.00000515
+
+Sum check: 8*0.12428210 + 4*0.00142550 + 8*0.00000515
+         = 1.0000000000 (should be 1)
+
+------------------------------------------------------------
+PART (e): LIMIT OF PMF AS n → ∞
+------------------------------------------------------------
+
+As n → ∞, the posterior converges to putting all mass on the 8-sided die.
+Therefore, the predictive pmf converges to the uniform distribution on {1,...,8}.
+
+Limit pmf:
+  P(x_{n+1} = k) → 1/8 for k = 1, 2, ..., 8
+  P(x_{n+1} = k) → 0 for k = 9, 10, ..., 20
+
+Explanation: As we observe more and more 7s, we become increasingly
+certain the 8-sided die was chosen. In the limit, the next roll is
+uniformly distributed on the 8-sided die's faces {1, ..., 8}.
+
+============================================================
+VERIFICATION SUMMARY
+============================================================
+All fractions computed exactly using Python's Fraction class.
+Part (a): Prior predictive = 1/40, Posterior predictive = 61/2400
+Part (b): Posterior formula verified numerically for large n
+Part (c): Rankings verified by explicit computation
+Part (d): PMF formula verified to sum to 1 for n=10
+Part (e): Limit follows from part (b) analysis

@@ -119,3 +119,4 @@ print("="*60)
 print(f"a = {a_simplified}")
 print(f"  ≈ {a:.10f}")
 
+

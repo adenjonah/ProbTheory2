@@ -1,0 +1,35 @@
+% Problem 1(a): Sober Monty Hall
+
+\textbf{Setup:} Contestant picks door $A$. Let $H_A, H_B, H_C$ denote hypotheses that the car is behind doors $A$, $B$, $C$ respectively. Sober Monty knows the car location and opens door $B$ (goat).
+
+\textbf{Prior:} $P(H_A) = P(H_B) = P(H_C) = \frac{1}{3}$
+
+\textbf{Likelihood:} $P(\text{Monty opens } B \mid H)$
+\begin{itemize}
+    \item $P(\text{opens } B \mid H_A) = \frac{1}{2}$ (random choice between $B$ and $C$)
+    \item $P(\text{opens } B \mid H_B) = 0$ (cannot reveal car)
+    \item $P(\text{opens } B \mid H_C) = 1$ (must open $B$ since $C$ has car)
+\end{itemize}
+
+\textbf{Bayes Table:}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Hypothesis & Prior & Likelihood & Prior $\times$ Likelihood & Posterior \\
+\hline
+$H_A$ & $\frac{1}{3}$ & $\frac{1}{2}$ & $\frac{1}{6}$ & $\frac{1}{3}$ \\
+$H_B$ & $\frac{1}{3}$ & $0$ & $0$ & $0$ \\
+$H_C$ & $\frac{1}{3}$ & $1$ & $\frac{1}{3}$ & $\frac{2}{3}$ \\
+\hline
+Total & $1$ & & $\frac{1}{2}$ & $1$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Posterior:}
+$$P(H_A \mid \text{data}) = \frac{1/6}{1/2} = \frac{1}{3}, \quad P(H_C \mid \text{data}) = \frac{1/3}{1/2} = \frac{2}{3}$$
+
+\textbf{Conclusion:} Since $P(H_C \mid \text{data}) = \frac{2}{3} > \frac{1}{3} = P(H_A \mid \text{data})$, the best strategy is to \textbf{switch} to door $C$.
+
+\textbf{Verification:} Posteriors sum to $\frac{1}{3} + 0 + \frac{2}{3} = 1$. $\checkmark$
+

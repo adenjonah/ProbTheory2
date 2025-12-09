@@ -1,0 +1,33 @@
+% Problem 2(d): Posterior predictive pmf for x_{n+1}
+
+\textbf{Posterior predictive pmf for $x_{n+1}$ given $x_1 = \cdots = x_n = 7$:}
+
+Using the law of total probability:
+$$P(x_{n+1} = k \mid \text{data}) = \sum_d P(x_{n+1} = k \mid d) \cdot P(d \mid \text{data})$$
+
+Let $S_n = (1/8)^n + (1/12)^n + (1/20)^n$.
+
+\textbf{For $k = 1, 2, \ldots, 8$:}
+\begin{align*}
+P(x_{n+1} = k \mid \text{data}) &= \frac{1}{8} \cdot \frac{(1/8)^n}{S_n} + \frac{1}{12} \cdot \frac{(1/12)^n}{S_n} + \frac{1}{20} \cdot \frac{(1/20)^n}{S_n} \\
+&= \frac{(1/8)^{n+1} + (1/12)^{n+1} + (1/20)^{n+1}}{S_n} = \boxed{\frac{S_{n+1}}{S_n}}
+\end{align*}
+
+\textbf{For $k = 9, 10, 11, 12$:}
+\begin{align*}
+P(x_{n+1} = k \mid \text{data}) &= \frac{1}{12} \cdot \frac{(1/12)^n}{S_n} + \frac{1}{20} \cdot \frac{(1/20)^n}{S_n} \\
+&= \boxed{\frac{(1/12)^{n+1} + (1/20)^{n+1}}{S_n}}
+\end{align*}
+
+\textbf{For $k = 13, 14, \ldots, 20$:}
+$$P(x_{n+1} = k \mid \text{data}) = \frac{1}{20} \cdot \frac{(1/20)^n}{S_n} = \boxed{\frac{(1/20)^{n+1}}{S_n}}$$
+
+\textbf{Summary:}
+$$P(x_{n+1} = k \mid \text{data}) = \begin{cases}
+\frac{S_{n+1}}{S_n} & k = 1, \ldots, 8 \\[6pt]
+\frac{(1/12)^{n+1} + (1/20)^{n+1}}{S_n} & k = 9, \ldots, 12 \\[6pt]
+\frac{(1/20)^{n+1}}{S_n} & k = 13, \ldots, 20
+\end{cases}$$
+
+\textbf{Verification:} Sum equals 1: $8 \cdot \frac{S_{n+1}}{S_n} + 4 \cdot \frac{(1/12)^{n+1} + (1/20)^{n+1}}{S_n} + 8 \cdot \frac{(1/20)^{n+1}}{S_n} = 1$. For $n=10$: probabilities sum to $1.0$. Rankings match part (c). $\checkmark$
+

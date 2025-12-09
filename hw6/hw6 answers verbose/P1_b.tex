@@ -1,0 +1,35 @@
+% Problem 1(b): Dizzy Monty Hall
+
+\textbf{Setup:} Same as (a), but Monty is dizzy and doesn't know where the car is. He randomly opens one of doors $B$ or $C$. He opens door $B$, revealing a goat.
+
+\textbf{Prior:} $P(H_A) = P(H_B) = P(H_C) = \frac{1}{3}$
+
+\textbf{Likelihood:} $P(\text{Monty opens } B \text{ and shows goat} \mid H)$
+\begin{itemize}
+    \item $P(\text{data} \mid H_A) = \frac{1}{2}$ (randomly picks $B$, which has goat)
+    \item $P(\text{data} \mid H_B) = 0$ ($B$ has car, cannot show goat from $B$)
+    \item $P(\text{data} \mid H_C) = \frac{1}{2}$ (randomly picks $B$, which has goat)
+\end{itemize}
+
+\textbf{Bayes Table:}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Hypothesis & Prior & Likelihood & Prior $\times$ Likelihood & Posterior \\
+\hline
+$H_A$ & $\frac{1}{3}$ & $\frac{1}{2}$ & $\frac{1}{6}$ & $\frac{1}{2}$ \\
+$H_B$ & $\frac{1}{3}$ & $0$ & $0$ & $0$ \\
+$H_C$ & $\frac{1}{3}$ & $\frac{1}{2}$ & $\frac{1}{6}$ & $\frac{1}{2}$ \\
+\hline
+Total & $1$ & & $\frac{1}{3}$ & $1$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Posterior:}
+$$P(H_A \mid \text{data}) = \frac{1/6}{1/3} = \frac{1}{2}, \quad P(H_C \mid \text{data}) = \frac{1/6}{1/3} = \frac{1}{2}$$
+
+\textbf{Conclusion:} Since $P(H_A \mid \text{data}) = P(H_C \mid \text{data}) = \frac{1}{2}$, the contestant is \textbf{indifferent} between staying and switching.
+
+\textbf{Verification:} Posteriors sum to $\frac{1}{2} + 0 + \frac{1}{2} = 1$. $\checkmark$
+

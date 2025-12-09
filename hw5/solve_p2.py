@@ -118,3 +118,4 @@ print(f"P(X ≤ 6.05) = Φ({z_score:.10f})")
 print(f"            = {prob:.10f}")
 print(f"            ≈ {prob:.6f}")
 
+

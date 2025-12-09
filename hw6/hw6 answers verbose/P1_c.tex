@@ -1,0 +1,37 @@
+% Problem 1(c): Uncertain Monty (sober with P=0.7, dizzy with P=0.3)
+
+\textbf{Setup:} Same as before, but now $P(\text{sober}) = 0.7$ and $P(\text{dizzy}) = 0.3$. Monty opens door $B$, revealing a goat.
+
+\textbf{Prior:} $P(H_A) = P(H_B) = P(H_C) = \frac{1}{3}$
+
+\textbf{Combined Likelihood:} Using the law of total probability:
+$$P(\text{data} \mid H) = 0.7 \cdot P(\text{data} \mid H, \text{sober}) + 0.3 \cdot P(\text{data} \mid H, \text{dizzy})$$
+
+\begin{itemize}
+    \item $P(\text{data} \mid H_A) = 0.7 \times \frac{1}{2} + 0.3 \times \frac{1}{2} = \frac{1}{2}$
+    \item $P(\text{data} \mid H_B) = 0.7 \times 0 + 0.3 \times 0 = 0$
+    \item $P(\text{data} \mid H_C) = 0.7 \times 1 + 0.3 \times \frac{1}{2} = \frac{17}{20}$
+\end{itemize}
+
+\textbf{Bayes Table:}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Hypothesis & Prior & Likelihood & Prior $\times$ Likelihood & Posterior \\
+\hline
+$H_A$ & $\frac{1}{3}$ & $\frac{1}{2}$ & $\frac{1}{6}$ & $\frac{10}{27}$ \\
+$H_B$ & $\frac{1}{3}$ & $0$ & $0$ & $0$ \\
+$H_C$ & $\frac{1}{3}$ & $\frac{17}{20}$ & $\frac{17}{60}$ & $\frac{17}{27}$ \\
+\hline
+Total & $1$ & & $\frac{9}{20}$ & $1$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Posterior:}
+$$P(H_A \mid \text{data}) = \frac{1/6}{9/20} = \frac{10}{27} \approx 0.370, \quad P(H_C \mid \text{data}) = \frac{17/60}{9/20} = \frac{17}{27} \approx 0.630$$
+
+\textbf{Conclusion:} Since $P(H_C \mid \text{data}) = \frac{17}{27} > \frac{10}{27} = P(H_A \mid \text{data})$, the best strategy is to \textbf{switch} to door $C$.
+
+\textbf{Verification:} Posteriors sum to $\frac{10}{27} + 0 + \frac{17}{27} = 1$. $\checkmark$
+

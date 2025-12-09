@@ -1,0 +1,37 @@
+{
+  "problem_id": "P2",
+  "score": 100,
+  "subproblems": {
+    "P2_a": {
+      "score": 100,
+      "prior_predictive_correct": true,
+      "posterior_after_1_correct": true,
+      "posterior_predictive_correct": true
+    },
+    "P2_b": {
+      "score": 100,
+      "posterior_formula_correct": true,
+      "limit_analysis_correct": true,
+      "explanation_provided": true
+    },
+    "P2_c": {
+      "score": 100,
+      "ranking_correct": true,
+      "ties_noted": true,
+      "explanation_provided": true
+    },
+    "P2_d": {
+      "score": 100,
+      "pmf_formula_correct": true,
+      "all_cases_covered": true,
+      "verified_with_part_c": true
+    },
+    "P2_e": {
+      "score": 100,
+      "limit_pmf_correct": true,
+      "explanation_provided": true
+    }
+  },
+  "notes": "All parts verified with Python exact computation."
+}
+

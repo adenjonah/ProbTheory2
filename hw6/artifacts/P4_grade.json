@@ -1,0 +1,13 @@
+{
+  "problem_id": "P4",
+  "score": 100,
+  "rubric": {
+    "mean_variance_correct": true,
+    "clt_applied_correctly": true,
+    "asymmetry_noted": true,
+    "standardization_correct": true,
+    "probability_calculation_correct": true
+  },
+  "notes": "P(4 < X_bar < 6) = Phi(12/sqrt(33)) - Phi(-4/sqrt(33)) ≈ 0.7385"
+}
+

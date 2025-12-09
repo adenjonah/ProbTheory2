@@ -1,0 +1,14 @@
+{
+  "problem_id": "P1_a",
+  "score": 100,
+  "rubric": {
+    "bayes_table_correct": true,
+    "prior_correct": true,
+    "likelihood_correct": true,
+    "posterior_correct": true,
+    "strategy_identified": true,
+    "posteriors_sum_to_1": true
+  },
+  "notes": "Posterior P(H_A|data)=1/3, P(H_C|data)=2/3. Best strategy: switch."
+}
+

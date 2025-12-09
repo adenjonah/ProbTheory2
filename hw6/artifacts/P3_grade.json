@@ -1,0 +1,13 @@
+{
+  "problem_id": "P3",
+  "score": 100,
+  "rubric": {
+    "clt_applied_correctly": true,
+    "standardization_correct": true,
+    "z_value_correct": true,
+    "n_calculation_correct": true,
+    "smallest_integer_identified": true
+  },
+  "notes": "n = 385. Verified that n=384 fails and n=385 passes the 0.95 threshold."
+}
+

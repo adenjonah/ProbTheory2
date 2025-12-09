@@ -170,3 +170,4 @@ print(f"\nP(XY > 10) (simulation): {prob_sim:.10f}")
 print(f"                       ≈ {prob_sim:.6f}")
 print(f"\nRandom seed: 123456")
 
+

@@ -1,0 +1,14 @@
+{
+  "problem_id": "P5",
+  "score": 100,
+  "rubric": {
+    "prior_identified": true,
+    "likelihood_correct": true,
+    "posterior_distribution_correct": true,
+    "beta_parameters_correct": true,
+    "mean_correct": true,
+    "variance_correct": true
+  },
+  "notes": "Posterior: Beta(4, 6). Mean: 2/5 = 0.4. Variance: 6/275 ≈ 0.0218"
+}
+

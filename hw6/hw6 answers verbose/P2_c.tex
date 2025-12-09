@@ -1,0 +1,26 @@
+% Problem 2(c): Ranking values for next roll (n=10)
+
+\textbf{Ranking possible values for next roll from most likely to least likely:}
+
+After 10 rolls of 7, only the 8, 12, and 20-sided dice have nonzero posterior probability, with the 8-sided die being overwhelmingly most likely.
+
+For the predictive distribution of the next roll:
+\begin{itemize}
+    \item Values $1$--$8$: Possible from all three dice (8, 12, 20-sided)
+    \item Values $9$--$12$: Possible only from 12 and 20-sided dice
+    \item Values $13$--$20$: Possible only from the 20-sided die
+\end{itemize}
+
+Since the 8-sided die dominates the posterior, values it can produce (1--8) are much more likely than others.
+
+\textbf{Ranking:}
+\begin{enumerate}
+    \item \textbf{Values 1, 2, 3, 4, 5, 6, 7, 8} (tied): Most likely. These are all equally likely because each die gives uniform probability to values it can produce, and they are all producible by all three candidate dice.
+    \item \textbf{Values 9, 10, 11, 12} (tied): Less likely. Only the 12 and 20-sided dice can produce these, both of which have much smaller posterior probability.
+    \item \textbf{Values 13, 14, 15, 16, 17, 18, 19, 20} (tied): Least likely. Only the 20-sided die can produce these, and it has the smallest posterior probability.
+\end{enumerate}
+
+\textbf{Explanation:} The ranking follows from the fact that fewer dice can produce larger values. The 8-sided die has the largest posterior probability after observing 10 sevens (since it gives the highest probability to rolling 7), so values it can produce are most likely.
+
+\textbf{Verification:} From explicit computation at $n=10$: $P(k \in \{1,...,8\}) \approx 0.124$ each, $P(k \in \{9,...,12\}) \approx 0.00143$ each, $P(k \in \{13,...,20\}) \approx 0.0000052$ each. $\checkmark$
+

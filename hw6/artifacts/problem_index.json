@@ -1,0 +1,74 @@
+{
+  "title": "Homework 6 // CLT and Bayesian Statistics",
+  "problems": [
+    {
+      "id": "P1",
+      "title": "Monty Hall: Sober and dizzy",
+      "subproblems": [
+        {
+          "id": "P1_a",
+          "prompt": "Sober Monty Hall opens door B, revealing a goat. Make a Bayes table with prior, likelihood and posterior. Use posterior probabilities to determine the best strategy."
+        },
+        {
+          "id": "P1_b",
+          "prompt": "Dizzy Monty Hall opens door B, revealing a goat. Make a Bayes table with prior, likelihood and posterior. Use posterior probabilities to determine the best strategy."
+        },
+        {
+          "id": "P1_c",
+          "prompt": "Monty is sober with probability 0.7 and dizzy with probability 0.3. Repeat the analysis."
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "title": "Prediction (dice problem)",
+      "subproblems": [
+        {
+          "id": "P2_a",
+          "prompt": "Find the prior predictive probability that the first roll will be a 7 and the posterior (after first roll) predictive probability that the second roll will be a 7. Also find the posterior (after first roll) probabilities for the chosen die."
+        },
+        {
+          "id": "P2_b",
+          "prompt": "Find the posterior probability P(H|data) for each die given data of all n rolls. What is the limit as n -> infinity? Explain why this makes sense."
+        },
+        {
+          "id": "P2_c",
+          "prompt": "Given that first 10 rolls resulted in 7 (n=10), rank the possible values for my next roll from most likely to least likely. Note any ties and explain reasoning."
+        },
+        {
+          "id": "P2_d",
+          "prompt": "Find the posterior predictive pmf for the (n+1)st roll given the data: P(x_{n+1} | x_1=7,...,x_n=7) for x_{n+1}=1,...,20."
+        },
+        {
+          "id": "P2_e",
+          "prompt": "What function does the pmf in part (d) converge to as n -> infinity? Explain why this makes sense."
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "title": "CLT sample size",
+      "subproblems": [],
+      "prompt": "Mean is mu, standard deviation is 3. Use CLT to determine smallest n for which Pr(|X_bar_n - mu| < 0.3) >= 0.95."
+    },
+    {
+      "id": "P4",
+      "title": "CLT digit average",
+      "subproblems": [],
+      "prompt": "16 digits chosen at random with replacement from {0,...,9}. What is probability their average lies between 4 and 6?"
+    },
+    {
+      "id": "P5",
+      "title": "Bayesian posterior with uniform prior",
+      "subproblems": [],
+      "prompt": "Proportion theta of defective items unknown. Prior is uniform on [0,1]. Eight items selected, exactly three defective. Determine posterior distribution of theta. Compute expected mean and variance of theta."
+    },
+    {
+      "id": "P6",
+      "title": "Bayesian posterior with non-uniform prior",
+      "subproblems": [],
+      "prompt": "Same as P5 but prior pdf is xi(theta) = 2(1-theta) for 0<theta<1. Eight items, three defective. Determine posterior distribution of theta."
+    }
+  ]
+}
+

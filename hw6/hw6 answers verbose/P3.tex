@@ -1,0 +1,28 @@
+% Problem 3: CLT Sample Size
+
+\textbf{Given:} Random sample of size $n$ from a distribution with mean $\mu$ and standard deviation $\sigma = 3$. Find the smallest $n$ such that $P(|\bar{X}_n - \mu| < 0.3) \geq 0.95$.
+
+\textbf{Solution:}
+
+By the Central Limit Theorem, $\bar{X}_n$ is approximately normal:
+$$\bar{X}_n \sim N\left(\mu, \frac{\sigma^2}{n}\right) = N\left(\mu, \frac{9}{n}\right)$$
+
+Standardizing:
+$$P(|\bar{X}_n - \mu| < 0.3) = P\left(-\frac{0.3}{\sigma/\sqrt{n}} < Z < \frac{0.3}{\sigma/\sqrt{n}}\right) = P\left(-\frac{0.3\sqrt{n}}{3} < Z < \frac{0.3\sqrt{n}}{3}\right)$$
+$$= P\left(-0.1\sqrt{n} < Z < 0.1\sqrt{n}\right) = 2\Phi(0.1\sqrt{n}) - 1$$
+
+We need:
+$$2\Phi(0.1\sqrt{n}) - 1 \geq 0.95$$
+$$\Phi(0.1\sqrt{n}) \geq 0.975$$
+$$0.1\sqrt{n} \geq \Phi^{-1}(0.975) = 1.96$$
+$$\sqrt{n} \geq 19.6$$
+$$n \geq 384.16$$
+
+The smallest integer satisfying this is $\boxed{n = 385}$.
+
+\textbf{Verification:}
+\begin{itemize}
+    \item $n = 384$: $P = 2\Phi(1.9596) - 1 \approx 0.9500 < 0.95$ (fails)
+    \item $n = 385$: $P = 2\Phi(1.9621) - 1 \approx 0.9503 \geq 0.95$ (passes) $\checkmark$
+\end{itemize}
+

@@ -1,0 +1,13 @@
+{
+  "problem_id": "P6",
+  "score": 100,
+  "rubric": {
+    "prior_identified": true,
+    "likelihood_correct": true,
+    "posterior_distribution_correct": true,
+    "beta_parameters_correct": true,
+    "normalization_correct": true
+  },
+  "notes": "Posterior: Beta(4, 7). pdf = 840 theta^3 (1-theta)^6"
+}
+
