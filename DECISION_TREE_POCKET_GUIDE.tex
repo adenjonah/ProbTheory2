@@ -1,27 +1,27 @@
-\documentclass[10pt,landscape,letterpaper]{article}
+\documentclass[9pt,landscape,letterpaper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=0.3in]{geometry}
+\usepackage[margin=0.4in]{geometry}
 \usepackage{multicol}
 \usepackage{amsmath,amssymb}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{fancybox}
 
-% Suppress overflow warnings
-\tolerance=1000
+% Better text handling
+\tolerance=9999
 \emergencystretch=3em
-\hfuzz=10pt
-\vfuzz=10pt
-\hbadness=10000
-\vbadness=10000
+\hyphenpenalty=10000
+\sloppy
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
+\setlength{\columnsep}{0.2in}
+\setlength{\parskip}{1pt}
 
 \begin{document}
 
 \begin{center}
-{\LARGE \textbf{DECISION TREE POCKET GUIDE}}\\
+{\Large \textbf{DECISION TREE POCKET GUIDE}}\\
 {\small Probability Theory Final Exam - December 16, 2025}
 \end{center}
 
@@ -29,74 +29,74 @@
 
 \section*{\textcolor{blue}{LEVEL 0: START HERE}}
 
-\fbox{\parbox{\linewidth}{
-\textbf{READ PROBLEM → FIND KEY TERMS}
+\fbox{\parbox{0.95\linewidth}{
+\textbf{READ PROBLEM $\rightarrow$ FIND KEY TERMS}
 }}
 
-\vspace{0.2cm}
+\vspace{0.15cm}
 
 \subsection*{Distribution Named?}
 \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
-\item \textbf{``Gaussian''} = NORMAL! → \S3.3
-\item \textbf{``Gaussian vector''} = MVN → \S4.5
-\item ``Exponential'' → \S3.4
-\item ``Poisson'' → \S2.3
-\item ``Binomial'' → \S2.2
-\item ``Lognormal'' → \S7.3
-\item ``Beta'' → \S3.6, \S7.2
+\item \textbf{``Gaussian''} = NORMAL! $\rightarrow$ \S3.3
+\item \textbf{``Gaussian vector''} = MVN $\rightarrow$ \S4.5
+\item ``Exponential'' $\rightarrow$ \S3.4
+\item ``Poisson'' $\rightarrow$ \S2.3
+\item ``Binomial'' $\rightarrow$ \S2.2
+\item ``Lognormal'' $\rightarrow$ \S7.3
+\item ``Beta'' $\rightarrow$ \S3.6, \S7.2
 \end{itemize}
 
 \subsection*{Multiple Variables?}
 \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
-\item ``Joint'' → \S4.1
-\item ``Bivariate Normal'' → \S4.5
-\item ``Sum X+Y'' → MGF \S5.2
-\item ``Max/Min'' → \S4.7, Template L
-\item ``X|Y=y'' → \S4.2, 4.5
+\item ``Joint'' $\rightarrow$ \S4.1
+\item ``Bivariate Normal'' $\rightarrow$ \S4.5
+\item ``Sum X+Y'' $\rightarrow$ MGF \S5.2
+\item ``Max/Min'' $\rightarrow$ \S4.7, Template L
+\item ``X$|$Y=y'' $\rightarrow$ \S4.2, 4.5
 \end{itemize}
 
 \subsection*{Approximation/Limits?}
 \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
-\item ``Large n'' → CLT \S6.1
-\item ``Approximate'' → CLT \S6.1
-\item ``i.i.d. + sample mean'' → CLT
-\item ``n games'' → Template B
+\item ``Large n'' $\rightarrow$ CLT \S6.1
+\item ``Approximate'' $\rightarrow$ CLT \S6.1
+\item ``i.i.d. + sample mean'' $\rightarrow$ CLT
+\item ``n games'' $\rightarrow$ Template B
 \end{itemize}
 
 \subsection*{Bayesian?}
 \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
-\item ``Prior/Posterior'' → \S7.2
-\item ``Update belief'' → \S1.3, 7.2
-\item ``Defective rate'' → Template E
-\item ``Monty Hall'' → Template J
+\item ``Prior/Posterior'' $\rightarrow$ \S7.2
+\item ``Update belief'' $\rightarrow$ \S1.3, 7.2
+\item ``Defective rate'' $\rightarrow$ Template E
+\item ``Monty Hall'' $\rightarrow$ Template J
 \end{itemize}
 
 \subsection*{Expectation?}
 \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
-\item ``E[X|Y]'' → \S7.1
-\item ``Total Expectation'' → \S7.1
-\item ``Conditional variance'' → \S7.1
+\item ``E[X$|$Y]'' $\rightarrow$ \S7.1
+\item ``Total Expectation'' $\rightarrow$ \S7.1
+\item ``Conditional variance'' $\rightarrow$ \S7.1
 \end{itemize}
 
 \columnbreak
 
 \section*{\textcolor{red}{!! CRITICAL TRAPS !!}}
 
-\fbox{\parbox{\linewidth}{
+\fbox{\parbox{0.95\linewidth}{
 \textbf{``Mean $\theta=3$'' (Exp)}\\
 $\Rightarrow \lambda = 1/3$ NOT 3!
 }}
 
-\vspace{0.2cm}
+\vspace{0.15cm}
 
-\fbox{\parbox{\linewidth}{
+\fbox{\parbox{0.95\linewidth}{
 \textbf{``Independent components'' (MVN)}\\
 $\Rightarrow \rho = 0$ = INDEPENDENT!
 }}
 
-\vspace{0.2cm}
+\vspace{0.15cm}
 
-\fbox{\parbox{\linewidth}{
+\fbox{\parbox{0.95\linewidth}{
 \textbf{``$\psi(t)$'' = MGF}\\
 (Professor's notation)
 }}
@@ -113,7 +113,7 @@ Find E[X], Var(X) for single trial
 
 \subsection*{C: Exponential + CLT}
 $\bar{X} \approx N(1/\lambda, 1/(n\lambda^2))$\\
-\textbf{Mean $\theta$ → $\lambda = 1/\theta$!}
+\textbf{Mean $\theta$ $\rightarrow$ $\lambda = 1/\theta$!}
 
 \subsection*{D: Lognormal}
 $E[e^X] = e^{\mu + \sigma^2/2}$ for $X \sim N(\mu,\sigma^2)$\\
@@ -136,14 +136,14 @@ $Y|X=x \sim N(\mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X), (1-\rho^2)\sigma_Y
 \item $E[X] = \sum xP(X=x)$
 \item Var: $E[X^2] - (E[X])^2$
 \item CLT: $Z = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}}$
-\item BVN sum: $\sigma^2_{X+Y} = \sigma^2_X + \sigma^2_Y + 2\rho\sigma_X\sigma_Y$
-\item $E[e^X] = e^{\mu+\sigma^2/2}$ (lognormal)
+\item BVN: $\sigma^2_{X+Y} = \sigma^2_X + \sigma^2_Y + 2\rho\sigma_X\sigma_Y$
+\item Lognormal: $E[e^X] = e^{\mu+\sigma^2/2}$
 \item Max: $P(\max \leq a) = [F(a)]^n$
 \item Min: $P(\min > a) = [1-F(a)]^n$
-\item Total Exp: $E[X] = E[E[X|Y]]$
+\item Tower: $E[X] = E[E[X|Y]]$
 \end{enumerate}
 
-\section*{\textcolor{blue}{NORMAL TABLE SHORTCUTS}}
+\section*{\textcolor{blue}{NORMAL TABLE}}
 \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
 \item $\Phi(0) = 0.5$
 \item $\Phi(1) \approx 0.841$
@@ -168,7 +168,7 @@ $Y|X=x \sim N(\mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X), (1-\rho^2)\sigma_Y
 \newpage
 
 \begin{center}
-{\LARGE \textbf{PROBLEM TYPE → SOLUTION PATH}}
+{\Large \textbf{PROBLEM TYPE $\rightarrow$ SOLUTION PATH}}
 \end{center}
 
 \begin{multicols}{3}
@@ -313,4 +313,3 @@ $\sigma^2_{Y|X} = \sigma_Y^2(1-\rho^2)$
 \end{multicols}
 
 \end{document}
-

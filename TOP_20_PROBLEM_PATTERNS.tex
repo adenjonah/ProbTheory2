@@ -1,232 +1,158 @@
 \documentclass[9pt,landscape,letterpaper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=0.25in]{geometry}
+\usepackage[margin=0.4in]{geometry}
 \usepackage{multicol}
 \usepackage{amsmath,amssymb}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{array}
-\usepackage{fancybox}
 
-% Suppress overflow warnings
-\tolerance=1000
+% Better text handling
+\tolerance=9999
 \emergencystretch=3em
-\hfuzz=10pt
-\vfuzz=10pt
-\hbadness=10000
-\vbadness=10000
+\hyphenpenalty=10000
+\sloppy
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\columnsep}{0.2in}
+\setlength{\parskip}{1pt}
 
 \begin{document}
 
 \begin{center}
-{\LARGE \textbf{TOP 20 PROBLEM PATTERNS}}\\
-{\small Probability Theory Final Exam | December 16, 2025 | With Section References}
+{\Large \textbf{TOP 20 PROBLEM PATTERNS}}\\
+{\small Probability Theory Final Exam | December 16, 2025}
 \end{center}
 
-\begin{multicols}{4}
+\begin{multicols}{3}
 
-\section*{\textcolor{red}{1. CLT Game/Total}}
-\fbox{\parbox{\linewidth}{
-``n games'', ``total winnings''
-}}
-\textbf{Steps:}
-\begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
-\item Find $E[X_i]$, Var$(X_i)$
-\item $S_n \approx N(n\mu, n\sigma^2)$
-\item Standardize
-\end{enumerate}
+\subsection*{\textcolor{red}{1. CLT Game/Total}}
+\textit{``n games'', ``total winnings''}\\
+Find $E[X_i]$, Var$(X_i)$ $\rightarrow$ $S_n \approx N(n\mu, n\sigma^2)$\\
 \textbf{Ref:} \S6.1, Template B
 
-\section*{\textcolor{red}{2. Gaussian Vector}}
-\fbox{\parbox{\linewidth}{
-``Gaussian vector'', ``indep. components''
-}}
-\textbf{Key:} $\rho=0 \Leftrightarrow$ independent (MVN)\\
-\textbf{Solve:} Cov = 0\\
+\subsection*{\textcolor{red}{2. Gaussian Vector}}
+\textit{``Gaussian vector'', ``indep. components''}\\
+$\rho=0 \Leftrightarrow$ independent (MVN), Cov = 0\\
 \textbf{Ref:} \S4.5, Template A, G
 
-\section*{\textcolor{red}{3. Lognormal Stock}}
-\fbox{\parbox{\linewidth}{
-``$S = S_0 e^Z$'', ``stock price''
-}}
-\textbf{Key:} $E[e^X] = e^{\mu+\sigma^2/2}$\\
+\subsection*{\textcolor{red}{3. Lognormal Stock}}
+\textit{``$S = S_0 e^Z$'', ``stock price''}\\
+$E[e^X] = e^{\mu+\sigma^2/2}$\\
 \textbf{Ref:} \S7.3, Template D
 
-\section*{\textcolor{red}{4. Bayesian Discrete}}
-\fbox{\parbox{\linewidth}{
-``prior'', ``posterior'', ``defective''
-}}
-\textbf{Steps:}
-\begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
-\item List $\theta_i$, priors $P(\theta_i)$
-\item Likelihoods $P(\text{data}|\theta_i)$
-\item Bayes: posterior $\propto$ prior $\times$ likelihood
-\item Normalize
-\end{enumerate}
+\subsection*{\textcolor{red}{4. Bayesian Discrete}}
+\textit{``prior'', ``posterior'', ``defective''}\\
+List $\theta_i$, priors, likelihoods $\rightarrow$ Bayes $\rightarrow$ Normalize\\
 \textbf{Ref:} \S7.2, Template E
 
-\section*{\textcolor{red}{5. BVN Conditional}}
-\fbox{\parbox{\linewidth}{
-``$Y|X=x$'', ``bivariate normal''
-}}
+\subsection*{\textcolor{red}{5. BVN Conditional}}
+\textit{``$Y|X=x$'', ``bivariate normal''}\\
 $\mu_{Y|X} = \mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X)$\\
 $\sigma^2_{Y|X} = \sigma_Y^2(1-\rho^2)$\\
 \textbf{Ref:} \S4.5, Template F
 
-\section*{\textcolor{red}{6. Exponential + CLT}}
-\fbox{\parbox{\linewidth}{
-``i.i.d. Exp'', ``mean $\theta$''
-}}
+\subsection*{\textcolor{red}{6. Exponential + CLT}}
+\textit{``i.i.d. Exp'', ``mean $\theta$''}\\
 \textbf{TRAP:} Mean $\theta \Rightarrow \lambda = 1/\theta$!\\
 $\bar{X} \approx N(1/\lambda, 1/(n\lambda^2))$\\
 \textbf{Ref:} \S3.4, \S6.1, Template C
 
-\section*{\textcolor{red}{7. Monty Hall}}
-\fbox{\parbox{\linewidth}{
-``Monty Hall'', ``contestant picks''
-}}
+\subsection*{\textcolor{red}{7. Monty Hall}}
+\textit{``Monty Hall'', ``contestant picks''}\\
 \textbf{Sober:} Switch wins 2/3\\
 \textbf{Dizzy:} No advantage\\
 \textbf{Ref:} \S8.1, Template J
 
-\section*{\textcolor{red}{8. Max/Min i.i.d.}}
-\fbox{\parbox{\linewidth}{
-``maximum of n'', ``minimum''
-}}
+\columnbreak
+
+\subsection*{\textcolor{red}{8. Max/Min i.i.d.}}
+\textit{``maximum of n'', ``minimum''}\\
 $P(\max \leq a) = [F(a)]^n$\\
 $P(\min > a) = [1-F(a)]^n$\\
 \textbf{Ref:} \S4.7, Template L
 
-\section*{9. Linear Combo BVN}
-\fbox{\parbox{\linewidth}{
-``$P(X+Y > c)$'', ``sum of jointly normal''
-}}
+\subsection*{9. Linear Combo BVN}
+\textit{``$P(X+Y > c)$'', ``sum of jointly normal''}\\
 $X+Y \sim N(\mu_X+\mu_Y, \sigma^2_{X+Y})$\\
 $\sigma^2_{X+Y} = \sigma^2_X + \sigma^2_Y + 2\rho\sigma_X\sigma_Y$\\
 \textbf{Ref:} \S4.5, \S8.3
 
-\section*{10. Predictive Dist.}
-\fbox{\parbox{\linewidth}{
-``predict next'', ``posterior predictive''
-}}
-$P(X_{n+1}|data) = \sum_\theta P(X|\theta)P(\theta|data)$\\
+\subsection*{10. Predictive Dist.}
+\textit{``predict next'', ``posterior predictive''}\\
+$P(X_{n+1}|\text{data}) = \sum_\theta P(X|\theta)P(\theta|\text{data})$\\
 \textbf{Ref:} Template H
 
-\section*{11. Product Lognormal}
-\fbox{\parbox{\linewidth}{
-``$XY$ where lognormal''
-}}
-$\ln(XY) = \ln X + \ln Y$\\
-Still lognormal!\\
+\subsection*{11. Product Lognormal}
+\textit{``$XY$ where lognormal''}\\
+$\ln(XY) = \ln X + \ln Y$ $\rightarrow$ Still lognormal!\\
 \textbf{Ref:} Template I
 
-\section*{12. BVN Parameters}
-\fbox{\parbox{\linewidth}{
-``find $\mu_Y, \sigma_Y, \rho$''
-}}
+\subsection*{12. BVN Parameters}
+\textit{``find $\mu_Y, \sigma_Y, \rho$''}\\
 Match $E[Y|X]$, Var$(Y|X)$ formulas\\
 \textbf{Ref:} Template N
 
-\section*{13. Ratio + CLT}
-\fbox{\parbox{\linewidth}{
-``$\bar{X}/(\bar{X}+c) < p$''
-}}
-\textbf{Key:} Transform inequality first!\\
-Then apply CLT\\
+\subsection*{13. Ratio + CLT}
+\textit{``$\bar{X}/(\bar{X}+c) < p$''}\\
+Transform inequality first! Then CLT\\
 \textbf{Ref:} Template O
 
-\section*{14. Find n for CLT}
-\fbox{\parbox{\linewidth}{
-``smallest n such that''
-}}
+\subsection*{14. Find n for CLT}
+\textit{``smallest n such that''}\\
 $n \geq (z^*\sigma/(c-\mu))^2$\\
 \textbf{Ref:} Template K
 
-\section*{15. Confidence Int.}
-\fbox{\parbox{\linewidth}{
-``95\% CI'', ``confidence interval''
-}}
-$\bar{X} \pm z_{\alpha/2} \cdot \sigma/\sqrt{n}$\\
-$z_{0.025} = 1.96$\\
+\columnbreak
+
+\subsection*{15. Confidence Int.}
+\textit{``95\% CI'', ``confidence interval''}\\
+$\bar{X} \pm z_{\alpha/2} \cdot \sigma/\sqrt{n}$, $z_{0.025} = 1.96$\\
 \textbf{Ref:} \S6.4
 
-\section*{16. Conjugate Prior}
-\fbox{\parbox{\linewidth}{
-``Beta-Binomial''
-}}
-Beta$(\alpha,\beta)$ + $x$ successes in $n$\\
-$\Rightarrow$ Beta$(\alpha+x, \beta+n-x)$\\
+\subsection*{16. Conjugate Prior}
+\textit{``Beta-Binomial''}\\
+Beta$(\alpha,\beta)$ + $x$ in $n$ $\Rightarrow$ Beta$(\alpha+x, \beta+n-x)$\\
 \textbf{Ref:} \S7.2
 
-\section*{17. Total Expectation}
-\fbox{\parbox{\linewidth}{
-``$E[X] = ?$'', condition on Y
-}}
+\subsection*{17. Total Expectation}
+\textit{``$E[X] = ?$'', condition on Y}\\
 $E[X] = E[E[X|Y]]$\\
 \textbf{Ref:} \S7.1, \S8.9
 
-\section*{18. Total Variance}
-\fbox{\parbox{\linewidth}{
-``Var$(X)$'', condition on Y
-}}
+\subsection*{18. Total Variance}
+\textit{``Var$(X)$'', condition on Y}\\
 $\text{Var}(X) = E[\text{Var}(X|Y)] + \text{Var}(E[X|Y])$\\
 \textbf{Ref:} \S7.1
 
-\section*{19. Sum of Poisson}
-\fbox{\parbox{\linewidth}{
-``sum of Poisson''
-}}
+\subsection*{19. Sum of Poisson}
+\textit{``sum of Poisson''}\\
 $X+Y \sim$ Poisson$(\lambda_1+\lambda_2)$\\
 \textbf{Ref:} Template P
 
-\section*{20. Transformation}
-\fbox{\parbox{\linewidth}{
-``find dist. of $Y=g(X)$''
-}}
+\subsection*{20. Transformation}
+\textit{``find dist. of $Y=g(X)$''}\\
 CDF: $F_Y(y) = P(g(X) \leq y)$\\
 Jacobian: $f_Y = f_X|dx/dy|$\\
 \textbf{Ref:} \S4.6
 
 \end{multicols}
 
-\vspace{0.2cm}
-\hrule
-\vspace{0.2cm}
-
-\begin{center}
-\textbf{QUICK FORMULA REFERENCE}
-\end{center}
-
-\begin{multicols}{4}
-{\small
-\textbf{CLT:} $Z = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \sim N(0,1)$
-
-\textbf{Bayes:} $P(H|E) = \frac{P(E|H)P(H)}{P(E)}$
-
-\textbf{Lognormal:} $E[e^X] = e^{\mu+\sigma^2/2}$
-
-\textbf{BVN Cond:} $\mu_{Y|X} = \mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X)$
-
-\textbf{Cov:} $E[XY] - E[X]E[Y]$
-
-\textbf{Var Sum:} $\sigma_X^2 + \sigma_Y^2 + 2\text{Cov}$
-
-\textbf{Total Exp:} $E[X] = E[E[X|Y]]$
-
-\textbf{Max:} $P(\max \leq a) = [F(a)]^n$
-}
-\end{multicols}
-
+\vspace{0.1cm}
 \hrule
 \vspace{0.1cm}
 
 \begin{center}
-{\small \textcolor{red}{\textbf{CRITICAL TRAP:}} ``Mean $\theta=3$'' (Exponential) $\Rightarrow$ $\lambda = 1/3$ NOT 3! \quad | \quad ``Gaussian'' = Normal \quad | \quad ``Independent components'' = $\rho=0$ for MVN}
+\textbf{QUICK FORMULAS:} CLT: $Z = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}}$ \quad Bayes: $P(H|E) \propto P(E|H)P(H)$ \quad Lognormal: $E[e^X] = e^{\mu+\sigma^2/2}$ \quad Max: $P(\max \leq a) = [F(a)]^n$
+\end{center}
+
+\vspace{0.1cm}
+\hrule
+\vspace{0.1cm}
+
+\begin{center}
+{\small \textcolor{red}{\textbf{CRITICAL:}} ``Mean $\theta=3$'' (Exp) $\Rightarrow$ $\lambda = 1/3$ NOT 3! \quad ``Gaussian'' = Normal \quad ``Independent components'' = $\rho=0$ for MVN}
 \end{center}
 
 \end{document}
-
