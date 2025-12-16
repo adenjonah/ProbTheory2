@@ -334,9 +334,324 @@
 \item \finance{Used in Bayesian statistics}
 \end{itemize}
 
-% Placeholder for remaining sections
-\vspace{1cm}
-\textit{[Sections 4-8 and Appendices will be added in subsequent phases...]}
+% ============================================================
+\section*{\textcolor{sectioncolor}{4. MULTIVARIATE DISTRIBUTIONS}} \postmidterm{Post-M2}
+% ============================================================
+
+\subsection*{4.1 Joint Distributions}
+\begin{itemize}[leftmargin=*]
+\item \concept{Joint PMF (Discrete):} $p(x,y) = P(X=x, Y=y)$
+\item \concept{Joint PDF (Continuous):} $f(x,y) \geq 0$
+\item \concept{Normalization:} \formula{\int\int f(x,y)dxdy = 1}
+\item \concept{Joint CDF:} \formula{F(x,y) = P(X \leq x, Y \leq y)}
+\item \concept{When to Use:} Two or more random variables together
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item Verify normalization (integral = 1)
+  \item Find constant $c$ if needed
+  \item Calculate probabilities over regions
+  \end{enumerate}
+\item \concept{Example:} $f(x,y) = c(x^2 + xy)$ on $[0,1]^2$, find $c = 12/7$
+\item \warning{Check bounds carefully for integration!}
+\end{itemize}
+
+\subsection*{4.2 Marginal and Conditional Distributions}
+\begin{itemize}[leftmargin=*]
+\item \concept{Marginal PDF:} \formula{f_X(x) = \int_{-\infty}^{\infty} f(x,y)dy}
+\item \concept{Marginal PMF:} $p_X(x) = \sum_y p(x,y)$
+\item \concept{Conditional PDF:} \formula{f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)}}
+\item \concept{Properties:} Conditional is a valid PDF/PMF
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item Find marginal by integrating/summing out other variable
+  \item For conditional, divide joint by marginal
+  \item Verify it integrates to 1
+  \end{enumerate}
+\item \concept{Example:} Uniform on triangle, find conditional
+\item \note{Bounds change for conditional distributions}
+\end{itemize}
+
+\subsection*{4.3 Independence of Random Variables}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} $X,Y$ independent iff $f(x,y) = f_X(x) \cdot f_Y(y)$
+\item \concept{Test for Independence:}
+  \begin{enumerate}
+  \item Find joint distribution
+  \item Find both marginals
+  \item Check if product equals joint for ALL $(x,y)$
+  \end{enumerate}
+\item \concept{Consequences of Independence:}
+  \begin{itemize}
+  \item $E[XY] = E[X]E[Y]$
+  \item $\text{Cov}(X,Y) = 0$ (but not vice versa!)
+  \item $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y)$
+  \end{itemize}
+\item \warning{Zero covariance $\neq$ independence (except for normal)}
+\item \note{For normal: independent $\Leftrightarrow \rho = 0$}
+\end{itemize}
+
+\subsection*{4.4 Covariance and Correlation}
+\begin{itemize}[leftmargin=*]
+\item \concept{Covariance:} \formula{\text{Cov}(X,Y) = E[(X-\mu_X)(Y-\mu_Y)] = E[XY] - E[X]E[Y]}
+\item \concept{Correlation:} \formula{\rho_{XY} = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}, \quad -1 \leq \rho \leq 1}
+\item \concept{Properties:}
+  \begin{itemize}
+  \item $\text{Cov}(X,X) = \text{Var}(X)$
+  \item $\text{Cov}(aX+b, cY+d) = ac \cdot \text{Cov}(X,Y)$
+  \item $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
+  \end{itemize}
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item Find $E[X]$, $E[Y]$, $E[XY]$
+  \item Apply covariance formula
+  \item For correlation, also find $\sigma_X$, $\sigma_Y$
+  \end{enumerate}
+\item \concept{Example:} HW4: Joint PDF, find $\rho$
+\item \finance{Portfolio variance uses covariance matrix}
+\end{itemize}
+
+\subsection*{4.5 Bivariate Normal Distribution} \postmidterm{Critical!}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} $(X,Y)$ jointly normal with parameters $\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho$
+\item \concept{Properties:}
+  \begin{itemize}
+  \item Linear combinations are normal
+  \item Marginals are normal: $X \sim N(\mu_X, \sigma_X^2)$
+  \item Independence $\Leftrightarrow \rho = 0$ (unique to normal!)
+  \item Conditional is normal: $X|Y=y \sim N(\mu_{X|Y}, \sigma_{X|Y}^2)$
+  \end{itemize}
+\item \concept{Conditional Mean:} \formula{\mu_{X|Y} = \mu_X + \rho\frac{\sigma_X}{\sigma_Y}(y - \mu_Y)}
+\item \concept{Conditional Variance:} \formula{\sigma_{X|Y}^2 = \sigma_X^2(1-\rho^2)}
+\item \concept{Example:} HW5 Problem 1: Find $P(X+Y > 0)$
+\item \note{$aX + bY$ is normal with specific mean/variance}
+\end{itemize}
+
+\subsection*{4.6 Transformations of Random Variables} \postmidterm{Complex!}
+\begin{itemize}[leftmargin=*]
+\item \concept{Single Variable:} $Y = g(X)$
+  \begin{itemize}
+  \item CDF Method: Find $F_Y(y) = P(g(X) \leq y)$
+  \item PDF Method: $f_Y(y) = f_X(g^{-1}(y))|dg^{-1}/dy|$
+  \end{itemize}
+\item \concept{Jacobian Method:} $(U,V) = g(X,Y)$
+  \formula{f_{UV}(u,v) = f_{XY}(x(u,v), y(u,v)) \cdot |J|}
+  where \formula{J = \begin{vmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{vmatrix}}
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item Define transformation
+  \item Find inverse transformation
+  \item Compute Jacobian determinant
+  \item Apply formula with absolute value
+  \item Check new bounds
+  \end{enumerate}
+\item \warning{Don't forget absolute value of Jacobian!}
+\item \concept{Example:} Polar coordinates: $X = R\cos\Theta$, $Y = R\sin\Theta$
+\end{itemize}
+
+\subsection*{4.7 Order Statistics}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} $X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}$
+\item \concept{Maximum:} \formula{F_{X_{(n)}}(x) = [F(x)]^n}
+\item \concept{Minimum:} \formula{F_{X_{(1)}}(x) = 1 - [1-F(x)]^n}
+\item \concept{PDF of $k$-th order statistic:}
+  \formula{f_{X_{(k)}}(x) = \frac{n!}{(k-1)!(n-k)!}[F(x)]^{k-1}[1-F(x)]^{n-k}f(x)}
+\item \concept{Example:} Max of 3 uniform(0,1) variables
+\item \note{Range = $X_{(n)} - X_{(1)}$}
+\end{itemize}
+
+% ============================================================
+\section*{\textcolor{sectioncolor}{5. MOMENT GENERATING FUNCTIONS}} \postmidterm{Post-M2}
+% ============================================================
+
+\subsection*{5.1 Definition and Properties}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} \formula{M_X(t) = E[e^{tX}] = \begin{cases} \sum e^{tx}p(x) & \text{discrete} \\ \int e^{tx}f(x)dx & \text{continuous} \end{cases}}
+\item \concept{Moments:} \formula{E[X^k] = M^{(k)}(0)} (k-th derivative at 0)
+\item \concept{Properties:}
+  \begin{itemize}
+  \item Uniqueness: Same MGF $\Rightarrow$ same distribution
+  \item Linear: $M_{aX+b}(t) = e^{bt}M_X(at)$
+  \item Sum of independent: $M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$
+  \end{itemize}
+\item \concept{Common MGFs:}
+  \begin{itemize}
+  \item Binomial: $(1-p+pe^t)^n$
+  \item Poisson: $e^{\lambda(e^t-1)}$
+  \item Normal: $e^{\mu t + \sigma^2 t^2/2}$
+  \item Exponential: $\lambda/(\lambda-t)$, $t < \lambda$
+  \end{itemize}
+\item \concept{Example:} Find distribution of sum using MGFs
+\item \note{Not all distributions have MGF (e.g., Cauchy)}
+\end{itemize}
+
+\subsection*{5.2 Using MGFs for Sums}
+\begin{itemize}[leftmargin=*]
+\item \concept{Method:} For independent $X_1, ..., X_n$:
+  \begin{enumerate}
+  \item Find individual MGFs: $M_{X_i}(t)$
+  \item Multiply: $M_S(t) = \prod M_{X_i}(t)$
+  \item Match with known MGF to identify distribution
+  \end{enumerate}
+\item \concept{Example Applications:}
+  \begin{itemize}
+  \item Sum of normals is normal
+  \item Sum of Poissons is Poisson
+  \item Sum of gammas (same $\lambda$) is gamma
+  \end{itemize}
+\item \concept{Example:} $X_i \sim \text{Exp}(\lambda)$ independent, then $\sum X_i \sim \text{Gamma}(n, \lambda)$
+\item \note{Powerful for proving CLT}
+\end{itemize}
+
+% ============================================================
+\section*{\textcolor{sectioncolor}{6. LIMIT THEOREMS}} \postmidterm{Critical for Final!}
+% ============================================================
+
+\subsection*{6.1 Central Limit Theorem (CLT)} \postmidterm{Most Important!}
+\begin{itemize}[leftmargin=*]
+\item \concept{Statement:} If $X_1, ..., X_n$ are iid with mean $\mu$, variance $\sigma^2$:
+  \formula{\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1) \text{ as } n \to \infty}
+\item \concept{Equivalent:} \formula{\bar{X}_n \approx N\left(\mu, \frac{\sigma^2}{n}\right) \text{ for large } n}
+\item \concept{When to Use:}
+  \begin{itemize}
+  \item Large sample size (typically $n \geq 30$)
+  \item Sum or average of many random variables
+  \item Approximating discrete by continuous
+  \end{itemize}
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item Verify conditions (iid, finite variance)
+  \item Identify $\mu = E[X_i]$, $\sigma^2 = \text{Var}(X_i)$
+  \item Standardize: $Z = (\bar{X} - \mu)/(\sigma/\sqrt{n})$
+  \item Use normal table
+  \end{enumerate}
+\item \concept{Example:} 400 games, win \$3 with $p=0.25$, find $P(\text{total} > 240)$
+\item \warning{Apply continuity correction for discrete!}
+\end{itemize}
+
+\subsection*{6.2 Normal Approximations}
+\begin{itemize}[leftmargin=*]
+\item \concept{Binomial Approximation:} If $X \sim \text{Binomial}(n,p)$ with $np(1-p) > 10$:
+  \formula{X \approx N(np, np(1-p))}
+\item \concept{Poisson Approximation:} If $X \sim \text{Poisson}(\lambda)$ with $\lambda > 30$:
+  \formula{X \approx N(\lambda, \lambda)}
+\item \concept{Continuity Correction:} For discrete $X$:
+  \begin{itemize}
+  \item $P(X = k) \approx P(k-0.5 < Y < k+0.5)$
+  \item $P(X \leq k) \approx P(Y < k+0.5)$
+  \item $P(X < k) \approx P(Y < k-0.5)$
+  \end{itemize}
+\item \concept{Example:} Binomial(100, 0.3), find $P(X > 35)$
+\item \note{Correction improves accuracy significantly}
+\end{itemize}
+
+\subsection*{6.3 Law of Large Numbers (LLN)}
+\begin{itemize}[leftmargin=*]
+\item \concept{Weak LLN:} $\bar{X}_n \xrightarrow{P} \mu$ (convergence in probability)
+\item \concept{Strong LLN:} $\bar{X}_n \xrightarrow{a.s.} \mu$ (almost sure convergence)
+\item \concept{Interpretation:} Sample mean converges to true mean
+\item \concept{Conditions:}
+  \begin{itemize}
+  \item Weak: Finite mean, pairwise uncorrelated
+  \item Strong: Finite mean (iid case)
+  \end{itemize}
+\item \concept{Example:} Casino games, long-run frequency
+\item \note{Foundation for frequentist probability}
+\end{itemize}
+
+\subsection*{6.4 Confidence Intervals}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Interval estimate with specified confidence level
+\item \concept{For Mean (known $\sigma$):} \formula{\bar{X} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}}
+\item \concept{Common Values:}
+  \begin{itemize}
+  \item 90\% CI: $z_{0.05} = 1.645$
+  \item 95\% CI: $z_{0.025} = 1.96$
+  \item 99\% CI: $z_{0.005} = 2.576$
+  \end{itemize}
+\item \concept{Interpretation:} 95\% of such intervals contain true parameter
+\item \concept{Width:} $2 \cdot z_{\alpha/2} \cdot \sigma/\sqrt{n}$
+\item \warning{NOT "95\% chance parameter is in interval"}
+\item \note{Larger $n$ $\Rightarrow$ narrower interval}
+\end{itemize}
+
+% ============================================================
+\section*{\textcolor{sectioncolor}{7. SPECIAL TOPICS \& APPLICATIONS}} \postmidterm{Post-M2}
+% ============================================================
+
+\subsection*{7.1 Conditional Expectation} \postmidterm{Conceptual!}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:}
+  \begin{itemize}
+  \item Discrete: $E[X|Y=y] = \sum x \cdot P(X=x|Y=y)$
+  \item Continuous: $E[X|Y=y] = \int x \cdot f_{X|Y}(x|y)dx$
+  \end{itemize}
+\item \concept{Law of Total Expectation:} \formula{E[X] = E[E[X|Y]]}
+\item \concept{Properties:}
+  \begin{itemize}
+  \item Linearity: $E[aX+bZ|Y] = aE[X|Y] + bE[Z|Y]$
+  \item Taking out known: $E[h(Y)X|Y] = h(Y)E[X|Y]$
+  \item Independence: $E[X|Y] = E[X]$ if independent
+  \end{itemize}
+\item \concept{Law of Total Variance:} \formula{\text{Var}(X) = E[\text{Var}(X|Y)] + \text{Var}(E[X|Y])}
+\item \concept{Example:} Breaking sticks problem
+\item \note{$E[X|Y]$ is a function of $Y$, not a number!}
+\end{itemize}
+
+\subsection*{7.2 Bayesian Statistics} \postmidterm{Professor's Favorite!}
+\begin{itemize}[leftmargin=*]
+\item \concept{Bayesian Framework:}
+  \formula{\pi(\theta|x) = \frac{L(x|\theta)\pi(\theta)}{\int L(x|\theta)\pi(\theta)d\theta}}
+  where Prior $\times$ Likelihood $\rightarrow$ Posterior
+\item \concept{Conjugate Priors:}
+  \begin{itemize}
+  \item Beta-Binomial: $\text{Beta}(\alpha,\beta) \rightarrow \text{Beta}(\alpha+x, \beta+n-x)$
+  \item Gamma-Poisson: $\text{Gamma}(\alpha,\beta) \rightarrow \text{Gamma}(\alpha+\sum x_i, \beta+n)$
+  \item Normal-Normal: With known variance
+  \end{itemize}
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item Specify prior $\pi(\theta)$
+  \item Write likelihood $L(x|\theta)$
+  \item Compute posterior (use conjugacy if possible)
+  \item Normalize if needed
+  \end{enumerate}
+\item \concept{Example:} HW6 Monty Hall Bayesian analysis
+\item \finance{Used in risk assessment, portfolio optimization}
+\end{itemize}
+
+\subsection*{7.3 Lognormal Distribution} \postmidterm{Finance Applications!}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} $Y = e^X$ where $X \sim N(\mu, \sigma^2)$
+\item \concept{Properties:}
+  \begin{itemize}
+  \item Always positive (good for prices)
+  \item Right-skewed
+  \item Mean: $E[Y] = e^{\mu + \sigma^2/2}$
+  \item Variance: $\text{Var}(Y) = e^{2\mu+\sigma^2}(e^{\sigma^2}-1)$
+  \item Median: $e^\mu$
+  \end{itemize}
+\item \concept{Stock Price Model:} $S_t = S_0 \exp(X_t)$ where $X_t \sim N(\mu t, \sigma^2 t)$
+\item \concept{Example:} HW5 Problem 2, Practice Final stock problems
+\item \finance{Black-Scholes model foundation}
+\item \note{Log returns are normal, prices are lognormal}
+\end{itemize}
+
+\subsection*{7.4 Additional Important Concepts}
+\begin{itemize}[leftmargin=*]
+\item \concept{Indicator Random Variables:}
+  \begin{itemize}
+  \item $I_A = 1$ if $A$ occurs, 0 otherwise
+  \item $E[I_A] = P(A)$
+  \item Useful for counting: $\sum I_{A_i}$
+  \end{itemize}
+\item \concept{Jensen's Inequality:} For convex $g$: $E[g(X)] \geq g(E[X])$
+\item \concept{Chebyshev's Inequality:} $P(|X-\mu| \geq k\sigma) \leq 1/k^2$
+\item \concept{Probability Integral Transform:} $F(X) \sim \text{Uniform}(0,1)$
+\end{itemize}
+
+% Placeholder for Section 8 and Appendices
+\vspace{0.5cm}
+\textit{[Section 8 (Practice Problems) and Appendices will be added in subsequent phases...]}
 
 \end{multicols}
 \end{document}
