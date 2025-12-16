@@ -1,0 +1,52 @@
+
+Page
+1
+of 5
+Midterm 2 sample
+Due Nov 2025
+Name:
+• There are 4 problems, worth a total of 100 points.
+• Before you start, make sure your exam is not missing any pages.
+• You may do the problems in any order you like.
+• Be very specific with your definitions. Showcase your work.
+For instructor’s use only
+Problem Points Score
+1 20
+2 20
+3 20
+4 20
+Total 100
+1
+1. Give X,Y continuous random variables whose joint p.d.f is given by :
+f (x, y) =
+( 1
+y , 0 < y < 1, 0 < x < y
+0, else
+(a) Compute the covariance of X and Y
+(b) Compute the Variance of X and Variance of Y
+(c) Compute the correlation of X and Y
+2
+2. Assume that the joint density of (X, Y ) :
+f (x, y) =
+(c 1
+y e−y , 0 < x < y
+0, else
+(a) Compute c such that the density if a proper p.d.f
+(b) Compute the marginal density of Y
+(c) Compute the conditional density X given Y
+(d) Compute the Expected value of X2 given Y , E(X2|Y = y)
+3
+3. Let X be a uniform random variable on the interval [−1, 1].
+(a) Compute the variance of X2.
+(b) If X1, X2, ....Xn are independent and identically distributed copies of X and
+Z = max(X1, ..., Xn) compute the CDF of Z
+(c) Compute the correlation between X and X2?
+(d) Are X and X2 independent?
+4
+4. Consider the following game. Toss a coin with probability p of Heads. If you toss
+Heads, you win $2, if you toss Tails, you win $1.
+(a) Assume that you play this game n times and let Sn be your combined winnings.
+Compute the moment generating function of Sn, that is, E(etSn ).
+(b) Now you roll a fair die and you play the game as many times as the number you
+roll. Let Y be your total winnings. Compute E(Y )
+5

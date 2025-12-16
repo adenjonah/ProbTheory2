@@ -1,0 +1,475 @@
+
+Page
+1
+of 33
+Outline
+Chapter 2: Conditional probability
+Probability
+Chapter 2
+Columbia University
+September 18, 2022
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Chapter 2: Conditional probability
+2.1 Definition of conditional probability
+2.2 Independent events
+2.3 Bayes’ Theorem
+2.4 Gambler Ruin Problem
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Three important tools
+I Multiplication rule
+I Total probability theorem
+I Bayes’s rule
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+2.1 Definition of conditional probability
+Assume that you have a bag with 11 cubes , 7 of which have a
+fuzzy surface and 4 are smooth.
+Out of the 7 fuzzy ones , 3 are red and 4 are blue; out of the
+smooth ones 2 are red and 2 are blue.
+Othe than color and fuzziness , the cubes gave no other
+distinguishing characteristics.
+You plan to pick a cube out of the bag but you forgot to wear
+gloves. Before you start the experiment the probability of that the
+selected cube is red is 5/11.
+Now, reach into the bag , grab a cube, and notice is fuzzy(but do
+not take it out and note the color). Clearly the probability now
+changes to 3/7!
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Your experiment has 11 outcomes . Consider the events, R,B,F,S
+that the selected cube is red, blue, fuzzy smooth, respectively. We
+observed that P(R) = 5/11 . For the probability of a red cube,
+conditional on it being fuzzy, we do not have notation, so we
+introduce it here:P(Red|Fuzzy ) = 3/7. Note that this also equals:
+P(R ∩ F )
+P(F ) = P(selected ball is red and fuzzy)
+P(selected ball is fuzzy)
+This conveys the idea that with additional information the
+probability must be adjusted
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+This method of thinking is common in real life.
+Say bookies estimate your LA basketball team’s chances of winning
+the NBA championship gamne to be 60% 24 hours before the
+game starts. Two hours before the game starts , LeBron sprains his
+ankle. You cannot expect that the bookies’ odds will remain the
+same and they change let’say to .3. Then, the game starts and at
+half time LA leads by 25 points. Again , the odds will change say
+to .8. Finally, when complete information (that is , the outcome of
+the experiment) is known, the probabilities are trivial either 0 or 1.
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Definition
+Conditional probability. Suppose that we learn that event B has
+occured and we we have to compute the probability that A will
+occur given that we know that B has occured. The new probability
+of A is called the conditional probability that the event A occurs
+given that event B has occured
+P(A|B) = P(A ∩ B)
+P(B)
+The conditional probability is not defined if P(B) = 0.0
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Let’s play a game of russian roulette. You are tied to your chair
+with a revolver. Revolver has 6 chambers all empty.
+Now i put 2 bullets into the barrel in two adjacent chambers.
+I close the barrel then spin it.
+Put the gun to your head and pull the trigger .
+No Bullet there, lucky you.
+Now i’m gonna pull the trigger one more time.
+Which one do u prefer , spin the barrel first or pull the trigger?
+Assume that the barrel rotates clockwise after the hammer hits
+and is pulled back.
+You are given a choice between unconditional and a conditional
+probability of death.
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Rolling dice
+Suppose that two dices are rolled and it was observed that the sum
+T of the two numbers was odd. We shall determine the probability
+that T was less than 8.
+Let A the probability that the T ¡ 8 and B the event that T is odd,
+then A ∩ B is 3, 5, 7. From previous section we know
+P(A ∩ B) = 2/36 + 4/36 + 6/36 = 1/3
+P(B) = 2/36 + 4/36 + 6/36 + 4/36 + 2/36 = 1/2
+Hence,
+P(A|B) = P(A ∩ B)
+P(B) = 2/3
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Rolling dice repeatedly
+2 dices are rolled repeatedly and the sum T of the dice is observed
+in each roll. Determine the probability that the 7 will be observed
+before the value of 8 is observed.
+Restrict the game to 2 outcomes only 7 and 8. Let A the event
+that the sum if 7 and B the event that the sum is either 7 or 8.
+P(A|B) = P(A ∩ B)
+P(B) = P(A)
+P(B)
+given the probabilities of the sum we get that P(A) = 6/36 and
+P(B) = 6/36 + 5/36 thus P(A|B) = 6/11.
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Multiplication rule for conditional probabilities
+Let A an B events with P(B) > 0, then
+P(A ∩ B) = P(B)P(A|B)
+Select two balls without replacement froin a box that contains r
+red balls and b blue balls. Let A the event that the first ball is red
+and B the event that the second ball is blue.
+Let B the event of obtaining a blue ball from the second draw.
+P(the first ball is red) = r
+r + b
+Once A has occured that are only r − 1 red and b blue. Thus
+P(B|A) = b
+r + b − 1
+it follows that
+P(the first ball is red and the second is blue) = r
+r + b
+b
+r + b − 1
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Theorem : Multiplication rule for conditional probs
+Let A1, · · · , An be events such that P(A1 ∩ · · · An) > 0. Then,
+P(A1∩· · · An) = P(A1)P(A2|A1)P(A3|A1∩A2) · · · P(An|A1∩· · · An)
+Assume that 4 balls are selected at one time without replacement
+from an urn with b blue and r red. What is the probability that
+the sequence is in order red, blue,red,blue.
+P(red first)P(blue second| red first)P(R3|R1, B2)P(B4|R1, B2, R3)
+= r
+r + b
+b
+r + b − 1
+r − 1
+r + b − 2
+b − 1
+r + b − 3
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Note : conditional probabilies behave like probabilities
+P(Ac ) = 1 − P(A), P(Ac |B) = 1 − P(A|B),
+Theorem : Multiplication rule for conditional probs
+Let A1, · · · , An be events such that P(A1 ∩ · · · An) > 0. Then,
+P(A1 ∩ · · · An|B) = P(A1|B)P(A2|A1 ∩ B) · · · P(An|A1 ∩ · · · An ∩ B)
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Partitions and conditional probability
+Let S the sample space of an experiment and consider k events
+pairwise disjoint such that ∪k
+i=1Bi = S. These are called partitions
+.
+Theorem, first Bayes’s formula Given a partition ∪k
+i=1Bi = S,
+then
+P(A) =
+k∑
+i=1
+P(Bi )P(A|Bi )
+proof : write A = ∪(A ∩ Bi )
+We call this formula ” computing the probability by conditioning
+on which of the events Bi happens.”
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Flip a coin. If you toss Heads roll one die , if you toss Tail roll 2
+dice. Compute the probability that you roll exactly one 6.
+Here the partition is form by the outcome of the coin toss B1 =
+coin lands H and B2 coin lands tail.
+P(A) = P(Heads)P(6 from one dice|H)+P(T )P(one 6 from 2 dice |T )
+clearly the coin is unbiased thus
+P(A) = 1
+2
+1
+6 + 1
+2
+2 · 5
+36 = 2
+9
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+The Game of Craps
+A player rolls 2 dice , and the sum of the 2 numbers that appears
+is observed.
+If the sum after first roll is a 7 or 11, the player wins the game
+automatically. Of the sum is 2,3 or 12 the player loses the game
+immediately.
+If the sum is 4,5,6,8,9 or 10 then the two dices are rolled again
+until the sum is either 7 or the original value. If the original value
+is obtained a second time before 7 is obtained than the player
+wins. If the sum 7 is obtained than the player loses.
+What is the winning probability?
+Denote with W the event that the player wins
+Denote with Bi = i, 2, · · · , 12 the sum of the dice after first roll
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Let’s look at the possible ways to win
+I You win on the first roll with probability 8/36
+I Otherwise,
+I you roll a 4 with probability 3/36 , then win with probability
+P(Win given roll a 4 or a 7) = 3/36
+3/36+6/36
+I you roll a 5 with probability 4/36 , then win with probability
+P(Win given roll a 5 or a 7) = 4/36
+4/36+6/36
+I you roll a 6 with probability 5/36 , then win with probability
+P(Win given roll a 6 or a 7) = 5/36
+5/36+6/36
+I you roll a 8 with probability 5/36 , then win with probability
+P(Win given roll a 8 or a 7) = 5/36
+5/36+6/36
+I you roll a 9 with probability 4/36 , then win with probability
+P(Win given roll a 9 or a 7) = 4/36
+4/36+6/36
+I you roll a 10 with probability 3/36 , then win with probability
+P(Win given roll a 10 or a 7) = 3/36
+3/36+6/36
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Using Bayes’s formula
+P(Win) = 8/36 + 2( 3
+36 · 1
+3 + 4
+36 · 2
+5 + 5
+36 · 5
+11 ) ≈ 0.4929
+a decent game by casino standards
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+2.2 Independent events
+if learning that B has occured does not change the probability of
+A, then we say A and B are independent.
+Example : Tossing coins . Suppose a fair coin is tossed twice . We
+are interested in probability that the second coss toin is a Head.
+Let A = second coss toin is a Head= TH,HH = 2/4 . Let B first
+toss is a head.
+P(A|B) = P(A ∩ B)
+P(B) = 1/2
+Thus knowing that B has occured does not change the probability
+of A occuring.
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Definition of independence
+Definition
+Independent events : Two events A and B are independent if
+P(A ∩ B) = P(A) · P(B)
+and dependent (or correlated otherwise)
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Example
+Roll a die , and let A the event that an even number is obtained
+and B the event that 1,2,3 or 4 is obtained.
+P(A) = 1/2 , P(B) = 2/3
+P(A ∩ B) = P(2, 4) = 1/3 thus A and B are independent
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Independence of complements
+If A and B are independent then occurance or not occurance of A
+should not be related to the occurance or not occurance of B.
+Theorem :If two events A and B idenpendent, then A and Bc are
+independent.
+Disjoint events with nonzero probability cannot be independent;
+given that one happens , the other cannot happen
+Definition: A1, ...An are called mutually independent if for any of
+j <= n these event
+P(A1 ∩ · · · Aj ) = P(A1) · · · P(Aj )
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Example
+Pick a random card from a deck. Let A = card is an Ace , and R
+= card is red. Are A and R indepedent ?
+We have P(A )=1/13 and P(B) = 1/2 and
+P(A ∩ B) = 2/52 = 1/26 then the events are indepedent.
+The proportion of aces among red cards is the same as the
+proportion of aces among all cards.
+Example
+Now pick 2 cards from the deck without replacement.
+Are A = First card is an Ace and B =second card is an Ace
+independent?
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Conditional Independence
+Definition
+We say that A1, ·, An are conditionally independent of B if , for
+any subcollection A1, ..., Ak
+P(A1 ∩ · · · Ak |B) = P(A1|B) · · · P(Ak |B)
+A box contains two coins: a regular coin and a fake two-headed
+coin with P(H)=1. I choose a coin at random and toss it twice.
+A first coin toss is H
+B second coin toss is H
+C: regular coin is selected
+Find P(A|C ), P(B|C ), P(A ∩ B|C ), P(A), P(B) and P(A ∩ B)
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+clearly P(A|C ) = P(B|C ) = 1/2 ,
+also P(A ∩ B|C ) = 1
+2 · 1
+2 = 1
+4
+to find P(A) we need to apply the theorem:
+P(A) = P(C )P(A|C ) + P(C c )P(A|C c ) = 1
+2
+1
+2 + 1 · 1
+2 = 3
+4
+P(B) = P(C )P(B|C ) + P(C c )P(B|C c ) = 3
+4
+P(A∩B) = P(C )P(A∩B|C )+P(C c )P(A∩B|C c ) = 1
+4
+1
+2
+1
+2 +1·1· 1
+2 = 5
+8
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+2.3 Bayes’ Theorem
+Let B1, ..., Bk form a partition of the space S with P(Bi ) > 0 and
+let A be an event with P(A) > 0. Then,
+P(Bi |A) = P(Bi )P(A|Bi )
+∑k
+j=1 P(Bj )P(A|Bj )
+the event Bi is called hypothesys, P(Bi ) is called the prior
+probability, and P(Bi |A) is called the posterior probability.
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Example
+Assume 10% of people have certain disease. A test gives correct
+diagnosis with probability 80%; that is if the person is sick the test
+will be positive with probability .8, but if the person is not sick ,
+the test will be positive with probability .2.
+A random person from the population has tested positive for the
+disease. What is the probability that he / she is actually positive.
+Let us define the relevant events : S = sick, H = Healthy , T =
+tested positive
+Now , P(H) = .9 , P(S) = .1, P(T |S) = .8. We are interested in
+P(S|T ) = P(T |S)P(S)
+P(T |S)P(S) + P(T |H)P(H) = .1.8
+.1.8 + .2 ∗ .9 = 31%
+Prior probability is very important .
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Example
+We have a fair and and unfair coin, which always comes out
+Heads. Choose one at random, toss it twice. It comes out Heads
+both times.
+What is the probability that the coin is fair?
+The relevant events are F= Fair Coin , U = Unfair Coin and B
+=both tosses are Heads
+Then P(F ) = P(U) = 1/2 as each coin is chosen with equal
+probability.
+Moreover, P(B|F ) = 1/4, and P(B|U) = 1
+Based on Bayes’ Theorem
+P(F |B) = P(B|F )P(F )
+P(B|F )P(F ) + P(B|U)P(U) =
+1
+2 · 1
+4
+1
+2 · 1
+4 + 1
+2 · 1 = 1
+5
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+2.4 Gambler Ruin Problem
+We have 2 gamblers A and B playing a game against each other.
+Player A will win $1 from B with probability p and lose $1 with
+probability 1 − p.
+Player A starts the game with $ i dollars and player B starts the
+game with k-i dollars.
+What is the probability that player A wins the game?
+To setup the game we need to think of the partition of the sample
+space and we can think of the probability of winning given how
+much money the player has
+Denote with ai the probaility of winning given that player A has i
+dollars.
+First Bayes theorem tells us
+ai = pai+1 + (1 − p)ai−1
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+What are the boundary conditions?
+Certainly when player A has 0 the probability of winning is 0
+When player A has k dollar he took all the money from player B so
+the provability is 1.
+Now we have a recurrence condition and 2 boundary conditions
+a1 = pa2
+a2 = pa3 + (1 − p)a1
+ak−2 = pak−3 + (1 − p)ak−1
+ak−1 = pak + (1 − p)ak−2
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+rewrite the equations as :
+a2 − a1 = 1 − p
+p (a1)
+a3 − a2 = 1 − p
+p (a2 − a1)
+ak−1 − ak−2 =
+( 1 − p
+p
+)k−2
+a1
+1 − ak−1 =
+( 1 − p
+p
+)k−1
+a1
+by summing up everything we can determine a1 as
+1 − a1 = a1
+k−1∑
+i=1
+( 1 − p
+p
+)i
+Chapter 2 Probability
+Outline
+Chapter 2: Conditional probability
+Solution to a fair game
+I if p = 1/2 the equations are quite simple, 1 − a1 = (k − 1)a1
+so a1 = 1/k
+I in term ai = i/k
+Solution to an unfair game
+I if p 6 = 1/2 we can solve for a1 as
+a1 = (1 − p)/p − 1
+((1 − p)/p)k − 1
+for ai
+I and consequently
+ai = ((1 − p)/p)i − 1
+((1 − p)/p)k − 1
+Chapter 2 Probability

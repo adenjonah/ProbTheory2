@@ -1,0 +1,1172 @@
+
+Page
+1
+of 48
+Outline
+Chapter 5. Special Distributions
+Chapter 5. Special Distributions
+Chapter 5
+Columbia University
+November 11, 2025
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+5.1 Introduction
+▶ several special families of distributions that are widely used in
+applications of probability and statistics.
+▶ discrete and continuous distributions of univariate, bi- variate,
+and multivariate types. The discrete univariate distributions
+are the families of Bernoulli, binomial, hypergeometric,
+Poisson, negative binomial, and geometric distributions.
+▶ The continuous univariate distributions are the families of
+normal, lognormal, gamma, exponential, and beta
+distributions.
+▶ multivariate discrete distributions, and the bivariate normal
+family of bivariate continuous distributions.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+5.2 The Bernoulli and Binomial Distributions
+Definition
+X is called Bernoulli distribution with parameter p is X can only
+take value 1 with probability p and 0 with 1 − p. Consequently, the
+pdf of X can be written as:
+f (x) =
+(
+px (1 − p)1−x , x = 0, 1
+0, else
+Then the distribution is characterized by,
+E (X ) = 0 × (1 − p) + 1 × p = p.
+Var (X ) = E (X 2) − E (X )2 = p(1 − p)
+ψX (t) = pet + 1 − pChapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+5.2 The Binomial Distributions
+Definition
+X is called Binomial distribution with parameter n, p is X can only
+take values from 0, ..n. The pdf of X can be written as:
+f (x) =
+(n
+x
+px (1 − p)n−x , x = 0, 1, ...n
+0, else
+Then the distribution is characterized by,
+E (X ) = 0 × (1 − p) + 1 × p = np.
+Var (X ) = E (X 2) − E (X )2 = np(1 − p)
+ψX (t) = (pet + 1 − p)n
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Properties Binomial distribution with parameters n, p can be
+written as a sum of independent Bernoulli random variables with
+parameter p. Hint : check the M.G.F of the sum of binomials.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+5.3 The Hypergeometric Distributions
+▶ dependent Bernoulli random variables.
+▶ A common source of dependent Bernoulli random variables is
+sampling without replacement from a finite population.
+▶ Suppose that a finite population consists of a known number
+of successes and failures. If we sample a fixed number of units
+from that population, the number of successes in our sample
+will have a distribution that is a member of the family of
+hypergeometric distributions.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Definition
+X is called Hypergeometric distribution with parameter A , B and
+n. Consequently, the pdf of X can be written as:
+f (x; A, B, n) =
+
+
+
+(A
+x )( B
+n−x)
+(A+B
+n ) , x = 0, 1
+0, else
+E (X ) = nA
+A + B .
+Var (X ) = nAB
+(A + B)2
+A + B − n
+A + B − 1 .
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Denote with Xi the random variable which is 1 if the ball is red
+and 0 , else. Then X = X1 + · · · Xn
+P(Xi = 1) = A
+A + B , P(X1 = 0) = B
+A + B
+E (Xi ) = A
+A + B , Var (Xi ) = AB
+(A + B)2
+Var (X ) = nVar (Xi ) + X
+i̸ =j
+Cov (Xi , Xj )
+= nAB
+(A + B)2 + n(n − 1)Cov (X1, X2)
+= nAB
+(A + B)2 − n(n − 1) AB
+(A + B)2(A + B − 1)
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+5.4 Poisson Distribution
+▶ include arrivals of customers for service, arrivals of calls at a
+switch- board, occurrences of floods and other natural and
+man-made disasters, and so forth.
+▶ Deaths from horse kicks in Prussian army(1898)
+▶ Particle emission and radioactive decay
+▶ Poisson distributions is used to model the number of such
+arrivals that occur in a fixed time period.
+▶ Poisson distributions are also useful approximations to
+binomial distributions with very small success probabilities.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Poisson Distribution. Let λ > 0. A random variable X has the
+Poisson distribution with mean λ if the p.f. of X is as follows:
+f (x) =
+(
+e−λ λx
+x! , x = 0, 1, ...
+0, else
+Then the distribution is characterized by,
+E (X ) = λ.
+Var (X ) = λ
+ψX (t) = eλ(et −1)
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Poisson Process If X1, ..., Xn is Poisson indep r.v. with λ1, ..., λn
+then X Is Poisson with parameter λ1 + ... + λn
+A Poisson Process has the following two properties:
+1. The number of arrivals in every fixed interval of time of length
+t has the Poisson distribution with mean λt.
+2. The numbers of arrivals in every collection of disjoint time
+intervals are independent
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+5.5 Negative Binomial
+▶ For example, while monitoring a piece of equipment to see
+when it needs maintenance, we might let it run until it
+produces a fixed number of errors and then repair it.
+▶ The number of failures until a fixed number of successes has a
+distribution in the family of negative binomial distributions.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Definition
+X is called Negative Binomial distribution with parameter r , p.if X
+denotes the number of failures before r successes where the failure
+and success is bernoulli with p
+f (x; r , p) =
+(r +x−1
+x
+pr (1 − p)x , x = 0, 1
+0, else
+Then the distribution is characterized by,
+E (X ) = r (1 − p)
+p , Var (X ) = r (1 − p)
+p2
+ψX (t) =
+ p
+1 − (1 − p)et
+r
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Definition
+X is called Geometric distribution with parameter p.if X denotes
+the number of failures before 1 successes where the failure and
+success is bernoulli with p
+f (x; p) =
+(
+p(1 − p)x , x = 0, 1
+0, else
+E (X ) = 1
+p , Var (X ) = (1 − p)
+p2
+Memoryless Property of Geometric Distributions. Let X have the
+geometric distribution with parameter p, and let k ⩾ 0. Then for
+every integer t ⩾ 0,
+P(X = k + t|X ⩾ k) = P(X = t)Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+5.6 The normal distribution
+▶ The most widely used model for random variables with
+continuous distributions is the family of normal distributions.
+▶ These distributions are the first ones we shall see whose
+p.d.f.’s cannot be integrated in closed form
+▶ tables of the c.d.f. or computer programs are necessary in
+order to compute probabilities and quantiles for normal
+distributions
+▶ random variables studied in various physical experiments often
+have distributions that are approximately normal. For
+example, a normal distribution will usually be a close
+approximation to the distribution of the heights or weights of
+individuals in a homogeneous population of people, corn
+stalks, or mice, or to the distribution of the tensile strength of
+pieces of steel produced by a certain process
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+▶ If a large random sample is taken from some distribution, then
+even though this distribution is not itself approximately
+normal, a consequence of the central limit theorem is that
+many important functions of the observations in the sample
+will have distributions which are approximately normal.
+▶ In particular, for a large random sample from any distribution
+that has a finite variance, the distribution of the average of
+the random sample will be approximately normal
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Definition
+X is called Normal distribution with parameter μ ,σ2 ,if X has the
+p.d.f
+f (x; μ, σ) = 1
+√2πσ2 e− (x−μ)2
+2σ2
+Then the distribution is characterized by,
+E (X ) = μ
+Var (X ) = σ2
+ψX (t) = eμt+σ2t2/2
+...
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Properties
+▶ if X is a normal distribution with parameters μ, and variance
+σ2 then Y = aX + b is normal with parameters aμ + b and
+σ2a2
+▶ Proof: consider the m.g.f
+ψaX +b = E (e(aX +b)t ) = ebt ψX (at) = ebt eμat+σ2b2t2/2
+▶ Normal family is closed under linear transformation
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Standard normal
+Definition
+X is called standard Normal distribution with parameter 0 ,1 ,if X
+has the p.d.f
+f (x; 0, 1) = 1
+√2π e− x2
+2
+Then the distribution is characterized by,
+E (X ) = 0, Var (X ) = 1
+ψX (t) = et2/2
+The c.d.f of standard normal is denoted with Φ(·)
+Φ(x) =
+Z x
+−∞
+1
+√2π e− x2
+2 dx
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+−15 −10 −5 0 5 10 15
+0
+5 · 10−2
+0.1
+0.15
+0.2
+1SD 1SD
+2SD
+3SD 3SD
+1SD 1SD2SD 2SD
+3SD 3SD
+f (x)
+Normal Distributions (σ = 1 and σ = 5)
+σ = 1
+σ = 5
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Properties of standard normal
+▶
+Φ(−x) = 1 − Φ(x)
+▶ Convert all to standard: The c.d.f of normal with μ and σ2 is
+Φ
+ x − μ
+σ
+
+▶ Example:X is normal N(5, 22) find P(1 < X < 8)
+P( 1 − 5
+2 < X − 5
+2 < 8 − 5
+2 ) = Φ
+ 8 − 5
+2
+
+− Φ
+ 1 − 5
+2
+
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Linear Combinations of Normally Distributed Variables
+▶ if X1, ..., Xn are indep normally distributed with N(μi , σ2
+i ) then
+X1 + .. + Xn is normal N(Pn
+i=1 μi , Pn
+i=1 σ2
+i )
+▶ if X1, ..., Xn are indep normally distributed with N(μi , σ2
+i ) then
+a1X1 + . + anXn is normal N(Pn
+i=1 ai μi , Pn
+i=1 a2
+i σ2
+i )
+▶ the sample mean of indep normal distributed with mean
+N(μ, σ2)
+ ̄X = X1 + . + Xn
+n
+has a normal distribution N(μ, σ2
+n )
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Sample size for an experiment
+How many people we need to sample to determine the height of
+the population within 1 precision for 95% confidence from a i.i.d
+population with N(μ, 32)?
+The estimator is  ̄X and the distance from the true mean μ
+P(  ̄X − μ < 1) = 95%
+we know that  ̄X has a normal distribution N(μ, σ2
+n )
+P(  ̄X − μ
+σ/√n < 1
+σ/√n ) = 95%
+Φ( 1
+σ/√n ) = 95% shows that n ⩾ (1.96 ∗ σ)2 = 35
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Lognormal Distribution
+Definition
+X is called Log Normal distribution with parameters μ,σ2 , if
+log(X ) has the p.d.f normal with μ ,σ2.
+Then the distribution is characterized by,
+E (X ) = eμ+σ2/2
+Var (X ) = e2μ+σ2
+(eσ2
+− 1)
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Example
+Stoch price : Most common model of stock price distribution is:
+St = S0eZt
+where Zt is a normal variable with mean μt and variance σ2t.
+In this formula, S0 is the present price of the stock, and σ is called
+the volatility of the stock price.
+Is this a good random variable for the stock price?
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Black Scholes Formula for Option Pricing
+Example
+Given a lognormal distribution for stock price with μ = r − σ2/2
+St = S0eZt
+, where Zt is normal with mean μt and variance σ2t compute the
+call price e−rT (ST − K )+. The price of the option is just the
+expected value
+E[e−rT (ST − K )+]
+One can write
+Zt = (r − σ2/2)t + σWt
+where Wt has mean 0 and variance t.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+One can break the expectation into two parts:
+e−rT E[(ST − K )+] = e−rT E ST 1{ST>K} − K1{ST>K}
+
+The second term can be computed as follows:
+E KI{ST >K }
+ = K E I{ST >K }
+
+= KP(ST > K )
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Given ST one can compute the probability :
+P(ST > K ) = P
+
+S0e(r − 1
+2 σ2)T +σWT > K
+
+= P
+r − 1
+2 σ2 T + σWT > log K
+S0
+
+= P
+
+σWT > log K
+S0 − r − 1
+2 σ2 T
+
+= P
+
+WT > 1
+σ
+h
+log K
+S0 − r − 1
+2 σ2 T
+i
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Since WT ∼ N(0, T ), we have WT√T ∼ N(0, 1). Also note that Φ(x)
+is the c.d.f. of normal distribution, i.e., P(N(0, 1) < x) = Φ(x)
+In addition, x ∼ N(0, 1), −x ∼ N(0, 1)
+. . . = P
+ WT√T > 1
+σ√T
+h
+log K
+S0 − r − 1
+2 σ2 T
+i
+= P
+
+
+
+
+− WT
+√T
+| {z }
+∼N(0,1)
+< 1
+σ√T
+
+log S0
+K +
+
+r − 1
+2 σ2
+
+T
+
+| {z }
+=”d2”
+
+
+
+
+
+= Φ
+ 1
+σ√T
+
+log S0
+K +
+
+r − 1
+2 σ2
+
+T
+
+| {z }
+easy part
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Let us compute the first term :
+e−rT E ST 1{ST>K}
+ = e−rT E
+h
+S0e(r − 1
+2 σ2)T +σWT 1{ST>K}
+i
+= S0e−rT
+Z ∞
+ln(K /S0)−(r −σ2/2)T
+σ√t
+e(r − 1
+2 σ2)T +σ√T x 1
+√2π e− x2
+2 dx
+= S0
+Z ∞
+ln(K /S0)−(r −σ2/2)T
+σ√t
+1
+√2π e− (x−σ√T )2
+2 dx
+= S0Φ
+ 1
+σ√T
+
+log S0
+K +
+
+r + 1
+2 σ2
+
+T
+
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Putting all together and using the notation
+d1 = 1
+σ√T
+
+log S0
+K +
+
+r + 1
+2 σ2
+
+T
+
+The price of a call option can be written as :
+S0Φ(d1) − Ke−rT Φ(d1 − σ√T )
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+5.10 Bivariate Normal Bivariate normal distribution is showing
+the following association
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Definition
+Suppose that Z1 and Z2 are independent random variables, each of
+which has the standard normal distribution . Given mean μ1, μ2
+and standard deviation σ1, σ2, define two new random variables:
+X1 = σ1Z1 + μ1
+X2 = σ2
+h
+ρZ1 + p1 − ρ2Z2
+i
++ μ2
+Then X1, X2 have a joint normal distribution (multivariate) with
+correlation ρ .
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+It is easy to write down the density of Z ∼ N2(0, I) as a product of
+standard normals.
+If Σ =
+ σ2
+1 ρσ1σ2
+ρσ1σ2 σ2
+2
+
+is strictly positive definite (and not
+otherwise), the density of X = (X1, X2) = Σ1/2Z + μ can be
+obtained using the Jacobian Theorem as
+f (X) = 1
+|Σ| 1
+2 (2π) d
+2
+exp
+
+− 1
+2 (X − μ)′Σ−1(X − μ)
+
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+f (x, y ) = 1
+2σ1σ2πp1 − ρ2 exp − 1
+2 (1 − ρ2)
+" x − μ1
+σ1
+2
+− 2ρ x − μ1
+σ1
+y
+If X and Y are standardized, then
+f (x, y ) = 1
+2πp1 − ρ2 exp
+
+− 1
+2 (1 − ρ2)
+x2 − 2ρxy + y 2
+It has the following properties:
+⋆ (Marginal dist) X ∼ N μ1, σ2
+1
+ and Y ∼ N μ2, σ2
+2
+.
+⋆ (Correlation) corr(X , Y ) = ρ
+⋆ (Linearity) aX + bY ∼ N aμ1 + bμ2, a2σ2
+1 + 2abρσ1σ2 + b2σ2
+2
+.
+⋆ (independence) ρ = 0 if and only if X and Y are independence.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Properties of Bivariate Normal Distributions
+▶ For random variables with a bivariate normal distribution, we
+find that being independent is equivalent to being
+uncorrelated.
+▶ Linear combinations of bivariate normal are normal
+▶ Conditional Distributions. The conditional distribution of X2
+given that X1 = x1 is the normal distribution with mean and
+variance given by
+E (X2 | X1 = x1) = μ2 + ρσ2
+ x1 − μ1
+σ1
+
+Var (X2 | X1 = x1) = (1 − ρ2)σ2
+2
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Example
+The heights of the wives have a mean of 66.8 inches and a
+standard deviation of 2 inches, the heights of the husbands have a
+mean of 70 inches and a standard deviation of 2 inches, and the
+correlation between these two heights is 0.68. We shall determine
+the probability that the wife will be taller than her husband given
+that the heights are multivariate normal.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+X denote the height of the wife, and let Y denote the height of her
+husband, then we must determine the value of Pr (X − Y > 0).
+Since X and Y have a bivariate normal distribution, X − Y has
+normal distribution all we need to do is compute the mean and
+variance
+E (X − Y ) = E (X ) − E (Y ) = 66.8 − 70 = −3.2
+Var (X −Y ) = Var (X )+Var (Y )−2ρσ1σ2 = 4+4−2·.68·2·2 = 2.56
+This the standard deviation of X − Y is 1.6. Transform to a
+standard normal:
+Pr (X −Y > 0) = Pr
+ X − Y + 3.2
+1.6 > 3.2/1.6
+
+= Pr (Z > 2) = .0227
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Example A ”Normal” appointment.
+A man and a woman make an appointment at 12 : 00pm at the
+Palma Square. The arrival time of the man is normally distributed
+with mean 11:55 and standard deviation 10 minutes, and the
+woman’s arrival time is normally distributed with mean 12 : 05
+with an SD of 8 minutes. If
+they can wait for each other for at most 15 minutes, what is the
+chance that they actually meet?
+Let X = the man’s arrival time relative to 12 : 00pm and Y = the
+woman’s arrival time relative to 12:00pm. Then, X ∼ N −5, 102
+and Y ∼ N 5, 82. Let W = X − Y ∼ N −5 − 5, 102 + 82.
+Then, the chance is
+P(|X − Y | ⩽ 15) = P(−15 ⩽ W ⩽ 15)
+= Φ
+ 15 + 10 
+− Φ
+ −15 + 10 
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Addition rule for variance: If X1, · · · , Xn are pairwise uncorrelated,
+then
+var (X1 + · · · + Xn) = var (X1) + · · · + var (Xn) .
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+5.7 The Gamma Distributions
+Definition
+Let α and β be positive numbers. A random variable X has the
+gamma distribution with parameters α and β if X has a continuous
+distribution for which the p.d.f. is
+f (x; α, β) =
+( βα
+Γ(α) xα−1e−βx , x > 0
+0, else
+Γ is defined as the normalizing integral
+Γ(α) =
+Z ∞
+0
+xα−1e−x dx
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Properties of the Gamma Distributions
+▶ Moments
+E (X k ) = α · · · (α + k − 1)
+βk
+▶ Variance
+Var (X ) = α
+β2
+▶ Moment Generating Function
+ψX (t) =
+ β
+β − t
+α
+. t < β
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+The Exponential Distributions
+Exponential distribution is the continuous counterpart to the
+Geometric distribution.
+Recall that a Geometric random variable counts the number of
+failures before the first success in a sequence of Bernoulli trials.
+The story of the Exponential distribution is analogous, but we are
+now waiting for a success in continuous time, where successes
+arrive at a rate of λ successes per unit of time.
+The average number of successes in a time interval of length t is
+λt, though the actual number of successes varies randomly.
+An Exponential random variable represents the waiting time until
+the first arrival of a success.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Definition
+A random variable X has the exponential distribution with
+parameters β > 0 if X has a continuous distribution for which the
+p.d.f. is
+f (x; β) =
+(
+βe−βx , x > 0
+0, else
+E (X ) = 1
+β , Var (X ) = 1
+β2
+Moment Generating Function
+ψX (t) =
+ β
+β − t
+
+. t < β
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Memoriless property
+Exponential distributions start fresh i.e.
+P(X > t + h | X > t) = P(X > h)
+What are the implications of the memoryless property? If you’re
+waiting at a bus stop and the time until the bus arrives has an
+Exponential distribution, then con- ditional on your having waited
+30 minutes, the bus isn’t due to arrive soon.
+The distribution simply forgets that you’ve been waiting for half an
+hour, and your re- maining wait time is the same as if you had just
+shown up to the bus stop. If the lifetime of a machine has an
+Exponential distribution, then no matter how long the machine has
+been functional, conditional on having lived that long, the machine
+is as good as new: there is no wear-and-tear effect that makes the
+machine more likely to break down soon.
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Fred lives in Blissville, where buses always arrive exactly on time,
+with the time between successive buses fixed at 10 minutes. He
+arrives at the bus stop at a uniformly random time . (a) What is
+the distribution of how long Fred has to wait for the next bus?
+What is the average time that Fred has to wait?
+(b) Given that the bus has not yet arrived after 6 minutes, what is
+the probability that Fred will have to wait at least 3 more minutes?
+(c) Fred moves to Blotchville, a city with inferior urban planning
+and where buses are much more erratic. Now, when any bus
+arrives, the time until the next bus arrives is an Exponential
+random variable with mean 10 minutes. Fred arrives at the bus
+stop at a random time, not knowing how long ago the previous bus
+came. What is the distribution of Fred’s waiting time for the next
+bus? What is the average time that Fred has to wait?
+Chapter 5 Chapter 5. Special Distributions
+Outline
+Chapter 5. Special Distributions
+5.1 Introduction
+5.2 The Bernoulli and Binomial Distributions
+5.3 The Hypergeometric Distributions
+5.4 Poisson Distribution
+5.5 Negative Binomial
+5.6 The normal distribution
+5.10 Bivariate Normal
+5.7 The Gamma Distributions
+Relation to Arrivals Poisson process
+Suppose that arrivals occur according to a Poisson process with
+rate β.Let Zk be the time until the kth arrival for k = 1, 2, ....
+Define Y1 = Z1 and Yk = Zk − Zk−1 for k ⩾ 2. Then Y1, Y2, ...
+are i.i.d. and they each have the exponential distribution with
+parameter β.
+Chapter 5 Chapter 5. Special Distributions

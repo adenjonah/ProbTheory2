@@ -1,0 +1,342 @@
+
+Page
+1
+of 8
+Final Practice Probability Part 2
+Name:
+• There are 5 problems, worth a total of 125 points.
+• Before you start, make sure your exam is not missing any pages.
+• You may do the problems in any order you like.
+• Be very specific with your definitions. Showcase your work.
+For instructor’s use only
+Problem Points Score
+1 25
+2 25
+3 25
+4 25
+5 25
+Total 125
+1
+1. Toss a fair coin twice. You win $3 if both tosses comes out Heads, lose $1 if no toss
+comes out Heads, and win or lose nothing otherwise.
+(a) What is the expected number of games you need to play to win once?
+SOLUTION: Probability of win once is 1/4. Expected number of games is a
+geometric distribution with mean 1
+p , so the expected number of trials is 4.
+(b) Assume that you play this game 400 times. What is, approximately, the prob-
+ability that you win at least $240?
+SOLUTION: Denote with P the win/loss after 1 play:
+E(P ) = 3 · 1
+4 − 1 · 1
+4 = 1
+2
+V ar(P ) = E(P 2) − E(P )2 = 9 · 1
+4 + 1 · 1
+4 − 1
+4 = 9
+4
+ ̄P = P1 + · · · + P400 ≈ N
+
+400 · 1
+2 , 9
+4 · 400
+
+P (  ̄P > 240) = P  ̄P − 200
+3
+2 · 20 > 240 − 200
+30
+!
+= 1 − Φ
+ 4
+3
+
+(c) Again, assume that you play this game 400 times. Compute (approximately) the
+amount of money x such that your winnings will be at least x with probability
+0.5. Then, do the same with probability 0.9.
+SOLUTION: For probability 0.5:
+P (  ̄P > x) = P  ̄P − 200
+3
+2 · 20 > x − 200
+30
+!
+= 0.5
+Clearly x = 200.
+For probability 0.9:
+P (  ̄P > x) = P  ̄P − 200
+3
+2 · 20 > x − 200
+30
+!
+= 0.9
+1 − Φ
+ x − 200
+30
+
+= 0.9
+Φ
+ x − 200
+30
+
+= 0.1 = Φ(−1.28)
+x − 200
+30 = −1.28
+Thus
+x = 200 − 1.28 · 30
+2
+2. Suppose X1 and X2 are iid N (0, 1) random variables. Define:
+Y1 = aX1 + X2, and Y2 = X1 + bX2
+(a) Find a and b such that Y = (Y1, Y2) is a Gaussian vector with independent
+components.
+SOLUTION:
+Cov(Y1, Y2) = Cov(aX1 + X2, X1 + bX2) = aV ar(X1) + bV ar(X2) = a + b
+For multivariate normal, independence is equivalent to zero correlation, so b =
+−a.
+(b) Calculate the mean vector and covariance matrix of Y .
+SOLUTION:
+E(Y1) = E(Y2) = 0
+V ar(Y1) = V ar(aX1 + X2) = a2 + 1
+V ar(Y2) = V ar(X1 − aX2) = 1 + a2
+Cov(Y1, Y2) = 0
+(c) Write the joint density of the random vector Y .
+SOLUTION:
+fY (y1, y2) = 1
+p2π(a2 + 1) e− y2
+1
+2(a2+1) · 1
+p2π(a2 + 1) e− y2
+2
+2(a2+1)
+(d) Write an expression for P (Y1 > X1|X1 > 0).
+SOLUTION:
+P (Y1 > X1|X1 > 0) = P (aX1 + X2 > X1|X1 > 0)
+= P (aX1 + X2 > X1, X1 > 0)
+P (X1 > 0)
+= P (aX1 + X2 > X1, X1 > 0)
+1/2
+= 2
+Z ∞
+0
+Z ∞
+(1−a)x1
+1
+√2π e− x2
+1
+2
+1
+√2π e− x2
+2
+2 dx2dx1
+(e) Find the conditional distribution of Y1 −X1 given X1 = x in terms of conditional
+mean and conditional variance.
+SOLUTION: Given X1 = x, we have:
+Y1 − X1 = aX1 + X2 − X1 = (a − 1)x + X2
+Since X2 ∼ N (0, 1) and is independent of X1, the conditional distribution is:
+Y1 − X1|X1 = x ∼ N ((a − 1)x, 1)
+3
+1. Simplify the expression W = Y1 − X1
+Substitute the definition of Y1:
+W = Y1 − X1
+W = (aX1 + X2) − X1
+W = (a − 1)X1 + X2
+2. Apply the conditional constraint X1 = x
+We are looking for the distribution of W conditional on the event X1 = x. The
+conditional random variable W | (X1 = x) becomes:
+W | (X1 = x) = (a − 1)x + X2
+Here, (a − 1)x is a constant, and X2 is a random variable.
+3. Determine the distribution of the conditional variable
+Since X2 ∼ N (0, 1), and W | (X1 = x) is X2 shifted by the constant C = (a−1)x,
+the resulting distribution is Normal.
+W | (X1 = x) ∼ N (E[W | X1 = x], Var[W | X1 = x])
+Conditional Expectation (Mean):
+E[W | X1 = x] = E[(a − 1)x + X2]
+= (a − 1)x + E[X2]
+= (a − 1)x + 0
+= (a − 1)x
+Conditional Variance:
+Var[W | X1 = x] = Var[(a − 1)x + X2]
+= Var[X2] (since adding a constant does not affect variance)
+= 1
+Conclusion
+The conditional distribution of Y1 − X1 given X1 = x is a Normal distribution:
+(Y1 − X1) | (X1 = x) ∼ N ((a − 1)x, 1)
+4
+3. Let X1, X2, . . . , X100 be independent random variables exponentially distributed with
+mean θ = 3 (i.e. their density is f (x) = 1
+3 e− x
+3 , for x > 0). Let  ̄X be the average of
+these variables.
+Calculate an approximate value for the probability:
+P
+  ̄X
+ ̄X + 3 < 0.5
+
+SOLUTION: Taking into account that the mean is 3 and variance is 32:
+P
+  ̄X
+ ̄X + 3 < 0.5
+
+= P   ̄X < 3
+= P
+  ̄X − 3
+3/√100 < 3 − 3
+3/√100
+
+= Φ(0) = 0.5
+5
+4. Given a lognormal distribution for stock price S defined as:
+S = S0eZ
+, where Z is normal random variable with mean (r − σ2/2) and variance σ2, where
+S0 = 100, r = 0.05, σ = 20%.
+(a) Compute the expected value of the function of the random variable E[e−rS].
+SOLUTION: Taking into account that the moment generating function of a
+standard normal is et2/2 and we can write Z as a linear function of a standard
+normal (r − σ2/2) + σ · N (0, 1):
+E[e−rS] = e−rS0E[e(r−σ2/2)+σ·N (0,1)]
+= e−rS0e(r−σ2/2)E[eσN (0,1)]
+= e−rS0e(r−σ2/2)eσ2/2 = S0
+(b) Compute the probability that S exceeds 100.
+SOLUTION:
+P (S > 100) = P
+
+S0e(r− 1
+2 σ2)+σN (0,1) > 100
+
+= P
+
+(r − 1
+2 σ2) + σN (0, 1) > log 100
+S0
+
+= P
+
+σN (0, 1) > log 100
+S0
+− (r − 1
+2 σ2)
+
+= P
+
+N (0, 1) > 1
+σ
+
+log 100
+S0
+− (r − 1
+2 σ2)
+
+Because the normal distribution is symmetric P (N (0, 1) > x) = P (N (0, 1) <
+−x) = Φ(−x) where Φ is the cumulative distribution function of a standard
+normal distribution:
+= P
+
+N (0, 1) < 1
+σ
+
+log S0
+100 + (r − 1
+2 σ2)
+
+= Φ
+ 1
+σ
+
+log S0
+100 + (r − 1
+2 σ2)
+
+= Φ
+ 1
+0.2
+
+log 100
+100 + (0.05 − 1
+2 · 0.22)
+
+= Φ (5 · (0 + 0.05 − 0.02))
+= Φ(0.15) ≈ 56%
+6
+5. Suppose that the proportion θ of defective items in a large manufactured lot is un-
+known, and the prior distribution of θ is 1/2 with probability 1/2 and 3/4 with
+probability 1/2. When 10 items are selected at random from the lot, it is found that
+none of them are defective.
+(a) What is the probability that from 10 items, none of them are defective?
+SOLUTION: Let A be the event that no items are defective. Using the law of
+total probability:
+P (A) = P (A|θ = 1/2)P (θ = 1/2) + P (A|θ = 3/4)P (θ = 3/4)
+=
+ 1
+2
+10
+· 1
+2 +
+ 1
+4
+10
+· 1
+2
+= 1
+2
+ 1
+210 + 1
+410
+
+= 1
+2
+ 1
+1024 + 1
+1048576
+
+≈ 0.000488
+(b) Determine the posterior distribution of θ, given none items are defective from a
+sample of 10 items.
+SOLUTION: Using Bayes’ theorem:
+P (θ = 1/2|A) = P (A|θ = 1/2)P (θ = 1/2)
+P (A)
+=
+ 1
+2
+10 · 1
+2
+1
+2
+ 1
+210 + 1
+410
+
+=
+1
+211
+1
+2
+ 1
+210 + 1
+410
+
+=
+1
+2048
+1
+2048 + 1
+2097152
+≈ 0.999
+P (θ = 3/4|A) = 1 − P (θ = 1/2|A) ≈ 0.001
+(c) What is the mean and variance of the parameter θ given the data?
+SOLUTION:
+E(θ|A) = 1
+2 · P (θ = 1/2|A) + 3
+4 · P (θ = 3/4|A)
+≈ 0.5 · 0.999 + 0.75 · 0.001 = 0.50025
+7
+E(θ2|A) =
+ 1
+2
+2
+· P (θ = 1/2|A) +
+ 3
+4
+2
+· P (θ = 3/4|A)
+≈ 0.25 · 0.999 + 0.5625 · 0.001 = 0.2503125
+V ar(θ|A) = E(θ2|A) − [E(θ|A)]2
+≈ 0.2503125 − (0.50025)2 = 0.000062
+8

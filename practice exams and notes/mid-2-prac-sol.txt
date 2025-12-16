@@ -1,0 +1,586 @@
+
+Page
+1
+of 10
+Midterm 2 sample Solution
+Due Nov 2025
+Name:
+• There are 3 problems, worth a total of 100 points.
+• Before you start, make sure your exam is not missing any pages.
+• You may do the problems in any order you like.
+• Be very specific with your definitions. Showcase your work.
+For instructor’s use only
+Problem Points Score
+1 33
+2 33
+3 34
+Total 100
+1
+1. Suppose X and Y have joint pdf f (x, y) = c x2 + xy on [0, 1] × [0, 1].
+(a) Find c and the joint cdf F (x, y).
+Solution: We have
+1 =
+Z 1
+0
+Z 1
+0
+c x2 + xy dydx = c
+Z 1
+0
+x2 + x
+2 dx = c
+ 1
+3 + 1
+4
+
+= 7c
+12
+Thus, c = 12
+7 . We have:
+F (x, y) = P (X ≤ x, Y ≤ y) = 12
+7
+Z x
+0
+Z y
+0
+u2 + uvdydx
+= 12
+7
+Z x
+0
+u2y + uy2
+2 du
+= 12
+7
+ x3y
+3 + x2y2
+4
+
+(b) Find the marginal cumulative distribution functions FX and Fy and the marginal
+pdf fX and fY .
+Solution: The marginal cdf’s are:
+FX (x) = F (x, 1) = 12
+7
+ x3
+3 + x2
+4
+
+FY (y) = F (1, y) = 12
+7
+ y
+3 + y2
+4
+
+The marginal pdf’s are found by differentiating the marginal cdf:
+fX (x) = 12
+7
+
+x2 + x
+2
+
+fY (y) = 12
+7
+ 1
+3 + y
+2
+
+.
+We could also have found them by integrating the joint pdf:
+fX (x) =
+Z 1
+0
+f (x, y)dy = 12
+7
+
+x2 + x
+2
+
+fY (y) =
+Z 1
+0
+f (x, y)dx = 12
+7
+ 1
+3 + y
+2
+
+(c) Find E[X] and Var(X).
+Solution: The computation is slightly easier if we use the formula Var(X) = E X2−
+E[X]2.
+2
+E[X] =
+Z 1
+0
+xfX (x)dx = 12
+7
+Z 1
+0
+x
+
+x2 + x
+2
+
+dx = 12
+7
+ 1
+4 + 1
+6
+
+= 5
+7 ≈ 0.7143
+E X2 =
+Z 1
+0
+x2fX (x)dx = 39
+70 ≈ 0.5571
+Thus Var(X) = E X2 − E[X]2 ≈ 0.0469.
+(d) Find the covariance and correlation of X and Y .
+Solution: First we’ll need E[Y ] and Var[Y ]. The computations are similar to those
+in part (c).
+E[Y ] =
+Z 1
+0
+yfY (y)dy = 12
+7
+Z 1
+0
+y
+ 1
+3 + y
+2
+
+dy = 4
+7 ≈ 0.5714
+E Y 2 =
+Z 1
+0
+y2fY (y) = 12
+7
+Z 1
+0
+y2
+ 1
+3 + y
+2
+
+dy = 17
+42 ≈ 0.4048
+Var(Y ) = E Y 2 − E[Y ]2 ≈ 0.0782
+Now, covariance is defined as Cov(X, Y ) = E [(X − μx) (Y − μY )]. We could com-
+pute this directly, but it’s slightly easier to use the formula Cov(X, Y ) = E[XY ] −
+E[X]E[Y ].
+E[XY ] =
+Z 1
+0
+Z 1
+0
+xyf (x, y)dydx = 12
+7
+Z 1
+0
+Z 1
+0
+x3y + x2y2dydx = 17
+42 ≈ 0.4048
+Cov(X, Y ) = E[XY ] − E[X]E[Y ] ≈ −0.0034
+Cor(X, Y ) = Cov(X, Y )
+σX σY
+= −0.0561
+(e) Are X and Y independent?
+Solution: No they are not independent. We can see this in two ways. First, their
+joint pdf is not the product of the marginal pdfs. Second, their covariance is not 0 .
+(f) Compute the conditional density X given Y
+Solution:
+fX/Y (x, y) = f (x, y)
+f (y) =
+12
+7
+x2 + xy
+12
+7
+ 1
+3 + y
+2
+ , 0 < x < 1, 0 < y < 1,
+3
+2. Let X be a uniform random variable on the interval [−1, 1].
+(a) Compute the variance of X2.
+E(X2) =
+Z 1
+−1
+x2 1
+2 dx = 1
+3
+E(X4) =
+Z 1
+−1
+x4 1
+2 dx = 1
+5
+V ar(X2) = E(X4) − (E(X2))2
+(b) If X1, X2, ....Xn are independent and identically distributed copies of X and
+Z = max(X1, ..., Xn) compute the CDF of Z
+P (Z < z) = P (max(X1, ..., Xn) < z) = P (X1 < z)n =
+ (z + 1)
+2
+n
+(c) Compute the correlation between X and X2?
+E(X · X2) =
+Z 1
+−1
+x3 1
+2 dx = 0
+E(X) =
+Z 1
+−1
+x 1
+2 dx = 0
+Cov(X, X2) = E(XX2) − E(X)E(X2) = 0
+Thus correlation is zero.
+(d) Are X and X2 independent?
+**Step 1: Understanding Independence**
+Two random variables X and Y are independent if and only if, for *every* pair
+of sets A and B, the following holds:
+P (X ∈ A, Y ∈ B) = P (X ∈ A) · P (Y ∈ B)
+To prove that two variables are **not** independent, we only need to find
+**one counterexample**—a single pair of sets A and B for which this equality
+**fails**.
+—
+**Step 2: Intuition for Dependence**
+There is a clear functional relationship between X and X2. If I know the value
+of X, I know the *exact* value of X2. For instance: * If I tell you X = 0.8,
+4
+then you know X2 = 0.64. * If I only tell you X2 = 0.25, you don’t know if
+X = 0.5 or X = −0.5.
+This inherent relationship suggests they are not independent. We will now prove
+this formally.
+—
+**Step 3: Constructing a Counterexample**
+Let’s define our sets A and B strategically. A good choice is often to relate them
+to the functional dependency.
+* Let A =  1
+2 , 1. This is the event that X > 1
+2 . * Let B =  1
+4 , 1. This is the
+event that X2 > 1
+4 .
+Now we will compute both sides of the independence equation.
+—
+**Step 4: Computing the Probabilities**
+Since X ∼ Uniform[−1, 1], its probability density function (PDF) is fX (x) = 1
+2
+for x ∈ [−1, 1]. Probabilities are found by calculating the length of the interval
+and multiplying by 1
+2 .
+**1. Compute P (X ∈ A) = P X > 1
+2
+** The interval  1
+2 , 1 has length 1 − 1
+2 =
+1
+2 .
+P
+
+X > 1
+2
+
+= length × density = 1
+2 × 1
+2 = 1
+4
+**2. Compute P (X2 ∈ B) = P X2 > 1
+4
+** The condition X2 > 1
+4 means
+|X| > 1
+2 . This corresponds to the intervals −1, − 1
+2
+ ∪  1
+2 , 1. The total length
+of these intervals is 1 − 1
+2
+ + 1 − 1
+2
+ = 1.
+P
+
+X2 > 1
+4
+
+= 1 × 1
+2 = 1
+2
+**3. Compute the Right-Hand Side (RHS) of the Independence Condition**
+P (X ∈ A) · P (X2 ∈ B) = 1
+4 × 1
+2 = 1
+8
+**4. Compute the Joint Probability P (X ∈ A, X2 ∈ B)** We need P X > 1
+2 , X2 > 1
+4
+.
+Let’s analyze the joint event: * The event X2 > 1
+4 is {X < − 1
+2 or X > 1
+2 }. *
+The event X > 1
+2 is a subset of the event X2 > 1
+4 .
+Therefore, the **intersection** of these two events is simply the event X > 1
+2 .
+P
+
+X > 1
+2 , X2 > 1
+4
+
+= P
+
+X > 1
+2
+
+= 1
+4
+—
+5
+**Step 5: The Conclusion**
+We have found a specific pair of sets A and B for which:
+P (X ∈ A, X2 ∈ B) = 1
+4
+P (X ∈ A) · P (X2 ∈ B) = 1
+8
+Since 1
+4 ̸ = 1
+8 , the necessary condition for independence is **violated**.
+**Final Answer**
+No
+X and X2 are **not** independent.
+6
+3. Consider the following game. Toss a coin with probability p of Heads. If you toss
+Heads, you win $2, if you toss Tails, you lose $1.
+(a) Assume that you play this game n times and let Sn be your combined winnings.
+Compute the moment generating function of Sn, that is, E(etSn ).
+Solution: We have a coin-tossing game: * Probability of Heads = p. Win $2. *
+Probability of Tails = 1 − p. Lose $1.
+**Step 1: Define the Random Variables**
+Let Xi be the winnings from the i-th game. The possible outcomes are:
+Xi =
+(
+2 with probability p
+−1 with probability (1 − p)
+The total winnings after n independent games is:
+Sn = X1 + X2 + · · · + Xn
+**Step 2: Find the MGF of a Single Game Xi**
+The moment generating function (MGF) of a random variable X is MX (t) =
+E(etX ).
+For a single game Xi:
+E(etXi ) = et·2 · p + et·(−1) · (1 − p) = pe2t + (1 − p)e−t
+**Step 3: Find the MGF of the Sum Sn**
+Since the Xi are independent and identically distributed (i.i.d.), the MGF of
+their sum is the product of their individual MGFs:
+E(etSn ) = E
+
+et(X1+X2+···+Xn)
+= E(etX1 ) · E(etX2 ) · · · · · E(etXn )
+E(etSn ) = E(etX1 )n = pe2t + (1 − p)e−tn
+**Final Answer**
+(pe2t + (1 − p)e−t)n
+(b) Now you roll a fair die and you play the game as many times as the number you
+roll.
+Let Y be your total winnings. Compute E(Y )
+**Step 1: Define the New Random Variables**
+Let N be the number rolled on a fair die. So,
+P (N = k) = 1
+6 , for k = 1, 2, . . . , 6
+7
+Let Y be the total winnings. The number of games we play is N , so:
+Y = X1 + X2 + · · · + XN
+(We assume the coin toss games Xi are independent of the die roll N ).
+**Step 2: Use the Law of Total Expectation**
+The Law of Total Expectation (or Tower Law) states:
+E(Y ) = E [E(Y |N )]
+**Step 3: Find the Conditional Expectation E(Y |N )**
+If we know we play exactly N = k games, then the expected total winnings is
+just the sum of the expectations of k games.
+E(Y |N = k) = E(X1 + · · · + Xk) = k · E(X1)
+First, let’s calculate E(X1):
+E(X1) = (2)(p) + (−1)(1 − p) = 2p − 1 + p = 3p − 1
+Therefore,
+E(Y |N ) = N · E(X1) = N · (3p − 1)
+**Step 4: Take the Expectation with respect to N **
+Now we apply the Tower Law:
+E(Y ) = E [E(Y |N )] = E [N · (3p − 1)]
+Since (3p − 1) is a constant, we can factor it out:
+E(Y ) = (3p − 1) · E(N )
+**Step 5: Calculate E(N )**
+N is the outcome of a fair die, so its expectation is:
+E(N ) = 1 + 2 + 3 + 4 + 5 + 6
+6 = 21
+6 = 7
+2
+**Step 6: Final Calculation for E(Y )**
+Substitute E(N ) back into the equation:
+E(Y ) = (3p − 1) · 7
+2
+**Final Answer **
+7
+2 (3p − 1)
+8
+Extra Problems :
+Extra 1 Give X,Y continuous random variables whose joint p.d.f is given by :
+f (x, y) =
+( 1
+y , 0 < y < 1, 0 < x < y
+0, else
+(a) Compute the covariance of X and Y
+E(XY ) =
+Z 1
+0
+Z y
+0
+xy 1
+y dxdy =
+Z 1
+0
+y2
+2 dy = 1
+6
+E(X) =
+Z 1
+0
+Z y
+0
+x 1
+y dxdy =
+Z 1
+0
+y
+2 dy = 1
+4
+E(Y ) =
+Z 1
+0
+Z y
+0
+y 1
+y dxdy =
+Z 1
+0
+ydy = 1
+2
+Cov(X, Y ) = E(XY ) − E(X)E(Y ) = 1
+6 − 1
+8 = 1
+24
+Another way is compute marginal of X fX (x) = R 1
+x
+1
+y dy = −ln(x) Apply
+integration by parts
+−
+Z
+xln(x)dx = − x2
+2 ln(x) +
+Z x2
+2
+1
+x dx
+Then integrate the marginal with respect to x
+E(X) = −
+Z 1
+0
+xln(x)dx =
+Z 1
+0
+x2
+2
+1
+x dx = 1/4
+(b) Compute the Variance of X and Variance of Y
+E(X2) =
+Z 1
+0
+Z y
+0
+x2 1
+y dxdy =
+Z 1
+0
+y3
+3 dy = 1
+9
+E(Y 2) =
+Z 1
+0
+Z y
+0
+y2 1
+y dxdy =
+Z 1
+0
+y2dy = 1
+3
+V ar(X) = E(X2) − E(X)2 = 1
+9 − 1
+16 = 7
+144
+V ar(Y ) = E(Y 2) − E(Y )2 = 1
+3 − 1
+4 = 1
+12
+(c) Compute the correlation of X and Y
+Cor(X, Y ) = Cov(X, Y )
+pV ar(X)V ar(y)
+9
+Extra 2 Assume that the joint density of (X, Y ) :
+f (x, y) =
+(c 1
+y e−y , 0 < x < y
+0, else
+(a) Compute c such that the density if a proper p.d.f
+c
+Z ∞
+0
+Z y
+0
+1
+y e−ydxdy = 1
+c
+Z ∞
+0
+y 1
+y e−ydxdy = 1, c = 1
+(b) Compute the marginal density of Y
+fY (y) =
+Z y
+0
+f (x, y)dx =
+Z y
+0
+1
+y e−ydx = e−y, y > 0
+(c) Compute the conditional density X given Y
+fX/Y (x, y) = f (x, y)
+f (y) = 1
+y , 0 < x < y
+(d) Compute the Expected value of X2 given Y , E(X2|Y = y)
+E(X2|Y = y) =
+Z y
+0
+x2fX/Y (x, y)dx =
+Z y
+0
+x2 1
+y dx = y2
+3
+(e) Compute the P (X ≤ .5|Y = y)
+P (X ≤ .5|Y = y) =
+Z .5
+0
+fX/Y (x, y)dx =
+Z min(.5,y)
+0
+1
+y dx = min(.5, y)
+y
+10

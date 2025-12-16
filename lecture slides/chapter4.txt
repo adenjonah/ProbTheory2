@@ -1,0 +1,1537 @@
+
+Page
+1
+of 61
+Outline
+Chapter 4. Expectations of Random Variables
+Expectation of Random variables
+Chapter 4.3-4.7
+Columbia University
+October 8, 2025
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+4.3 Variance
+▶ Two variables can have the same mean but different
+distribution
+▶ Two stocks can have the same average but one can be more
+volatile than the other
+▶ How do u compare the call prices?
+▶ To describe how spread out the distribution it is useful to
+compute another statistics which we call variance
+▶ Square root of variance is called standard deviation or
+volatility
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Definition
+Let X be a random variable with finite mean E (X ).
+The variance of X, denoted by Var (X ), is defined as follows:
+Var (X ) = E (X − μ)2 = E (X − E (X )))2
+The standard deviation of X is the nonnegative square root of
+Var(X) .
+The alternate computation of Var(X) is
+Var (X ) = E (X 2) − E (X )2
+Proof :
+E (X − E (X )))2 = E (X 2) − 2E (X )E (X ) + E (X )2 = E (X 2) − E (X )2
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Consider two stocks one uniform in 90 to 110 and one uniform in
+80 to 120. What is the variance for each of the two stocks?
+Var (X1) = 1
+20
+Z 110
+90
+x2dx − 1002 = 33.33
+Var (X1) = 1
+40
+Z 120
+80
+x2dx − 1002 = 133.33
+The standard deviation of stock 1 is pVar (X1) = 5.7 and the
+standard deviation of stock 2 is pVar (X1) = 11.54
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Theorem
+Properties of Variance
+▶ For each X, Var (X ) ⩾ 0. If X is a bounded random variable,
+then Var(X) must exist and be finite
+▶ Var (X ) = 0 if an only if X is a constant
+▶ Y = aX+B , with a,b constants then
+Var (Y ) = a2Var (X )
+▶ if X1, ..., Xn are independent variance is additive
+Var (X1 + .. + Xn) = Var (X1) + .. + Var (Xn)
+Var (a1X1 + .. + anXn) = a2
+1Var (X1) + .. + a2
+nVar (Xn)
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Example
+Consider an urn with blue balls, the proportion of red balls is p
+(0 ⩽ p ⩽ 1). A random sample of n balls is selected from the box
+with replacement. If X denotes the number of red balls in the
+sample, then X has the binomial distribution with parameters n
+and p, Let
+Xi =
+(
+1, p ball is Red
+0, (1 − p) else
+Then, as before, X = X1 + ... + Xn. E (Xi ) = p E (X ) = np. What
+is the variance?
+Var (Xi ) = 1 · p − p2 = p(1 − p)
+Var (X ) =
+nX
+i=1
+Var (Xi ) = np(1 − p)
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Definition
+The interquartile range (IQR) is defined to be F 1(0.75) − F 1(0.25)
+where F is the CDF of the random variable X and F −1(p) is the
+quantile of X .
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Example
+Let U be a random variable uniform on [0,1] and Y a random
+variables uniform on [a, b]. What is the mean and variance of U
+and Y ?
+E (U) =
+Z 1
+0
+xdx = 1/2
+Var(U) = E(U2) − E (U)2 = R 1
+0 x2dx − (1/2)2 = 1/3 − 1/4 = 1/12
+Y can be written as linear transformation of a + (b − a)U, thus
+E (Y ) = a + (b − a)E (U) = (a + b)/2
+Var (Y ) = (b − a)2Var (U) = (b − a)2
+12
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+4.4 Moments of a Random Variable, Moment Generating
+function
+▶ The means of powers of X k can be also used to describe the
+distribution
+▶ Moment generating function is tool to describe the
+distribution of sums of indep variables
+▶ For each random variable X and every positive integer k, the
+expectation E (X k ) is called the k-th moment of X. In
+particular, in accordance with this terminology, the mean of X
+is the first moment of X.
+▶ Skewness is defined as E ((X − E (X ))3)/σ3 the third central
+moment and measure asymetry between left and right tail of
+the distribution
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Moment Generating functions
+Definition
+Moment Generating Function. Let X be a random variable. For
+each real number t, define
+ψ(t) = E (etX ).
+The function ψ(t) is called the moment generating function
+(abbreviated m.g.f.) of X
+Theorem
+The m.g.f of a random variable can be used to compute the
+moments
+E (X n) = ψn(0)
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Here is where the name comes from: by writing its Taylor
+expansion in place of etX and exchanging the sum and the integral
+(which can be done in many cases)
+E (etX ) = E (1 + tX + t2X 2
+2! + t3X 3
+3! + . . . )
+= 1 + tE (X ) + t2 E (X 2)
+2! ) + t3 E (X 3)
+3! ) + . . .
+The expectation of the k-th power of X, mk = E (X k ), is called the
+k-th moment of X.
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Let X with a p.d.f
+f (x) =
+(
+e−x , x ⩾ 0
+0, else
+The m.g.f of X is
+ψX (t) =
+Z ∞
+0
+etx e−x dx = − 1
+t − 1 , t < 1
+Otherwise, the integral diverges and the moment generating
+function does not exist. Have in mind that the moment generating
+function is meaningful only when the integral (or the sum)
+converges.
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+The first and second moment of X can be computed using the
+derivatives of ψ
+ψ′
+(t) = 1
+(1 − t)2
+and
+ψ′′
+(t) = 2 1
+(1 − t)3
+E (X ) = ψ′
+(0) = 1
+E (X 2) = ψ′′
+(0) = 2
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Properties of M.G.F
+▶ M.G.F of a linear transformation Y = aX + b
+φY (t) = φ(at)ebt
+▶ M.G.F of sum of independent random variablesX1, ..., Xn is
+multiplicative Y = X1 + .. + Xn
+ψY (t) = ψ1(t) · · · ψn(t)
+▶ Uniqueness : if two variable have the same MGF then they
+have the same distribution
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Example
+MGF of binomial. Let X have the Bernoulli distribution with
+parameter p, mean of X is that is, assume that X takes only the
+two values 0 and 1 with Pr(X = 1) = p. Then the
+ψX1 (t) = E (etX ) = (1 − p) + et p
+X = X1 + ... + Xn.
+ψX (t) = ((1 − p) + et p)n
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+4.5 The mean and median
+Definition
+Median. Let X be a random variable. Every number m with the
+following property is called a median of the distribution of X:
+P(X ⩾ m) ⩾ 1
+2 , P(X ⩽ m) ⩾ 1
+2
+Let X with a p.d.f
+f (x) =
+(
+4x3, 0 ⩽ x ⩽ 1
+0, else
+Z m
+0
+4x3dx =
+Z 1
+m
+4x3dx
+implies m = 1
+2
+1/4
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Mean square error
+Theorem
+μ = E (X ) minimizes the mean squared error between the random
+variable X and any real number i,e.
+min
+d∈R E ((X − d)2) = E ((X − μ)2)
+if m is the median, then it minimizes the absolute error betwen the
+variable X and any real number
+min
+d∈R E (|X − d|) = E (|X − m|)
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Example: Last lottery number
+After several years, all but one of the 1000 possible numbers has
+been drawn. A lottery official would like to predict how much
+longer it will be until that missing number is finally drawn.
+Let X be the number of trials (X = 1 being tomorrow) until that
+the number appears
+The probability that number is drawn in trial n is determined by
+n-1 failures followed by 1 success.
+P(X = n) = .001 · .999n−1
+the best guess is given by the expected value
+E (X ) =
+∞X
+n=1
+n.001(.999)n−1
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+now take into account that for 0 ⩽ y < 1
+f (y ) =
+∞X
+n=0
+y n = 1
+1 − y
+f ′(y ) =
+∞X
+n=0
+ny n−1 =
+∞X
+n=1
+ny n−1 = 1
+(1 − y )2
+E (X ) =
+∞X
+n=1
+n.001(.999)n−1
+= .001 ·
+∞X
+n=1
+n(.999)n−1
+= .001 · 1
+(1 − .999)2 = 1
+.001
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Coupon collector problem
+Sample from n cards, with replacement, indefinitely. Let N be the
+number of cards you need to sample for a complete collection, i.e.,
+to get all different cards represented. What is E (N) ?
+This is a problem that can be solved by breaking down N in
+different events
+Ni = 1number of additional cards that u need to get the ith card , after u collected i-1 differ
+N = N1 + · · · Nn
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Coupon collector problem
+N1 the expected cards will be 1 with prob 100%
+N2 the expected success for each card is n − 1/n with prob
+expected value 1/p = n/n − 1
+Clearly Ni have a failure rate with (i − 1)/N thus the mean of this
+was already computed before is 1/p
+E (N) = E (N1) + · · · E (Nn)
+= N(1+1/2+...+1/N)
+some algebra approximation tells us in the limit this is N · ln(N)
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+4.6 Covariance and correlation
+▶ When we are interested in the joint distribution of two
+random variables, it is useful to have a summary of how much
+the two random variables depend on each other.
+▶ The covariance and correlation are attempts to measure that
+dependence, but they only capture a particular type of
+dependence, namely linear dependence.
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Definition
+Covariance. Let X and Y be random variables having finite means.
+Let E (X ) = μX X and E (Y ) = μY The covariance of X and Y ,
+which is denoted by Cov(X, Y ), is defined as
+Cov (X , Y ) = E [(X − μX )(Y − μY )],
+Properties :
+Cov (X , Y ) = E [(XY )] − μX μY ,
+Cov (X , Y )2 ⩽ σ2
+X σ2
+y
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Correlation. Let X and Y be random variables with finite variances
+σX and σY , respectively. Then the correlation of X and Y , which
+is denoted by ρ(X , Y ), is defined as follows:
+ρ(X , Y ) = Cov (X , Y )
+σX σY
+Properties:
+E [(XY )]2 ⩽ E [X 2]E [Y 2]
+−1 ⩽ ρ(X , Y ) ⩽ 1
+When ρ > 0 we say X and Y are positively correlated
+When ρ < 0 we say X and Y are negatively correlated
+For general random variables X and Y , ρ(X , Y ) > 0 intuitively
+means that, “on the average,” increasing X will result in larger Y .
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Properties of covariance and correlation
+▶ if X , Y are independent then
+Cov (X , Y ) = ρ(X , Y ) = 0
+▶
+Var (X + Y ) = Var (X ) + Var (Y ) + 2Cov (X , Y )
+▶
+Var (aX + bY + c) = a2Var (X ) + b2Var (Y ) + 2abCov (X , Y )
+▶
+Var (
+nX
+i=1
+Xi ) =
+nX
+i=1
+Var (Xi ) + X
+i̸ =j
+Cov (Xi , Xj )
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Interpreting the correlation coefficient
+Association does not imply causation
+▶ X : mathematical aptitude
+▶ Y : musical ability
+Assume there are 3 independent random variables Z , W , V (with
+mean 0 and SD 1) and in terms of these variable we can model
+X , Y as a linear combination:
+▶ X = Z + V
+▶ Y = Z + W
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Solution
+due to independence of Z and V we can compute
+Var (X ) = Var (Z ) + Var (V ) = 12 + 12 = 2
+due to independence of Z and W we can compute
+Var (Y ) = Var (Z ) + Var (W ) = 12 + 12 = 2
+The covariance can be computed and taking into account
+Var (Z ) = 12 = E (Z 2),
+E ((Z + V )(Z + W )) = E (Z 2 + ZV + ZW + VW )
+= E (Z 2) + E (Z )E (V ) + E (Z )E (W ) + E (V )E (W ) = 12
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+We can proceed to compute the mean using linearity of expectation
+E (X ) = E (Z + V ) = E (Z ) + E (V ) = 0
+We can repeat the same argument for E (Y ) = 0
+We can now compute the correlation :
+ρX ,Y = E (XY ) − E (X )E (Y )
+SD(X ) · SD(Y ) = 1
+√2√2 = 1
+2
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Roll a die 10 times. Let X be the number of 6’s rolled and Y be
+the number of 5’s rolled. Compute Cov (X , Y ) andCor (X , Y )
+Let X = I1 + ... + I10, where Ii = {Roll a 6 in ith trial} , Let
+Y = J1 + ... + J10, where Ji = {Roll a 5 in ith trial} ,
+Take into account that E (Ii · Ji ) = 0 and
+E (I1J2) = P(I1 = 1, J2 = 1) = 1/62
+E (XY ) =
+10X
+i=1
+10X
+j=1
+E (Ii Jj )
+= X
+i̸ =j
+E (Ii Jj ) = (102 − 10) 1
+62 = 5
+2
+Cov (X , Y ) = E (XY ) − E (X )E (Y ) = 5
+2 − 1
+36 = − 5
+18
+This is negative just as we expect .
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+We just need to compute the standard deviation of X and Y which
+we know from the binomial that is σX =
+q
+10 1
+6
+5
+6 , σX =
+q
+10 1
+6
+5
+6
+Thus
+Cor (X , Y ) = Cor (X , Y )
+σX σY
+= − 5
+18
+10 1
+6
+5
+6
+= − 5 · 36
+18 · 10 · 5 = −.2
+Thus the correlation is -20% , weak negative association.
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Test scores
+Let X , Y be the test scores where we have a joint density
+f (x, y ) = 2xy + .5, 0 ⩽ x ⩽ 1, 0 ⩽ y ⩽ 1
+Compute the covariance and correlation .
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Dependent but uncorrelated random variables
+Suppose that the random variable X can take only the three values
+−1, 0, and 1, and that each of these three values has the same
+probability. Also, let the random variable Y be defined by the
+relation Y = X 2. We shall show that X and Y are dependent but
+uncorrelated.
+Compute the covariance and correlation .
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Correlation Measures Only Linear Relationship.
+▶ A large value of ρ means that X and Y are close to being
+linearly related and hence are closely related. But a small
+value of ρ does not mean that X and Y are not close to being
+related.
+▶ Correlation is invariant to linear transformations
+▶ If Y is a linear transformation of X , Y=a+bX
+Cor (X , Y ) = 1, b > 0
+,
+▶ Zero correlation does not mean independence
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Example: Use correlation to reduce volatility
+Consider an investor that has $10000 to invest in stocks R1 and
+R2 which both have mean 5% and volatility 20%. Stocks1 and
+Stock 2 are correlated with correlation 30%. Both stocks are
+trading at $ 100.
+What is the mean and variance of a portfolio of a portfolio 1 Stock
+1 and 1 Stock 2?
+What is the mean and variance of a portfolio composed of 2 Stock
+1 and -1 Stock 2?
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+n people go at a party and bring a gift. Gifts are distributed at
+random between the guests. What is the mean and the variance of
+number of people that get their own gift. Let X denote the
+number of people who get their own gift . This can be
+decomposed as X = X1 + · · · + Xn where each random variable is
+the indicator that the person got their own gift.
+Xi =
+(
+1, 1
+n
+0, n−1
+n
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+The variables are not independent thus will have an extra term
+contributing to the total variance which is the covariance
+E (Xi ) = 1
+n
+Var(Xi ) = E (X 2
+i ) − E (Xi )2 = 1
+n − 1
+n2 = n−1
+n2
+Cov (X1, X2) = E [X1X2] − 1
+n2 = 1
+n
+1
+n − 1 − 1
+n2 = 1
+n2(n − 1)
+Var (X ) =
+nX
+i=1
+Var (Xi ) + X
+i̸ =j
+Cov (Xi , Xj )
+= n · Var (Xi ) + n(n − 1)Cov (X1, X2)
+= n − 1
+n + n(n − 1) 1
+n2(n − 1)
+= 1
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+4.7 Conditional Expectation
+The conditional expectation of Y given X (denoted by E (Y | X ) is
+the “best approximation” of Y by a X measurable random variable.
+Example
+You have an incomplete deck of cards which has 10 red cards (of
+which 5 are high), and 20 black cards (of which 4 are high). Let X
+be the outcome of a game played through a dealer who pays you
+$1 when a high card is drawn, and charges you $1 otherwise.
+However, the dealer only tells you the color of the card drawn and
+your winnings, and not the rules of the game or whether the card
+was high.
+After playing this game often the only information you can deduce
+your expected return is 0 when a red card is drawn and −3/5 when
+a black card is drawn.
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+After playing this game often the only information you can deduce
+your expected return is 0 when a red card is drawn and −3/5 when
+a black card is drawn.
+That is, you approximate the game by the random variable
+Y = 0 · 1R − 3
+5 1B ,
+where, as before R, B denote the set of all red and black cards
+respectively.
+Here Y is the game outcome and X is the color of the card drawn.
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Note that the events you can deduce information about by playing
+this game (through the dealer) are exactly a function of
+information contained in X C = ∅, R, B, Ω. By construction, that
+your approximation Y is a function of X -and has the same
+averages as X on all elements of C.
+This is how we define conditional expectation, as an average of Y
+over the information contained in X .
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Definition
+Let X and Y be random variables such that the mean of Y exists
+and is finite. The conditional expectation (or conditional mean) of
+Y given X = x is denoted by E (Y | X = x) and is defined to be
+the expectation of the conditional distribution of Y given X = x.
+For example, if Y has a continuous conditional distribution given X
+= x with conditional p.d.f. g2(y |x), then
+E (Y |x) =
+Z ∞
+−∞
+yg2(y |x)dy
+,
+Similarly, if Y has a discrete conditional distribution given X = x
+with conditional p.f.
+E (Y |x) = X
+All y
+yg2(y |x)dy
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Definition
+Since this is a random variable that depends on X we will call this
+the conditional distribution of Y given X and will denote this with
+E (Y | X = x) or E (Y | X )
+Example
+Consider a clinical trial with probability of success p where p is a
+random variable uniform on [0, 1]. Let X1, ..., Xn conditionally
+independent given p and let X = X1 + ... + Xn For each set p the
+distribution of X is a binomial.
+Then the conditional distribution of X given P is E (X | P) = nP
+Chapter 4.3-4.7 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.3 Variance
+4.4 Moments
+4.5 The mean and median
+4.6 Covariance and correlation
+4.7 Conditional Expectation
+Properties of Conditional expectation
+Theorem
+Conditional expectations satisfy the following properties.
+1. Law of Total Probability for Expectations.
+E (E (X | Y )) = E (X )
+2. When Y can be written as a function of X, treat as X
+deterministic in the conditional expectation
+E (r (X , Y )|X = x) = E (r (x, Y )|X = x) =
+Z ∞
+−∞
+r (x, y )g2(y |x)dy
+Chapter 4.3-4.7 Expectation of Random variables
+Properties of Conditional expectation
+Theorem
+Conditional expectations satisfy the following properties.
+3. (Linearity) If X , Y are random variables, and α ∈ R then
+E (X + αY | Z ) = E (X | Z ) + αE (Y | Z ) .
+4. (Positivity) If X ⩽ Y , then E (X | Z ) ⩽ E (Y | Z )
+5. The prediction of X that minimizes the mean squared error from Y
+and any function d(·) of X is E (Y | X ),
+min
+d(X ) E ((Y − d(X ))2) = E ((Y − E (Y | X ))2)
+Chapter 4.3-4.7 Expectation of Random variables
+[6.] For any function h the residual Y − E (Y | X ) is uncorrelated
+with h(X ) Namely,
+E ((Y − E (Y | X ))h(X )) = 0
+The conditional expectation E (Y |X ) is the projection of Y onto
+the space of all functions of X . The residual Y − E (Y | X ) is
+orthogonal to the plane: it’s perpendicular to (uncorrelated with)
+any function of X .
+Chapter 4.3-4.7 Expectation of Random variables
+Linear regression
+Assume that the E (Y | X ) = a + bX
+Compute the coefficients a, b in terms of Var(X), Var(Y), and
+Cov(X,Y)
+Let ε = Y − a − bX from the properties of conditional expectation
+E (ε | X ) = 0 , thus E (ε) = 0
+take Expectation on both sides and we can see that
+E (Y ) = a + bE (X )
+Cov (X , Y ) = Cov (X , a) + Cov (X , bX ) + Cov (X , ε) = bVar (X )
+b = Cov (X , Y )
+Var (X )
+a = E (Y ) − bE (X ) = E (Y ) − Cov (X , Y )
+Var (X ) E (X )
+Chapter 4.3-4.7 Expectation of Random variables
+Example: Time until HH vs. HT
+You toss a fair coin repeatedly. What is the expected number of
+tosses until the pattern HT appears for the first time?
+What about the expected number of tosses until HH appears for
+the first time?
+Let’s consider the first case HT , we can decompose this in 2 parts:
+▶ First wait until a H appears WH
+▶ Next wait until T appears WT .
+WH and WT have prob of success 1/2
+E (WH ) = E (WT ) = 2
+E (WHT ) = E (WH ) + E (WT ) = 4
+Waiting time for HT is the waiting time for the first Heads, plus
+the additional waiting time for the next Tails. Durable partial
+progress is possible!
+Chapter 4.3-4.7 Expectation of Random variables
+What happens in the case of HH?
+E (WHH ) = E (WHH |first is H)P(first is H)+E (WHH |first is T)P(first is T)
+E (WHH |first is T) = 1 + E (WHH ) and
+E (WHH |first is H) = 2 1
+2 + (2 + E (WHH )) 1
+2
+E (WHH ) = 1
+2
+ 1
+2 2 + (2 + E (WHH ) 1
+2
+
++ (1 + E (WHH )) 1
+2
+Solving the equation shows that E (WHH ) = 6
+When waiting for HH, partial progress can easily be destroyed by
+the appearance of tail then we need to start over.
+Chapter 4.3-4.7 Expectation of Random variables
+It might seem surprising at first that the expected waiting time for
+HH is greater than the expected waiting time for HT. How do we
+reconcile this with the fact that in two tosses of the coin, HH and
+HT both have a 1/4 chance of appearing? Why aren’t the average
+waiting times the same by symmetry?
+As we solved this problem, we in fact noticed an important
+asymmetry. When waiting for HT, once we get the first Heads,
+we’ve achieved partial progress that cannot be destroyed: if the
+Heads is followed by another Heads, we’re in the same position as
+before, and if the Heads is followed by a Tails, we’re done. By
+contrast, when waiting for HH, even after getting the first Heads,
+we could be sent back to square one if the Heads is followed by a
+Tails. This suggests the average waiting time for HH should be
+longer.
+Chapter 4.3-4.7 Expectation of Random variables
+Assume that X1, · · · , Xn are i.i.d and Sn = X1 + · · · + Xn
+What is E (X1|Sn)?
+By symmetry
+E (X1|Sn) = E (X2|Sn) = · · · = E (Xn|Sn)
+E (Sn|Sn) = Sn
+thus we can see that,
+E (X1|Sn) = Sn
+n
+Chapter 4.3-4.7 Expectation of Random variables
+You are given two indistinguishable envelopes, each of which
+contains a positive sum of money. One envelope contains twice as
+much as the other. You may pick one envelope and keep whatever
+amount it contains. You pick one envelope at random but before
+you open it you are given the chance to take the other envelope
+instead.
+▶ I denote by ”A” the amount in my selected envelope.
+▶ The probability that ”A” is the smaller amount is 1/2, and
+that it is the larger amount is also 1/2.
+▶ The other envelope may contain either 2A or A/2.
+▶ If ”A” is the smaller amount, then the other envelope
+contains 2A.
+▶ If ”A” is the larger amount, then the other envelope contains
+A/2.
+▶ Thus the other envelope contains 2A with probability 1/2 and
+A/2 with probability 1/2.
+Chapter 4.3-4.7 Expectation of Random variables
+▶ So the [[expected value]] of the money in the other envelope
+is:
+1
+2 (2A) + 1
+2
+ A
+2
+
+= 5
+4 A
+▶ This is greater than ”A” so, on average, I gain by swapping.
+▶ After the switch, I can denote that content by ”B” and reason
+in exactly the same manner as above.
+▶ I will conclude that the most rational thing to do is to swap
+back again.
+▶ I will thus end up swapping envelopes indefinitely.
+Chapter 4.3-4.7 Expectation of Random variables
+▶ A correct calculation would be:
+▶ Expected value in B = 1/2 ( (Expected value in B, given A is
+larger than B) + (Expected value in B, given A is smaller
+than B) )
+▶ If we then take the sum in one envelope to be x and the sum
+in the other to be 2x the expected value calculations becomes:
+▶ Expected value in B = 1/2 (x + 2x) which is equal to the
+expected sum in A.
+Chapter 4.3-4.7 Expectation of Random variables
+Conditional Variance
+Definition (Conditional variance)
+For a given value of X = x, let Var (Y | X = x) be defined as a the
+conditional variance given that X = x
+Var (Y | X = x) = E ([Y − E (Y | X = x)]2 | X = x)
+Chapter 4.3-4.7 Expectation of Random variables
+Properties of conditional variance
+▶ Best prediction of Y is no other info is E (Y ) and the average
+mean squared error is Var (Y )
+▶ Best prediction of Y if X is observed is E (Y | X ) and the
+average mean squared error is E (Var (Y |X ))
+▶ Thus the error of the prediction given X is reduced by
+Var (Y ) − E (Var (Y |X ))
+▶ Law of Total Probability for Variances
+Var (Y ) = E [Var (Y | X )] + Var (E [Y |X ])
+Chapter 4.3-4.7 Expectation of Random variables
+▶ Assume that we want to find out the variation of the world
+population height. We can divide this population into
+countries , one for each possible value of X.
+▶ For example, if X represents country and Y represents height,
+we can group people based on age. Then there are two
+sources contributing to the variation in people’s heights in the
+overall population.
+▶ First, within each country, people have different heights. The
+average amount of variation in height within each country is
+the within-group variation, E (Var (Y |X )).
+▶ Second, across countries, the average heights are different.
+The variance of average heights across countries groups is the
+between-group variation, Var (E (Y |X )).
+▶ The law says that to get the total variance of Y , we simply
+add these two sources of variation.
+Chapter 4.3-4.7 Expectation of Random variables
+A store receives N customers in a day, where N is an r.v. with
+finite mean and variance. Let Xj be the amount spent by the j th
+customer at the store. Assume that each Xj has mean μ and
+variance σ2, and that N and all the Xj are independent of one
+another. Find the mean and variance of the random PN
+i=1 Xi
+which is the store’s total revenue in a day in terms of μ,σ2, E (N)
+and Var (N)
+Chapter 4.3-4.7 Expectation of Random variables
+E (X ) = E (E (X |N)) = E (NE (X1)) = E (N)E (X1)
+Var (X ) = E (Var (X |N)) + Var (E (X |N))
+Var (X |N) = Var (
+NX
+i=1
+Xi |N) =
+NX
+i=1
+Var (Xi |N) = Nσ2
+Var (E (X |N)) = Var (Nμ) = μ2Var (N)
+Var (X ) = E (N)σ2 + μ2Var (N)
+Chapter 4.3-4.7 Expectation of Random variables
+Assume there are 2 independent random variables X , Y (with
+mean 0 and SD σX and σY . We can model Z in terms of these
+variable X , Y as a linear combination:
+▶ Z = X + Y
+Questions:
+▶ Are X and Z correlated?
+▶ What is E (Z |X ) and E (Z |Y ) ?
+▶ What is Var (Z ), Var (E (Z |X )) and Var (Z |X ) ?
+Chapter 4.3-4.7 Expectation of Random variables
+Cov (X , Z ) = Cov (X , X +Y ) = Cov (X , X )+Cov (X , Y ) = Var (X ) = σ2
+X
+We can now compute the correlation as
+ρX ,Z = Cov (X , Z )
+σX σZ
+= σX
+q
+σ2
+X + σ2
+Y
+we can now compute the conditional expectation:
+E (Z |X ) = E (X + Y |X ) = E (X |X ) + E (Y |X ) = X
+we can now compute Var (E (Z |X )) = Var (X ) = σ2
+X
+Chapter 4.3-4.7 Expectation of Random variables
+Compute the conditional variance
+Var (Z |X ) = Var (Y + X |X ) = Var (Y ) = σ2
+Y
+Compute the total variance of Z due to independence as :
+Var (Z ) = Var (X ) + Var (Y ) = σ2
+Y + σ2
+X
+Law of total variance shows that you can decompose variance of Z
+as the variance of the conditional expectation of E (Z |X ) and the
+conditional variance given X
+Var (Z ) = Var (E (Z |X )) + E (Var (Z |X ))
+Chapter 4.3-4.7 Expectation of Random variables
+
+Page
+1
+of 25
+Outline
+Chapter 4. Expectations of Random Variables
+Expectation of Random variables
+Chapter 4.1
+Columbia University
+October 7, 2025
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Expectation of a Random Variable
+▶ Distributions contains all the information about the random
+variable
+▶ The way to summarize the properties of the distribution is the
+average value with allows us to have an idea about X without
+having to look at the whole distribution
+Definition
+Mean of Bounded Discrete Random Variable. Let X be a
+bounded discrete random variable whose p.f. is f . The expectation
+of X, denoted by E(X), is a number defined as follows:
+E (X ) = X
+all x
+xf (x)
+The expectation of X is also referred to as the mean of X or the
+expected value of X
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Discrete random variables
+Example
+Bernoulli Random Variable. Let X have the Bernoulli
+distribution with parameter p, mean of X is that is, assume that X
+takes only the two values 0 and 1 with Pr(X = 1) = p. Then the
+E (X ) = 0 × (1 − p) + 1 × p = p.
+If X is unbounded, it might still be possible to define E(X) as the
+weighted average of its possible values. However, some care is
+needed.
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Example
+An Infinite Mean. Let X be a random variable whose p.f. is can
+be verified that this function satisfies the conditions required to be
+a p.f. The
+f (x) =
+( 1
+x(x+1) , x = 1, ...
+0, else
+The mean of X exists and is ∞
+E (X ) = X
+x=1
+x 1
+x(x + 1)
+We say that the mean of X is infinite in this case
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Expectation of a continuous distribution
+Definition
+Mean of Bounded Continuous Random Variable. Let X be a
+bounded continuous random variable whose p.d.f. is f . The
+expectation of X, denoted E(X), is defined
+E (X ) =
+Z ∞
+−∞
+xf (x)dx
+Once again, the expectation is also called the mean or the
+expected value
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Example
+Failure after Warranty. A product has a warranty of one year. Let
+X be the time at which the product fails. Suppose that X has a
+continuous distribution with the p.d.f.
+f (x) =
+(
+0 , x < 1
+2
+x3 , x ⩾ 1
+E (X ) =
+Z ∞
+1
+x 2
+x3 = 2
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+The Expectation of a Function
+Suppose that appliances manufactured by a particular company fail
+at a rate of X per year, where X is currently unknown and hence is
+a random variable. If we are interested in predicting how long such
+an appliance will last before failure, we might use the mean of
+1/X. How can we calculate the mean of Y = 1/X?
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Definition
+Functions of a Single Random Variable . If X is a random variable
+for which the p.d.f. is f , then the expectation of each real-valued
+function r(X) can be found by applying the definition of
+expectation to the distribution of r(X) as follows: Let Y = r (X ),
+determine the probability distribution of Y , and then determine
+E(Y ) by applying either For example, suppose that Y has a
+continuous distribution with the p.d.f. g. Then
+E (Y ) =
+Z ∞
+−∞
+yg (y )dy
+Also the expectation can be derived in terms of the p.d.f of X as
+E (Y ) =
+Z ∞
+−∞
+r (x)fX (x)dx
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Example
+Let X a random variable with with p.d.f
+f (x) =
+(
+0 , else
+3x2 , 0 < x ⩽ 1
+Compute the expectation of Y = 1/X
+Method 1 compute the pd.f of Y
+fY (y ) =
+(
+0 , else
+3y −4 , 1 < x ⩽ ∞
+E (Y ) =
+Z ∞
+1
+yfY (y )dy =
+Z ∞
+1
+y 3
+y 4 dy = 3
+2
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Method 2 more convenient
+E (Y ) =
+Z 1
+0
+r (x)fX (x)dx =
+Z 1
+0
+1
+x 3x2dx = 3
+2
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Functions of Several Random Variables
+Theorem
+Suppose that X1, . . . , Xn are random variables with the joint
+p.d.f. f (x1, ..., xn). Let r be a real-valued function of n real
+variables, and suppose that Y =r (X1, ..., Xn). Then E(Y ) can be
+determined directly from the
+E (Y ) =
+Z
+...
+Z
+r (x1, ..., xn)f (x1, ..., xn)dx1...dxn,
+Similarly, if X1, ..., Xn have a discrete joint distribution with p.f.
+f(x1,...,xn),the mean of Y =r (X1, ..., Xn) is
+E (Y ) = X
+Allx1,...,xn
+r (x1, ..., xn)f (x1, ..., xn),
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Example
+Let X,Y have a joint uniform distribution over the square S of
+lenght 1.
+f(X ,Y )(x, y ) =
+(
+0 , else
+1 , 0 ⩽ x ⩽ 1, 0 ⩽ y ⩽ 1
+What is the mean of Y = X 2 + Y 2?
+E (Y ) =
+Z 1
+0
+Z 1
+0
+(x2 + y 2)f(X ,Y )(x, y )dxdy = 2
+3
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+4.2 Properties of Expectation
+Theorem
+Linearity and monotonicity of expectation Expectation is linear and
+monotone:
+1. For constants a and b, E (aX + b) = aE (X ) + b. For arbitrary
+random variables X1, . . . , Xn whose expected values exist,
+2. E (X1 + ... + Xn) = E (X1) + ... + E (Xn)
+3. . For two random variables X ⩽ Y , we have
+E (X ) ⩽ E (Y )
+4. Let g be a convex function, and let X be a random vector
+with finite mean. Then E [g (X )] ⩾ g (E (X ))
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Example
+Consider an urn with blue balls, the proportion of red balls is p
+(0 ⩽ p ⩽ 1). Suppose now, however, that a random sample of n
+balls is selected from the box with replacement. If X denotes the
+number of red balls in the sample, then X has the binomial
+distribution with parameters n and p, Let
+Xi =
+(
+1, p ball is Red
+0, (1 − p) else
+Then, as before, X = X1 + ... + Xn. E (Xi ) = p for i = 1, . . . , n,
+and it follows that
+E (X ) = np.
+Thus, the mean of the binomial distribution with parameters n and
+p is np.
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+The p.f. f(x) of this binomial distribution B(n, p) with trials n and
+probability of success p is given by , and the mean can be
+computed directly from the p.f. as follows:
+E (X ) =
+nX
+x=0
+x
+n
+x
+
+px (1 − p)n−x
+By using the fact that
+k
+n
+k
+
+= n
+ n
+k − 1
+
+,
+E (X ) =
+nX
+x=0
+x
+n
+x
+
+px (1 − p)n−x
+= n
+nX
+x=1
+n − 1
+x − 1
+
+px (1 − p)n−x
+= np
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Theorem
+Multiplicativity of expectation for independent factors. The
+expectation of the product of independent random variables is the
+product of their expectations, i.e., if X and Y are independent,
+E [g (X )h(Y )] = Eg (X ) · Eh(Y )
+As a corrolary,if X1, · · · , Xn is independent then:
+E [X1 · · · Xn] = E (X1) · · · E (Xn)
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Expectation of non-negative distribution
+Integer-Valued Random Variables. Let X be a random variable that
+can take only the values 0, 1, 2, . . . . Then
+E (X ) =
+∞X
+n=1
+P(X ⩾ n)
+Proof
+E (X ) =
+∞X
+n=0
+nP(X = n)
+rearranging and
+∞X
+n=1
+P(X ⩾ n) = P(X = 1) + P(X = 2) + · · ·
++ 0 + P(X = 2) + P(X = 3) · · ·
++ 0 + 0 + P(X = 3) + · · ·
++ 0 + 0 + 0 + P(X = 4) + · · ·
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Example
+Suppose a person is performing a task until he is successful.
+Suppose also that the probability of success on each given trial is
+p, (0 < p < 1)and that all trials are independent. If X denotes the
+number of the trial on which the first success is obtained
+P(X ⩾ n) = (1 − p)n−1, then E(X) can be determined as follows.
+E (X ) =
+∞X
+n=1
+P(X ⩾ n)
+=
+∞X
+n=1
+(1 − p)n−1
+= 1
+1 − (1 − p) = 1
+p
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+General Nonnegative Random Variable. Let X be a nonnegative
+random variable with c.d.f F (x)
+E (X ) =
+Z ∞
+0
+P(X > x)dx =
+Z ∞
+0
+[1 − F (x)]dx.
+Example
+Let X be the time that a customer spends waiting for service in a
+queue. The CDF of X is given by F (x) = 1 − e−2x , x ⩾ 0 Then
+E (X ) =
+Z ∞
+0
+e−2x dx = 1
+2
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Indicator tricks
+Assume n people buy n gifts , which are assigned at random , let X
+be the number of people who receive their own gift. What is
+E (X )?
+This is a problem that can be solved using indicator trick; Let
+Ii = 1person i receives own gift
+Then
+X = I1 + · · · + In
+Moreover, the probability that you receieve your own gift is 1/n,
+E (Xi ) = 1
+n
+E (X ) = 1
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Indicator tricks
+Assume that an urn contains 10 black, 7 red and 5 white balls.
+Select 5 balls at random (a) with replacement and (b) without
+replacement . X be the number of red balls selected . What is
+E (X )?
+This is a problem that can be solved using indicator trick; Let
+Ii = 1ball i is red
+Then
+X = I1 + · · · + I5
+(a) Moreover, the probability that you receieve your own gift is
+7/22,
+E (X ) = 5 · 7
+22
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+for (b) one way to do it is to compute the p.m.f of X
+P(X = i) =
+7
+i
+ 15
+5−i
+
+22
+5
+
+E (X ) =
+5X
+i=0
+iP(X = i) = 5 · 7
+22
+However the indicator trick works exactly as before; the fact that I
+is dependent does not matter ; so the answer is exactly the same
+5 · 7
+22
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Coupon collector problem
+Sample from n cards, with replacement, indefinitely. Let N be the
+number of cards you need to sample for a complete collection, i.e.,
+to get all different cards represented. What is E (N) ?
+This is a problem that can be solved by breaking down N in
+different events
+Ni = 1number of additional cards that u need to get the ith card , after u collected i-1 differ
+N = N1 + · · · Nn
+Chapter 4.1 Expectation of Random variables
+Outline
+Chapter 4. Expectations of Random Variables
+4.1 Expectation of a Random Variable
+4.2 Properties of Expectation
+Coupon collector problem
+▶ N1 the expected cards will be 1 with prob 100%
+▶ N2 the expected success for each card is n−1
+n with prob
+expected value 1
+p = n
+n−1
+▶ Clearly Ni have a failure rate with p = i−1
+N , thus the mean of
+this was already computed (the expected trials until a success
+is found ) is 1/p
+Chapter 4.1 Expectation of Random variables

@@ -1,0 +1,420 @@
+
+Page
+8
+of 9
+Probability Theory Comprehensive Summary
+Columbia University
+December 2, 2025
+Contents
+1 Conditional Expectation 2
+1.1 Conditional Expectation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+2 Expectations of Random Variables 6
+2.1 Expectation of a Random Variable . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+2.2 Properties of Expectation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+2.3 Indicator Tricks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+3 Special Distributions 6
+3.1 Bernoulli and Binomial . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+3.2 Hypergeometric . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+3.3 Poisson Distribution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+3.4 Negative Binomial and Geometric . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+3.5 Normal Distribution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+3.6 Gamma and Exponential Distributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+3.7 Beta Distribution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+3.8 Multinomial Distribution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3.9 Bivariate Normal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+4 Large Random Samples 8
+4.1 Law of Large Numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+4.2 Central Limit Theorem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+5 Bayesian Statistics 8
+5.1 Prior and Posterior Distributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+5.2 Conjugate Priors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+5.3 Bayesian Updating Examples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+6 Important Formulas and Theorems 9
+6.1 Distribution Relationships . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+6.2 Key Inequalities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+6.3 Convergence Results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+6.4 Bayesian Framework . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+7 Applications and Examples 9
+7.1 Probability Applications . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+7.2 Statistical Applications . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+7.3 Financial Applications . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+1
+1 Conditional Expectation
+1.1 Conditional Expectation
+Conditional Expectation
+The conditional expectation of X given Y = y is defined as:
+• For discrete random variables:
+E[X|Y = y] = X
+x
+x · g1(x|y)
+• For continuous random variables:
+E[X|Y = y] =
+Z ∞
+−∞
+x · g1(x|y)dx
+Conditional expectation is a function of y: h(y) = E[X|Y = y]
+Properties of Conditional Expectation
+[Law of Total Expectation] For any random variables X and Y :
+E[X] = E[E[X|Y ]]
+• Discrete case: E[X] = P
+y E[X|Y = y] · fY (y)
+• Continuous case: E[X] = R ∞
+−∞ E[X|Y = y] · fY (y)dy
+More Properties
+• Linearity: E[aX + bZ|Y ] = aE[X|Y ] + bE[Z|Y ]
+• Taking out what’s known: E[h(Y )X|Y ] = h(Y )E[X|Y ]
+• Independence: If X and Y are independent, then E[X|Y ] = E[X]
+• Tower property: E[E[X|Y, Z]|Y ] = E[X|Y ]
+Conditional Variance
+• The conditional variance of X given Y = y is:
+Var(X|Y = y) = E[(X − E[X|Y = y])2|Y = y]
+• Law of Total Variance:
+Var(X) = E[Var(X|Y )] + Var(E[X|Y ])
+Problem Statement
+A stick of length l is broken twice:
+1. First break: At a point X, chosen uniformly along the stick: X ∼ Uniform(0, l).
+2. Second break: The smaller stick from 0 to X is taken and broken at a point Y , chosen uniformly
+along its length: Y | X ∼ Uniform(0, X).
+Find:
+1. The joint density f (x, y) of X and Y .
+2. The marginal density fY (y) of Y .
+3. The conditional expectation E[Y | X] and the law of total expectation for E[Y ].
+4. The conditional variance Var(Y | X) and use the law of total variance to find Var(Y ).
+2
+Step 1: Joint Density f (x, y)
+We use the multiplication rule for densities:
+f (x, y) = fX (x) · g2(y | x)
+Where:
+• fX (x) is the marginal density of X.
+• g2(y | x) is the conditional density of Y given X = x.
+From the problem:
+• X ∼ Uniform(0, l) ⇒ fX (x) = 1
+l for 0 < x < l.
+• Y | X = x ∼ Uniform(0, x) ⇒ g2(y | x) = 1
+x for 0 < y < x.
+Therefore, the joint density is:
+f (x, y) = 1
+l · 1
+x = 1
+lx , for 0 < y < x < l
+Outside this region, the density is zero. The condition 0 < y < x < l ensures we are only considering the
+case where the first break X is to the right of the second break Y on the original stick.
+Step 2: Marginal Density fY (y)
+To find the marginal density of Y , we integrate the joint density over all possible values of X. For a given
+y, X must be greater than y (since y < x) and less than l.
+fY (y) =
+Z ∞
+−∞
+f (x, y)dx =
+Z l
+x=y
+1
+lx dx
+Evaluating the integral:
+fY (y) = 1
+l
+Z l
+y
+1
+x dx = 1
+l [ln x]x=l
+x=y = 1
+l (ln l − ln y) = 1
+l ln
+ l
+y
+
+, for 0 < y < l
+Step 3: Conditional and Total Expectation
+We first find the conditional expectation E[Y | X]. Since Y | X ∼ Uniform(0, X), the mean of a uniform
+distribution is the midpoint:
+E[Y | X] = 0 + X
+2 = X
+2
+Now, we use the Law of Total Expectation to find E[Y ]:
+E[Y ] = E[E[Y | X]] = E
+ X
+2
+
+= 1
+2 E[X]
+Since X ∼ Uniform(0, l), its expectation is E[X] = l
+2 .
+E[Y ] = 1
+2 · l
+2 = l
+4
+3
+Step 4: Conditional and Total Variance
+First, find the conditional variance Var(Y | X). The variance of a Uniform(0, X) distribution is (X−0)2
+12 :
+Var(Y | X) = X2
+12
+Now, we use the Law of Total Variance:
+Var(Y ) = E[Var(Y | X)] + Var(E[Y | X])
+Let’s compute each term separately.
+1. Expectation of the Conditional Variance:
+E[Var(Y | X)] = E
+ X2
+12
+
+= 1
+12 E[X2]
+For X ∼ Uniform(0, l), E[X2] = l2
+3 .
+E[Var(Y | X)] = 1
+12 · l2
+3 = l2
+36
+2. Variance of the Conditional Expectation:
+Var(E[Y | X]) = Var
+ X
+2
+
+= 1
+4 Var(X)
+For X ∼ Uniform(0, l), Var(X) = l2
+12 .
+Var(E[Y | X]) = 1
+4 · l2
+12 = l2
+48
+3. Total Variance:
+Var(Y ) = l2
+36 + l2
+48
+To add these, find a common denominator, which is 144:
+l2
+36 = 4l2
+144 , l2
+48 = 3l2
+144
+Var(Y ) = 4l2
+144 + 3l2
+144 = 7l2
+144
+Final Results Summary
+1. Joint Density:
+f (x, y) = 1
+lx , for 0 < y < x < l
+2. Marginal Density of Y :
+fY (y) = 1
+l ln
+ l
+y
+
+, for 0 < y < l
+3. Expectation:
+E[Y | X] = X
+2 , E[Y ] = l
+4
+4. Variance:
+Var(Y | X) = X2
+12 , Var(Y ) = 7l2
+144
+4
+2 Expectations of Random Variables
+2.1 Expectation of a Random Variable
+• Discrete RV: E(X) = P
+all x xf (x)
+• Continuous RV: E(X) = R ∞
+−∞ xf (x)dx
+• Bernoulli: E(X) = p, Var(X) = p(1 − p)
+• Expectation of functions: E[r(X)] = R ∞
+−∞ r(x)fX (x)dx
+• Multiple RVs: E[r(X1, . . . , Xn)] = R · · · R r(x1, . . . , xn)f (x1, . . . , xn)dx1 · · · dxn
+2.2 Properties of Expectation
+• Linearity: E(aX + b) = aE(X) + b
+• E(X1 + · · · + Xn) = E(X1) + · · · + E(Xn)
+• Monotonicity: If X ≤ Y , then E(X) ≤ E(Y )
+• Jensen’s Inequality: For convex g: E[g(X)] ≥ g(E(X))
+• Independence: If X, Y independent: E[g(X)h(Y )] = E[g(X)]E[h(Y )]
+• Non-negative RVs: E(X) = P∞
+n=1 P (X ≥ n) (discrete), E(X) = R ∞
+0 P (X > x)dx (continuous)
+2.3 Indicator Tricks
+• Gift exchange: E(# people getting own gift) = 1
+• Sampling: Expected number of red balls same with/without replacement
+• Coupon collector: E(N ) = Pn
+i=1 n
+n−i+1 = n Pn
+i=1 1
+i ≈ n log n + γn
+3 Special Distributions
+3.1 Bernoulli and Binomial
+• Bernoulli: f (x) = px(1 − p)1−x, x = 0, 1
+• Binomial: f (x) = n
+x
+px(1 − p)n−x, x = 0, 1, . . . , n
+• E(X) = np, Var(X) = np(1 − p), ψX (t) = (pet + 1 − p)n
+3.2 Hypergeometric
+• f (x) = (A
+x )( B
+n−x)
+(A+B
+n )
+• E(X) = nA
+A+B , Var(X) = nAB
+(A+B)2
+A+B−n
+A+B−1
+3.3 Poisson Distribution
+• f (x) = e−λ λx
+x! , x = 0, 1, 2, . . .
+• E(X) = λ, Var(X) = λ, ψX (t) = eλ(et−1)
+• Poisson Process: Arrivals in time t: Pois(λt), independent increments
+5
+3.4 Negative Binomial and Geometric
+• Negative Binomial: f (x) = r+x−1
+x
+pr (1 − p)x
+• E(X) = r(1−p)
+p , Var(X) = r(1−p)
+p2
+• Geometric: f (x) = p(1 − p)x (number of failures before first success)
+• E(X) = 1−p
+p , Var(X) = 1−p
+p2
+• Memoryless: P (X = k + t | X ≥ k) = P (X = t)
+3.5 Normal Distribution
+• f (x) = 1√2πσ2 e− (x−μ)2
+2σ2
+• E(X) = μ, Var(X) = σ2, ψX (t) = eμt+σ2t2 /2
+• Standard Normal: Φ(x) = R x
+−∞
+1√2π e−t2/2dt
+• Linear combinations: aX + b ∼ N(aμ + b, a2σ2)
+• Sample mean:  ̄X ∼ N(μ, σ2/n) for i.i.d. normals
+3.6 Gamma and Exponential Distributions
+• Gamma: f (x) = βα
+Γ(α) xα−1e−βx, x > 0
+• E(Xk) = α(α+1)···(α+k−1)
+βk , Var(X) = α
+β2
+• Exponential: f (x) = βe−βx (Gamma with α = 1)
+• E(X) = 1
+β , Var(X) = 1
+β2
+• Memoryless: P (X > t + h | X > t) = P (X > h)
+3.7 Beta Distribution
+• f (x) = Γ(α+β)
+Γ(α)Γ(β) xα−1(1 − x)β−1, 0 ≤ x ≤ 1
+• E(X) = α
+α+β , Var(X) = αβ
+(α+β)2(α+β+1)
+• E(Xk) = α(α+1)···(α+k−1)
+(α+β)···(α+β+k−1)
+3.8 Multinomial Distribution
+• f (x1, . . . , xk) =  n
+x1,...,xk
+px1
+1 · · · pxk
+k , P xi = n
+3.9 Bivariate Normal
+• X = (X1, X2) ∼ N2(μ, Σ)
+• Conditional: X2 | X1 = x1 ∼ N
+
+μ2 + ρσ2 x1−μ1
+σ1 , (1 − ρ2)σ2
+2
+
+• Independence: ρ = 0 iff X1, X2 independent
+6
+4 Large Random Samples
+4.1 Law of Large Numbers
+• Markov Inequality: P (X ≥ a) ≤ E(X)
+a for X ≥ 0, a > 0
+• Chebyshev Inequality: P (|X − μ| ≥ c) ≤ σ2
+c2
+• Weak LLN: P (|  ̄Xn − μ| ≥ ε) → 0 as n → ∞
+• Convergence in probability: Yn
+p
+→ a if ∀ε > 0, limn→∞ P (|Yn − a| ≥ ε) = 0
+4.2 Central Limit Theorem
+•  ̄Xn−μ
+σ/√n
+d
+→ N(0, 1)
+•  ̄Xn ≈ N(μ, σ2/n) for large n
+• Multivariate CLT: √n(  ̄Xn − μ) d
+→ N(0, Σ)
+5 Bayesian Statistics
+5.1 Prior and Posterior Distributions
+• Prior: f (θ) - distribution before seeing data
+• Likelihood: f (x | θ) - probability of data given parameter
+• Posterior: f (θ | x) = f (x | θ)f (θ)R f (x | θ′)f (θ′ )dθ′
+• Bayes Estimator: Minimizes E[(θ − a)2 | X] is E[θ | X]
+5.2 Conjugate Priors
+Likelihood Prior Posterior
+Bernoulli/Binomial Beta(α, β) Beta(α + P xi, β + n − P xi)
+Exponential Gamma(α, β) Gamma(α + n, β + P xi)
+Table 1: Conjugate Prior Distributions
+5.3 Bayesian Updating Examples
+• Dice identification: Update probabilities based on rolls
+• Bent coin: Update Beta prior with coin flip results
+• Lightbulb lifetimes: Gamma prior with exponential likelihood
+• Sequential updating: Posterior becomes prior for next observation
+7
+6 Important Formulas and Theorems
+6.1 Distribution Relationships
+• Binomial ≈ Poisson when n large, p small, np moderate
+• Geometric is Negative Binomial with r = 1
+• Exponential is Gamma with α = 1
+• Sample mean of i.i.d.: E(  ̄X) = μ, Var(  ̄X) = σ2/n
+6.2 Key Inequalities
+• Markov: P (X ≥ a) ≤ E(X)
+a
+• Chebyshev: P (|X − μ| ≥ kσ) ≤ 1
+k2
+• Jensen: E[g(X)] ≥ g(E(X)) for convex g
+6.3 Convergence Results
+• WLLN:  ̄Xn
+p
+→ μ
+• CLT:  ̄Xn −μ
+σ/√n
+d
+→ N(0, 1)
+• Slutsky’s Theorem for convergence in distribution
+6.4 Bayesian Framework
+• Posterior ∝ Likelihood × Prior
+• Conjugate priors provide closed-form posteriors
+• Bayes estimators minimize posterior expected loss
+• Sequential updating: Process data one observation at a time
+7 Applications and Examples
+7.1 Probability Applications
+• Coupon collector problem
+• Gift exchange (derangements)
+• Urn sampling with/without replacement
+• Queueing theory (exponential service times)
+• Stock price modeling (lognormal distribution)
+7.2 Statistical Applications
+• Polling and survey sampling
+• Quality control and reliability
+• Hypothesis testing
+• Parameter estimation
+• Predictive distributions
+8
+7.3 Financial Applications
+• Black-Scholes option pricing
+• Risk management
+Appendix: Common Distributions Reference
+Distribution PMF/PDF Mean Variance
+Bernoulli px(1 − p)1−x p p(1 − p)
+Binomial n
+x
+px(1 − p)n−x np np(1 − p)
+Poisson e−λλx/x! λ λ
+Geometric p(1 − p)x (1 − p)/p (1 − p)/p2
+Normal 1√2πσ2 e− (x−μ)2
+2σ2 μ σ2
+Exponential βe−βx 1/β 1/β2
+Gamma βα
+Γ(α) xα−1e−βx α/β α/β2
+Beta Γ(α+β)
+Γ(α)Γ(β) xα−1(1 − x)β−1 α
+α+β
+αβ
+(α+β)2(α+β+1)
+Table 2: Common Probability Distributions
+9

@@ -1,0 +1,130 @@
+
+Page
+1
+of 3
+Problem Set 2
+Problem 1 (2.1.6) A box contains r red balls and b blue balls. One ball is selected
+at random and its color is observed. The ball is then returned to the box and k
+additional balls of the same color are also put into the box. A second ball is then
+selected at random, its color is observed, and it is returned to the box together
+with k additional balls of the same color. Each time another ball is selected,
+the process is repeated. If four balls are selected, what is the probability that
+the first three balls will be red and the fourth ball will be blue?
+Problem 2 (2.1.6) Consider the following version of the game of craps: The
+player rolls two dice. If the sum on the first roll is 7 or 11, the player wins the
+game immediately. If the sum on the first roll is 2,3 , or 12, the player loses
+the game immediately. However, if the sum on the first roll is 4, 5, 6, 8, 9, or 10
+, then the two dice are rolled again and again until the sum is either 7 or 11 or
+the original value. If the original value is obtained a second time before either 7
+or 11 is obtained, then the player wins. If either 7 or 11 is obtained before the
+original value is obtained a second time, then the player loses. Determine the
+probability that the player will win this game.
+Problem 3 (2.1.6) A machine produces defective parts with three different
+probabilities depending on its state of repair. If the machine is in good working
+order, it produces defective parts with probability 0.02 . If it is wearing down,
+it produces defective parts with probability 0.1. If it needs maintenance, it
+produces defective parts with probability 0.3. The probability that the machine
+is in good working order is 0.8 , the probability that it is wearing down is 0.1 ,
+and the probability that it needs maintenance is 0.1 . Compute the probability
+that a randomly selected part will be defective.
+Problem 4(2.2.13) Suppose that the probability that any particle emitted by
+a radioactive material will penetrate a certain shield is 0.01 . If 10 particles are
+emitted, what is the probability that exactly one of the particles will penetrate
+the shield?
+Problem 5(2.2.16) In the World Series of baseball, two teams A and B play
+a sequence of games against each other, and the first team that wins a total of
+four games becomes the winner of the World Series. If the probability that team
+A will win any particular game against team B is 1/3, what is the probability
+that team A will win the World Series?
+Problem 6(2.2.17) Two boys A and B throw a ball at a target. Suppose
+that the probability that boy A will hit the target on any throw is 1/3 and the
+probability that boy B will hit the target on any throw is 1/4. Suppose also
+that boy A throws first and the two boys take turns throwing. Determine the
+probability that the target will be hit for the first time on the third throw of
+boy A.
+Problem 7(2.3.7) Suppose that a box contains five coins and that for each
+coin there is a different probability that a head will be obtained when the coin
+is tossed. Let pi denote the probability of a head when the i th coin is tossed (
+i =
+1, . . . , 5), and suppose that p1 = 0, p2 = 1/4, p3 = 1/2, p4 = 3/4, and p5 = 1.
+1
+a. Suppose that one coin is selected at random from the box and when it is
+tossed once, a head is obtained. What is the posterior probability that the i th
+coin was selected (i = 1, . . . , 5) ?
+b. If the same coin were tossed again, what would be the probability of obtaining
+another head?
+c. If a tail had been obtained on the first toss of the selected coin and the same
+coin were tossed again, what would be the probability of obtaining a head on
+the second toss?
+Problem 8. (’Binary’ paradox)
+For this problem assume that kids are equally probable to be male or female.
+Be sure to carefully justify your answers.
+(a) Our king had two kids. The older kid is female. What is the probability
+that both kids are female?
+(b) Our king had two kids. At least one of them is male. What is the probability
+that both kids are males?
+Problem 9. (The blue taxi)
+In a city with one hundred taxis, 1 is blue and 99 are green. A witness observes
+a hit-and-run by a taxi at night and recalls that the taxi was blue, so the police
+arrest the blue taxi driver who was on duty that night. The driver proclaims
+their innocence and hires you to defend them in court. You hire a scientist to
+test the witness’ ability to distinguish blue and green taxis under conditions
+similar to the night of accident. The data suggests that the witness sees blue
+cars as blue 99% of the time and green cars as blue 2% of the time.
+Write a speech for the jury to give them reasonable doubt about your client’s
+guilt. Your speech need not be longer than the statement of this question. Keep
+in mind that most jurors have not taken this course, so an illustrative table may
+be easier for them to understand than fancy formulas.
+Problem 10. (Dice) There are four dice in a drawer: one D4 (4 sides), one
+D6 (6-sides), and two D8 (8 sides). As usual, the sides of a die are numbered 1
+to n, where n is the number of sides.
+Your friend secretly grabs one of the four dice at random. Let S be the
+number of sides on the chosen die.
+(a) What is the probability that 4 side appears? What is the probability that 6
+side appears? What is the probability that 8 side appears ?
+( this is called prior )
+(b) Now, without showing it to you, your friend rolls the chosen die and tells
+you the result. Let R be the result of the roll. Use Bayes’ rule to find
+P (S = s | R = 3) for s = 4, 6, 8. Which die is most likely if R = 3 ?
+(c) Which die is most likely if R = 6 ? Hint: You can either repeat the compu-
+tation in (b), or you can reason based on your result in (b).
+(d) Which die is most likely if R = 7 ? No computations are needed!
+Problem 11
+In this problem we will use R to simulate flipping a fair coin 50 times. We’ll
+use the simulation to explore ’runs’. That is, sequences of all 1 ’s or 0 ’s.
+(a) Make up a sequence of length 50 consisting of ones and zeros. Try to make
+the sequence look like it was randomly generated by flipping a coin.
+2
+(b) A run is a sequence of all 1s or all 0s. How long is the longest run in
+your answer to part (a)?
+(c) Now we will use R to simulate 50 tosses of a fair coin and estimate the
+average length of the longest run. The code below simulates one trial. You will
+need to use a ’for loop’ to run 10000 trials.
+Sample code illustrating the use of rle().
+# R code to simulate 50 flips of a fair coin and find the longest run
+# rle stands for `run length encoding'.
+# rle(trial)$lengths is a vector of the lengths of all the different runs
+# in trial.
+nflips = 50
+trial = rbinom(nflips, 1, 0.5) # Note: binomial(1, 0.5) = bernoulli(0.5)
+max_run = max(rle(trial)$lengths)
+Sample code illustrating ’for loops’. (These may be useful in the code for
+this problem.)
+# R code demonstrating `for' loops.
+for (j in 1:5) {
+print(j^2)
+}
+(Should produce: 1, 4, 9, 16, 25.)
+sum = 0
+for (j in 1:5) {
+sum = sum + j
+}
+print(sum)
+(Should produce: 15.)
+Use R to simulate the average length of the longest run in 50 flips
+of a fair coin. Do this three times with 10000 trials each time and
+report the three results.
+(d) A small modification of your code will let you estimate the probability of
+a run of 8 or more in 50 flips. Do this three times with 10000 trials each time.
+Report the three results.
+3

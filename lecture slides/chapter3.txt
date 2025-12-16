@@ -1,0 +1,285 @@
+
+Page
+1
+of 19
+Outline
+Chapter 3: Random variables and distributions
+Funtions of Random variables
+Chapter 3.8 3.9
+Columbia University
+October 25, 2025
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.9 Functions of Two or more Random variables
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+▶ given the distribution of X (rate of customers in queue)
+▶ find the distribution of 1/X average waiting time
+▶ in general given the distribution of X find the distribution of
+r (x)
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Random variables with discrete distribution
+Example
+Let X be a random variable with discrete distribution in 1, . . . , 9.
+What is the distribution of the distance from the center
+Y = |X − 5|
+P(Y = 1) = P(X ∈ {6, 4}) = 2/9
+P(Y = 2) = P(X ∈ {7, 3}) = 2/9
+P(Y = 3) = P(X ∈ {8, 2}) = 2/9
+P(Y = 4) = P(X ∈ {9, 1}) = 2/9
+P(Y = 0) = P(X ∈ {5}) = 1/9
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Theorem
+Given X with discrete distribution f (x), the distribution of the
+random variable Y given the function r (·) of X , Y = r (X ) is
+gY (y ) = P(r (X ) = y ) = X
+x:r (x)=y
+fX (x)
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Random Variables of Continuous distribution
+Example
+Let Z be the rate at which customers are served in a queue.
+Assume the p.d.f of Z is fZ (z) = λe−λz , z ⩾ 0. What is the inverse
+CDF of Z Y = 1/Z and how would we draw random customer
+times?
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+FY (y ) = 1 − FZ ( 1
+y )
+= 1 − (1 − e−λ 1
+y )
+= e−λ 1
+y
+In general for any function r (·), one can compute the c.d.f
+FY (y ) = P(Y ⩽ y ) = P(r (X ) ⩽ y )
+=
+Z
+x:r (x)⩽y
+fX (x)dx
+and p.d.f at the points where G is differentiable
+fY (y ) = dFY (y )
+dy
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+The probability integral transformation
+Example
+Let X be a variable with fX (x) = λe−λx , x ⩾ 0. The c.d. f of X is:
+FX (x) =
+Z x
+0
+λe−λy dy = 1 − e−λx
+What is the c.d.f of the transformed variable Y = FX (X) where
+r (·) = FX (·)
+P(Y ⩽ y ) = P(FX (X) ⩽ y ) = P(X ⩽ F −1
+X (y )) = FX (F −1(y )) = y
+Thus Y is uniform on [0,1]
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Probability Integral Transformation
+Theorem
+Let X have a continuous c.d.f FX and let Y = FX (X ). The
+distribution of Y is uniform in [0,1].
+P(Y ⩽ y ) = P(FX (X) ⩽ y ) = P(X ⩽ F −1
+X (y )) = FX (F −1(y )) = y
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Random variable sampling
+In general numeric algorithms are set to generate random variables
+on [0,1].
+in order to generate a variable different from Uniform, the most
+common solution is to apply the inverse CDF
+Corollary
+Let Y have the uniform distribution on [0,1] and let F be a
+continous c.d.f with quantile functions F −1. Then X = F −1(Y )
+has c.d.f. F.
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Random Variables of Continuous distribution Sampling
+Example
+Let Z be the rate at which customers are served in a queue.
+Assume the p.d.f of Z is fZ (z) = λe−λz , z ⩾ 0. What is the inverse
+CDF of Z and how would we draw random customer times? Now
+compute the c.d.f of Z
+FZ (z) =
+Z z
+0
+λe−λx dx = 1 − e−λz
+The inverse of CDF F −1
+Z : [0, 1) → [0, ∞)
+F −1
+Z (z) = − log (1 − y )
+λ
+See jupyter notebook for the code.
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Direct Derivation of p.d.f when r is One to One and
+differentiable.
+Let r (·) be a differentiable one-to-one function on the open
+interval (a, b)
+▶ Then r is either strictly increasing or strictly decreasing
+▶ The inverse of r , denoted s would exist
+▶ The relationship between the derivative of s and derivative of
+r ds(y )
+dy = 1
+r ′(s(y ))
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Theorem
+Let X be a random variable for which the p.d.f. is f between a, b.
+Let Y = r (X ) with r one - to -one differentiable on (a,b). Let
+(α, β) be the image of interval (a, b) using r , and denote with
+s(y ) = r −1(y ). Then the p.d.f of Y is
+gY (y ) =
+(f (s(y )) | ds(y )
+dy | , α < y < β
+0 , else
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+3.9 Functions of Two or more Random variables
+Given the joint distribution of X , Y find the distribution of g (X , Y )
+Example
+Three different firms advertize their holdings in 10 different
+companies. Denote each company with Xi taking values 1 if
+outperforms and zero if not. We are interested in
+Y1 = X1 + · · · + X10
+Y2 = X11 + · · · + X20
+Y3 = X21 + · · · + X30
+Assume that underperform and outperform is equally likely
+What is the probability that firm Y1 = 3, Y2 = 5, Y3 = 8
+Given n independent variable with Bernoulli and parameter p. The
+sum Y = X1 + · · · + Xn is a binomial with parameter n and p.
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Random Variables with Continuous joint distribution
+Example
+Consider 2 customers in a queue and the time they wait is given by
+2 independent random variables X1.X2 with p.d.f 2e−2x . Since
+they leave together they are interested in the joint wait time. Let
+Y = X1 + X2
+P(Y ⩽ y ) = P(X1 + X2 ⩽ y )
+=
+Z Z
+x1+x2<y
+2e−2x1 2e−2x2 dx1dx2
+=
+Z y
+0
+Z x1<y −x2
+0
+2e−2x1 dx12e−2x2 dx2
+= 1 − e−2y − 2ye−2y
+gY (y ) = P(Y ⩽ y )
+dy = 4ye−2y
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Linear function of 2 variables
+Theorem
+Let X1, X2 with joint p.d.f f (x1, x2) and let Y = a1X1 + a2X2 + b.
+Then Y has a continuous distribution with pdf
+gY (y ) =
+Z ∞
+−∞
+f ( y − b − a2x2
+a1
+, x2) 1
+| a1 | dx2
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Convolution
+Definition
+Given X1, X2 indep and continuous random variables with
+distribution f1, f2 , define Y = X1 + X2 The distribution of Y is
+called the convolution and is
+gY (y ) =
+Z ∞
+−∞
+f1(y − z)f2(z)dz
+See example with the i.i.d waiting times with p.d.f 2e−2x . Dist of
+the sum Y = X1 + X2
+gY (y ) =
+Z y
+0
+2e−2(y −z)2e−2z dz = 4ye−2y
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+Direct transformation of a multivariate p.d.f
+Definition
+Given X1, · · · , Xn random variable and a one to one transformation
+Y1 = r1(X1, · · · , Xn)
+Yn = rn(X1, · · · , Xn)
+with inverse s1, · · · , sn The the joint pdf is
+gY (y1, .., yn) =
+(
+f (s1(y ), .., sn(y )) | J(y ) | ,
+0 , else
+where J is the determinant of the partial derivatives
+.
+Chapter 3.8 3.9 Funtions of Random variables
+Outline
+Chapter 3: Random variables and distributions
+3.8 Functions of a random variable
+3.8 Functions of a random variable
+J = det
+" ds1
+dx1 , .., ds1
+dxn
+dsn
+dx1 , .., dsn
+dxn
+#
+Chapter 3.8 3.9 Funtions of Random variables

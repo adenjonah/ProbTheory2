@@ -1,0 +1,41 @@
+
+Page
+1
+of 5
+Midterm 1 Sample
+Name:
+• There are 4 problems, worth a total of 100 points.
+• Before you start, make sure your exam is not missing any pages.
+• You may do the problems in any order you like.
+• Be very specific with your definitions. Showcase your work.
+For instructor’s use only
+Problem Points Score
+1 25
+2 25
+3 25
+4 25
+Total 100
+1
+1. A fair dice are rolled 11 times. What is the probability that :
+(a) At least one 3 appears
+(b) Each of the numbers 3,2,5 appear exactly three times each, while the number 4
+appears 2 times
+(c) Each of the numbers 4, 5 appear at least once.
+2
+2. A, B and D are three sets in a sample space and P (B), P (D) > 0. Which ones from
+the following statements which are ALWAYS true.
+(a) P (A|B) ≥ P (A).
+(b) If P (A|D) ≥ P (B|D) andP (A|Dc) ≥ P (B|Dc) then P (A) ≥ P (B)
+(c) If A and B are independent then P (A|B) = P (B).
+3
+3. Four married couples are seated at random around a round table.
+(a) Compute the probability that each couple seats together
+4
+4. Consider the following game. A player rolls a fair die. If he rolls 6, he wins immedi-
+ately. If he rolls a 1 he loses immediately. Otherwise, he selects at random, as many
+cards from the full deck as the number that came up on the die, The player wins if
+exactly 2 aces are among the selected cards.
+(a) Compute the probability of winning the game
+(b) John just told you that he recently played the game and won. What is the
+probability that rolled a 5 on the die?
+5

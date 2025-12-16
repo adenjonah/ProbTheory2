@@ -1,0 +1,1285 @@
+
+Page
+31
+of 74
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Probability
+Chapter 1
+Columbia University
+September 9, 2025
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Chapter 1: Intro to Probability
+Introduction [Example from Gravner]
+1.2-3 Interpretation of Probability
+1.4 Sample space
+1.5 Definition of probability
+Equally likely outcomes
+1.7 Counting methods
+1.8 Combinatorial methods
+1.9 Multinomial coefficients
+References
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Although gambling dates back thousands of years the birth of
+modern probability is considered to be a 1654 letter from the
+flemish aristocrat and notorious gambler Chevalier de Mere to the
+mathematician Blaise Pascal. The letter said :
+I used to be even money that i would get at least one 6 in 4 rolls
+of a die. The probability is 4 times the probability of getting a 6 in
+one roll of a die i.e. 4/6. I had the advantage and i was making
+money. Now i bet even money that within 24 rolls of two dice i
+would get a double 6. This has the same advantage 24/36 but i
+am losing money. Why?
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+1.2/1.3 Interpretation of Probability / Events
+How do we mathematically define a random experiment ?
+What we have are:
+▶ outcomes : which tell you exactly what happens
+▶ events : sets containing certain outcomes
+▶ probability : attaches to every event the likelihood that it
+happens
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+1.4 Sample space
+The sample space S is simply the list (set) of all possible
+outcomes. List must be :
+▶ Mutually exclusive
+▶ At the ”right” granularity
+The complement of a set A is defined as the set that contains all
+the elements of the sample space S that do not belong to A.
+Events : a subset of the sample space
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Example
+One roll the die , the sample space S = {1, 2, 3, 4, 5, 6} Events , A
+= {an even number is obtained} B = {a number greater than 2 is
+obtained}
+S = {1, 2, 3, 4, 5, 6}
+A = {2, 4, 6}
+B = {3, 4, 5, 6}
+{4, 6}
+Overlapping A ∩ B
+1 2 3 4 5 6
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Set operations
+▶ A ∩ B intersection : event that both A and B occurs
+▶ A ∪ B union : event that A and/or B occurs
+▶ Ac complement : event that A does not occur
+▶ A − B difference = A ∩ Bc A occurs but B does not
+▶ A ⊆ B A is a subset of B, if A occurs then B occurs
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Operations of set theory
+▶ DeMorgan’s Laws:
+(A ∪ B)c = Ac ∩ Bc
+(A ∩ B)c = Ac ∪ Bc
+▶ distributive property
+A ∩ (B ∪ C ) = (A ∩ B) ∪ (A ∩ C )
+▶ partitioning A = (A ∩ B) ∪ (A ∩ Bc )
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+1.5 Definition of probability
+▶ Normalization : P(S) = 1.
+▶ Nonnegativity: P(A) ⩾ 0 .
+▶ (Finite) Additivity: if A ∩ B = ∅, then P(A ∪ B) = P(A) + P(B)
+Moreover, if A1, A2, · · · ∈ G are pairwise disjoint, then
+P
+" ∞[
+i=1
+Ai
+#
+=
+∞X
+i=1
+P(Ai ) .
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Consequences :
+1. P(∅) = 0,
+2. If A, B ∈ G are disjoint, then P(A ∪ B) = P(A) + P(B).
+3. P(Ac ) = 1 − P(A). More generally, if A, B ∈ G with A ⊆ B, then
+P(B − A) = P(B) − P(A).
+4. If A ⊆ B P(A) ⩽ P(B).
+5. P(A ∩ Bc ) = P(A) − P(A ∩ B).
+6. P(A ∪ B) = P(A) + P(B) − P(A ∩ B).
+7. P(S∞
+i=1 Ai ) ⩽ P∞
+1=1 P(Ai ).
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Naive Interpretation of probability
+▶ Suppose all outcomes are equally likely
+P(A) = number of all outcomes in A
+number of all outcomes in S
+▶ Frequentist interpretations The probability of A is the limit of the
+ratio of occurrence in infinitely repeated trials
+P(A) = lim n → ∞ number of occurences of A up to n-th trial
+number of trials
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+1.6 Finite sample spaces
+▶ Assume S consists of n equally likely elements
+▶ Assume A consists of k elements
+Then : P(A) = number of elements of A
+number of elements of S = k
+n
+▶ Basic counting principle
+▶ Applications
+permutations combinations partitions
+number of subsets binomial probabilities
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Sample Space S (n points)
+ω0 ω1 ω2 ω3 ω4 ω5 ω6 ω7
+Subset A
+Probability of each outcome: 1
+n
+Probability of A: P(A) = |A|
+n
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+1.7 Counting methods
+One simple way of calculating the probability of an event involves
+counting the number of outcomes in the event and number of
+outcomes in the sample space.
+Listing all outcomes is very inefficient, especially if their number is
+very large. We will , therefore, learn a few counting techniques,
+starting with a trivial, but conceptually important fact.
+If an experiment consists in two stages and the first stage has m
+outcomes and the second stage has n outcomes regardless of the
+outcome of the first stage, then the experiment as a whole has
+m × n outcomes.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Roll two dice . Find the probability of the most likely sum
+(1,1)
+(1,2)
+(1,3)
+(1,4)
+(1,5)
+(1,6)
+(2,1)
+(2,2)
+(2,3)
+(2,4)
+(2,5)
+(2,6)
+(3,1)
+(3,2)
+(3,3)
+(3,4)
+(3,5)
+(3,6)
+(4,1)
+(4,2)
+(4,3)
+(4,4)
+(4,5)
+(4,6)
+(5,1)
+(5,2)
+(5,3)
+(5,4)
+(5,5)
+(5,6)
+(6,1)
+(6,2)
+(6,3)
+(6,4)
+(6,5)
+(6,6)
+Outcomes for rolling two dice
+Highlighted: Sum = 7
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+The most likely sum when rolling two dice is 7, which can be
+achieved with the following outcomes:
+(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1).
+There are 6 outcomes that result in a sum of 7. Since the total
+number of outcomes when rolling two dice is 6 × 6 = 36, the
+probability is:
+P(sum = 7) = 6
+36 = 1
+6 .
+P(sum = 2) = P(sum = 12) = 1/36
+P(sum = 3) = P(sum = 11) = 2/36
+P(sum = 4) = P(sum = 10) = 3/36
+P(sum = 5) = P(sum = 9) = 4/36
+P(sum = 6) = P(sum = 8) = 5/36
+P(sum = 7) = 6/36
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Example
+Let’s go back to De Mere’s game. What is the probability that in 4
+rolls he gets at least one 6?
+▶ Identify the sample space of equally likely outcomes,
+▶ Count the number of outcomes : there are 64 possibilities for the 4
+times the dice roll
+▶ Compute the number of good outcomes In this case is 64 − 54.
+Therefore
+P(Win) = 1 − P(no 6 in 4 rolls) = 1 − 54/64
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Sample Space: 64 = 1296 outcomes
+Outcomes
+without a 6
+54 = 625
+Outcomes
+with at least one 6
+671
+Probability:
+P(Win) = 671
+1296 ≈ 51.7% .
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Game 2 of De Mere’s game. Now i bet even money that within
+24 rolls of two dice i would get a double 6. Steps:
+1. **Sample Space**: Each roll of two dice has 36 outcomes. For
+24 rolls, there are:
+3624 possible outcomes.
+2. **Number of Good Outcomes**: At least one double 6 is
+rolled. This can be calculated as:
+Good outcomes = 3624 − 3524.
+3. **Probability**:
+P(Win) = 1 − 3524
+3624 = 49.14%.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Sample Space: 3624 outcomes
+Outcomes
+with no double 6
+3524
+Outcomes
+with at least one double 6
+3624 − 3524
+Probability:
+P(Win) = 1 − 3524
+3624 = 49.14%.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Permutations
+Permutations : Sampling without replacement
+Assume that you have n objects. The number of ways to fill in n
+ordered slots with them is
+n · (n − 1) · · · 2 · 1 = n!
+while the number of ways to fill k ⩽ n is
+Pn,k = n · (n − 1) · · · · (n − k + 1) = n!
+(n − k)!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Example
+25 members in a club and a president and secretary are to be
+chosen. What are the total number of ways that these positions
+can be filled?
+First position is filled by choosing one person out of 25 , the
+second position is filled using 24 persons.
+P25,2 = 25 · 24
+Suppose 6 different books can be arranged on a shelf. The number
+of possible combinations is 6!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+25 Members of the Club
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+President (1 out of 25) Secretary (1 out of 24)
+Total ways to fill positions:
+P25,2 = 25 · 24 = 600
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Example
+Probability that the top card is an Ace ?
+Probability that all cards of the same suit end up next to each
+other?
+Probability that hearts are together?
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Answers:
+Example
+Probability that the top card is an Ace ?
+P(that the top card is an Ace) = 1
+13 = 4 · 51!
+52!
+there are 4 aces in the deck for the first card and remaining 51
+cards with 51! choices for the next
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Deck of 52 Cards
+Top Card Ace (4 choices)
+Remaining Cards
+51 cards (choices: 51!)
+Probability that the top card is an Ace:Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Probability that All Cards of the Same Suit End Up Next to Each
+Other
+P(all cards of the same suit are next to each other) = 4! · (13!)4
+52! .
+Explanation:
+▶ Collect all cards of the same suit into 4 blocks (e.g., Hearts,
+Spades, Diamonds, Clubs).
+▶ Each block contains 13 cards of the same suit, and they can be
+arranged internally in 13! ways.
+▶ These 4 blocks can be arranged among themselves in 4! ways.
+▶ The total number of ways to arrange all cards is 52!.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Hearts
+(13 Cards)
+Spades
+(13 Cards)
+Diamonds
+(13 Cards)
+Clubs
+(13 Cards)
+4 Blocks Representing the Suits
+4
+Internal arrangement: 13!
+Internal arrangement: 13!
+Internal arrangement: 13!
+Internal arrangement: 13!
+Block arrangement: 4!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Probability that all hearts are together?
+P(all hearts are together) = 40! · 13!
+52!
+Explanation:
+▶ **Grouping Hearts into a Block**: All 13 hearts are grouped into
+one block.
+▶ **Arranging Items**: The block of hearts and the remaining 39
+cards (non-hearts) form 40 items, which can be arranged in 40!
+ways.
+▶ **Internal Arrangement of Hearts**: Within the block, the 13
+hearts can be arranged in 13! ways.
+▶ **Total Arrangements**: The total number of arrangements for
+all 52 cards is 52!.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Hearts Block
+(13 Cards) . . .
+39 Other Cards (non-hearts)
+40! ways 13! ways
+Probability: P = 40!·13!
+52!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Sampling with replacing vs without replacement
+In the next problem and in general:
+▶ Sampling with replacement : choose an object at random from a
+population , note its properties , putting the object back in the
+population and then repeating
+▶ Sampling without replacement : omits the putting back part
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+The Birthday problem
+What is the probability that in a group of k people at least 2 will
+have the same birthday?
+▶ Identify the sample space : total number of bdays for k people
+365k
+▶ Compute the complement of this event which is all k people have
+different bdays. One can go sequentialy : first person has 365
+choices, second 364 and the k person has 365 − k + 1 Or by
+definition in how many ways we can arrange 365 days in k slots
+1 − P365,k
+365k
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+10 20 30 40
+Probability of having same bday in a group of k
+0.2
+0.5
+1.0
+50%
+23
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+A bag has 6 pieces of paper , each one with the letters , E, E, P, P,
+P and R on it. Pull 6 pieces at random from the bag (1) without
+and (2) with replacement. What is the probability that the pieces,
+in order, spell PEPPER? The sampling without replacement:
+▶ An outcome is an ordering of the pieces of paper : E1E2P1P2P3R
+▶ the number of outcomes is 6!
+▶ the number of good outcomes is 3!2! we can arrange the E’s in 3!
+and the P’s in 2! the R has just one choice
+▶ the probability is 3!2!
+6! = 1
+60
+For sampling with replacement , the answer is 33·22
+66
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Bag
+E , E , P, P, P, R
+Without Replacement
+With Replacement
+E , P, P, P, E , R
+3!·2!
+6! = 1
+60
+E , P, P, P, E , R
+33·22
+66
+Probability for ”PEPPER”
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+A bag has 6 pieces of paper, each one with the letters
+B, A, A, N, N, A on it. Pull 6 pieces at random from the bag:
+1. **Without Replacement**:
+▶ An outcome is an ordering of the pieces of paper:
+B1, A1, A2, N1, N2, A3.
+▶ The number of outcomes is 6!.
+▶ The number of good outcomes is 3! · 2! · 1! (arrange the A’s in 3!,
+the N’s in 2!, and the B in 1!).
+▶ The probability is:
+P = 3! · 2! · 1!
+6! = 1
+60 .
+2. **With Replacement**:
+▶ Each draw is independent, and every letter can appear more than
+once.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+▶ The total number of outcomes is 66.
+▶ The number of good outcomes is 33 · 22 · 11 (corresponding to
+repeated A’s, N’s, and B).
+▶ The probability is:
+P = 33 · 22 · 11
+66 .
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Bag
+B, A, A, N, N, A
+Without Replacement
+With Replacement
+B, A, N, A, N, A
+3!·2!·1!
+6! = 1
+60
+B, A, N, A, N, A
+33·22·11
+66
+Probability for ”BANANA”
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+1.8 Combinatorial methods
+Let n
+k
+ be the number of different subsets with k elements of a set
+with n elements. Then,
+n
+k
+
+= n!
+k!(n − k)!
+To understand why this is true, first choose a subset , then order
+its elements in a row to fill k ordered slots from the set with n
+objects. Then , distinct choices of a subset and its ordering will
+end up as distinct orderings. Therefore,
+n
+k
+
+k! = n · (n − 1) · · · (n − k + 1) = n!
+(n − k)!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+We call n
+k
+ = n choose k or a binomial coefficient(as it appears in
+the binomial theorem):
+(x + y )n =
+nX
+k=0
+n
+k
+
+xk y n−k
+Also, note that n
+0
+
+=
+n
+n
+
+= 1
+n
+k
+
+=
+ n
+n − k
+
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+How many ways are there to permute the letters in the word
+LALALAAA? To determine a permutation, we just need to choose
+where the 5 A’s go (or, equivalently, just decide where the 3 L’s go)
+▶ 8
+5
+
+= 8!
+5!3!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+How many ways are there to permute the letters in the word
+LALALAAA?
+▶ The word ”LALALAAA” contains 8 letters:
+A, A, A, A, A, L, L, L
+▶ To determine a permutation, we only need to decide the positions
+of the 5 A’s (or equivalently the 3 L’s).
+▶ The number of ways to choose 5 positions for A’s (or 3 positions
+for L’s) is given by:
+8
+5
+
+= 8!
+5! · 3! = 56.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+:
+1 2 3 4 5 6 7 8
+5 Positions for A’s
+3 Positions for L’s
+Total permutations: 56
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Permutations of a word
+How many ways are there to permute the letters in the word
+STATISTICS? Here are two approaches
+▶ We could choose where to put the S’s, then where to put the T’s
+(from the remaining positions), then where to put the I’s, then
+where to put the A (and then the C is determined)
+▶ Alternatively, we can start with 10! and then adjust for
+overcounting, dividing by 3!3!2! to account for the fact that the
+S’s can be permuted among themselves in any way, and likewise
+for the T’s and I’s.
+10
+3
+7
+3
+4
+2
+2
+1
+
+= 10!
+3!3!2!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Tossing a coin
+Example
+Toss a fair coin 10 times. What is the probability of obtaining
+exactly 3 heads and 3 or more heads. The total number of
+different sequences of 10 heads and tails is 210. The number of the
+sequences that will contain exactly 3 heads will be equal with the
+number of different arrangements that can be formed with 3 heads
+and 7 tails. The probability of observing exactly 3 heads is then
+10
+3
+
+210
+One need to choose 3 positions among the 10 slots where the H
+can land.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Tossing a coin
+Example
+Toss a fair coin 10 times.
+What is the probability of obtaining 3 or fewer heads? This is the
+probability of obtaining 0 ,1,2,3 heads
+10
+0
+ + 10
+1
+ + 10
+2
+ + 10
+3
+
+210
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Example
+We have a bag that contains 100 balls, 50 of them red and 50
+blue. Select 5 balls at random. What is the probability that 3 are
+blue and 2 are red?
+P( 3 are blue and 2 are red) =
+50
+3
+50
+2
+
+100
+5
+
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Newton-Pepys problem
+Isaac Newton was consulted about the following problem by
+Samuel Pepys, who wanted the information for gambling purposes.
+Which of the following events has the highest probability?
+▶ A: At least one 6 appears when 6 fair dice are rolled.
+▶ B: At least two 6’s appear when 12 fair dice are rolled.
+▶ C: At least three 6’s appear when 18 fair dice are rolled.
+The three experiments have 66, 612, and 618 possible outcomes,
+respectively.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Newton-Pepys problem
+A : Instead of counting the number of ways to obtain at least one
+6, it is easier to count the number of ways to get no 6’s. Getting
+no 6’s is equivalent to sampling the numbers 1 through 5 with
+replacement 6 times, so 56 outcomes are favorable to Ac (and 656
+are favorable to A)
+P(A) = 1 − 56/66 ≈ .67
+B: Again we count the outcomes in Bc first. There are 512 ways to
+get no 6’s in 12 die rolls. There are 12
+1
+511 ways to get exactly
+one 6. We first choose which die lands 6, then sample the numbers
+1 through 5 with replacement for the other 11 dice.
+P(B) = 1 − 512 − 12
+1
+511
+612 ≈ .62
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Sit 3 women and 3 men at random (1 ) in a row of chairs and (2)
+around the table. Compute the probability in case (1) that all
+women sit together.
+Since we have 3 women we have 3! ways to arrange them. After
+we arrange them we have a block of 3 women plus 3 men that can
+be arranged in 4! ways.
+Thus the anwer is : 4!3!
+6!
+For case (2) pick a man , and sit him first. Then the total number
+of choices is 5!. Then we have 3! ways in which to arrange the
+women and and 2 men and a group of women that gives us 3!3! .
+Thus the answer is 3
+10
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+1.9 Multinomial coefficients
+Example : Choosing committee. We have 20 people divided in 3
+committees A , B and C in such way that A and B have 8
+members and C has 4 members.
+one way to think about it is first choose 8 members for A out of 20
+people then choose 8 members for B out of 12 people and the
+remaining will go to C.
+The number of choices is
+20
+8
+
+·
+12
+8
+
+= 20!
+8!8!4!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Assume that you have n objects. The number of ways to divide n
+elements into k subsets of n1, · · · , nk elements such that
+n1 + · · · + nk = n is denoted with
+ n
+n1 · · · , nk
+
+= n!
+n1! · · · (nk )!
+par We call n
+k
+ = n choose k or a binomial coefficient(as it
+appears in the binomial theorem):
+(x1 + · · · + xk )n = X  n
+n1, · · · , nk
+
+xn1
+1 · · · xnk
+k
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Rolling dice
+Suppose that 12 dice are to be rolled. Compute the probability
+that each number appears exactly twice.
+The total number of possibilities is 612
+The number of the outcomes that would contain each one of the
+six numbers twice will be equal with the arrangements of the 6
+pairs k = 6 of 2 elements. This is :
+ 12
+2, 2, 2, 2, 2, 2
+
+= 12!
+2!6
+consequently the probability of happening is
+12!
+26612
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Playing cards. A deck of 52 cards contains 13 hearts. Suppose
+that the cards are shuffled and equally distributed among four
+players A,B,C and D so each player receive 13 cards. We shall
+determine the probability that a player A will receive 6 hearts,
+player B will receive 4 hearts, player C will receive 2 hearts and
+player D one heart.
+the total number of different ways in which the cards can be
+distributed among 4 players such that each player receives 13 cards
+is  52
+13, 13, 13, 13
+
+= 52!
+13!4
+the number of ways in which the hearts can be distributed among
+the 4 players is:  13
+6, 4, 2, 1
+
+= 13!
+6!4!2!1!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+the total number of ways in which the 39 remaining cards can be
+distributed among the 4 players is
+ 39
+7, 9, 11, 12
+
+= 39!
+7!9!11!12!
+the probability is number of good outcomes M=
+ 13
+6, 4, 2, 1
+
+·
+ 39
+7, 9, 11, 12
+
+sample size  52
+13,13,13,13
+
+Probability :
+the probability
+13!413!39!
+52!7!9!11!12!6!4!2!1!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Adjusting for overcounting
+In many counting problems, it is not easy to directly count each
+possibility once and only once.
+For example, if we have exactly double-counted each possibility, we
+can divide by 2 to get the correct count.
+Example (Teams)
+Consider of group of 4 people.
+How many ways to form a 2 person committee
+How many ways to break the people into two teams of two?
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Poker
+Example (Poker)
+Start with a shuffled deck of cards and distribute all 52 cards to 4
+players, 13 cards to each.
+A: What is the probability that each player gets an Ace?
+B: Next, assume that you are a player and you get a single Ace.
+What is the probability now that each player gets an Ace?
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Poker: Answers
+Example (Poker)
+A: If any ordering of cards is equally likely, then any position of the
+four Aces in the deck is also equally likely. There are 52
+4
+
+possibilities for the positions (slots) for the 4 aces. Out of these,
+the number of positions that give each player an Ace is 13 : pick
+the first slot among the cards that the first player gets, then the
+second slot among the second player’s cards, then the third and
+the fourth slot.
+The answer is 134
+(52
+4 ) ≈ 10%
+B: The answer is 133
+(39
+3 ) ≈ 22%
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Poker: Answers another
+Consider the aces to be on top of the pack and distribute them at
+random into the slots 1-52
+The first Ace goes into one slot and is gonna land to one player
+the second Ace cannot go into the 13 slots so the chance of the
+second Ace be placed with a different player is 39
+51
+the third Ace cannot go into the 26 slots so the chance of the
+second Ace be placed with a different player is 26
+50
+the 4th Ace cannot go into the 39 slots so the chance of the
+second Ace be placed with a different player is 13
+49
+The answer is 39
+51 · 26
+50 · 13
+49
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Poker: One more answer
+In how many ways you can arrange 52 cards in 13 hands each:
+52!
+13!13!13!13!
+the aces in 4! ways
+distribute the other 48 cards 12 each
+48!
+12!12!12!12!
+probability is of good outcomes/ total number of outcomes
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Matching problem.
+A large company with n employees has a scheme according to
+which each employee buys a Christmas gift and the gifts are then
+distributed at random to the employees. What is the probability
+that someone gets his or her own gift?
+Note that this is different from asking, assuming that you are one
+of the employees, that you get your own gift with is 1
+n
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Matching problem. Solution
+Let Ai = {ith employee gets his or her own gift}.Then, what we
+are looking for is
+P(∪n
+i=1Ai ).
+P(Ai ) = 1
+n .
+P(Ai ∩ Aj ) = (n − 2)!
+n! = 1
+n
+1
+n − 1
+P(Ai ∩ Aj ∩ Ak ) = (n − 3)!
+n! = 1
+n
+1
+n − 1
+1
+n − 2
+P(A1 ∩ A2 · · · ∩ An) = 1
+n|
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+P(A ∪ B) = P(A) + P(B) − P(A ∩ B).
+P(
+n[
+i=1
+Ai ) =
+nX
+i=1
+P(Ai ) − X
+1⩽i<j⩽n
+P(Ai ∩ Aj ) +
++ X
+1⩽i<j<k⩽n
+P(Ai ∩ Aj ∩ Ak ) + · · ·
++ (−1)n−1P(Ai ∩ · · · An)
+This is called the inclusion-exclusion formula and is commonly used
+when it is easier to compute probabilities of intersections than of
+unions.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+the answer is
+n · 1
+n −
+n
+2
+ 1
+n
+1
+n − 1 + · · · (−1)n−1 1
+n!
+→ 1 − 1
+e ≈ 63%(asn → ∞)
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Ordered vs Unordered
+▶ Is the probability the same ?
+▶ Which method should we use : Ordered vs Unordered?
+▶ Which notation goes with ordered vs unordered?
+▶ Is sample space always the same? Why sometimes i don’t count
+outcomes in the sample space?
+You have a deck of cards and you draw 2 cards.
+▶ What is the probability that you draw Ace of Hearts and Jack of
+Diamond?
+▶ What is the probability that the first card is Ace of Hearts and the
+second is Jack of Diamond?
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+You have a deck of cards and you draw 2 cards. What is the
+probability that you draw Ace of Hearts and Jack of Diamond?
+Unordered Space
+Consider all unordered pairs of 2 cards that u can draw from a 52
+cards deck. By the definition there are 52
+2
+ possible combinations.
+All these combinations are equally likely.
+The naive definition of probability tells me i just need to count
+number of successful outcomes vs total outcomes in the sample
+space.
+There is only 1 successful outcome in the unordered space.
+P(Ace of Hearts and Jack of Diamond) = 1
+52
+2
+
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+You have a deck of cards and you draw 2 cards. What is the
+probability that you draw Ace of Hearts and Jack of Diamond?
+Ordered Space
+Consider all ordered pairs of 2 cards that u can draw from a 52
+cards deck. For the first card u have 52 choices second card 51
+which is equivalent with double the unordered pairs 52
+2
+. All these
+combinations are equally likely.
+The naive definition of probability tells me i just need to count
+number of successful outcomes vs total outcomes in the sample
+space.
+Now there are 2 successful outcome in the ordered space cause you
+can have A,J and J,A.
+P(Ace of Hearts and Jack of Diamond) = 2
+52 · 51
+Same probability.
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+You have a deck of cards and you draw 2 cards. What is the
+probability that the first card is Ace of Hearts and the second is
+Jack of Diamond?
+Ordered Space
+Now there is 1 successful outcome in the ordered space cause you
+can have A,J .
+P(1 st Ace of Hearts and 2 nd Jack of Diamond) = 1
+52 · 51
+Un Ordered Space
+???
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Is sample space always the same?
+Sit 3 women and 3 men at random (1 ) in a row of chairs and (2)
+around the table. Compute the probability in case (1) that all
+women sit together.
+Since we have 3 women we have 3! ways to arrange them. After
+we arrange them we have a block of 3 women plus 3 men that can
+be arranged in 4! ways.
+Thus the answer is : 4!3!
+6!
+For case (2) pick a man , and sit him first. Then the total number
+of choices is 5!. Then we have 3! ways in which to arrange the
+women and and 2 men and a group of women that gives us 3!3! .
+Thus the answer is 3
+10
+Why here is the sample space 5! vs in a row is 6!?
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Poker
+▶ What is the probability of exactly a pair when you draw 5 cards
+from a deck of 52 cards?
+P(Pair ) = # unordered distinct-five-card sets giving full house
+# unordered distinct-five-card sets
+Unordered sample space : 52
+5
+.
+▶ Pick a number from 1 to 13 , 13 choices
+▶ given a number i have 4 cards and i need to make a pair 4
+2
+
+▶ from the rest of 12 pick 3 numbers : 12
+3
+
+▶ from each of the 3 ranks pick a card 43
+▶
+P(pair ) = 13 · 4
+2
+12
+3
+43
+52
+5
+ = 42%
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+▶ The hand is called a full house in poker if it consists of three cards
+of some rank and two cards of another rank, e.g., three 7’s and
+two 10’s (in any order). What is the probability of a full house?
+P(Pair ) = # unordered distinct-five-card sets giving full house
+# unordered distinct-five-card sets
+Unordered sample space : 52
+5
+.
+▶ Pick a number from 1 to 13 , 13 choices
+▶ given a number i have 4 cards and i need to make a pair 4
+3
+
+▶ from the rest of 12 pick 3 : 124
+3
+
+▶
+P(FullHouse) = 13 · 4
+3
+124
+2
+
+52
+5
+
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+▶ The hand is called a full house in poker if it consists of three cards
+of some rank and two cards of another rank, e.g., three 7’s and
+two 10’s (in any order). What is the probability of a full house?
+P(Pair ) = # ordered distinct-five-card sets giving full house
+# ordered distinct-five-card sets
+Unordered sample space : 52 · 51 · 50 · 49 · 48.
+▶ order the 5 cards 5
+2
+
+▶ number of ways to choose the 3 cards same rank 13 · 4 · 3 · 2
+▶ number of ways to choose the 2 cards same rank 12 · 4 · 3
+▶
+P(FullHouse) =
+5
+2
+13 · (4 · 3 · 2) ∗ 12 · (4 · 3)
+52 · 51 · 50 · 49 · 48
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+Sit 3 women and 3 men at random (1 ) in a row of chairs and (2)
+around the table. Compute the probability that men and women
+alternate. For this question the seats of men and women are fixed
+after the first man sits down so the answer is 3!2!
+5!
+Chapter 1 Probability
+Outline
+Chapter 1: Intro to Probability
+New Problem: Probability of Spelling ”BANANA”
+References
+[1] Janko Gravner, Lecture Notes for Introductory Probability
+https://www.math.ucdavis.edu/ gravner/MAT135A/resources/lecturenote
+[2]Morris H. DeGroot and Mark J. Schervish. Probability and
+Statistics, 4th edition , Pearson , ISBN-13: 9780321500465
+[3] Gareth James • Daniela Witten • Trevor Hastie • Robert
+Tibshirani , An Introduction to Statistical Learning with
+Applications in R (2023)
+Chapter 1 Probability
