@@ -1,0 +1,998 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+
+% Better text handling
+\tolerance=9999
+\emergencystretch=3em
+\hyphenpenalty=10000
+\sloppy
+
+% Custom colors
+\definecolor{hwcolor}{RGB}{0,102,204}
+\definecolor{examcolor}{RGB}{204,0,0}
+\definecolor{sectioncolor}{RGB}{0,153,0}
+\definecolor{formulacolor}{RGB}{128,0,128}
+\definecolor{warningcolor}{RGB}{255,140,0}
+
+% Custom commands
+\newcommand{\hwproblem}[1]{\textcolor{hwcolor}{\textbf{#1}}}
+\newcommand{\examproblem}[1]{\textcolor{examcolor}{\textbf{#1}}}
+\newcommand{\sectionref}[1]{\textcolor{sectioncolor}{\texttt{Section #1}}}
+\newcommand{\formularef}[1]{\textcolor{formulacolor}{\texttt{Formula: #1}}}
+\newcommand{\template}[1]{\textcolor{warningcolor}{\texttt{Template #1}}}
+\newcommand{\warning}[1]{\textcolor{red}{\textbf{! #1}}}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Complete Problem Index}
+\fancyhead[R]{Probability Theory}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+% =============================================================================
+% TITLE PAGE
+% =============================================================================
+
+\begin{center}
+{\Huge \textbf{Complete Problem Index}}\\[0.3cm]
+{\LARGE with Solution Paths \& Variations}\\[0.5cm]
+{\large Probability Theory Final Exam Preparation}\\[0.3cm]
+{\normalsize December 2025}\\[1cm]
+
+\begin{tabular}{ll}
+\textbf{Total Problems:} & 57 main problems, 131 sub-parts \\
+\textbf{Sources:} & HW1-HW6, Practice Midterms 1-2, Practice Final \\
+\textbf{Reference:} & FINAL\_EXAM\_CHEATSHEET.tex sections \\
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+\tableofcontents
+\newpage
+
+% =============================================================================
+% SECTION 1: HOW TO USE THIS DOCUMENT
+% =============================================================================
+
+\section{How to Use This Document}
+
+\subsection{Color Coding}
+\begin{itemize}[leftmargin=*]
+\item \hwproblem{Blue} = Homework problems (HW1-HW6)
+\item \examproblem{Red} = Practice exam problems
+\item \sectionref{Green} = Study guide section references
+\item \formularef{Purple} = Specific formula references
+\item \template{Orange} = Multi-step problem templates
+\end{itemize}
+
+\subsection{Finding What You Need}
+
+\textbf{Method 1: By Problem Source}
+\begin{enumerate}
+\item Find the homework/exam in the Table of Contents
+\item Look up the specific problem number
+\item Follow the PRIMARY SOLUTION PATH
+\end{enumerate}
+
+\textbf{Method 2: By Problem Type}
+\begin{enumerate}
+\item Go to Section \ref{sec:bytype} (Problems by Type)
+\item Find your problem type
+\item See all related problems and their solutions
+\end{enumerate}
+
+\textbf{Method 3: By Keyword}
+\begin{enumerate}
+\item Go to Section \ref{sec:terminology} (Terminology Dictionary)
+\item Look up the keyword from your problem
+\item Get directed to the correct section
+\end{enumerate}
+
+\subsection{CRITICAL Terminology Reminders}
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{If You See} & \textbf{It Means} & \textbf{Go To} \\
+\hline
+``Gaussian'' & Normal distribution & \sectionref{3.3} \\
+``Gaussian vector'' & Multivariate Normal (MVN) & \sectionref{4.5} \\
+``Independent components'' & $\rho = 0$ (for MVN: independent!) & \sectionref{4.5} \\
+``Mean $\theta = 3$'' (Exponential) & $\lambda = 1/3$ NOT $\lambda = 3$! & \sectionref{3.4} \\
+``Large $n$'' or ``approximate'' & Use CLT & \sectionref{6.1} \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+% =============================================================================
+% SECTION 2: HOMEWORK PROBLEMS
+% =============================================================================
+
+\section{Homework Problems}
+
+% -----------------------------------------------------------------------------
+% HW1
+% -----------------------------------------------------------------------------
+
+\subsection{\hwproblem{Homework 1}}
+
+\subsubsection{HW1-Q1: Six-Card Poker Hands}
+
+\textbf{Problem:} Calculate probability of two-pair and three-of-a-kind in 6-card hands.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{1.5} - Counting Methods
+\item \formularef{$C(n,k) = \binom{n}{k}$}
+\end{itemize}
+
+\textbf{Key Steps:}
+\begin{enumerate}
+\item Total hands: $C(52,6)$
+\item Count each hand type using combinations
+\item Divide for probability
+\end{enumerate}
+
+\textbf{Variations:}
+\begin{itemize}
+\item Different hand types $\rightarrow$ Different counting
+\item 5-card instead of 6-card $\rightarrow$ Same method
+\item With/without wild cards $\rightarrow$ Adjust counts
+\end{itemize}
+
+\hrulefill
+
+\subsubsection{HW1-Q2: Non-Transitive Dice}
+
+\textbf{Problem:} Compare irregular dice with faces Blue: 333336, Orange: 144444, White: 222555.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{2.1} - PMF and CDF
+\item Method: Enumerate all 36 outcomes for each pair
+\end{itemize}
+
+\textbf{Variations:}
+\begin{itemize}
+\item Different dice faces $\rightarrow$ Same enumeration
+\item Sum of dice $\rightarrow$ Convolution
+\item Three-way comparison $\rightarrow$ Check transitivity
+\end{itemize}
+
+\hrulefill
+
+\subsubsection{HW1-Q3: Birthday Problem}
+
+\textbf{Problem:} Find probability of shared birthdays in group of $n$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{1.5} - Counting Methods
+\item \formularef{$P(\text{shared}) = 1 - \frac{365!/(365-n)!}{365^n}$}
+\end{itemize}
+
+\textbf{Key Insight:} Use complement! $P(\text{at least one shared}) = 1 - P(\text{all different})$
+
+\textbf{Variations:}
+\begin{itemize}
+\item Different number of days $\rightarrow$ Replace 365
+\item Three people share $\rightarrow$ More complex counting
+\item Simulation approach $\rightarrow$ Monte Carlo
+\end{itemize}
+
+\hrulefill
+
+\subsubsection{HW1-Q4 to HW1-Q8: Basic Probability}
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Problem} & \textbf{Type} & \textbf{Section} \\
+\hline
+Q4: Dice difference & Enumeration & \sectionref{2.1} \\
+Q5: School grades & Weighted probability & \sectionref{1.1} \\
+Q6: Three coins & Simple counting & \sectionref{1.5} \\
+Q7: Elevator & Permutations & \sectionref{1.5} \\
+Q8: Ball drawing & Symmetry & \sectionref{1.1} \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+% -----------------------------------------------------------------------------
+% HW2
+% -----------------------------------------------------------------------------
+
+\subsection{\hwproblem{Homework 2}}
+
+\subsubsection{HW2-Q1: Polya Urn Model}
+
+\textbf{Problem:} Box with $r$ red, $b$ blue balls. Draw, return with $k$ additional of same color. Find $P(\text{first 3 red, 4th blue})$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{1.2} - Conditional Probability
+\item \formularef{Chain rule: $P(A_1 \cap \ldots \cap A_n) = P(A_1)P(A_2|A_1)\cdots$}
+\end{itemize}
+
+\textbf{Solution:}
+\[P = \frac{r}{r+b} \cdot \frac{r+k}{r+b+k} \cdot \frac{r+2k}{r+b+2k} \cdot \frac{b}{r+b+3k}\]
+
+\hrulefill
+
+\subsubsection{HW2-Q7: Five Coins (Bayesian)}
+
+\textbf{Problem:} Five coins with $p_i = 0, 1/4, 1/2, 3/4, 1$. Select coin randomly, observe head. Find posterior probabilities.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{7.2} - Bayesian Statistics
+\item \sectionref{1.3} - Bayes' Theorem
+\item \formularef{$P(\text{coin}_i | H) = \frac{P(H|\text{coin}_i)P(\text{coin}_i)}{\sum_j P(H|\text{coin}_j)P(\text{coin}_j)}$}
+\end{itemize}
+
+\textbf{Key Steps:}
+\begin{enumerate}
+\item Prior: $P(\text{coin}_i) = 1/5$
+\item Likelihood: $P(H|\text{coin}_i) = p_i$
+\item Posterior: Apply Bayes formula
+\end{enumerate}
+
+\hrulefill
+
+\subsubsection{HW2-Q9: Blue Taxi (Base Rate Fallacy)}
+
+\textbf{Problem:} 1 blue taxi, 99 green. Witness 99\% accurate on blue, 2\% false positive on green.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{7.2} - Bayesian Statistics
+\item \template{E} (Bayesian Discrete Prior)
+\end{itemize}
+
+\textbf{Key Insight:} $P(\text{blue}|\text{says blue}) \approx 0.33$ despite 99\% witness accuracy!
+
+\textbf{Variations:}
+\begin{itemize}
+\item Different base rates $\rightarrow$ Posterior changes dramatically
+\item Different test accuracy $\rightarrow$ Sensitivity analysis
+\item Multiple tests $\rightarrow$ Sequential updating
+\end{itemize}
+
+\newpage
+
+% -----------------------------------------------------------------------------
+% HW3
+% -----------------------------------------------------------------------------
+
+\subsection{\hwproblem{Homework 3}}
+
+\subsubsection{HW3-Q1: Joint PMF}
+
+\textbf{Problem:} $p_{X,Y}(x,y) = c(x^2 + y^2)$ for $x \in \{1,2,4\}$, $y \in \{1,3\}$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{4.1} - Joint Distributions
+\item \sectionref{4.2} - Marginals
+\item \sectionref{4.4} - Covariance
+\end{itemize}
+
+\textbf{Solution Steps:}
+\begin{enumerate}
+\item Find $c$: $\sum\sum p(x,y) = 1$
+\item Marginals: $p_X(x) = \sum_y p(x,y)$
+\item Expectations: $E[X] = \sum x \cdot p_X(x)$
+\item Variance: $\text{Var}(X) = E[X^2] - E[X]^2$
+\end{enumerate}
+
+\hrulefill
+
+\subsubsection{HW3-Q5: Reward for HT Patterns}
+
+\textbf{Problem:} Coin tosses with $P(H) = p$. Reward 1 for each HT pattern. Find $E[R]$, $\text{Var}(R)$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{7.4} - Indicator Random Variables
+\item \formularef{$R = \sum I_i$ where $I_i = 1$ if HT at position $i$}
+\end{itemize}
+
+\textbf{Key Formulas:}
+\begin{align*}
+E[R] &= (n-1) \cdot p(1-p) \\
+\text{Var}(R) &= \sum \text{Var}(I_i) + 2\sum \text{Cov}(I_i, I_j)
+\end{align*}
+
+\hrulefill
+
+\subsubsection{HW3-Q6: Exponential Distribution}
+
+\textbf{Problem:} $X \sim \text{Exp}(\lambda)$. Find survival function, moments, distribution of $\min(X_1, X_2)$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{3.4} - Exponential Distribution
+\item \formularef{$P(X > x) = e^{-\lambda x}$}
+\end{itemize}
+
+\warning{If ``mean $\theta = 3$'' then $\lambda = 1/3$ NOT $\lambda = 3$!}
+
+\textbf{Key Results:}
+\begin{itemize}
+\item $E[X] = 1/\lambda$, $\text{Var}(X) = 1/\lambda^2$
+\item $\min(X_1, X_2) \sim \text{Exp}(\lambda_1 + \lambda_2)$
+\item Memoryless: $P(X > s+t | X > s) = P(X > t)$
+\end{itemize}
+
+\newpage
+
+% -----------------------------------------------------------------------------
+% HW4
+% -----------------------------------------------------------------------------
+
+\subsection{\hwproblem{Homework 4}}
+
+\subsubsection{HW4-Q1: Joint PDF Analysis}
+
+\textbf{Problem:} $f(x,y) = c(x^2 + xy)$ on $[0,1]^2$. Find $c$, marginals, covariance, check independence.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{4.1} - Joint Distributions
+\item \sectionref{4.2} - Marginal/Conditional
+\item \sectionref{4.4} - Covariance/Correlation
+\item \sectionref{4.3} - Independence Check
+\end{itemize}
+
+\textbf{Solution:}
+\begin{enumerate}
+\item $c = 12/7$ (integrate to 1)
+\item $f_X(x) = \frac{12}{7}(x^2 + x/2)$
+\item $E[X] = 5/7$, $\text{Var}(X) \approx 0.0469$
+\item $\text{Cov}(X,Y) \approx -0.0034$
+\item NOT independent (joint $\neq$ product of marginals)
+\end{enumerate}
+
+\hrulefill
+
+\subsubsection{HW4-Q4: Meeting Problem}
+
+\textbf{Problem:} $A, B \sim \text{Uniform}(0,60)$ independent. Find $P(|A-B| < 15)$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{4.1} - Joint Distributions
+\item \sectionref{3.2} - Uniform Distribution
+\item \template{U17} (Meeting Problem)
+\end{itemize}
+
+\textbf{Key Method:} Draw square $[0,60]^2$, shade region where condition holds, compute area fraction.
+
+\textbf{Solution:} $P(|A-B| < 15) = 1 - (45/60)^2 = 1 - 9/16 = 7/16$
+
+\hrulefill
+
+\subsubsection{HW4-Q5: Overlapping Sums}
+
+\textbf{Problem:} $X_i \sim \text{Exp}(2)$ i.i.d. $X = \sum_{i=1}^n X_i$, $Y = \sum_{i=n-7}^{2n-8} X_i$. Find $\text{Cov}(X,Y)$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{4.4} - Covariance
+\item \formularef{$\text{Cov}(\sum X_i, \sum X_j) = \sum_{\text{overlap}} \text{Var}(X_i)$}
+\end{itemize}
+
+\textbf{Solution:} Overlap has 8 terms. $\text{Cov}(X,Y) = 8 \cdot \text{Var}(X_i) = 8 \cdot (1/4) = 2$.
+
+\newpage
+
+% -----------------------------------------------------------------------------
+% HW5
+% -----------------------------------------------------------------------------
+
+\subsection{\hwproblem{Homework 5}}
+
+\subsubsection{HW5-Q1: Bivariate Normal}
+
+\textbf{Problem:} $(X,Y)$ jointly normal with $\mu_X = 1$, $\sigma_X^2 = 2$, $\mu_Y = -2$, $\sigma_Y^2 = 3$, $\rho = -2/3$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{4.5} - Bivariate Normal
+\item \template{A} (Gaussian Vector Problems)
+\item \template{F} (BVN Conditional)
+\item \template{G} (Linear Combination Independence)
+\end{itemize}
+
+\textbf{Part (a): $P(X + Y > 0)$}
+\begin{enumerate}
+\item $X + Y$ is normal
+\item $E[X+Y] = 1 + (-2) = -1$
+\item $\text{Var}(X+Y) = 2 + 3 + 2(-2/3)\sqrt{6} \approx 1.73$
+\item Standardize and use $\Phi$ table
+\end{enumerate}
+
+\textbf{Part (b): Find $a$ for independence}
+\begin{enumerate}
+\item Set $\text{Cov}(aX+Y, X+2Y) = 0$
+\item For MVN: $\text{Cov} = 0 \Leftrightarrow$ independent
+\end{enumerate}
+
+\hrulefill
+
+\subsubsection{HW5-Q2: Lognormal Distribution}
+
+\textbf{Problem:} $X$ lognormal with parameters $\mu = 3$, $\sigma^2 = 1.44$. Find $P(X \leq 6.05)$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{7.3} - Lognormal Distribution
+\item \formularef{$P(X \leq x) = \Phi\left(\frac{\ln x - \mu}{\sigma}\right)$}
+\end{itemize}
+
+\textbf{Solution:}
+\[P(X \leq 6.05) = \Phi\left(\frac{\ln(6.05) - 3}{1.2}\right) = \Phi\left(\frac{1.8 - 3}{1.2}\right) = \Phi(-1) \approx 0.159\]
+
+\hrulefill
+
+\subsubsection{HW5-Q4: Conditional BVN}
+
+\textbf{Problem:} Test scores bivariate normal. If score on A is 80, find $P(B > 90)$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{4.5} - Bivariate Normal
+\item \template{F} (BVN Conditional)
+\item \formularef{$Y|X=x \sim N\left(\mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X), (1-\rho^2)\sigma_Y^2\right)$}
+\end{itemize}
+
+\newpage
+
+% -----------------------------------------------------------------------------
+% HW6
+% -----------------------------------------------------------------------------
+
+\subsection{\hwproblem{Homework 6}}
+
+\subsubsection{HW6-Q1: Monty Hall (Sober vs Dizzy)}
+
+\textbf{Problem:} Three doors, one car. Contestant picks A, Monty opens B (goat). Compare sober vs dizzy Monty.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{7.2} - Bayesian Statistics
+\item \sectionref{1.3} - Bayes' Theorem
+\item \template{J} (Monty Hall Variants)
+\end{itemize}
+
+\textbf{Sober Monty (knows locations):}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Hypothesis & Prior & Likelihood & Posterior \\
+\hline
+$H_A$ (car at A) & 1/3 & 1/2 & 1/3 \\
+$H_B$ (car at B) & 1/3 & 0 & 0 \\
+$H_C$ (car at C) & 1/3 & 1 & 2/3 \\
+\hline
+\end{tabular}
+\end{center}
+\textbf{Strategy: SWITCH! (probability 2/3)}
+
+\textbf{Dizzy Monty (random):}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Hypothesis & Prior & Likelihood & Posterior \\
+\hline
+$H_A$ (car at A) & 1/3 & 1/2 & 1/2 \\
+$H_C$ (car at C) & 1/3 & 1/2 & 1/2 \\
+\hline
+\end{tabular}
+\end{center}
+\textbf{Strategy: Doesn't matter (both 1/2)}
+
+\hrulefill
+
+\subsubsection{HW6-Q3: CLT Sample Size}
+
+\textbf{Problem:} $\sigma = 3$. Find minimum $n$ for $P(|\bar{X} - \mu| < 0.3) \geq 0.95$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{6.1} - CLT
+\item \template{K} (Finding n for CLT)
+\end{itemize}
+
+\textbf{Solution:}
+\begin{align*}
+P\left(|Z| < \frac{0.3\sqrt{n}}{3}\right) &\geq 0.95 \\
+\frac{0.3\sqrt{n}}{3} &\geq 1.96 \\
+\sqrt{n} &\geq 19.6 \\
+n &\geq 385
+\end{align*}
+
+\hrulefill
+
+\subsubsection{HW6-Q5: Beta-Binomial}
+
+\textbf{Problem:} Prior: $\theta \sim \text{Uniform}(0,1)$. Data: 3 defective in 8. Find posterior.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{7.2} - Bayesian Statistics
+\item \formularef{$\text{Beta}(\alpha,\beta) + k \text{ in } n \rightarrow \text{Beta}(\alpha+k, \beta+n-k)$}
+\end{itemize}
+
+\textbf{Solution:}
+\begin{itemize}
+\item Prior: $\theta \sim \text{Beta}(1,1)$
+\item Posterior: $\theta|data \sim \text{Beta}(1+3, 1+5) = \text{Beta}(4,6)$
+\item $E[\theta|data] = 4/10 = 0.4$
+\end{itemize}
+
+\newpage
+
+% =============================================================================
+% SECTION 3: PRACTICE EXAM PROBLEMS
+% =============================================================================
+
+\section{Practice Exam Problems}
+
+\subsection{\examproblem{Practice Midterm 1}}
+
+\begin{center}
+\begin{longtable}{|p{2cm}|p{6cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{Problem} & \textbf{Description} & \textbf{Section} & \textbf{Template} \\
+\hline
+\endhead
+PM1-Q1 & Dice rolled 11 times, multinomial & \sectionref{1.5}, \sectionref{2.2} & - \\
+\hline
+PM1-Q2 & Set theory true/false & \sectionref{1.2}, \sectionref{1.4} & - \\
+\hline
+PM1-Q3 & Married couples seating & \sectionref{1.5} & - \\
+\hline
+PM1-Q4 & Dice and cards game + Bayes & \sectionref{2.6}, \sectionref{1.3} & \template{E} \\
+\hline
+\end{longtable}
+\end{center}
+
+\subsection{\examproblem{Practice Midterm 2}}
+
+\begin{center}
+\begin{longtable}{|p{2cm}|p{6cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{Problem} & \textbf{Description} & \textbf{Section} & \textbf{Template} \\
+\hline
+\endhead
+PM2-Q1 & Joint PDF $f(x,y) = 1/y$ on triangle & \sectionref{4.1}, \sectionref{4.4} & - \\
+\hline
+PM2-Q2 & Joint PDF with exponential & \sectionref{4.1}, \sectionref{7.1} & - \\
+\hline
+PM2-Q3 & Uniform[-1,1], max, correlation & \sectionref{3.2}, \sectionref{4.7}, \sectionref{4.4} & \template{L} \\
+\hline
+PM2-Q4 & Coin game with MGF, random N & \sectionref{5.1}, \sectionref{7.1} & \template{B} \\
+\hline
+\end{longtable}
+\end{center}
+
+\subsection{\examproblem{Practice Final}}
+
+\subsubsection{PF-Q1: Coin Game with CLT}
+
+\textbf{Problem:} Win \$3 if HH, lose \$1 if TT, \$0 otherwise. Play 400 times.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{6.1} - CLT
+\item \template{B} (CLT Game Problems)
+\end{itemize}
+
+\textbf{Solution:}
+\begin{enumerate}
+\item Single game: $E[X] = 3(1/4) - 1(1/4) = 0.5$, $\text{Var}(X) = 2.25$
+\item Total: $S_{400} \sim N(200, 900)$
+\item $P(S > 240) = P(Z > 4/3) = 1 - \Phi(1.33) \approx 0.092$
+\end{enumerate}
+
+\hrulefill
+
+\subsubsection{PF-Q2: Gaussian Vector Independence}
+
+\textbf{Problem:} $X_1, X_2$ i.i.d. $N(0,1)$. $Y_1 = aX_1 + X_2$, $Y_2 = X_1 + bX_2$. Find $a, b$ for independence.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{4.5} - Bivariate Normal
+\item \template{A} (Gaussian Vector)
+\item \template{G} (Linear Combination Independence)
+\end{itemize}
+
+\textbf{Key Insight:} For MVN, independence $\Leftrightarrow$ $\text{Cov} = 0$.
+
+\textbf{Solution:} $\text{Cov}(Y_1, Y_2) = a + b = 0 \Rightarrow b = -a$.
+
+\hrulefill
+
+\subsubsection{PF-Q3: Exponential CLT}
+
+\textbf{Problem:} $X_1, \ldots, X_{100}$ i.i.d. $\text{Exp}$ with mean 3. Find $P\left(\frac{\bar{X}}{\bar{X}+3} < 0.5\right)$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{6.1} - CLT
+\item \sectionref{3.4} - Exponential
+\item \template{C} (Exponential + CLT)
+\item \template{O} (Ratio with Sample Mean)
+\end{itemize}
+
+\warning{Mean $\theta = 3$ means $\lambda = 1/3$!}
+
+\textbf{Solution:}
+\begin{enumerate}
+\item Transform: $\frac{\bar{X}}{\bar{X}+3} < 0.5 \Leftrightarrow \bar{X} < 3$
+\item By CLT: $\bar{X} \approx N(3, 9/100)$
+\item $P(\bar{X} < 3) = \Phi(0) = 0.5$
+\end{enumerate}
+
+\hrulefill
+
+\subsubsection{PF-Q4: Lognormal Stock Price}
+
+\textbf{Problem:} $S = S_0 e^Z$ where $Z \sim N(r-\sigma^2/2, \sigma^2)$. Find $E[e^{-r}S]$ and $P(S > 100)$.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{7.3} - Lognormal
+\item \template{D} (Lognormal Stock Price)
+\end{itemize}
+
+\textbf{Key Formula:} $E[e^X] = e^{\mu + \sigma^2/2}$ for $X \sim N(\mu, \sigma^2)$.
+
+\textbf{Solution (a):} $E[e^{-r}S] = S_0 = 100$ (risk-neutral pricing result)
+
+\textbf{Solution (b):} $P(S > 100) = P(Z > 0) = 1 - \Phi\left(\frac{-(r-\sigma^2/2)}{\sigma}\right)$
+
+\hrulefill
+
+\subsubsection{PF-Q5: Discrete Bayesian}
+
+\textbf{Problem:} Prior: $P(\theta = 1/2) = P(\theta = 3/4) = 1/2$. Data: 0 defective in 10.
+
+\textbf{Primary Solution Path:}
+\begin{itemize}
+\item \sectionref{7.2} - Bayesian Statistics
+\item \template{E} (Bayesian Discrete Prior)
+\end{itemize}
+
+\textbf{Solution:}
+\begin{itemize}
+\item $P(\theta = 1/2 | data) \approx 0.999$
+\item $P(\theta = 3/4 | data) \approx 0.001$
+\end{itemize}
+
+\newpage
+
+% =============================================================================
+% SECTION 4: PROBLEMS BY TYPE
+% =============================================================================
+
+\section{Problems by Type}
+\label{sec:bytype}
+
+\subsection{Counting \& Combinatorics}
+\begin{itemize}
+\item HW1-Q1: Poker hands $\rightarrow$ \sectionref{1.5}
+\item HW1-Q3: Birthday problem $\rightarrow$ \sectionref{1.5}
+\item HW1-Q7: Elevator $\rightarrow$ \sectionref{1.5}
+\item PM1-Q1: Multinomial dice $\rightarrow$ \sectionref{1.5}
+\item PM1-Q3: Circular seating $\rightarrow$ \sectionref{1.5}
+\end{itemize}
+
+\subsection{Conditional Probability}
+\begin{itemize}
+\item HW2-Q1: Polya urn $\rightarrow$ \sectionref{1.2}
+\item HW2-Q2: Craps game $\rightarrow$ \sectionref{1.2}
+\item HW2-Q8: Binary paradox $\rightarrow$ \sectionref{1.2}
+\item HW3-Q2: Three-sided die $\rightarrow$ \sectionref{1.2}
+\end{itemize}
+
+\subsection{Bayes' Theorem}
+\begin{itemize}
+\item HW2-Q7: Five coins $\rightarrow$ \sectionref{7.2}
+\item HW2-Q9: Blue taxi $\rightarrow$ \sectionref{7.2}
+\item HW2-Q10: Four dice $\rightarrow$ \sectionref{7.2}
+\item HW6-Q1: Monty Hall $\rightarrow$ \sectionref{7.2}, \template{J}
+\item HW6-Q2: Dice prediction $\rightarrow$ \sectionref{7.2}, \template{H}
+\item HW6-Q5, Q6: Beta-Binomial $\rightarrow$ \sectionref{7.2}
+\item PF-Q5: Discrete prior $\rightarrow$ \sectionref{7.2}, \template{E}
+\end{itemize}
+
+\subsection{Joint Distributions}
+\begin{itemize}
+\item HW3-Q1: Joint PMF $\rightarrow$ \sectionref{4.1}
+\item HW4-Q1: Joint PDF $\rightarrow$ \sectionref{4.1}, \sectionref{4.4}
+\item HW4-Q2: Independence check (PMF) $\rightarrow$ \sectionref{4.3}
+\item HW4-Q4: Meeting problem $\rightarrow$ \sectionref{4.1}, \template{U17}
+\item PM2-Q1, Q2: Joint PDF with different regions $\rightarrow$ \sectionref{4.1}
+\end{itemize}
+
+\subsection{Bivariate Normal}
+\begin{itemize}
+\item HW5-Q1: BVN with all parts $\rightarrow$ \sectionref{4.5}, \template{A,F,G}
+\item HW5-Q4: Conditional BVN $\rightarrow$ \sectionref{4.5}, \template{F}
+\item HW5-Q5: Parameter recovery $\rightarrow$ \sectionref{4.5}, \template{N}
+\item PF-Q2: Gaussian vector independence $\rightarrow$ \sectionref{4.5}, \template{A,G}
+\end{itemize}
+
+\subsection{CLT / Limit Theorems}
+\begin{itemize}
+\item HW6-Q3: Sample size determination $\rightarrow$ \sectionref{6.1}, \template{K}
+\item HW6-Q4: Digit average $\rightarrow$ \sectionref{6.1}
+\item PF-Q1: Coin game 400 times $\rightarrow$ \sectionref{6.1}, \template{B}
+\item PF-Q3: Exponential average $\rightarrow$ \sectionref{6.1}, \template{C,O}
+\end{itemize}
+
+\subsection{Lognormal / Finance}
+\begin{itemize}
+\item HW5-Q2: Lognormal CDF $\rightarrow$ \sectionref{7.3}
+\item HW5-Q3: Product of lognormals $\rightarrow$ \sectionref{7.3}, \template{I}
+\item HW5-Q6: Stock returns data $\rightarrow$ \sectionref{7.3}
+\item PF-Q4: Stock price model $\rightarrow$ \sectionref{7.3}, \template{D}
+\end{itemize}
+
+\subsection{Exponential Distribution}
+\begin{itemize}
+\item HW3-Q6: Exp basics, min of Exp $\rightarrow$ \sectionref{3.4}
+\item HW4-Q5: Overlapping sums of Exp $\rightarrow$ \sectionref{3.4}, \sectionref{4.4}
+\item PF-Q3: Exp with CLT $\rightarrow$ \sectionref{3.4}, \sectionref{6.1}, \template{C}
+\end{itemize}
+
+\newpage
+
+% =============================================================================
+% SECTION 5: PROBLEMS BY SECTION
+% =============================================================================
+
+\section{Problems by Study Guide Section}
+
+\begin{center}
+\begin{longtable}{|p{3cm}|p{10cm}|}
+\hline
+\textbf{Section} & \textbf{Problems} \\
+\hline
+\endhead
+\sectionref{1.1-1.2} & HW1-Q4,Q5,Q6,Q8; HW2-Q1,Q2,Q8; PM1-Q2 \\
+\hline
+\sectionref{1.3} (Bayes) & HW2-Q7,Q9,Q10; HW6-Q1,Q2; PM1-Q4; PF-Q5 \\
+\hline
+\sectionref{1.5} (Counting) & HW1-Q1,Q3,Q7; PM1-Q1,Q3 \\
+\hline
+\sectionref{2.2} (Binomial) & HW2-Q4,Q5,Q6; HW3-Q2,Q4 \\
+\hline
+\sectionref{2.6} (Hypergeometric) & PM1-Q4 \\
+\hline
+\sectionref{3.2} (Uniform) & HW4-Q4; PM2-Q3 \\
+\hline
+\sectionref{3.3} (Normal) & HW5-Q1,Q4,Q5; PF-Q2 \\
+\hline
+\sectionref{3.4} (Exponential) & HW3-Q6; HW4-Q5; PF-Q3 \\
+\hline
+\sectionref{4.1} (Joint) & HW3-Q1; HW4-Q1,Q4; PM2-Q1,Q2 \\
+\hline
+\sectionref{4.4} (Cov/Cor) & HW3-Q1; HW4-Q1,Q3,Q5; PM2-Q1,Q3 \\
+\hline
+\sectionref{4.5} (BVN) & HW5-Q1,Q4,Q5; PF-Q2 \\
+\hline
+\sectionref{4.6} (Transform) & HW3-Q7,Q8 \\
+\hline
+\sectionref{4.7} (Order Stats) & PM2-Q3 \\
+\hline
+\sectionref{5.1} (MGF) & PM2-Q4 \\
+\hline
+\sectionref{6.1} (CLT) & HW6-Q3,Q4; PF-Q1,Q3 \\
+\hline
+\sectionref{7.1} (Cond Exp) & PM2-Q2,Q4 \\
+\hline
+\sectionref{7.2} (Bayesian) & HW2-Q7,Q9,Q10; HW6-Q1,Q2,Q5,Q6; PF-Q5 \\
+\hline
+\sectionref{7.3} (Lognormal) & HW5-Q2,Q3; PF-Q4 \\
+\hline
+\end{longtable}
+\end{center}
+
+\newpage
+
+% =============================================================================
+% SECTION 6: TERMINOLOGY DICTIONARY
+% =============================================================================
+
+\section{Terminology Dictionary}
+\label{sec:terminology}
+
+\begin{center}
+\begin{longtable}{|p{4cm}|p{4cm}|p{4cm}|p{3cm}|}
+\hline
+\textbf{Term in Problem} & \textbf{Meaning} & \textbf{Go To} & \textbf{Example} \\
+\hline
+\endhead
+``Gaussian'' & Normal distribution & \sectionref{3.3} or \sectionref{4.5} & HW5-Q1, PF-Q2 \\
+\hline
+``Gaussian vector'' & Multivariate Normal & \sectionref{4.5} & PF-Q2 \\
+\hline
+``Independent components'' & $\rho = 0$ (for MVN: independent!) & \sectionref{4.5} & PF-Q2 \\
+\hline
+``Mean $\theta$'' (Exp) & $\lambda = 1/\theta$ NOT $\theta$! & \sectionref{3.4} & PF-Q3 \\
+\hline
+``i.i.d.'' & Independent, identical & Often \sectionref{6.1} & PF-Q1,Q3 \\
+\hline
+``Large $n$'' & Use CLT & \sectionref{6.1} & HW6-Q3,Q4 \\
+\hline
+``Approximate'' & Use CLT & \sectionref{6.1} & PF-Q1,Q3 \\
+\hline
+``Prior'' / ``Posterior'' & Bayesian & \sectionref{7.2} & HW6-Q1,Q5 \\
+\hline
+``Conjugate'' & Beta-Binomial etc. & \sectionref{7.2} & HW6-Q5,Q6 \\
+\hline
+``Stock price'' / ``$S_0 e^Z$'' & Lognormal & \sectionref{7.3} & PF-Q4 \\
+\hline
+``Memoryless'' & Exponential (continuous) & \sectionref{3.4} & HW3-Q6 \\
+\hline
+``Max'' / ``Min'' & Order statistics & \sectionref{4.7} & PM2-Q3 \\
+\hline
+``$\psi(t)$'' & MGF & \sectionref{5.1} & PM2-Q4 \\
+\hline
+``E[X|Y]'' & Conditional expectation & \sectionref{7.1} & PM2-Q2,Q4 \\
+\hline
+``Monty Hall'' & Bayesian & \sectionref{7.2}, \template{J} & HW6-Q1 \\
+\hline
+``Without replacement'' & Hypergeometric & \sectionref{2.6} & PM1-Q4 \\
+\hline
+``$n$ games/trials'' & CLT & \sectionref{6.1}, \template{B} & PF-Q1 \\
+\hline
+\end{longtable}
+\end{center}
+
+\newpage
+
+% =============================================================================
+% SECTION 7: TEMPLATE QUICK REFERENCE
+% =============================================================================
+
+\section{Template Quick Reference}
+
+\begin{center}
+\begin{longtable}{|p{2.5cm}|p{5cm}|p{6.5cm}|}
+\hline
+\textbf{Template} & \textbf{When to Use} & \textbf{Key Formula} \\
+\hline
+\endhead
+\template{A} & Gaussian vector, MVN & Linear combos are normal; $\rho=0 \Leftrightarrow$ indep \\
+\hline
+\template{B} & CLT game/coin problems & $S_n \approx N(n\mu, n\sigma^2)$ \\
+\hline
+\template{C} & Exponential + CLT & Watch $\lambda$ vs mean; $\bar{X} \approx N(1/\lambda, 1/(n\lambda^2))$ \\
+\hline
+\template{D} & Lognormal stock & $E[e^X] = e^{\mu + \sigma^2/2}$ \\
+\hline
+\template{E} & Bayesian discrete prior & Bayes table \\
+\hline
+\template{F} & BVN conditional & $Y|X=x \sim N(\mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X), (1-\rho^2)\sigma_Y^2)$ \\
+\hline
+\template{G} & Linear combo independence & Set Cov $= 0$, solve \\
+\hline
+\template{H} & Predictive distribution & $P(x_{n+1}|data) = \int P(x|\theta)\pi(\theta|data)d\theta$ \\
+\hline
+\template{I} & Product of lognormals & $\ln(XY) = \ln X + \ln Y$ is normal \\
+\hline
+\template{J} & Monty Hall variants & Different likelihoods! \\
+\hline
+\template{K} & Find $n$ for CLT & $n \geq (z\sigma/\epsilon)^2$ \\
+\hline
+\template{L} & Order statistics & $F_{\max}(x) = [F(x)]^n$; $F_{\min}(x) = 1-[1-F(x)]^n$ \\
+\hline
+\template{N} & BVN from conditions & Match conditional formulas \\
+\hline
+\template{O} & Ratio with sample mean & Transform inequality first! \\
+\hline
+\end{longtable}
+\end{center}
+
+\newpage
+
+% =============================================================================
+% APPENDICES
+% =============================================================================
+
+\appendix
+
+\section{Emergency Problem-Solving Flowchart}
+
+\begin{enumerate}
+\item \textbf{Read problem completely}
+\item \textbf{Identify keywords} (see Terminology Dictionary)
+\item \textbf{Map to section} using keyword table
+\item \textbf{Check for template} match
+\item \textbf{Write down relevant formulas}
+\item \textbf{Execute step by step}
+\item \textbf{Verify answer} (probability in [0,1]? Units correct?)
+\end{enumerate}
+
+\textbf{If Still Stuck:}
+\begin{itemize}
+\item Is it asking for probability? $\rightarrow$ CDF or integration
+\item Is it asking for expectation? $\rightarrow$ $E[X] = \int x f(x) dx$
+\item Is it ``given'' something? $\rightarrow$ Conditional probability/distribution
+\item Is it ``update belief''? $\rightarrow$ Bayes' theorem
+\item Is it large $n$? $\rightarrow$ CLT
+\item Does it say ``Gaussian''? $\rightarrow$ It's Normal!
+\end{itemize}
+
+\section{Formula Quick Reference}
+
+\textbf{Probability:}
+\begin{align*}
+P(A|B) &= \frac{P(A \cap B)}{P(B)} & P(A) &= \sum P(A|B_i)P(B_i) \\
+P(H|E) &= \frac{P(E|H)P(H)}{P(E)} & &\text{(Bayes)}
+\end{align*}
+
+\textbf{Expectation/Variance:}
+\begin{align*}
+E[aX+b] &= aE[X] + b & \text{Var}(aX+b) &= a^2\text{Var}(X) \\
+\text{Var}(X) &= E[X^2] - E[X]^2 & \text{Cov}(X,Y) &= E[XY] - E[X]E[Y]
+\end{align*}
+
+\textbf{CLT:}
+\[Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1)\]
+
+\textbf{Bivariate Normal Conditional:}
+\[Y|X=x \sim N\left(\mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X), (1-\rho^2)\sigma_Y^2\right)\]
+
+\textbf{Lognormal:}
+\[E[e^X] = e^{\mu + \sigma^2/2} \quad \text{for } X \sim N(\mu, \sigma^2)\]
+
+\textbf{Beta-Binomial Conjugate:}
+\[\text{Beta}(\alpha, \beta) + k \text{ successes in } n \rightarrow \text{Beta}(\alpha+k, \beta+n-k)\]
+
+\section{Problem Count Summary}
+
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Source} & \textbf{Problems} & \textbf{Sub-parts} \\
+\hline
+Homework 1 & 8 & 15 \\
+Homework 2 & 11 & 22 \\
+Homework 3 & 8 & 24 \\
+Homework 4 & 5 & 13 \\
+Homework 5 & 6 & 11 \\
+Homework 6 & 6 & 15 \\
+Practice Midterm 1 & 4 & 6 \\
+Practice Midterm 2 & 4 & 12 \\
+Practice Final & 5 & 13 \\
+\hline
+\textbf{TOTAL} & \textbf{57} & \textbf{131} \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}
+
