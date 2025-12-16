@@ -1,0 +1,342 @@
+\documentclass[10pt,landscape,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+
+% Custom commands for consistent formatting
+\newcommand{\concept}[1]{\textbf{#1}}
+\newcommand{\formula}[1]{\boxed{#1}}
+\newcommand{\note}[1]{\textit{Note: #1}}
+\newcommand{\warning}[1]{\textcolor{red}{\textbf{⚠ #1}}}
+\newcommand{\finance}[1]{\textcolor{blue}{\textbf{💰 #1}}}
+\newcommand{\postmidterm}[1]{\textcolor{orange}{\textbf{🔥 #1}}}
+\newcommand{\quickref}[2]{\textbf{#1:} #2}
+
+% Define colors
+\definecolor{sectioncolor}{RGB}{0,102,204}
+\definecolor{formulacolor}{RGB}{0,153,0}
+
+\begin{document}
+
+\begin{center}
+{\Huge \textbf{Probability Theory Final Exam Cheat Sheet}}\\
+\vspace{0.2cm}
+{\large December 16, 2025 | 7:10pm-8:40pm | 3 Questions, 1.5 Hours}\\
+{\small \textit{Open Book Exam - Focus on Post-Midterm 2 Material}}
+\end{center}
+
+\begin{multicols}{3}
+
+% ============================================================
+\section*{\textcolor{sectioncolor}{0. QUICK REFERENCE GUIDE}}
+% ============================================================
+
+\subsection*{Decision Tree Summary}
+\begin{enumerate}[leftmargin=*,itemsep=0pt]
+\item \textbf{Probability?} → Conditional/Bayes/Basic
+\item \textbf{Random Variable?} → Discrete/Continuous
+\item \textbf{Multiple Variables?} → Joint/Independence/Correlation
+\item \textbf{Expectations?} → Basic/Variance/Conditional/MGF
+\item \textbf{Large Sample?} → CLT/Normal Approx/LLN
+\item \textbf{Bayesian?} → Update/Conjugate/Predictive
+\item \textbf{Finance?} → Lognormal/Portfolio
+\end{enumerate}
+
+\subsection*{Top 20 Critical Formulas}
+\begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \formula{P(A|B) = \frac{P(A \cap B)}{P(B)}}
+\item \formula{P(H|E) = \frac{P(E|H)P(H)}{P(E)}} (Bayes)
+\item \formula{P(A) = \sum P(A|B_i)P(B_i)} (Total Prob)
+\item \formula{E[X] = \sum x P(X=x)} (Discrete)
+\item \formula{E[X] = \int x f(x)dx} (Continuous)
+\item \formula{\text{Var}(X) = E[X^2] - (E[X])^2}
+\item \formula{\text{Cov}(X,Y) = E[XY] - E[X]E[Y]}
+\item \formula{\rho = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}}
+\item \formula{P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}} (Binomial)
+\item \formula{P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}} (Poisson)
+\item \formula{f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}} (Normal)
+\item \formula{Z = \frac{X-\mu}{\sigma}} (Standardization)
+\item \formula{M(t) = E[e^{tX}]} (MGF)
+\item \formula{E[X] = E[E[X|Y]]} (Total Expectation)
+\item \formula{\text{Var}(X) = E[\text{Var}(X|Y)] + \text{Var}(E[X|Y])}
+\item \formula{Z = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \sim N(0,1)} (CLT)
+\item \formula{\text{CI}: \bar{X} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}}
+\item \formula{\pi(\theta|x) \propto L(x|\theta)\pi(\theta)} (Bayes)
+\item \formula{E[e^X] = e^{\mu + \sigma^2/2}} (Lognormal)
+\item \formula{f_{UV}(u,v) = f_{XY}(x,y)|J|} (Jacobian)
+\end{enumerate}
+
+\subsection*{Common Mistakes Checklist}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item[$\square$] Forgot continuity correction for discrete→normal
+\item[$\square$] Confused $P(A|B)$ with $P(B|A)$
+\item[$\square$] Didn't check independence before using formulas
+\item[$\square$] Wrong integration limits for marginals
+\item[$\square$] Forgot to normalize Bayesian posterior
+\item[$\square$] Used Binomial instead of Hypergeometric
+\item[$\square$] Forgot absolute value of Jacobian
+\item[$\square$] Assumed correlation implies causation
+\end{itemize}
+
+% ============================================================
+\section*{\textcolor{sectioncolor}{1. FUNDAMENTAL CONCEPTS}}
+% ============================================================
+
+\subsection*{1.1 Probability Axioms}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} A probability measure satisfies:
+  \begin{enumerate}
+  \item Normalization: $P(S) = 1$
+  \item Non-negativity: $P(A) \geq 0$
+  \item Additivity: $P(A \cup B) = P(A) + P(B)$ if $A \cap B = \emptyset$
+  \end{enumerate}
+\item \concept{Key Formula:} \formula{P(A \cup B) = P(A) + P(B) - P(A \cap B)}
+\item \concept{When to Use:} Basic probability calculations
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item Identify sample space $S$
+  \item Count favorable outcomes
+  \item Apply formula
+  \end{enumerate}
+\item \concept{Example:} Two dice: $P(\text{sum}=7) = 6/36 = 1/6$
+\item \concept{Common Pitfalls:} Forgetting the intersection term
+\item \note{Equally likely: $P(A) = |A|/|S|$}
+\end{itemize}
+
+\subsection*{1.2 Conditional Probability}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Probability of $A$ given $B$ occurred
+\item \concept{Key Formula:} \formula{P(A|B) = \frac{P(A \cap B)}{P(B)}, \text{ if } P(B) > 0}
+\item \concept{When to Use:} "Given that", "if we know", "conditional on"
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item Identify condition $B$ and target $A$
+  \item Find $P(A \cap B)$ and $P(B)$
+  \item Apply formula
+  \end{enumerate}
+\item \concept{Example:} Roll dice, sum odd. $P(\text{sum}<8|\text{odd}) = 2/3$
+\item \concept{Common Pitfalls:} Confusing $P(A|B)$ with $P(B|A)$
+\item \note{Multiplication Rule: $P(A \cap B) = P(B)P(A|B)$}
+\end{itemize}
+
+\subsection*{1.3 Bayes' Theorem}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Update probability given evidence
+\item \concept{Key Formula:} \formula{P(H_i|E) = \frac{P(E|H_i)P(H_i)}{\sum_j P(E|H_j)P(H_j)}}
+\item \concept{When to Use:} "Update", "posterior", "given evidence"
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item List hypotheses $H_i$ with priors $P(H_i)$
+  \item Find likelihoods $P(E|H_i)$
+  \item Apply Bayes' formula
+  \item Normalize if needed
+  \end{enumerate}
+\item \concept{Example:} Monty Hall: Switch wins 2/3 of time
+\item \concept{Common Pitfalls:} Wrong likelihood, forgetting to normalize
+\item \note{Total Probability: $P(A) = \sum P(A|B_i)P(B_i)$}
+\end{itemize}
+
+\subsection*{1.4 Independence}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} $A$ and $B$ independent if $P(A \cap B) = P(A)P(B)$
+\item \concept{Key Formula:} \formula{P(A|B) = P(A) \text{ iff independent}}
+\item \concept{When to Use:} Testing if events affect each other
+\item \concept{Solution Steps:}
+  \begin{enumerate}
+  \item Calculate $P(A)$, $P(B)$, $P(A \cap B)$
+  \item Check if $P(A \cap B) = P(A) \cdot P(B)$
+  \item State conclusion
+  \end{enumerate}
+\item \concept{Example:} Card draws with replacement are independent
+\item \concept{Common Pitfalls:} Assuming independence without checking
+\item \note{Pairwise $\neq$ Mutual independence}
+\end{itemize}
+
+\subsection*{1.5 Counting Methods}
+\begin{itemize}[leftmargin=*]
+\item \concept{Permutations:} Order matters
+  \formula{P(n,k) = \frac{n!}{(n-k)!}}
+\item \concept{Combinations:} Order doesn't matter
+  \formula{C(n,k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}}
+\item \concept{Multinomial:} Multiple categories
+  \formula{\frac{n!}{n_1!n_2!\cdots n_k!}}
+\item \concept{When to Use:} "How many ways", "arrangements", "selections"
+\item \concept{Example:} 6-card poker hands from 52 cards: $\binom{52}{6}$
+\item \note{With replacement: $n^k$; Without: $P(n,k)$ or $C(n,k)$}
+\end{itemize}
+
+% ============================================================
+\section*{\textcolor{sectioncolor}{2. DISCRETE RANDOM VARIABLES}}
+% ============================================================
+
+\subsection*{2.1 PMF and CDF}
+\begin{itemize}[leftmargin=*]
+\item \concept{PMF:} $p(x) = P(X = x)$, where $\sum p(x) = 1$
+\item \concept{CDF:} $F(x) = P(X \leq x) = \sum_{k \leq x} p(k)$
+\item \concept{Expectation:} \formula{E[X] = \sum x \cdot P(X=x)}
+\item \concept{Variance:} \formula{\text{Var}(X) = E[X^2] - (E[X])^2}
+\item \concept{Properties:} CDF is right-continuous, non-decreasing
+\item \note{$P(a < X \leq b) = F(b) - F(a)$}
+\end{itemize}
+
+\subsection*{2.2 Binomial Distribution}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Number of successes in $n$ independent trials
+\item \concept{PMF:} \formula{P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}}
+\item \concept{Mean:} $E[X] = np$
+\item \concept{Variance:} $\text{Var}(X) = np(1-p)$
+\item \concept{MGF:} $M(t) = (1-p+pe^t)^n$
+\item \concept{When to Use:} Fixed $n$, constant $p$, independent trials
+\item \concept{Example:} Flip coin 10 times, $P(X=6)$ heads with $p=0.5$
+\item \warning{Check conditions before using!}
+\item \note{Normal approximation when $np(1-p) > 10$}
+\end{itemize}
+
+\subsection*{2.3 Poisson Distribution}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Count of rare events in fixed interval
+\item \concept{PMF:} \formula{P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}}
+\item \concept{Mean:} $E[X] = \lambda$
+\item \concept{Variance:} $\text{Var}(X) = \lambda$
+\item \concept{MGF:} $M(t) = e^{\lambda(e^t-1)}$
+\item \concept{When to Use:} Rate $\lambda$ per unit time/space
+\item \concept{Example:} Arrivals per hour, defects per batch
+\item \concept{Property:} Sum of independent Poissons is Poisson
+\item \note{Approximates Binomial when $n$ large, $p$ small, $np = \lambda$}
+\end{itemize}
+
+\subsection*{2.4 Geometric Distribution}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Number of failures before first success
+\item \concept{PMF:} \formula{P(X=k) = p(1-p)^k, \quad k=0,1,2,...}
+\item \concept{Mean:} $E[X] = (1-p)/p$
+\item \concept{Variance:} $\text{Var}(X) = (1-p)/p^2$
+\item \concept{Memoryless:} $P(X=m+n|X \geq m) = P(X=n)$
+\item \concept{When to Use:} "First success", "waiting time"
+\item \concept{Example:} Roll die until first 6 appears
+\item \note{Alternative parameterization: trials until success}
+\end{itemize}
+
+\subsection*{2.5 Negative Binomial}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Failures before $r$-th success
+\item \concept{PMF:} \formula{P(X=k) = \binom{k+r-1}{k}p^r(1-p)^k}
+\item \concept{Mean:} $E[X] = r(1-p)/p$
+\item \concept{Variance:} $\text{Var}(X) = r(1-p)/p^2$
+\item \concept{When to Use:} "$r$-th success", extended geometric
+\item \note{Geometric is special case with $r=1$}
+\end{itemize}
+
+\subsection*{2.6 Hypergeometric Distribution}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Sampling without replacement
+\item \concept{PMF:} \formula{P(X=k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}}
+\item \concept{Parameters:} $N$ total, $K$ success, $n$ sample, $k$ observed
+\item \concept{Mean:} $E[X] = n \cdot K/N$
+\item \concept{When to Use:} Finite population, no replacement
+\item \concept{Example:} Draw 5 cards, probability of 3 aces
+\item \warning{Different from Binomial (with replacement)}
+\end{itemize}
+
+% ============================================================
+\section*{\textcolor{sectioncolor}{3. CONTINUOUS RANDOM VARIABLES}}
+% ============================================================
+
+\subsection*{3.1 PDF and CDF}
+\begin{itemize}[leftmargin=*]
+\item \concept{PDF:} $f(x) \geq 0$, $\int_{-\infty}^{\infty} f(x)dx = 1$
+\item \concept{CDF:} \formula{F(x) = P(X \leq x) = \int_{-\infty}^x f(t)dt}
+\item \concept{Probability:} \formula{P(a < X < b) = \int_a^b f(x)dx}
+\item \concept{Expectation:} \formula{E[X] = \int_{-\infty}^{\infty} x f(x)dx}
+\item \concept{Variance:} \formula{\text{Var}(X) = \int (x-\mu)^2 f(x)dx}
+\item \concept{Relation:} $f(x) = F'(x)$ where derivative exists
+\item \note{$P(X = a) = 0$ for continuous RV}
+\end{itemize}
+
+\subsection*{3.2 Uniform Distribution}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Equally likely over interval $[a,b]$
+\item \concept{PDF:} \formula{f(x) = \frac{1}{b-a}, \quad a \leq x \leq b}
+\item \concept{CDF:} $F(x) = \frac{x-a}{b-a}$ for $a \leq x \leq b$
+\item \concept{Mean:} $E[X] = \frac{a+b}{2}$
+\item \concept{Variance:} $\text{Var}(X) = \frac{(b-a)^2}{12}$
+\item \concept{When to Use:} "Equally likely", "random point"
+\item \concept{Example:} Random number between 0 and 1
+\item \note{Probability proportional to interval length}
+\end{itemize}
+
+\subsection*{3.3 Normal Distribution} \postmidterm{High Priority!}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Bell curve, most important continuous distribution
+\item \concept{PDF:} \formula{f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}}
+\item \concept{Notation:} $X \sim N(\mu, \sigma^2)$
+\item \concept{Standardization:} \formula{Z = \frac{X-\mu}{\sigma} \sim N(0,1)}
+\item \concept{Properties:}
+  \begin{itemize}
+  \item Linear combination: $aX+b \sim N(a\mu+b, a^2\sigma^2)$
+  \item Sum of normals: normal
+  \item 68-95-99.7 rule for $\pm 1,2,3$ std dev
+  \end{itemize}
+\item \concept{MGF:} $M(t) = e^{\mu t + \sigma^2 t^2/2}$
+\item \concept{Example:} Heights, measurement errors, CLT limit
+\item \note{Use $\Phi(z)$ table for standard normal CDF}
+\end{itemize}
+
+\subsection*{3.4 Exponential Distribution}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Waiting time until event
+\item \concept{PDF:} \formula{f(x) = \lambda e^{-\lambda x}, \quad x > 0}
+\item \concept{CDF:} $F(x) = 1 - e^{-\lambda x}$
+\item \concept{Mean:} $E[X] = 1/\lambda$
+\item \concept{Variance:} $\text{Var}(X) = 1/\lambda^2$
+\item \concept{Memoryless:} \formula{P(X > s+t | X > s) = P(X > t)}
+\item \concept{MGF:} $M(t) = \frac{\lambda}{\lambda - t}$ for $t < \lambda$
+\item \concept{When to Use:} Time between Poisson events
+\item \concept{Example:} Service times, component lifetime
+\item \note{Min of exponentials is exponential}
+\end{itemize}
+
+\subsection*{3.5 Gamma Distribution}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Sum of exponentials, generalization
+\item \concept{PDF:} \formula{f(x) = \frac{\lambda^r}{\Gamma(r)}x^{r-1}e^{-\lambda x}, \quad x > 0}
+\item \concept{Mean:} $E[X] = r/\lambda$
+\item \concept{Variance:} $\text{Var}(X) = r/\lambda^2$
+\item \concept{Special Cases:}
+  \begin{itemize}
+  \item $r=1$: Exponential($\lambda$)
+  \item $r=n/2, \lambda=1/2$: Chi-square with $n$ df
+  \end{itemize}
+\item \concept{When to Use:} Time until $r$-th event
+\item \note{$\Gamma(n) = (n-1)!$ for integer $n$}
+\end{itemize}
+
+\subsection*{3.6 Beta Distribution}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} Models probabilities/proportions
+\item \concept{PDF:} \formula{f(x) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}}
+\item \concept{Support:} $0 < x < 1$
+\item \concept{Mean:} $E[X] = \frac{\alpha}{\alpha+\beta}$
+\item \concept{Variance:} $\text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$
+\item \concept{Special Cases:}
+  \begin{itemize}
+  \item $\alpha=\beta=1$: Uniform(0,1)
+  \item Conjugate prior for Binomial
+  \end{itemize}
+\item \finance{Used in Bayesian statistics}
+\end{itemize}
+
+% Placeholder for remaining sections
+\vspace{1cm}
+\textit{[Sections 4-8 and Appendices will be added in subsequent phases...]}
+
+\end{multicols}
+\end{document}
