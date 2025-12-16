@@ -1,4 +1,4 @@
-\documentclass[9pt,landscape,a4paper]{article}
+\documentclass[9pt,landscape,letterpaper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=0.25in]{geometry}
 \usepackage{multicol}
@@ -7,6 +7,14 @@
 \usepackage{xcolor}
 \usepackage{array}
 \usepackage{fancybox}
+
+% Suppress overflow warnings
+\tolerance=1000
+\emergencystretch=3em
+\hfuzz=10pt
+\vfuzz=10pt
+\hbadness=10000
+\vbadness=10000
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
@@ -73,7 +81,7 @@ $\sigma^2_{Y|X} = \sigma_Y^2(1-\rho^2)$\\
 \fbox{\parbox{\linewidth}{
 ``i.i.d. Exp'', ``mean $\theta$''
 }}
-⚠️ Mean $\theta \Rightarrow \lambda = 1/\theta$!\\
+\textbf{TRAP:} Mean $\theta \Rightarrow \lambda = 1/\theta$!\\
 $\bar{X} \approx N(1/\lambda, 1/(n\lambda^2))$\\
 \textbf{Ref:} \S3.4, \S6.1, Template C
 
