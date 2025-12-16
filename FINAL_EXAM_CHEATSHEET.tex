@@ -649,9 +649,215 @@
 \item \concept{Probability Integral Transform:} $F(X) \sim \text{Uniform}(0,1)$
 \end{itemize}
 
-% Placeholder for Section 8 and Appendices
+% ============================================================
+\section*{\textcolor{sectioncolor}{8. PRACTICE PROBLEM COMPENDIUM}}
+% ============================================================
+
+\subsection*{8.1 Bayesian Problems} \postmidterm{High Frequency!}
+\textbf{Problem [HW6-1]: Monty Hall (Sober vs Dizzy)}\\
+\textit{Contestant picks door A. Monty opens door B showing goat.}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Problem Type:} Bayesian update with different likelihoods
+\item \textbf{Required Concepts:} Bayes' theorem, conditional probability
+\item \textbf{Sober Monty:}
+  \begin{itemize}[itemsep=0pt]
+  \item Prior: $P(H_A) = P(H_B) = P(H_C) = 1/3$
+  \item Likelihood: $P(\text{open B}|H_A) = 1/2$, $P(\text{open B}|H_B) = 0$, $P(\text{open B}|H_C) = 1$
+  \item Posterior: $P(H_A|\text{data}) = 1/3$, $P(H_C|\text{data}) = 2/3$
+  \item \textbf{Strategy: Switch! (doubles probability)}
+  \end{itemize}
+\item \textbf{Dizzy Monty:}
+  \begin{itemize}[itemsep=0pt]
+  \item Likelihood: $P(\text{open B}|H_A) = 1/2$, $P(\text{open B}|H_B) = 1/2$, $P(\text{open B}|H_C) = 1/2$
+  \item Posterior: All equal at $1/3$
+  \item \textbf{Strategy: Doesn't matter!}
+  \end{itemize}
+\item \textbf{Key Insight:} Knowledge affects likelihood function
+\end{enumerate}
+
+\subsection*{8.2 CLT Applications} \postmidterm{Guaranteed on Final!}
+\textbf{Problem [Practice Final-1]: Coin Game with 400 Plays}\\
+\textit{Win \$3 if HH, lose \$1 if TT, else \$0. Play 400 times.}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Problem Type:} CLT with discrete outcomes
+\item \textbf{Step 1:} Find distribution of single game
+  \begin{itemize}[itemsep=0pt]
+  \item $P(X = 3) = 1/4$ (HH)
+  \item $P(X = -1) = 1/4$ (TT)
+  \item $P(X = 0) = 1/2$ (HT or TH)
+  \end{itemize}
+\item \textbf{Step 2:} Calculate $\mu$ and $\sigma^2$
+  \begin{itemize}[itemsep=0pt]
+  \item $E[X] = 3(1/4) + (-1)(1/4) + 0(1/2) = 0.5$
+  \item $E[X^2] = 9(1/4) + 1(1/4) + 0 = 2.5$
+  \item $\text{Var}(X) = 2.5 - 0.25 = 2.25$, so $\sigma = 1.5$
+  \end{itemize}
+\item \textbf{Step 3:} Apply CLT for $n = 400$
+  \begin{itemize}[itemsep=0pt]
+  \item Total: $S_{400} \approx N(400 \cdot 0.5, 400 \cdot 2.25) = N(200, 900)$
+  \item $P(S_{400} \geq 240) = P(Z \geq \frac{240-200}{30}) = P(Z \geq 1.33) \approx 0.092$
+  \end{itemize}
+\item \textbf{Key Insight:} Use continuity correction: $P(S \geq 240) \approx P(S > 239.5)$
+\end{enumerate}
+
+\subsection*{8.3 Bivariate Normal} \postmidterm{Complex but Common!}
+\textbf{Problem [HW5-1]: Joint Normal with Correlation}\\
+\textit{$X \sim N(1, 2)$, $Y \sim N(-2, 3)$, $\rho = -2/3$. Find $P(X+Y > 0)$}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Problem Type:} Linear combination of bivariate normal
+\item \textbf{Key Property:} $X + Y$ is normal
+\item \textbf{Parameters of $Z = X + Y$:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\mu_Z = \mu_X + \mu_Y = 1 + (-2) = -1$
+  \item $\sigma_Z^2 = \sigma_X^2 + \sigma_Y^2 + 2\rho\sigma_X\sigma_Y = 2 + 3 + 2(-2/3)\sqrt{6} = 5 - \frac{4\sqrt{6}}{3}$
+  \end{itemize}
+\item \textbf{Standardize and compute:}
+  \begin{itemize}[itemsep=0pt]
+  \item $P(Z > 0) = P\left(\frac{Z+1}{\sigma_Z} > \frac{1}{\sigma_Z}\right) = 1 - \Phi(0.759) \approx 0.224$
+  \end{itemize}
+\item \textbf{Key Insight:} Always check if linear combination, use properties of bivariate normal
+\end{enumerate}
+
+\subsection*{8.4 Joint Distributions}
+\textbf{Problem [HW4-1]: Joint PDF Analysis}\\
+\textit{$f(x,y) = c(x^2 + xy)$ on $[0,1] \times [0,1]$}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Find constant $c$:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\int_0^1 \int_0^1 (x^2 + xy) dx dy = \int_0^1 [\frac{x^3}{3} + \frac{x^2y}{2}]_0^1 dy = \int_0^1 (\frac{1}{3} + \frac{y}{2}) dy = \frac{7}{12}$
+  \item Therefore $c = \frac{12}{7}$
+  \end{itemize}
+\item \textbf{Marginal of $X$:}
+  \begin{itemize}[itemsep=0pt]
+  \item $f_X(x) = \int_0^1 \frac{12}{7}(x^2 + xy) dy = \frac{12}{7}x^2 + \frac{6x}{7}$
+  \end{itemize}
+\item \textbf{Check independence:}
+  \begin{itemize}[itemsep=0pt]
+  \item Need $f(x,y) = f_X(x) \cdot f_Y(y)$ for all $(x,y)$
+  \item Since $f(x,y)$ has $xy$ term, NOT independent
+  \end{itemize}
+\item \textbf{Key Insight:} Cross-product terms indicate dependence
+\end{enumerate}
+
+\subsection*{8.5 Lognormal Distribution} \finance{Finance Focus!}
+\textbf{Problem [Practice Final-4]: Stock Price Model}\\
+\textit{$S = S_0 e^Z$ where $Z \sim N((r-\sigma^2/2), \sigma^2)$, $S_0=100$, $r=0.05$, $\sigma=0.2$}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Problem Type:} Lognormal application
+\item \textbf{Part (a):} Find $E[e^{-r}S] = E[S_0 e^{Z-r}]$
+  \begin{itemize}[itemsep=0pt]
+  \item $Z - r \sim N(-\sigma^2/2, \sigma^2)$
+  \item $E[e^{Z-r}] = \exp(-\sigma^2/2 + \sigma^2/2) = 1$
+  \item Therefore $E[e^{-r}S] = S_0 = 100$
+  \end{itemize}
+\item \textbf{Part (b):} Find $P(S > 100)$
+  \begin{itemize}[itemsep=0pt]
+  \item $P(S > 100) = P(e^Z > 1) = P(Z > 0)$
+  \item $Z \sim N(-0.02, 0.04)$
+  \item $P(Z > 0) = P\left(\frac{Z+0.02}{0.2} > 0.1\right) = 1 - \Phi(0.1) \approx 0.46$
+  \end{itemize}
+\item \textbf{Key Insight:} Stock prices lognormal $\Rightarrow$ log returns normal
+\end{enumerate}
+
+\subsection*{8.6 Exponential & Memoryless}
+\textbf{Problem [Practice Final-3]: Average of Exponentials}\\
+\textit{$X_1, ..., X_{100}$ iid Exp(1/3). Find $P(\bar{X}/(\bar{X}+3) < 0.5)$}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Problem Type:} CLT for exponentials
+\item \textbf{Setup:} $E[X_i] = 3$, $\text{Var}(X_i) = 9$
+\item \textbf{Apply CLT:} $\bar{X} \approx N(3, 9/100) = N(3, 0.09)$
+\item \textbf{Transform inequality:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\frac{\bar{X}}{\bar{X}+3} < 0.5 \Rightarrow \bar{X} < 0.5(\bar{X}+3) \Rightarrow \bar{X} < 3$
+  \end{itemize}
+\item \textbf{Calculate:} $P(\bar{X} < 3) = 0.5$ (by symmetry of normal)
+\item \textbf{Key Insight:} Transform inequality first, then apply CLT
+\end{enumerate}
+
+\subsection*{8.7 Order Statistics}
+\textbf{Problem:} Max and Min of Uniform(0,1)\\
+\textit{$X_1, ..., X_n$ iid Uniform(0,1). Find distribution of max and min.}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Maximum $X_{(n)}$:}
+  \begin{itemize}[itemsep=0pt]
+  \item $F_{max}(x) = P(\text{all} \leq x) = x^n$
+  \item $f_{max}(x) = nx^{n-1}$ for $0 < x < 1$
+  \item $E[X_{(n)}] = \frac{n}{n+1}$
+  \end{itemize}
+\item \textbf{Minimum $X_{(1)}$:}
+  \begin{itemize}[itemsep=0pt]
+  \item $F_{min}(x) = 1 - P(\text{all} > x) = 1 - (1-x)^n$
+  \item $f_{min}(x) = n(1-x)^{n-1}$ for $0 < x < 1$
+  \item $E[X_{(1)}] = \frac{1}{n+1}$
+  \end{itemize}
+\item \textbf{Key Insight:} Use complement for min, direct for max
+\end{enumerate}
+
+\subsection*{8.8 Conjugate Priors} \postmidterm{Bayesian Favorite!}
+\textbf{Problem [Practice Final-5]: Beta-Binomial Update}\\
+\textit{Prior: $\theta \in \{1/2, 3/4\}$ equally likely. Data: 0 defects in 10 items.}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Problem Type:} Discrete prior Bayesian update
+\item \textbf{Likelihoods:}
+  \begin{itemize}[itemsep=0pt]
+  \item $P(\text{0 defects}|\theta=1/2) = (1/2)^{10} = 1/1024$
+  \item $P(\text{0 defects}|\theta=3/4) = (1/4)^{10} = 1/1048576$
+  \end{itemize}
+\item \textbf{Posterior:}
+  \begin{itemize}[itemsep=0pt]
+  \item $P(\theta=1/2|\text{data}) \propto (1/2) \cdot 1/1024 = 1/2048$
+  \item $P(\theta=3/4|\text{data}) \propto (1/2) \cdot 1/1048576 \approx 0$
+  \item After normalization: $P(\theta=1/2|\text{data}) \approx 0.999$
+  \end{itemize}
+\item \textbf{Key Insight:} Extreme data strongly favors lower defect rate
+\end{enumerate}
+
+\subsection*{8.9 Conditional Expectation}
+\textbf{Problem:} Breaking Sticks\\
+\textit{Break at $X \sim U(0,\ell)$, then break smaller piece at $Y|X \sim U(0,X)$}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Joint density:} $f(x,y) = \frac{1}{\ell} \cdot \frac{1}{x} = \frac{1}{\ell x}$ for $0 < y < x < \ell$
+\item \textbf{Marginal of $Y$:} $f_Y(y) = \int_y^\ell \frac{1}{\ell x} dx = \frac{1}{\ell}\ln(\ell/y)$
+\item \textbf{Conditional expectation:} $E[Y|X] = X/2$
+\item \textbf{Total expectation:} $E[Y] = E[E[Y|X]] = E[X/2] = \ell/4$
+\item \textbf{Total variance:} Use $\text{Var}(Y) = E[\text{Var}(Y|X)] + \text{Var}(E[Y|X])$
+\item \textbf{Key Insight:} Hierarchical structure leads to law of total expectation
+\end{enumerate}
+
+\subsection*{8.10 Hypothesis Testing & Confidence Intervals}
+\textbf{Problem:} Test Average with CLT\\
+\textit{Sample mean $\bar{X} = 52$ from $n=100$, known $\sigma=10$. Test $H_0: \mu = 50$}
+
+\textbf{Solution:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Test statistic:} $Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} = \frac{52 - 50}{10/10} = 2$
+\item \textbf{P-value:} $P(|Z| > 2) = 2(1 - \Phi(2)) = 0.0455$
+\item \textbf{95\% CI:} $\bar{X} \pm 1.96 \cdot \sigma/\sqrt{n} = 52 \pm 1.96 = [50.04, 53.96]$
+\item \textbf{Decision:} Reject $H_0$ at 5\% level (barely)
+\item \textbf{Key Insight:} CI excludes 50, consistent with rejection
+\end{enumerate}
+
+% End of practice problems - placeholder for appendices
 \vspace{0.5cm}
-\textit{[Section 8 (Practice Problems) and Appendices will be added in subsequent phases...]}
+\textit{[Appendices will be added in Phase 8...]}
 
 \end{multicols}
 \end{document}
