@@ -1,631 +1,513 @@
-# TERMINOLOGY MASTER MAP - Complete Synonym Database
+# Terminology Master Map - Probability Theory
 
-**Generated:** December 16, 2025  
-**Purpose:** Comprehensive mapping of ALL terminology used in practice problems to concepts in cheat sheet  
-**Status:** Phase 11 Complete
-
----
-
-## TABLE OF CONTENTS
-
-1. [Random Variable Types](#random-variable-types)
-2. [Process/Problem Descriptions](#processproblem-descriptions)
-3. [Mathematical Operations Described in Words](#mathematical-operations-described-in-words)
-4. [Question Keywords and What They Signal](#question-keywords-and-what-they-signal)
-5. [Special Professor Terminology](#special-professor-terminology)
-6. [Reverse Lookup: Problem Phrase → Concept → Section](#reverse-lookup-problem-phrase--concept--section)
+**Generated:** December 16, 2025
+**Purpose:** Complete terminology database with synonym mappings for exam problem recognition
 
 ---
 
-## RANDOM VARIABLE TYPES
+## 1. RANDOM VARIABLE TYPES & DISTRIBUTIONS
 
 ### Normal Distribution
-**Synonyms:**
-- Normal ≡ Gaussian ≡ Normal random variable ≡ Gaussian vector ≡ N(μ,σ²) ≡ N(μ,σ²) random variable
-- Standard normal ≡ N(0,1) ≡ Z ~ N(0,1) ≡ Standard normal random variable
-- Multivariate normal ≡ MVN ≡ Gaussian vector ≡ Jointly normal ≡ Bivariate normal (when 2D)
-- "X₁ and X₂ are iid N(0,1)" ≡ "X₁, X₂ independent standard normals"
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Normal** | Gaussian, N(μ,σ²), bell curve, "approximately normal" | 3.3, 4.5 |
+| **Standard Normal** | N(0,1), Z, Φ(z), "standardized" | 3.3 |
+| **Bivariate Normal** | Jointly normal, Multivariate normal (2D), Gaussian vector, MVN, "joint normal distribution" | 4.5 |
+| **Gaussian vector** | Multivariate normal, MVN, "independent components" (diagonal covariance) | 4.5 |
+| **Sample mean of normals** | X̄ ~ N(μ, σ²/n), "average of i.i.d. normals" | 3.3, 6.1 |
 
-**Problem Phrases Seen:**
+**Recognition Patterns:**
 - "X ~ N(μ,σ²)" → Normal distribution
-- "Gaussian vector with independent components" → MVN with diagonal covariance
-- "Jointly normal" → Bivariate/Multivariate normal
-- "Standard normal" → N(0,1)
-- "Normal random variable" → Any N(μ,σ²)
-
-**Section Reference:** Section 3.2 (Normal), Section 4.5 (Bivariate Normal)
-
----
+- "X₁, X₂ are iid N(0,1)" → Standard normals
+- "Gaussian vector with independent components" → MVN with diagonal covariance (Σ diagonal, ρ=0)
+- "jointly normal" or "bivariate normal" → Use special properties (independence ⟺ ρ=0)
+- "approximately normal" → CLT application
 
 ### Exponential Distribution
-**Synonyms:**
-- Exponential ≡ Exponential random variable ≡ Exp(λ) ≡ Memoryless continuous
-- "Exponentially distributed with mean θ" ≡ Exp(1/θ) (note: mean = 1/λ, so λ = 1/θ)
-- "Waiting time" (in context) → Often Exponential
-- "Time until event" → Often Exponential
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Exponential** | Exp(λ), waiting time, time until event, inter-arrival time, service time | 3.4 |
+| **Memoryless (continuous)** | "fresh start", exponential property, no wear-and-tear | 3.4 |
+| **Rate parameter** | λ, mean = 1/λ, variance = 1/λ² | 3.4 |
 
-**Problem Phrases Seen:**
-- "X₁,...,Xₙ are independent random variables exponentially distributed with mean θ" → Each Xᵢ ~ Exp(1/θ)
-- "Memoryless property" → Exponential or Geometric
-- "f(x) = (1/θ)e^(-x/θ)" → Exp(1/θ) where mean = θ
+**Recognition Patterns:**
+- "time until first arrival" → Exponential
+- "waiting time between events" → Exponential
+- "memoryless property" (continuous) → Exponential
+- "service time" → Often Exponential
+- "component lifetime" → Often Exponential
+- f(x) = λe^(-λx) → Exponential(λ)
 
-**Section Reference:** Section 3.3 (Exponential)
+### Poisson Distribution
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Poisson** | Pois(λ), counting process, arrivals, rare events | 2.3 |
+| **Poisson Process** | Arrival process, counting process, events over time | 2.3 |
+| **Rate** | λ, mean = variance = λ, events per unit time | 2.3 |
 
----
-
-### Poisson Process
-**Synonyms:**
-- Poisson Process ≡ Counting process ≡ Arrival process ≡ Poisson(λt)
-- "Events occurring at rate λ" → Poisson process
-- "Number of arrivals" → Poisson
-- "Rare events" → Poisson approximation
-
-**Problem Phrases Seen:**
-- "Arrivals per hour" → Poisson
-- "Rate λ per unit time" → Poisson process
-- "Counting process" → Poisson
-
-**Section Reference:** Section 2.3 (Poisson), Section 3.3 (Exponential - inter-arrival times)
-
----
-
-### Bernoulli
-**Synonyms:**
-- Bernoulli ≡ Binary random variable ≡ 0-1 random variable ≡ Indicator ≡ Indicator variable
-- "Success/Failure" → Bernoulli trials
-- "Takes values 0 or 1" → Bernoulli
-
-**Problem Phrases Seen:**
-- "Iᵢ = 1 if event A occurs, 0 otherwise" → Indicator/Bernoulli
-- "Binary outcome" → Bernoulli
-
-**Section Reference:** Section 2.2 (Binomial - sum of Bernoullis)
-
----
+**Recognition Patterns:**
+- "arrivals per hour/day" → Poisson
+- "number of events in interval" → Poisson
+- "rare events" → Poisson
+- "counting process" → Poisson Process
+- "independent increments" → Poisson Process
+- P(X=k) = e^(-λ)λ^k/k! → Poisson(λ)
 
 ### Binomial Distribution
-**Synonyms:**
-- Binomial ≡ Binomial(n,p) ≡ Number of successes in n trials
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Binomial** | B(n,p), Bin(n,p), n trials, success/failure, number of successes | 2.2 |
+| **Bernoulli trials** | Independent trials, success probability p | 2.2 |
+| **Sum of Bernoulli** | Binomial(n,p) | 2.2 |
+
+**Recognition Patterns:**
 - "n independent trials" → Binomial
-- "Success probability p" → Binomial parameter
-
-**Problem Phrases Seen:**
-- "Toss coin n times" → Binomial(n, 1/2)
-- "n trials, each with probability p" → Binomial(n,p)
-- "Number of successes" → Binomial
-
-**Section Reference:** Section 2.2
-
----
+- "success probability p" → Binomial
+- "number of successes in n trials" → Binomial
+- "repeated independent experiments" → Binomial
+- P(X=k) = C(n,k)p^k(1-p)^(n-k) → Binomial(n,p)
 
 ### Geometric Distribution
-**Synonyms:**
-- Geometric ≡ First success ≡ Waiting time (discrete) ≡ Number of failures before first success
-- "Until first success" → Geometric
-- "Memoryless" (discrete) → Geometric
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Geometric** | First success, waiting for success, Geo(p), trials until success | 2.4 |
+| **Memoryless (discrete)** | "fresh start" (discrete), "forgets past" | 2.4 |
+| **Number of failures** | Before first success (one parameterization) | 2.4 |
 
-**Problem Phrases Seen:**
-- "Expected number of games to win once" → Geometric
-- "Number of trials until..." → Geometric
+**Recognition Patterns:**
+- "first success" → Geometric
+- "trials until success" → Geometric
+- "number of failures before success" → Geometric
+- "memoryless property" (discrete) → Geometric
+- P(X=k) = p(1-p)^k → Geometric(p)
 
-**Section Reference:** Section 2.4
+### Negative Binomial Distribution
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Negative Binomial** | NegBin(r,p), failures before r successes | 2.5 |
+| **Sum of Geometrics** | r independent Geometric(p) | 2.5 |
 
----
-
-### Negative Binomial
-**Synonyms:**
-- Negative Binomial ≡ r-th success ≡ Failures before r-th success
-- "Until r successes" → Negative Binomial
-
-**Problem Phrases Seen:**
-- "r-th success" → Negative Binomial
-
-**Section Reference:** Section 2.5
-
----
+**Recognition Patterns:**
+- "failures before r-th success" → Negative Binomial
+- "wait for r successes" → Negative Binomial
+- "r = 1" → Geometric (special case)
 
 ### Uniform Distribution
-**Synonyms:**
-- Uniform ≡ Uniformly distributed ≡ Equally likely ≡ Uniform on [a,b] ≡ U(a,b)
-- "Random point" → Often Uniform
-- "Equally likely" → Uniform
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Uniform** | U(a,b), Unif(a,b), equally likely, random point | 3.2 |
+| **Standard Uniform** | U(0,1), Uniform(0,1) | 3.2 |
 
-**Problem Phrases Seen:**
-- "Uniform on [a,b]" → Continuous uniform
-- "Random selection" → Could be Uniform
-- "Equally likely over interval" → Uniform
-
-**Section Reference:** Section 3.1
-
----
+**Recognition Patterns:**
+- "equally likely" → Uniform
+- "random point in interval" → Uniform
+- "uniformly distributed" → Uniform
+- "random selection" → Often Uniform
+- f(x) = 1/(b-a) for a ≤ x ≤ b → Uniform(a,b)
 
 ### Gamma Distribution
-**Synonyms:**
-- Gamma ≡ Erlang (when shape parameter is integer) ≡ Sum of exponentials
-- "Time until r-th event" → Gamma(r,λ) if inter-arrivals are Exp(λ)
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Gamma** | Γ(α,β), Gamma(r,λ), sum of exponentials | 3.5 |
+| **Erlang** | Gamma with integer α, sum of n Exp(λ) | 3.5 |
 
-**Problem Phrases Seen:**
-- "Sum of exponentials" → Gamma
-- "Time until r-th arrival" → Gamma
-
-**Section Reference:** Section 3.5
-
----
-
-### Lognormal Distribution
-**Synonyms:**
-- Lognormal ≡ Stock price model ≡ e^X where X ~ Normal
-- "Stock price" → Often lognormal
-- "Y = e^X where X is normal" → Lognormal
-
-**Problem Phrases Seen:**
-- "S = S₀e^Z where Z ~ N(...)" → Lognormal
-- "Stock follows lognormal" → Lognormal
-
-**Section Reference:** Section 7.3
-
----
+**Recognition Patterns:**
+- "sum of n exponentials" → Gamma(n,λ)
+- "time until n-th arrival" → Gamma
+- "α = 1" → Exponential (special case)
+- "waiting time for r-th event" → Gamma
 
 ### Beta Distribution
-**Synonyms:**
-- Beta ≡ Conjugate prior for Binomial ≡ Distribution on [0,1]
-- "Proportion" → Often Beta
-- "Prior for probability" → Beta
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Beta** | Beta(α,β), proportion, probability parameter | 3.6 |
+| **Conjugate prior** | For Binomial likelihood | 7.2 |
 
-**Problem Phrases Seen:**
-- "Beta prior" → Beta distribution
-- "Conjugate prior" → Beta (for Binomial)
+**Recognition Patterns:**
+- "proportion" → Often Beta
+- "probability parameter" → Beta prior
+- "prior for success probability" → Beta
+- "support on (0,1)" → Beta
 
-**Section Reference:** Section 3.6, Section 7.2
+### Hypergeometric Distribution
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Hypergeometric** | Sampling without replacement, finite population | 2.6 |
+| **Finite population** | Not i.i.d., dependent draws | 2.6 |
+
+**Recognition Patterns:**
+- "without replacement" → Hypergeometric
+- "finite population" → Hypergeometric
+- "draw n from N, K successes" → Hypergeometric
+- NOT binomial when sampling without replacement
+
+### Lognormal Distribution
+| Term | Equivalents | Section Reference |
+|------|-------------|-------------------|
+| **Lognormal** | LogN(μ,σ²), exp(Normal), stock prices | 7.3 |
+| **Geometric Brownian Motion** | Stock price model, S = S₀e^Z | 7.3 |
+
+**Recognition Patterns:**
+- "log(X) is normal" → Lognormal
+- "stock price model" → Lognormal
+- "S = S₀e^Z where Z ~ N(μ,σ²)" → Lognormal
+- "always positive, right-skewed" → Often Lognormal
+- E[e^X] = exp(μ + σ²/2) for X ~ N(μ,σ²)
 
 ---
 
-## PROCESS/PROBLEM DESCRIPTIONS
+## 2. PROCESS & PROBLEM DESCRIPTIONS
 
 ### Independence Terminology
-**Phrases:**
-- "Independent" ≡ "i.i.d." ≡ "Independent identically distributed" ≡ "Independent copies"
-- "Independent components" (for vectors) → Diagonal covariance matrix
-- "X₁,...,Xₙ are independent" → Can use product formulas
-- "X and Y are independent" → f(x,y) = f_X(x)f_Y(y)
-
-**Problem Context:**
-- "X₁ and X₂ are iid N(0,1)" → Independent standard normals
-- "Independent random variables" → Check if can simplify formulas
-
-**Section Reference:** Section 1.4 (Events), Section 4.3 (Random Variables)
-
----
-
-### Identically Distributed
-**Phrases:**
-- "i.i.d." ≡ "Identically distributed" ≡ "Same distribution" ≡ "Drawn from same population"
-- "X₁,...,Xₙ are i.i.d." → All have same distribution, independent
-
-**Problem Context:**
-- "i.i.d. copies" → Independent and identically distributed
-- "Same distribution" → Identically distributed
-
-**Section Reference:** Throughout, especially CLT (Section 6.1)
-
----
+| Term | Equivalents | Meaning |
+|------|-------------|---------|
+| **i.i.d.** | Independent identically distributed, "iid", independent and identically distributed | Same distribution + independent |
+| **Independent** | No influence, P(A∩B) = P(A)P(B) | Joint = product of marginals |
+| **Independent components** | Diagonal covariance matrix, ρ = 0 for all pairs | For MVN: independent ⟺ uncorrelated |
+| **Conditionally independent** | Independent given some variable | P(A,B\|C) = P(A\|C)P(B\|C) |
 
 ### Memoryless Property
-**Phrases:**
-- "Memoryless" → Exponential (continuous) or Geometric (discrete)
-- "No memory" → Memoryless property
-- "As good as new" → Memoryless
+| Distribution | Statement | Use |
+|--------------|-----------|-----|
+| **Exponential** | P(X > s+t \| X > s) = P(X > t) | Waiting times, "fresh start" |
+| **Geometric** | P(X = k+t \| X ≥ k) = P(X = t) | Trial sequences |
 
-**Problem Context:**
-- "Memoryless property" → Check if Exponential or Geometric
-- "Waiting time with memoryless property" → Exponential
+### Waiting Time Problems
+| Phrase | Usually Means | Distribution |
+|--------|---------------|--------------|
+| "Time until first event" | Inter-arrival time | Exponential |
+| "Time until n-th event" | Sum of inter-arrivals | Gamma(n,λ) |
+| "Waiting time between events" | Inter-arrival time | Exponential |
+| "Service time" | Time to complete task | Often Exponential |
+| "Trials until success" | Number of trials | Geometric |
+| "Failures until r successes" | Count of failures | Negative Binomial |
 
-**Section Reference:** Section 2.4 (Geometric), Section 3.3 (Exponential)
-
----
-
-### Arrival Times / Waiting Times
-**Phrases:**
-- "Arrival times" → Usually Poisson process or Exponential inter-arrivals
-- "Waiting time" → Could be Exponential, Gamma, or sum of random variables
-- "Time until event" → Often Exponential
-- "Time between arrivals" → Exponential (if Poisson process)
-
-**Problem Context:**
-- "Time until first arrival" → Exponential
-- "Time until r-th arrival" → Gamma
-- "Inter-arrival times" → Exponential (if Poisson)
-
-**Section Reference:** Section 3.3 (Exponential), Section 3.5 (Gamma)
+### Arrival/Counting Processes
+| Phrase | Interpretation | Model |
+|--------|----------------|-------|
+| "Arrivals occur at rate λ" | Poisson process | N(t) ~ Poisson(λt) |
+| "Events in disjoint intervals" | Independent | Poisson process |
+| "Counting process" | Number of events | Poisson |
+| "Rate λ per unit time" | Expected count = λ | Poisson |
 
 ---
 
-### Success/Failure Terminology
-**Phrases:**
-- "Success/Failure" → Bernoulli trials, Binomial, Geometric, Negative Binomial
-- "Win/Lose" → Often Bernoulli or Binomial
-- "Defective/Non-defective" → Binomial or Hypergeometric
-
-**Problem Context:**
-- "n trials, success probability p" → Binomial
-- "First success" → Geometric
-- "r-th success" → Negative Binomial
-
-**Section Reference:** Section 2.2-2.5
-
----
-
-## MATHEMATICAL OPERATIONS DESCRIBED IN WORDS
-
-### Sums of Random Variables
-**Phrases:**
-- "Sum of independent random variables" → Use convolution or MGF
-- "X₁ + X₂ + ... + Xₙ" → Sum of random variables
-- "Total" → Often sum
-- "Combined" → Often sum
-
-**Solution Approaches:**
-- If independent: Use MGF (multiply MGFs) or convolution
-- If normal: Sum is normal with sum of means, sum of variances
-- If Poisson: Sum is Poisson with sum of rates
-
-**Section Reference:** Section 5.2 (MGF for sums), Section 4.3 (Independence)
-
----
-
-### Minimum/Maximum of Random Variables
-**Phrases:**
-- "Minimum of" → Order statistics (X₍₁₎)
-- "Maximum of" → Order statistics (X₍ₙ₎)
-- "Min{X₁,...,Xₙ}" → Minimum order statistic
-- "Max{X₁,...,Xₙ}" → Maximum order statistic
-
-**Solution Approaches:**
-- CDF method: P(max ≤ x) = [F(x)]ⁿ, P(min > x) = [1-F(x)]ⁿ
-- For independent: Use independence property
-
-**Section Reference:** Section 4.7 (Order Statistics)
-
----
-
-### Conditional on Event
-**Phrases:**
-- "Conditional on event A" → Use conditional probability/conditional expectation
-- "Given that X > a" → Conditional distribution, truncated distribution
-- "X given Y" → Conditional distribution
-- "P(X|Y)" → Conditional probability
-
-**Solution Approaches:**
-- Conditional PDF: f_{Y|X}(y|x) = f(x,y)/f_X(x)
-- Conditional expectation: E[Y|X=x] = ∫ y f_{Y|X}(y|x) dy
-
-**Section Reference:** Section 1.2 (Conditional Probability), Section 4.2 (Conditional Distributions), Section 7.1 (Conditional Expectation)
-
----
+## 3. MATHEMATICAL OPERATIONS
 
 ### Transformations of Random Variables
-**Phrases:**
-- "Transform of random variable" → Jacobian method or CDF method
-- "Y = g(X)" → Transformation
-- "Find distribution of Y = ..." → Transformation problem
-- "Change of variables" → Jacobian method
+| Operation | Method | Section |
+|-----------|--------|---------|
+| Y = g(X), single variable | CDF method or direct PDF formula | 4.6 |
+| (U,V) = g(X,Y), bivariate | Jacobian method | 4.6 |
+| Linear: Y = aX + b | Direct: E[Y] = aE[X]+b, Var(Y) = a²Var(X) | 3.3, 4.6 |
+| Sum of independent | MGF multiplication or convolution | 5.1-5.2 |
 
-**Solution Approaches:**
-- One-to-one: Use Jacobian (multivariate) or derivative method (univariate)
-- CDF method: Find F_Y(y) = P(g(X) ≤ y), then differentiate
+**Key Formulas:**
+- CDF Method: F_Y(y) = P(g(X) ≤ y)
+- Jacobian: f_{UV}(u,v) = f_{XY}(x(u,v), y(u,v)) |J|
+- J = |∂(x,y)/∂(u,v)| (absolute value of determinant)
 
-**Section Reference:** Section 4.6 (Transformations)
+### Sum of Random Variables
+| Condition | Result | Method |
+|-----------|--------|--------|
+| Sum of i.i.d. normals | Normal | Direct |
+| Sum of i.i.d. Poissons | Poisson(sum of λ) | MGF |
+| Sum of i.i.d. Exponential(λ) | Gamma(n,λ) | MGF |
+| Sum of independent binomials (same p) | Binomial(n₁+n₂, p) | MGF |
+| Sum of independent gammas (same λ) | Gamma(α₁+α₂, λ) | MGF |
 
----
-
-### Linear Combinations
-**Phrases:**
-- "aX + bY" → Linear combination
-- "Linear transformation" → aX + b
-- "Weighted sum" → Linear combination
-
-**Solution Approaches:**
-- If normal: Linear combination is normal
-- Use properties: E[aX+bY] = aE[X] + bE[Y]
-- Var[aX+bY] = a²Var(X) + b²Var(Y) + 2abCov(X,Y)
-
-**Section Reference:** Section 4.5 (Bivariate Normal - linear combinations are normal)
-
----
-
-## QUESTION KEYWORDS AND WHAT THEY SIGNAL
-
-### Probability Questions
-**Keywords:**
-- "Compute the probability that..." → Need CDF, PMF, or PDF
-- "Find P(...)" → Probability calculation
-- "What is the probability..." → Probability calculation
-- "Calculate the probability..." → Probability calculation
-
-**Approach:**
-- Identify distribution
-- Use appropriate formula (PMF, PDF, CDF)
-- May need standardization for normal
-
-**Section Reference:** Depends on distribution type
+### Order Statistics
+| Term | Formula | Section |
+|------|---------|---------|
+| Maximum of n i.i.d. | F_max(x) = [F(x)]^n | 4.7 |
+| Minimum of n i.i.d. | F_min(x) = 1 - [1-F(x)]^n | 4.7 |
+| k-th order statistic | Complex formula with (k-1)!(n-k)! | 4.7 |
 
 ---
 
-### Distribution Questions
-**Keywords:**
-- "Find the distribution of..." → Transformation problem
-- "What is the distribution..." → Need full PDF/PMF/CDF
-- "Determine the distribution..." → Full analysis needed
+## 4. QUESTION KEYWORDS & SIGNALS
 
-**Approach:**
-- Identify transformation
-- Use CDF method or Jacobian method
-- Check if known distribution family
+### "Find/Compute" Questions
+| Keyword | What to Do | Section |
+|---------|------------|---------|
+| "Find the probability that..." | Calculate P(event), use CDF/PMF/PDF | Various |
+| "Find the distribution of..." | Transformation, identify parameters | 4.6 |
+| "Find E[X]" | Expectation calculation | 4.1 |
+| "Find Var(X)" | Use E[X²] - (E[X])² | 4.3 |
+| "Find Cov(X,Y)" | Use E[XY] - E[X]E[Y] | 4.4 |
+| "Find correlation" | Cov(X,Y)/(σ_X σ_Y) | 4.4 |
+| "Find E[X\|Y]" | Conditional expectation | 7.1 |
+| "Find the MGF" | E[e^{tX}] | 5.1 |
 
-**Section Reference:** Section 4.6 (Transformations)
+### "Show/Prove" Questions
+| Keyword | What to Do | Method |
+|---------|------------|--------|
+| "Show X has distribution..." | Match MGF or derive PDF | MGF or CDF method |
+| "Show X and Y are independent" | Verify joint = product of marginals | Direct calculation |
+| "Prove..." | Rigorous derivation | Various |
 
----
+### "Approximate" Questions
+| Keyword | What to Use | Conditions |
+|---------|-------------|------------|
+| "Approximate" | CLT or Normal approximation | Large n |
+| "For large n" | CLT | n ≥ 30 typically |
+| "Use normal approximation" | Standardize, use Φ | np(1-p) > 10 for binomial |
+| "Continuity correction" | Add ±0.5 for discrete | Discrete → Normal |
 
-### Proof/Derivation Questions
-**Keywords:**
-- "Show that X has distribution..." → Proof/derivation using MGF or CDF
-- "Prove that..." → Derivation needed
-- "Derive..." → Step-by-step derivation
-
-**Approach:**
-- Use MGF uniqueness property
-- Or use CDF method
-- Show step-by-step
-
-**Section Reference:** Section 5.1 (MGF), Section 4.6 (Transformations)
-
----
-
-### Approximation Questions
-**Keywords:**
-- "Approximate..." → CLT, Normal approximation, Law of Large Numbers
-- "For large n..." → CLT territory
-- "As n → ∞" → Limit theorem
-- "Approximately" → Often CLT
-
-**Approach:**
-- Check if CLT applies (iid, finite variance, large n)
-- Standardize: Z = (X̄ - μ)/(σ/√n)
-- Use normal table
-
-**Section Reference:** Section 6.1 (CLT), Section 6.2 (Normal Approximation)
-
----
-
-### Expectation Questions
-**Keywords:**
-- "Find E[X|Y]" → Conditional expectation
-- "Expected value" → E[X]
-- "Mean" → E[X]
-- "Compute E[...]" → Expectation calculation
-
-**Approach:**
-- Use definition: E[X] = ∫ x f(x) dx or ∑ x p(x)
-- For conditional: E[X|Y=y] = ∫ x f_{X|Y}(x|y) dx
-- Use law of total expectation: E[X] = E[E[X|Y]]
-
-**Section Reference:** Section 4.1 (Expectation), Section 7.1 (Conditional Expectation)
-
----
-
-### Independence Questions
-**Keywords:**
-- "Are X and Y independent?" → Check joint vs product of marginals
-- "Independent?" → Test independence
-- "Check independence" → Verify f(x,y) = f_X(x)f_Y(y)
-
-**Approach:**
-- Find joint distribution
-- Find marginals
-- Check if product equals joint for ALL (x,y)
-- For normal: Check if ρ = 0
-
-**Section Reference:** Section 4.3 (Independence)
-
----
-
-### Convergence Questions
-**Keywords:**
-- "Converges in probability/distribution" → Limit theorem question
-- "As n → ∞" → Limit behavior
-- "Limit" → Limit theorem
-
-**Approach:**
-- Identify type of convergence
-- Use appropriate limit theorem (CLT, LLN)
-
-**Section Reference:** Section 6.1 (CLT), Section 6.3 (LLN)
-
----
+### Conditional Questions
+| Phrase | Interpretation | Method |
+|--------|----------------|--------|
+| "Given that" | Conditional probability/expectation | P(A\|B), E[X\|Y] |
+| "If we know" | Given information | Condition on it |
+| "Conditional on" | Given event occurred | P(·\|event) |
+| "X given Y = y" | Conditional distribution | f(x\|y) = f(x,y)/f_Y(y) |
 
 ### Bayesian Questions
-**Keywords:**
-- "Update" → Bayesian update
-- "Posterior" → Bayesian posterior
-- "Prior" → Bayesian prior
-- "Given evidence" → Bayesian update
-
-**Approach:**
-- Identify prior π(θ)
-- Write likelihood L(x|θ)
-- Compute posterior: π(θ|x) ∝ L(x|θ)π(θ)
-- Normalize if needed
-
-**Section Reference:** Section 7.2 (Bayesian Statistics)
+| Phrase | What to Do | Section |
+|--------|------------|---------|
+| "Update your belief" | Bayes' theorem | 7.1-7.2 |
+| "Prior/Posterior" | Bayesian update | 7.1-7.2 |
+| "Given the data" | Posterior distribution | 7.2 |
+| "Predictive distribution" | Integrate over posterior | 7.3 |
 
 ---
 
-## SPECIAL PROFESSOR TERMINOLOGY
+## 5. PROFESSOR-SPECIFIC TERMINOLOGY
 
 ### Notation Preferences
-**Professor Uses:**
-- ψ(t) for MGF (not M(t))
-- Var(X) not σ²_X
-- f(x) for both PMF and PDF
-- g₁(x|y) for conditional PDF of X|Y
-- π(θ) for prior, π(θ|x) for posterior
-- L(x|θ) for likelihood
-- Hᵢ for hypotheses in Bayes problems
-- X̄ or X̄ₙ for sample mean
-- X₍ₖ₎ for k-th order statistic
-- I_A for indicator of event A
-- →ᵈ for convergence in distribution
-- →ᴾ for convergence in probability
-- Φ(z) for standard normal CDF
-- z_α for quantile where P(Z > z_α) = α
+| Professor Uses | Standard Notation | Meaning |
+|----------------|-------------------|---------|
+| ψ(t) | M(t), M_X(t) | Moment generating function |
+| g₁(x\|y) | f_{X\|Y}(x\|y) | Conditional PDF of X given Y |
+| π(θ) | Prior distribution | Prior |
+| π(θ\|x) | f(θ\|x) | Posterior distribution |
+| L(x\|θ) | f(x\|θ), p(x\|θ) | Likelihood function |
+| Φ(z) | Standard normal CDF | P(Z ≤ z) for Z ~ N(0,1) |
+| z_α | Critical value | P(Z > z_α) = α |
 
-**Section Reference:** Appendix C in cheat sheet
-
----
-
-### Finance-Specific Terminology
-**Phrases:**
-- "Stock price" → Lognormal model
-- "Returns" → Often normal
-- "Volatility" → Standard deviation σ
-- "Portfolio" → Linear combination of assets
-- "Risk" → Variance or standard deviation
-- "Diversification" → Reducing variance through independence/negative correlation
-
-**Problem Context:**
-- "S = S₀e^Z" → Lognormal stock price
-- "Portfolio variance" → Uses covariance matrix
-- "Black-Scholes" → Option pricing with lognormal
-
-**Section Reference:** Section 7.3 (Lognormal), Section 4.4 (Covariance - portfolio applications)
-
----
+### Finance Applications
+| Term | Probability Equivalent | Section |
+|------|------------------------|---------|
+| Stock price | Lognormal random variable | 7.3 |
+| Volatility (σ) | Standard deviation | 7.3 |
+| Log returns | Normal distribution | 7.3 |
+| Portfolio return | Linear combination | 4.4 |
+| Risk (σ) | Standard deviation | 4.3 |
+| Diversification | Reducing variance via correlation | 4.4 |
+| Black-Scholes | Lognormal stock model | 7.3 |
+| Option pricing | E[e^{-r}(S-K)^+] | 7.3 |
 
 ### Problem Structure Patterns
-**Professor Patterns:**
-- Part (a): Basic setup/calculation
-- Part (b): Extension requiring part (a)
-- Part (c): Conceptual twist or limiting behavior
-- Finance context in at least one problem
-- One Bayesian problem guaranteed
-- One CLT/approximation problem guaranteed
-
-**Section Reference:** Appendix D (Last-Minute Review Checklist)
-
----
-
-## REVERSE LOOKUP: PROBLEM PHRASE → CONCEPT → SECTION
-
-### Distribution Recognition
-
-| Problem Phrase | Concept | Section Reference |
-|----------------|---------|-------------------|
-| "Gaussian" | Normal Distribution | Section 3.2 |
-| "Gaussian vector" | Multivariate Normal | Section 4.5 |
-| "Gaussian vector with independent components" | MVN with diagonal covariance | Section 4.5 |
-| "N(μ,σ²)" | Normal Distribution | Section 3.2 |
-| "Standard normal" | N(0,1) | Section 3.2 |
-| "Jointly normal" | Bivariate Normal | Section 4.5 |
-| "Memoryless" | Exponential (continuous) or Geometric (discrete) | Section 3.3 or 2.4 |
-| "Arrival process" | Poisson Process | Section 2.3 |
-| "Waiting time" | Exponential or Gamma | Section 3.3 or 3.5 |
-| "i.i.d." | Independent Identically Distributed | Throughout |
-| "Independent components" | Diagonal covariance matrix | Section 4.5 |
-| "Stock price" | Lognormal | Section 7.3 |
-| "Lognormal" | e^X where X ~ Normal | Section 7.3 |
-| "Success/Failure" | Bernoulli/Binomial | Section 2.2 |
-| "First success" | Geometric | Section 2.4 |
-| "r-th success" | Negative Binomial | Section 2.5 |
-| "Without replacement" | Hypergeometric | Section 2.6 |
-| "Equally likely" | Uniform | Section 3.1 |
+| Professor Pattern | What It Usually Means |
+|-------------------|----------------------|
+| "Consider a game..." | Find E[X], use total expectation |
+| "Suppose X,Y are jointly normal..." | Use bivariate normal properties |
+| "Let X₁,...,Xₙ be i.i.d..." | CLT or LLN applies |
+| "Update your belief..." | Bayesian problem |
+| "What is the probability that..." | Direct calculation |
+| "Find the distribution of..." | Transformation |
 
 ---
 
-### Operation Recognition
+## 6. REVERSE LOOKUP: PHRASE → CONCEPT → SECTION
 
-| Problem Phrase | Concept | Section Reference |
-|----------------|---------|-------------------|
-| "Sum of independent" | Use MGF or convolution | Section 5.2 |
-| "Maximum of" | Order statistics | Section 4.7 |
-| "Minimum of" | Order statistics | Section 4.7 |
-| "Conditional on" | Conditional probability/distribution | Section 1.2, 4.2 |
-| "Given that" | Conditional | Section 1.2 |
-| "Transform" | Transformation problem | Section 4.6 |
-| "Find distribution of Y = g(X)" | Transformation | Section 4.6 |
-| "Linear combination" | aX + bY | Section 4.5 (if normal) |
-| "Approximate" | CLT or Normal approximation | Section 6.1, 6.2 |
-| "Large n" | CLT | Section 6.1 |
-| "As n → ∞" | Limit theorem | Section 6.1, 6.3 |
+### A-C
+| Phrase Seen | Concept | Section |
+|-------------|---------|---------|
+| "Approximately normal" | Central Limit Theorem | 6.1 |
+| "Arrivals occur at rate λ" | Poisson Process | 2.3 |
+| "Average of n observations" | Sample mean, CLT | 6.1 |
+| "Bayesian update" | Bayes' theorem | 7.1-7.2 |
+| "Bell curve" | Normal distribution | 3.3 |
+| "Bernoulli trials" | Binomial distribution | 2.2 |
+| "Bivariate normal" | Joint normal distribution | 4.5 |
+| "CLT" | Central Limit Theorem | 6.1 |
+| "Conditionally independent" | Independence given variable | 4.3 |
+| "Confidence interval" | CI using CLT | 6.4 |
+| "Conjugate prior" | Beta-Binomial, Gamma-Poisson | 7.2 |
+| "Converges in distribution" | Limit theorem | 6.1-6.3 |
+| "Converges in probability" | Law of Large Numbers | 6.3 |
+| "Correlation" | ρ = Cov(X,Y)/(σ_X σ_Y) | 4.4 |
+| "Counting process" | Poisson process | 2.3 |
+| "Covariance" | Cov(X,Y) = E[XY] - E[X]E[Y] | 4.4 |
+
+### D-G
+| Phrase Seen | Concept | Section |
+|-------------|---------|---------|
+| "Defect rate" | Often Binomial or Poisson | 2.2, 2.3 |
+| "Distribution of max/min" | Order statistics | 4.7 |
+| "Draw without replacement" | Hypergeometric | 2.6 |
+| "Equally likely" | Uniform distribution | 3.2 |
+| "Expected value" | Expectation E[X] | 4.1 |
+| "Exponential waiting time" | Exp(λ), memoryless | 3.4 |
+| "Find the joint density" | Joint PDF | 4.1 |
+| "First success" | Geometric distribution | 2.4 |
+| "Gaussian" | Normal distribution | 3.3 |
+| "Gaussian vector" | Multivariate normal | 4.5 |
+| "Geometric" | Trials until first success | 2.4 |
+| "Given that" | Conditional probability | 1.2 |
+
+### H-L
+| Phrase Seen | Concept | Section |
+|-------------|---------|---------|
+| "Hypothesis" | Prior in Bayesian context | 1.3, 7.1 |
+| "i.i.d." | Independent identically distributed | Various |
+| "Independent components" | Diagonal covariance, ρ=0 | 4.5 |
+| "Inter-arrival time" | Exponential distribution | 3.4 |
+| "Jacobian" | Transformation method | 4.6 |
+| "Joint density" | f(x,y) | 4.1 |
+| "Jointly normal" | Bivariate normal | 4.5 |
+| "Large n" | CLT applies | 6.1 |
+| "Large sample" | CLT, normal approximation | 6.1-6.2 |
+| "Law of large numbers" | X̄ → μ as n → ∞ | 6.3 |
+| "Likelihood" | P(data\|parameter) | 7.1 |
+| "Linear combination" | aX + bY | 3.3, 4.5 |
+| "Log returns" | Normal distribution | 7.3 |
+| "Lognormal" | Y = e^X where X ~ Normal | 7.3 |
+
+### M-P
+| Phrase Seen | Concept | Section |
+|-------------|---------|---------|
+| "Marginal distribution" | Integrate out other variable | 4.2 |
+| "Maximum/Minimum" | Order statistics | 4.7 |
+| "Mean" | E[X], expectation | 4.1 |
+| "Memoryless" | Exponential or Geometric | 3.4, 2.4 |
+| "MGF" | Moment generating function | 5.1 |
+| "Moment generating function" | E[e^{tX}] | 5.1 |
+| "Multivariate normal" | Joint normal, MVN | 4.5 |
+| "n trials" | Binomial | 2.2 |
+| "Negative binomial" | Failures before r successes | 2.5 |
+| "Normal approximation" | Use CLT for discrete | 6.2 |
+| "Number of arrivals" | Poisson | 2.3 |
+| "Number of successes" | Binomial | 2.2 |
+| "Poisson process" | Arrivals at rate λ | 2.3 |
+| "Posterior" | P(θ\|data) | 7.1 |
+| "Prior" | P(θ) before data | 7.1 |
+| "Probability integral transform" | F(X) ~ Uniform(0,1) | 3.8 |
+
+### Q-S
+| Phrase Seen | Concept | Section |
+|-------------|---------|---------|
+| "Quantile" | F^{-1}(p) | 3.1 |
+| "Random point" | Uniform distribution | 3.2 |
+| "Rate λ" | Poisson or Exponential parameter | 2.3, 3.4 |
+| "Sample mean" | X̄ = (1/n)ΣXᵢ | 6.1 |
+| "Service time" | Often Exponential | 3.4 |
+| "Standard deviation" | σ = √Var(X) | 4.3 |
+| "Standard normal" | N(0,1), Z | 3.3 |
+| "Standardize" | Z = (X-μ)/σ | 3.3 |
+| "Stock price" | Lognormal model | 7.3 |
+| "Success/failure" | Bernoulli/Binomial | 2.2 |
+| "Sum of exponentials" | Gamma distribution | 3.5 |
+| "Sum of independent" | Use MGF or convolution | 5.2 |
+
+### T-Z
+| Phrase Seen | Concept | Section |
+|-------------|---------|---------|
+| "Total expectation" | E[X] = E[E[X\|Y]] | 7.1 |
+| "Total probability" | P(A) = ΣP(A\|Bᵢ)P(Bᵢ) | 1.3 |
+| "Total variance" | Var(X) = E[Var(X\|Y)] + Var(E[X\|Y]) | 7.1 |
+| "Transformation" | Y = g(X), find distribution | 4.6 |
+| "Trials until success" | Geometric | 2.4 |
+| "Uncorrelated" | Cov(X,Y) = 0, ρ = 0 | 4.4 |
+| "Update belief" | Bayesian, posterior | 7.1 |
+| "Variance" | Var(X) = E[X²] - (E[X])² | 4.3 |
+| "Volatility" | σ in finance, standard deviation | 7.3 |
+| "Waiting time" | Exponential, Gamma | 3.4, 3.5 |
+| "Without replacement" | Hypergeometric | 2.6 |
 
 ---
 
-### Question Type Recognition
+## 7. CRITICAL SYNONYM CHAINS
 
-| Problem Phrase | Concept | Section Reference |
-|----------------|---------|-------------------|
-| "Compute the probability" | Probability calculation | Depends on distribution |
-| "Find the distribution" | Transformation or identification | Section 4.6 |
-| "Show that" | Proof/derivation | Section 5.1 (MGF) |
-| "Are X and Y independent?" | Independence test | Section 4.3 |
-| "Find E[X\|Y]" | Conditional expectation | Section 7.1 |
-| "Update" | Bayesian update | Section 7.2 |
-| "Posterior" | Bayesian posterior | Section 7.2 |
-| "Converges" | Limit theorem | Section 6.1, 6.3 |
-| "Covariance" | Cov(X,Y) | Section 4.4 |
-| "Correlation" | ρ = Cov/(σ_X σ_Y) | Section 4.4 |
+### Chain 1: Normal Family
+```
+Normal ≡ Gaussian ≡ N(μ,σ²) ≡ "bell curve" ≡ "approximately normal"
+    ↓
+Standard Normal ≡ N(0,1) ≡ Z ≡ "standardized"
+    ↓
+Bivariate Normal ≡ Jointly Normal ≡ MVN (2D) ≡ "Gaussian vector"
+    ↓ (special case)
+Independent components ≡ Diagonal Σ ≡ ρ = 0 ≡ Uncorrelated (for normals, same as independent!)
+```
 
----
+### Chain 2: Counting/Waiting
+```
+Poisson(λ) ≡ "arrivals" ≡ "counting process" ≡ "events at rate λ"
+    ↓ (inter-arrival times)
+Exponential(λ) ≡ "waiting time" ≡ "memoryless" ≡ "time until event"
+    ↓ (sum of n exponentials)
+Gamma(n,λ) ≡ "time until n-th arrival" ≡ "Erlang" (if n integer)
+```
 
-### Multi-Step Pattern Recognition
+### Chain 3: Trials/Successes
+```
+Bernoulli(p) ≡ "success/failure" ≡ "binary" ≡ "indicator"
+    ↓ (sum of n)
+Binomial(n,p) ≡ "n trials" ≡ "number of successes"
+    ↓ (wait for first)
+Geometric(p) ≡ "first success" ≡ "trials until" ≡ "memoryless (discrete)"
+    ↓ (wait for r-th)
+Negative Binomial(r,p) ≡ "r successes" ≡ "sum of r geometrics"
+```
 
-| Problem Pattern | Required Concepts | Sections |
-|----------------|-------------------|----------|
-| "i.i.d. Gaussians → Max/Min → Probability" | Independence, Normal, Order Statistics | 4.3, 3.2, 4.7 |
-| "Poisson process + Exponential waiting times" | Poisson, Exponential | 2.3, 3.3 |
-| "Conditional probability + Bayes theorem" | Conditional, Bayes | 1.2, 1.3 |
-| "Transformation + Jacobian method" | Transformations | 4.6 |
-| "Joint distribution + Independence + Correlation" | Joint, Independence, Covariance | 4.1, 4.3, 4.4 |
-| "Bayesian + Prediction" | Bayesian, Predictive | 7.2 |
-| "CLT + Normal approximation" | CLT, Normal | 6.1, 6.2 |
-| "Bivariate Normal + Linear combination" | Bivariate Normal | 4.5 |
-| "Lognormal + Expectation" | Lognormal, Expectation | 7.3, 4.1 |
-
----
-
-## CRITICAL TERMINOLOGY GAPS IDENTIFIED
-
-### Missing from Current Cheat Sheet
-
-1. **"Gaussian vector"** - Mentioned in practice problems but not explicitly in cheat sheet
-   - **Fix:** Add to Section 4.5 with explicit synonym mapping
-
-2. **"Independent components"** - Used in problems but not clearly explained
-   - **Fix:** Add explanation that this means diagonal covariance matrix
-
-3. **"Exponentially distributed with mean θ"** - Parameter confusion (mean = 1/λ)
-   - **Fix:** Add note about parameterization: Exp(λ) has mean 1/λ
-
-4. **"i.i.d."** - Used everywhere but not explicitly defined in cheat sheet
-   - **Fix:** Add definition in Section 1.4 or early sections
-
-5. **"Memoryless property"** - Mentioned but not clearly linked to both Geometric and Exponential
-   - **Fix:** Add cross-reference between Section 2.4 and 3.3
+### Chain 4: Bayesian
+```
+Prior ≡ π(θ) ≡ "belief before data"
+    ↓ (+ Likelihood)
+Posterior ≡ π(θ|x) ≡ "updated belief" ≡ "belief after data"
+    ↓
+Posterior ∝ Likelihood × Prior
+    ↓ (special cases)
+Beta-Binomial ≡ Conjugate ≡ "closed-form update"
+Gamma-Poisson ≡ Conjugate
+Normal-Normal ≡ Conjugate (known variance)
+```
 
 ---
 
-## COMPLETENESS CHECKLIST
+## 8. DISTRIBUTION PARAMETER NOTATION VARIANTS
 
-- [x] All distribution names extracted
-- [x] All synonyms identified
-- [x] All problem phrases catalogued
-- [x] All operation types mapped
-- [x] All question keywords identified
-- [x] Professor-specific terminology noted
-- [x] Finance terminology mapped
-- [x] Multi-step patterns identified
-- [x] Gaps identified
+| Distribution | Notation Variants | Parameters |
+|--------------|-------------------|------------|
+| Normal | N(μ,σ²), N(μ,σ), Normal(μ,σ²) | Mean μ, Variance σ² |
+| Exponential | Exp(λ), Exp(β), Exponential(λ) | Rate λ (mean = 1/λ) |
+| Poisson | Pois(λ), Poisson(λ), Po(λ) | Mean = Variance = λ |
+| Binomial | Bin(n,p), B(n,p), Binomial(n,p) | n trials, prob p |
+| Gamma | Γ(α,β), Gamma(α,β), Gamma(r,λ) | Shape α, Rate β |
+| Beta | Beta(α,β), Be(α,β) | Shape parameters α, β |
+
+**Warning:** Some textbooks use scale parameter (1/rate) for Exponential and Gamma!
 
 ---
 
-**NEXT STEPS:** Use this map in Phase 12 to identify content gaps, then Phase 13 to expand decision tree, then Phase 14 to fill gaps.
+## 9. KEY FORMULA QUICK REFERENCE BY SYNONYM
 
+### "Find the mean" = E[X]
+- Discrete: Σ x·P(X=x)
+- Continuous: ∫ x·f(x)dx
+- Conditional: E[X|Y=y] = ∫ x·f(x|y)dx
+
+### "Find the variance" = Var(X)
+- Var(X) = E[X²] - (E[X])²
+- Var(aX+b) = a²Var(X)
+- Var(X+Y) = Var(X) + Var(Y) + 2Cov(X,Y)
+
+### "Find the covariance" = Cov(X,Y)
+- Cov(X,Y) = E[XY] - E[X]E[Y]
+- Cov(X,X) = Var(X)
+- Independent → Cov = 0 (but NOT vice versa!)
+
+### "Find the correlation" = ρ
+- ρ = Cov(X,Y)/(σ_X · σ_Y)
+- -1 ≤ ρ ≤ 1
+- For bivariate normal: ρ = 0 ⟺ independent
+
+### "Apply CLT" = Central Limit Theorem
+- Z = (X̄ - μ)/(σ/√n) → N(0,1)
+- X̄ ≈ N(μ, σ²/n) for large n
+- Continuity correction: ±0.5 for discrete
+
+---
+
+_End of Terminology Master Map_

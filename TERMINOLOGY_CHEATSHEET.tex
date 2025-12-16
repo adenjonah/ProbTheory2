@@ -1,0 +1,287 @@
+\documentclass[10pt,landscape,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.25in]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{array}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{0.3in}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{TERMINOLOGY CHEATSHEET - All Synonyms}}\\
+{\small Probability Theory Final Exam | December 16, 2025}
+\end{center}
+
+\vspace{0.2cm}
+
+\begin{multicols}{4}
+
+\section*{\textcolor{red}{⚠️ CRITICAL}}
+
+\textbf{Gaussian} = \textbf{Normal} = N($\mu$,$\sigma^2$)
+
+\textbf{Gaussian vector} = \textbf{MVN} = Multivariate Normal = Jointly Normal
+
+\textbf{Independent components} = $\rho = 0$ = Independence (for MVN!)
+
+\textbf{Mean $\theta$} (Exp) $\Rightarrow$ $\lambda = 1/\theta$
+
+$\psi(t)$ = MGF = $M_X(t)$
+
+\section*{DISTRIBUTIONS}
+
+\textbf{Normal} \\
+= Gaussian\\
+= N($\mu$,$\sigma^2$)\\
+= Bell curve\\
+→ Sec 3.3
+
+\textbf{Standard Normal}\\
+= N(0,1)\\
+= Z distribution\\
+→ Sec 3.3
+
+\textbf{Bivariate Normal}\\
+= Gaussian vector\\
+= MVN\\
+= Jointly normal\\
+→ Sec 4.5
+
+\textbf{Exponential}\\
+= Exp($\lambda$)\\
+= Memoryless\\
+= Waiting time\\
+→ Sec 3.4
+
+\textbf{Poisson}\\
+= Counting process\\
+= Arrival process\\
+= Rate $\lambda$\\
+→ Sec 2.3
+
+\textbf{Binomial}\\
+= n trials\\
+= Success/failure\\
+= Fixed trials\\
+→ Sec 2.2
+
+\textbf{Geometric}\\
+= First success\\
+= Trials until\\
+= Memoryless (discrete)\\
+→ Sec 2.4
+
+\textbf{Lognormal}\\
+= $\ln X \sim N$\\
+= $e^X$ where $X \sim N$\\
+= Stock price\\
+→ Sec 7.3
+
+\textbf{Beta}\\
+= Beta($\alpha$,$\beta$)\\
+= Conjugate prior\\
+= Proportion model\\
+→ Sec 3.6
+
+\textbf{Gamma}\\
+= Gamma($r$,$\lambda$)\\
+= Sum of exponentials\\
+= Erlang (integer $r$)\\
+→ Sec 3.5
+
+\section*{PROCESSES}
+
+\textbf{i.i.d.}\\
+= Independent identically distributed\\
+= Same distribution\\
+= Independent copies
+
+\textbf{Arrival process}\\
+= Poisson process\\
+= Counting events\\
+→ Sec 2.3
+
+\textbf{Waiting time}\\
+= Inter-arrival\\
+= Time until event\\
+→ Exponential
+
+\textbf{Memoryless}\\
+= Exponential (cont.)\\
+= Geometric (disc.)\\
+→ Sec 3.4, 2.4
+
+\section*{OPERATIONS}
+
+\textbf{Conditional on}\\
+= Given that\\
+= $|$\\
+= Restricting to
+
+\textbf{Marginal}\\
+= Integrate out\\
+= Sum out\\
+→ Sec 4.2
+
+\textbf{Joint}\\
+= Together\\
+= Simultaneously\\
+→ Sec 4.1
+
+\textbf{Transformation}\\
+= Change of variable\\
+= Find distribution of $g(X)$\\
+= Jacobian method\\
+→ Sec 4.6
+
+\textbf{Sum of}\\
+= Convolution\\
+= MGF method\\
+→ Sec 5.2
+
+\section*{QUESTIONS}
+
+\textbf{``Find distribution''}\\
+→ CDF or MGF method
+
+\textbf{``Compute probability''}\\
+→ CDF, PMF, or integrate PDF
+
+\textbf{``Approximate''}\\
+→ CLT (Sec 6.1)
+
+\textbf{``Large n''}\\
+→ CLT (Sec 6.1)
+
+\textbf{``Update belief''}\\
+→ Bayesian (Sec 7.2)
+
+\textbf{``Prior/Posterior''}\\
+→ Bayesian (Sec 7.2)
+
+\textbf{``Max/Min of n''}\\
+→ Order Statistics (Sec 4.7)
+
+\textbf{``E[X|Y]''}\\
+→ Conditional Expectation (Sec 7.1)
+
+\section*{BAYESIAN}
+
+\textbf{Prior}\\
+= $\pi(\theta)$\\
+= Initial belief\\
+= Before data
+
+\textbf{Posterior}\\
+= $\pi(\theta|x)$\\
+= Updated belief\\
+= After data
+
+\textbf{Likelihood}\\
+= $L(x|\theta)$\\
+= $P(\text{data}|\theta)$
+
+\textbf{Conjugate}\\
+= Same family\\
+= Easy update\\
+→ Beta-Binomial
+
+\textbf{Predictive}\\
+= Future observation\\
+= Weighted by posterior
+
+\section*{STATISTICS}
+
+\textbf{Sample mean}\\
+= $\bar{X}$\\
+= $\bar{X}_n$\\
+= Average
+
+\textbf{Order statistic}\\
+= $X_{(k)}$\\
+= k-th smallest\\
+= Ranked values
+
+\textbf{Indicator}\\
+= $I_A$\\
+= $\mathbf{1}_A$\\
+= 1 if A, 0 else
+
+\section*{LIMITS}
+
+\textbf{CLT}\\
+= Central Limit Theorem\\
+= Normal approximation\\
+= Large sample
+
+\textbf{LLN}\\
+= Law of Large Numbers\\
+= Converges to mean
+
+\textbf{Convergence}\\
+$\xrightarrow{d}$ = in distribution\\
+$\xrightarrow{P}$ = in probability
+
+\section*{FORMULAS}
+
+\textbf{Covariance}\\
+= Cov(X,Y)\\
+= $E[XY] - E[X]E[Y]$
+
+\textbf{Correlation}\\
+= $\rho$\\
+= Cov$/\sigma_X\sigma_Y$\\
+= $-1 \leq \rho \leq 1$
+
+\textbf{Variance}\\
+= Var(X)\\
+= $\sigma^2$\\
+= $E[X^2]-(E[X])^2$
+
+\textbf{MGF}\\
+= Moment Generating Function\\
+= $M_X(t) = E[e^{tX}]$\\
+= $\psi(t)$ (Prof.)
+
+\section*{PROFESSOR}
+
+$\psi(t)$ = MGF
+
+$g_1(x|y)$ = conditional PDF of X|Y
+
+$\pi(\theta)$ = prior
+
+$\pi(\theta|x)$ = posterior
+
+$L(x|\theta)$ = likelihood
+
+$H_i$ = hypothesis i
+
+$\Phi(z)$ = std normal CDF
+
+$z_\alpha$ = quantile
+
+\section*{FINANCE}
+
+\textbf{Stock price}\\
+= $S_t$\\
+= Lognormal\\
+= $S_0 e^Z$
+
+\textbf{Log returns}\\
+= Normal\\
+= $\ln(S_t/S_0)$
+
+\textbf{Risk-neutral}\\
+= $E[e^{-r}S] = S_0$
+
+\end{multicols}
+
+\end{document}
+

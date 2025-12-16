@@ -39,16 +39,77 @@
 \section*{\textcolor{sectioncolor}{0. QUICK REFERENCE GUIDE}}
 % ============================================================
 
-\subsection*{Decision Tree Summary}
-\begin{enumerate}[leftmargin=*,itemsep=0pt]
-\item \textbf{Probability?} → Conditional/Bayes/Basic
-\item \textbf{Random Variable?} → Discrete/Continuous
-\item \textbf{Multiple Variables?} → Joint/Independence/Correlation
-\item \textbf{Expectations?} → Basic/Variance/Conditional/MGF
-\item \textbf{Large Sample?} → CLT/Normal Approx/LLN
-\item \textbf{Bayesian?} → Update/Conjugate/Predictive
-\item \textbf{Finance?} → Lognormal/Portfolio
-\end{enumerate}
+\subsection*{TERMINOLOGY TRAPS (CRITICAL!)}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \textbf{``Gaussian''} = \textbf{Normal}! N($\mu$,$\sigma^2$)
+\item \textbf{``Gaussian vector''} = \textbf{MVN} (Multivariate Normal)
+\item \textbf{``Independent components''} = $\rho = 0$ (for MVN: independence!)
+\item \textbf{``Mean $\theta = 3$'' (Exp)} $\Rightarrow$ $\lambda = 1/3$ NOT 3!
+\item For MVN ONLY: $\rho = 0 \Leftrightarrow$ independent
+\item $\psi(t)$ = MGF (professor's notation)
+\end{itemize}
+
+\subsection*{VISUAL DECISION TREE (Start Here!)}
+{\scriptsize
+\begin{verbatim}
+START: What type of problem?
+  |
+  +--[Named Distribution?]
+  |    +--"Gaussian/Normal" → Sec 3.3 (single) or 4.5 (joint)
+  |    +--"Exponential" → Sec 3.4 [λ=1/mean!]
+  |    +--"Poisson" → Sec 2.3
+  |    +--"Binomial" → Sec 2.2
+  |    +--"Lognormal" → Sec 7.3 (stock prices!)
+  |    +--"Beta" → Sec 3.6 (priors!)
+  |
+  +--[Multiple Variables?]
+  |    +--"Joint PDF/PMF" → Sec 4.1
+  |    +--"Bivariate Normal/Gaussian vector" → Sec 4.5
+  |    +--"X+Y, sum" → MGF (5.2) or direct
+  |    +--"Max/Min" → Order Stats (4.7)
+  |    +--"X|Y=y" → Conditional (4.2, 4.5)
+  |
+  +--[Approximation/Limits?]
+  |    +--"Large n/approximate" → CLT (6.1)
+  |    +--"Sample mean" → CLT (6.1)
+  |    +--"n games/trials" → CLT (6.1) Template B
+  |
+  +--[Bayesian?]
+  |    +--"Prior/Posterior" → Sec 7.2
+  |    +--"Update belief" → Bayes (1.3, 7.2)
+  |    +--"Defective rate" → Discrete Bayes (8.8)
+  |    +--"Monty Hall" → Template J
+  |
+  +--[Expectation?]
+       +--"E[X|Y]" → Cond. Expectation (7.1)
+       +--"Total Expectation" → E[X]=E[E[X|Y]]
+\end{verbatim}
+}
+
+\subsection*{Emergency Quick Reference: Problem Phrase → Section}
+{\small
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \textbf{``Gaussian''} → Normal! Sec 3.3
+\item \textbf{``Gaussian vector''} → MVN! Sec 4.5
+\item \textbf{``Independent components''} → $\rho=0$ for MVN, Sec 4.5
+\item \textbf{``Large n'' / ``Approximate''} → CLT, Sec 6.1
+\item \textbf{``i.i.d.''} → Independence, maybe CLT
+\item \textbf{``Prior/Posterior''} → Bayesian, Sec 7.2
+\item \textbf{``Update belief''} → Bayes' Theorem, Sec 1.3
+\item \textbf{``Conjugate''} → Beta-Binomial, Sec 7.2
+\item \textbf{``Stock price'' / ``$S_0 e^Z$''} → Lognormal, Sec 7.3
+\item \textbf{``Mean $\theta$'' (Exp)} → $\lambda = 1/\theta$! Sec 3.4
+\item \textbf{``Memoryless''} → Exponential, Sec 3.4
+\item \textbf{``Arrival/Counting process''} → Poisson, Sec 2.3
+\item \textbf{``Max/Min of n''} → Order Statistics, Sec 4.7
+\item \textbf{``$\psi(t)$''} → MGF! Sec 5.1
+\item \textbf{``Conditional distribution''} → Sec 4.2, 4.5
+\item \textbf{``$E[X|Y]$''} → Conditional Expectation, Sec 7.1
+\item \textbf{``Total winnings/games''} → CLT, Template B
+\item \textbf{``Monty Hall''} → Bayesian, Sec 8.1
+\item \textbf{``Defective rate''} → Bayesian, Sec 8.8
+\end{itemize}
+}
 
 \subsection*{Top 20 Critical Formulas}
 \begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
@@ -187,8 +248,9 @@
 \item \note{$P(a < X \leq b) = F(b) - F(a)$}
 \end{itemize}
 
-\subsection*{2.2 Binomial Distribution}
+\subsection*{2.2 Binomial Distribution (a.k.a. Binomial($n,p$), ``n trials'')}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``n trials'', ``success/failure'', ``fixed number of trials''
 \item \concept{Definition:} Number of successes in $n$ independent trials
 \item \concept{PMF:} \formula{P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}}
 \item \concept{Mean:} $E[X] = np$
@@ -200,8 +262,9 @@
 \item \note{Normal approximation when $np(1-p) > 10$}
 \end{itemize}
 
-\subsection*{2.3 Poisson Distribution}
+\subsection*{2.3 Poisson Distribution (a.k.a. Poisson($\lambda$), Counting Process)}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``arrival process'', ``counting process'', ``rare events'', ``rate $\lambda$''
 \item \concept{Definition:} Count of rare events in fixed interval
 \item \concept{PMF:} \formula{P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}}
 \item \concept{Mean:} $E[X] = \lambda$
@@ -213,8 +276,9 @@
 \item \note{Approximates Binomial when $n$ large, $p$ small, $np = \lambda$}
 \end{itemize}
 
-\subsection*{2.4 Geometric Distribution}
+\subsection*{2.4 Geometric Distribution (a.k.a. ``First success'', Memoryless Discrete)}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``first success'', ``waiting for success'', ``trials until success''
 \item \concept{Definition:} Number of failures before first success
 \item \concept{PMF:} \formula{P(X=k) = p(1-p)^k, \quad k=0,1,2,...}
 \item \concept{Mean:} $E[X] = (1-p)/p$
@@ -273,8 +337,9 @@
 \item \note{Probability proportional to interval length}
 \end{itemize}
 
-\subsection*{3.3 Normal Distribution} \postmidterm{High Priority!}
+\subsection*{3.3 Normal Distribution (a.k.a. Gaussian, N($\mu$,$\sigma^2$))} \postmidterm{High Priority!}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} \textbf{Gaussian} = \textbf{Normal} = N($\mu$,$\sigma^2$) = ``bell curve''
 \item \concept{Definition:} Bell curve, most important continuous distribution
 \item \concept{PDF:} \formula{f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}}
 \item \concept{Notation:} $X \sim N(\mu, \sigma^2)$
@@ -290,8 +355,10 @@
 \item \note{Use $\Phi(z)$ table for standard normal CDF}
 \end{itemize}
 
-\subsection*{3.4 Exponential Distribution}
+\subsection*{3.4 Exponential Distribution (a.k.a. Exp($\lambda$), Memoryless)}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} Exp($\lambda$), ``waiting time'', ``memoryless'', ``inter-arrival time''
+\item \warning{``Mean $\theta=3$'' means $\lambda = 1/3$ NOT $\lambda=3$!}
 \item \concept{Definition:} Waiting time until event
 \item \concept{PDF:} \formula{f(x) = \lambda e^{-\lambda x}, \quad x > 0}
 \item \concept{CDF:} $F(x) = 1 - e^{-\lambda x}$
@@ -304,8 +371,9 @@
 \item \note{Min of exponentials is exponential}
 \end{itemize}
 
-\subsection*{3.5 Gamma Distribution}
+\subsection*{3.5 Gamma Distribution (a.k.a. Gamma($r,\lambda$), Erlang)}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``sum of exponentials'', ``time until $r$-th event'', Erlang (integer $r$)
 \item \concept{Definition:} Sum of exponentials, generalization
 \item \concept{PDF:} \formula{f(x) = \frac{\lambda^r}{\Gamma(r)}x^{r-1}e^{-\lambda x}, \quad x > 0}
 \item \concept{Mean:} $E[X] = r/\lambda$
@@ -319,8 +387,9 @@
 \item \note{$\Gamma(n) = (n-1)!$ for integer $n$}
 \end{itemize}
 
-\subsection*{3.6 Beta Distribution}
+\subsection*{3.6 Beta Distribution (a.k.a. Beta($\alpha,\beta$), Conjugate Prior)}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``prior for probability'', ``proportion model'', ``conjugate to Binomial''
 \item \concept{Definition:} Models probabilities/proportions
 \item \concept{PDF:} \formula{f(x) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}}
 \item \concept{Support:} $0 < x < 1$
@@ -410,8 +479,10 @@
 \item \finance{Portfolio variance uses covariance matrix}
 \end{itemize}
 
-\subsection*{4.5 Bivariate Normal Distribution} \postmidterm{Critical!}
+\subsection*{4.5 Bivariate Normal (a.k.a. Gaussian Vector, MVN, Jointly Normal)} \postmidterm{Critical!}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} \textbf{Gaussian vector} = \textbf{MVN} = \textbf{Multivariate Normal} = ``Jointly Normal''
+\item \warning{``Independent components'' = $\rho = 0$ = \textbf{independence} (for MVN ONLY!)}
 \item \concept{Definition:} $(X,Y)$ jointly normal with parameters $\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho$
 \item \concept{Properties:}
   \begin{itemize}
@@ -426,8 +497,9 @@
 \item \note{$aX + bY$ is normal with specific mean/variance}
 \end{itemize}
 
-\subsection*{4.6 Transformations of Random Variables} \postmidterm{Complex!}
+\subsection*{4.6 Transformations (a.k.a. Jacobian Method, CDF Method)} \postmidterm{Complex!}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``change of variables'', ``find distribution of $Y=g(X)$'', ``Jacobian''
 \item \concept{Single Variable:} $Y = g(X)$
   \begin{itemize}
   \item CDF Method: Find $F_Y(y) = P(g(X) \leq y)$
@@ -448,8 +520,9 @@
 \item \concept{Example:} Polar coordinates: $X = R\cos\Theta$, $Y = R\sin\Theta$
 \end{itemize}
 
-\subsection*{4.7 Order Statistics}
+\subsection*{4.7 Order Statistics (a.k.a. Max/Min of i.i.d., $X_{(k)}$)}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``maximum'', ``minimum'', ``$k$-th smallest'', ``range''
 \item \concept{Definition:} $X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}$
 \item \concept{Maximum:} \formula{F_{X_{(n)}}(x) = [F(x)]^n}
 \item \concept{Minimum:} \formula{F_{X_{(1)}}(x) = 1 - [1-F(x)]^n}
@@ -463,9 +536,10 @@
 \section*{\textcolor{sectioncolor}{5. MOMENT GENERATING FUNCTIONS}} \postmidterm{Post-M2}
 % ============================================================
 
-\subsection*{5.1 Definition and Properties}
+\subsection*{5.1 Definition and Properties (Prof. uses $\psi(t)$ for MGF)}
 \begin{itemize}[leftmargin=*]
-\item \concept{Definition:} \formula{M_X(t) = E[e^{tX}] = \begin{cases} \sum e^{tx}p(x) & \text{discrete} \\ \int e^{tx}f(x)dx & \text{continuous} \end{cases}}
+\item \concept{SYNONYMS:} MGF = $M_X(t)$ = $\psi(t)$ (professor's notation)
+\item \concept{Definition:} \formula{M_X(t) = \psi(t) = E[e^{tX}] = \begin{cases} \sum e^{tx}p(x) & \text{discrete} \\ \int e^{tx}f(x)dx & \text{continuous} \end{cases}}
 \item \concept{Moments:} \formula{E[X^k] = M^{(k)}(0)} (k-th derivative at 0)
 \item \concept{Properties:}
   \begin{itemize}
@@ -506,8 +580,10 @@
 \section*{\textcolor{sectioncolor}{6. LIMIT THEOREMS}} \postmidterm{Critical for Final!}
 % ============================================================
 
-\subsection*{6.1 Central Limit Theorem (CLT)} \postmidterm{Most Important!}
+\subsection*{6.1 Central Limit Theorem (a.k.a. CLT, Normal Approximation)} \postmidterm{Most Important!}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} CLT, ``approximate'', ``large n'', ``as $n \to \infty$'', ``normal approximation''
+\item \concept{TRIGGER WORDS:} ``i.i.d.'', ``sample mean'', ``total/sum of n games'', ``average of n''
 \item \concept{Statement:} If $X_1, ..., X_n$ are iid with mean $\mu$, variance $\sigma^2$:
   \formula{\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1) \text{ as } n \to \infty}
 \item \concept{Equivalent:} \formula{\bar{X}_n \approx N\left(\mu, \frac{\sigma^2}{n}\right) \text{ for large } n}
@@ -578,8 +654,10 @@
 \section*{\textcolor{sectioncolor}{7. SPECIAL TOPICS \& APPLICATIONS}} \postmidterm{Post-M2}
 % ============================================================
 
-\subsection*{7.1 Conditional Expectation} \postmidterm{Conceptual!}
+\subsection*{7.1 Conditional Expectation (a.k.a. $E[X|Y]$, Total Expectation)} \postmidterm{Conceptual!}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``$E[X|Y]$'', ``average given'', ``expected value given''
+\item \concept{TRIGGER WORDS:} ``$E[X|Y=y]$'', ``break down by cases'', ``tower property''
 \item \concept{Definition:}
   \begin{itemize}
   \item Discrete: $E[X|Y=y] = \sum x \cdot P(X=x|Y=y)$
@@ -597,8 +675,10 @@
 \item \note{$E[X|Y]$ is a function of $Y$, not a number!}
 \end{itemize}
 
-\subsection*{7.2 Bayesian Statistics} \postmidterm{Professor's Favorite!}
+\subsection*{7.2 Bayesian Statistics (a.k.a. Prior/Posterior, Conjugate Priors)} \postmidterm{Professor's Favorite!}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``prior'', ``posterior'', ``update belief'', ``given evidence'', ``conjugate''
+\item \concept{TRIGGER WORDS:} ``defective rate'', ``unknown parameter'', ``given data'', ``Monty Hall''
 \item \concept{Bayesian Framework:}
   \formula{\pi(\theta|x) = \frac{L(x|\theta)\pi(\theta)}{\int L(x|\theta)\pi(\theta)d\theta}}
   where Prior $\times$ Likelihood $\rightarrow$ Posterior
@@ -619,8 +699,10 @@
 \item \finance{Used in risk assessment, portfolio optimization}
 \end{itemize}
 
-\subsection*{7.3 Lognormal Distribution} \postmidterm{Finance Applications!}
+\subsection*{7.3 Lognormal Distribution (a.k.a. $\ln X \sim N(\mu,\sigma^2)$)} \postmidterm{Finance Applications!}
 \begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} Lognormal, ``$\log X$ is normal'', ``$e^X$ where $X \sim N$'', ``stock price model''
+\item \concept{TRIGGER WORDS:} ``stock price'', ``$S = S_0 e^Z$'', ``log returns'', ``always positive''
 \item \concept{Definition:} $Y = e^X$ where $X \sim N(\mu, \sigma^2)$
 \item \concept{Properties:}
   \begin{itemize}
@@ -842,7 +924,7 @@
 \item \textbf{Key Insight:} Hierarchical structure leads to law of total expectation
 \end{enumerate}
 
-\subsection*{8.10 Hypothesis Testing & Confidence Intervals}
+\subsection*{8.10 Hypothesis Testing \& Confidence Intervals}
 \textbf{Problem:} Test Average with CLT\\
 \textit{Sample mean $\bar{X} = 52$ from $n=100$, known $\sigma=10$. Test $H_0: \mu = 50$}
 
@@ -854,6 +936,206 @@
 \item \textbf{Decision:} Reject $H_0$ at 5\% level (barely)
 \item \textbf{Key Insight:} CI excludes 50, consistent with rejection
 \end{enumerate}
+
+% ============================================================
+\section*{\textcolor{sectioncolor}{9. MULTI-STEP PROBLEM TEMPLATES}} \postmidterm{Critical!}
+% ============================================================
+
+\subsection*{Template A: Gaussian Vector Problems}
+\textbf{When you see:} ``Gaussian vector'', ``independent components'', ``MVN''
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Recognize:} ``Gaussian'' = Normal!
+\item \textbf{``Independent components''} means $\rho = 0$ and for MVN: \textbf{independent!}
+\item \textbf{Find Cov:} Set $\text{Cov}(Y_1, Y_2) = 0$ to find parameters
+\item \textbf{Joint density:} Product of marginals (since independent)
+\end{enumerate}
+
+\textbf{Key Formula:} For $Y_1 = aX_1 + X_2$, $Y_2 = X_1 + bX_2$ (iid $N(0,1)$):\\
+$\text{Cov}(Y_1,Y_2) = a\text{Var}(X_1) + b\text{Var}(X_2) = a + b$\\
+Independence requires: $b = -a$
+
+\subsection*{Template B: CLT Game/Coin Problems}
+\textbf{When you see:} ``400 games'', ``total winnings'', ``approximate''
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Define:} $X_i$ = single trial outcome
+\item \textbf{PMF:} List outcomes and probabilities
+\item \textbf{Compute:} $E[X_i] = \sum x \cdot P(X=x)$
+\item \textbf{Compute:} $\text{Var}(X_i) = E[X^2] - (E[X])^2$
+\item \textbf{CLT:} $S_n = \sum X_i \approx N(n\mu, n\sigma^2)$
+\item \textbf{Standardize:} $Z = \frac{S_n - n\mu}{\sigma\sqrt{n}}$
+\end{enumerate}
+
+\textbf{Example:} Win \$3 if HH ($p=1/4$), lose \$1 if TT ($p=1/4$), else \$0 ($p=1/2$)\\
+$E[X] = 3(1/4) - 1(1/4) + 0(1/2) = 1/2$\\
+$E[X^2] = 9(1/4) + 1(1/4) = 10/4$, $\text{Var}(X) = 10/4 - 1/4 = 9/4$
+
+\subsection*{Template C: Exponential + CLT}
+\textbf{When you see:} ``i.i.d. Exp'', ``mean $\theta$'', ``average''
+
+\warning{If ``mean $\theta = 3$'' then $\lambda = 1/3$ NOT 3!}
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Parameters:} $E[X_i] = 1/\lambda$, $\text{Var}(X_i) = 1/\lambda^2$
+\item \textbf{For $\bar{X}$:} $E[\bar{X}] = 1/\lambda$, $\text{Var}(\bar{X}) = 1/(n\lambda^2)$
+\item \textbf{CLT:} $\bar{X} \approx N(1/\lambda, 1/(n\lambda^2))$
+\item \textbf{Transform inequality first:} e.g., $\bar{X}/(\bar{X}+3) < 0.5 \Rightarrow \bar{X} < 3$
+\end{enumerate}
+
+\subsection*{Template D: Lognormal Stock Price}
+\textbf{When you see:} ``$S = S_0 e^Z$'', ``$Z \sim N(\mu,\sigma^2)$''
+
+\textbf{Key Formulas:}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item $E[e^Z] = e^{\mu + \sigma^2/2}$ when $Z \sim N(\mu,\sigma^2)$
+\item $E[S] = S_0 e^{\mu + \sigma^2/2}$
+\item $P(S > K) = P(Z > \ln(K/S_0)) = 1 - \Phi\left(\frac{\ln(K/S_0) - \mu}{\sigma}\right)$
+\end{itemize}
+
+\textbf{For $E[e^{-r}S]$ with $Z \sim N(r-\sigma^2/2, \sigma^2)$:}\\
+$E[e^{-r}S] = e^{-r}S_0 E[e^Z] = e^{-r}S_0 e^{(r-\sigma^2/2) + \sigma^2/2} = S_0$
+
+\subsection*{Template E: Bayesian Discrete Prior}
+\textbf{When you see:} ``prior'', ``posterior'', ``defective rate''
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{List hypotheses:} $\theta_1, \theta_2, ...$
+\item \textbf{Priors:} $P(\theta_i)$
+\item \textbf{Likelihoods:} $P(\text{data}|\theta_i)$
+\item \textbf{Bayes:} $P(\theta_i|\text{data}) = \frac{P(\text{data}|\theta_i)P(\theta_i)}{\sum_j P(\text{data}|\theta_j)P(\theta_j)}$
+\item \textbf{Normalize:} Make sure posteriors sum to 1
+\end{enumerate}
+
+\subsection*{Template F: Bivariate Normal Conditional}
+\textbf{When you see:} ``bivariate normal'', ``$Y|X=x$'', ``conditional distribution''
+
+\textbf{Formula:}
+\formula{Y|X=x \sim N\left(\mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X), (1-\rho^2)\sigma_Y^2\right)}
+
+\textbf{Special Case:} If $\rho = 0$, then $Y|X=x \sim N(\mu_Y, \sigma_Y^2)$ (unchanged!)
+
+\subsection*{Template G: Linear Combination Independence}
+\textbf{When you see:} ``$Y_1 = aX_1 + X_2$'', ``$Y_2 = X_1 + bX_2$'', ``independent components''
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Setup:} $X_1, X_2$ i.i.d. $N(0,1)$
+\item \textbf{Key insight:} For linear combinations of Gaussians, independence $\Leftrightarrow$ zero covariance
+\item \textbf{Calculate:} $\text{Cov}(Y_1, Y_2) = a\cdot 1 + b\cdot 1 = a + b$
+\item \textbf{Solve:} $a + b = 0 \Rightarrow b = -a$
+\item \textbf{Joint density:} Product of marginals (since independent)
+\end{enumerate}
+
+\subsection*{Template H: Predictive Distributions (Bayesian)}
+\textbf{When you see:} ``predict next outcome'', ``predictive probability'', ``posterior predictive''
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Prior predictive:} $P(X_{n+1}=x) = \sum_\theta P(X=x|\theta)P(\theta)$
+\item \textbf{Posterior predictive:} $P(X_{n+1}=x|\text{data}) = \sum_\theta P(X=x|\theta)P(\theta|\text{data})$
+\item \textbf{Use:} Posterior from Bayesian update in Step 2
+\end{enumerate}
+
+\textbf{Example:} Dice problem: Prior $P(\theta)$ for die type, observe data, predict next roll.
+
+\subsection*{Template I: Product of Lognormals}
+\textbf{When you see:} ``$XY$ where $X,Y$ are lognormal'', ``product of independent''
+
+\textbf{Key Insight:} $\ln(XY) = \ln X + \ln Y$
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item If $\ln X \sim N(\mu_1, \sigma_1^2)$ and $\ln Y \sim N(\mu_2, \sigma_2^2)$ independent
+\item Then $\ln(XY) \sim N(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)$
+\item So $XY$ is lognormal with parameters $(\mu_1+\mu_2, \sigma_1^2+\sigma_2^2)$
+\item $E[XY] = E[X]E[Y]$ (independence) $= e^{\mu_1+\sigma_1^2/2} \cdot e^{\mu_2+\sigma_2^2/2}$
+\end{enumerate}
+
+\subsection*{Template J: Monty Hall Variants}
+\textbf{When you see:} ``Monty Hall'', ``contestant picks'', ``host opens''
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Define hypotheses:} $H_A$, $H_B$, $H_C$ = car behind door A, B, C
+\item \textbf{Priors:} Usually uniform $P(H_i) = 1/3$
+\item \textbf{Key:} Likelihoods depend on host behavior!
+  \begin{itemize}[itemsep=0pt]
+  \item \textbf{Sober:} Knows car location, opens non-car door
+  \item \textbf{Dizzy:} Opens random door (50-50)
+  \end{itemize}
+\item \textbf{Sober Monty:} Switch doubles probability (2/3 vs 1/3)
+\item \textbf{Dizzy Monty:} No advantage to switching
+\end{enumerate}
+
+\subsection*{Template K: Finding n for CLT Probability}
+\textbf{When you see:} ``smallest n such that'', ``how many samples needed''
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Setup:} Want $P(\bar{X} > c) > p$ or $P(\bar{X} < c) > p$
+\item \textbf{CLT:} $\bar{X} \approx N(\mu, \sigma^2/n)$
+\item \textbf{Standardize:} $P\left(\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} > z\right) = $ target
+\item \textbf{Solve for $n$:} Using $z$-table, find $z^*$ then solve $\frac{c-\mu}{\sigma/\sqrt{n}} = z^*$
+\item \textbf{Result:} $n \geq \left(\frac{z^* \sigma}{c-\mu}\right)^2$
+\end{enumerate}
+
+\subsection*{Template L: Max/Min of i.i.d. Variables}
+\textbf{When you see:} ``maximum of $n$'', ``minimum of $n$'', ``largest/smallest''
+
+\textbf{Formulas:}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item $P(\max < a) = P(\text{all} < a) = [F(a)]^n$ (if i.i.d.)
+\item $P(\max > a) = 1 - [F(a)]^n$
+\item $P(\min < a) = 1 - [1-F(a)]^n$
+\item $P(\min > a) = [1-F(a)]^n$
+\end{itemize}
+
+\textbf{For Uniform(0,1):} $E[X_{(n)}] = \frac{n}{n+1}$, $E[X_{(1)}] = \frac{1}{n+1}$
+
+\subsection*{Template M: Conditioning on Event}
+\textbf{When you see:} ``given that $X > a$'', ``conditional on event''
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Conditional CDF:} $P(X \leq x | X > a) = \frac{P(a < X \leq x)}{P(X > a)}$ for $x > a$
+\item \textbf{For Exponential:} Memoryless! $P(X > s+t | X > s) = P(X > t)$
+\item \textbf{General:} Use $f_{X|A}(x) = f_X(x)/P(A)$ for $x \in A$
+\end{enumerate}
+
+\subsection*{Template N: Bivariate Normal from Conditions}
+\textbf{When you see:} ``$E[Y|X=x] = ...$'', ``$\text{Var}(Y|X) = ...$'', ``find parameters''
+
+\textbf{Key Formulas:}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item $E[Y|X=x] = \mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x - \mu_X)$
+\item $\text{Var}(Y|X) = \sigma_Y^2(1-\rho^2)$ (constant!)
+\end{itemize}
+
+\textbf{Method:} Match coefficients to extract $\mu_Y$, $\rho\frac{\sigma_Y}{\sigma_X}$, and $\sigma_Y^2(1-\rho^2)$
+
+\subsection*{Template O: Probability Involving Sample Average}
+\textbf{When you see:} ``$P(\bar{X}/(\bar{X}+c) < p)$'', ``ratio with sample mean''
+
+\textbf{Steps:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Transform:} Simplify inequality algebraically first!
+\item \textbf{Example:} $\frac{\bar{X}}{\bar{X}+3} < 0.5 \Leftrightarrow \bar{X} < 3$
+\item \textbf{Apply CLT:} $\bar{X} \approx N(\mu, \sigma^2/n)$
+\item \textbf{Calculate:} Standard normal probability
+\end{enumerate}
+
+\subsection*{Template P: Sum of Independent Poissons}
+\textbf{When you see:} ``sum of Poisson'', ``combined arrivals''
+
+\textbf{Key Property:} If $X \sim \text{Poisson}(\lambda_1)$, $Y \sim \text{Poisson}(\lambda_2)$ independent:
+\formula{X + Y \sim \text{Poisson}(\lambda_1 + \lambda_2)}
+
+\textbf{Method:} Use MGF: $M_{X+Y}(t) = e^{\lambda_1(e^t-1)} \cdot e^{\lambda_2(e^t-1)} = e^{(\lambda_1+\lambda_2)(e^t-1)}$
 
 % ============================================================
 % APPENDICES
@@ -979,21 +1261,28 @@ Beta($\alpha,\beta$) & $x^{\alpha-1}(1-x)^{\beta-1}/B(\alpha,\beta)$ & $\alpha/(
 \subsection*{What to Memorize vs Look Up}
 \textbf{MEMORIZE:}
 \begin{itemize}[leftmargin=*,itemsep=0pt]
-\item Basic probability rules (complement, union)
-\item Bayes' theorem structure
+\item ``Gaussian'' = Normal, ``Gaussian vector'' = MVN
 \item Normal standardization: $Z = (X-\mu)/\sigma$
-\item CLT statement
-\item Independence $\Rightarrow$ $\text{Cov} = 0$ (not vice versa)
-\item For normal: independence $\Leftrightarrow$ $\rho = 0$
+\item CLT: $(\bar{X}-\mu)/(\sigma/\sqrt{n}) \to N(0,1)$
+\item Lognormal: $E[e^X] = e^{\mu + \sigma^2/2}$ for $X \sim N(\mu,\sigma^2)$
+\item BVN Conditional: $\mu_{Y|X} = \mu_Y + \rho(\sigma_Y/\sigma_X)(x-\mu_X)$
+\item For MVN ONLY: $\rho = 0 \Leftrightarrow$ independent
 \end{itemize}
 
 \textbf{LOOK UP:}
 \begin{itemize}[leftmargin=*,itemsep=0pt]
-\item Specific distribution formulas
-\item MGF formulas
-\item Jacobian computation details
-\item Complex integration bounds
-\item Normal table values
+\item Distribution tables (PMF/PDF formulas)
+\item MGF formulas: $\psi(t)$ values
+\item Jacobian details
+\item Normal table ($\Phi$ values)
+\end{itemize}
+
+\subsection*{PARAMETER TRAP CHECKLIST}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item[$\square$] ``Mean $\theta=3$'' (Exp) $\Rightarrow$ $\lambda = 1/3$
+\item[$\square$] ``Rate $\lambda=2$'' $\Rightarrow$ Mean $= 1/2$
+\item[$\square$] Check: Is it Geom(failures) or Geom(trials)?
+\item[$\square$] BVN: Is variance $\sigma^2$ or std dev $\sigma$?
 \end{itemize}
 
 \subsection*{Common Professor Patterns}

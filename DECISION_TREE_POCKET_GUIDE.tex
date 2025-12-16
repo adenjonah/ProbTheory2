@@ -1,0 +1,308 @@
+\documentclass[10pt,landscape,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.3in]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancybox}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{DECISION TREE POCKET GUIDE}}\\
+{\small Probability Theory Final Exam - December 16, 2025}
+\end{center}
+
+\begin{multicols}{3}
+
+\section*{\textcolor{blue}{LEVEL 0: START HERE}}
+
+\fbox{\parbox{\linewidth}{
+\textbf{READ PROBLEM → FIND KEY TERMS}
+}}
+
+\vspace{0.2cm}
+
+\subsection*{Distribution Named?}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \textbf{``Gaussian''} = NORMAL! → \S3.3
+\item \textbf{``Gaussian vector''} = MVN → \S4.5
+\item ``Exponential'' → \S3.4
+\item ``Poisson'' → \S2.3
+\item ``Binomial'' → \S2.2
+\item ``Lognormal'' → \S7.3
+\item ``Beta'' → \S3.6, \S7.2
+\end{itemize}
+
+\subsection*{Multiple Variables?}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item ``Joint'' → \S4.1
+\item ``Bivariate Normal'' → \S4.5
+\item ``Sum X+Y'' → MGF \S5.2
+\item ``Max/Min'' → \S4.7, Template L
+\item ``X|Y=y'' → \S4.2, 4.5
+\end{itemize}
+
+\subsection*{Approximation/Limits?}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item ``Large n'' → CLT \S6.1
+\item ``Approximate'' → CLT \S6.1
+\item ``i.i.d. + sample mean'' → CLT
+\item ``n games'' → Template B
+\end{itemize}
+
+\subsection*{Bayesian?}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item ``Prior/Posterior'' → \S7.2
+\item ``Update belief'' → \S1.3, 7.2
+\item ``Defective rate'' → Template E
+\item ``Monty Hall'' → Template J
+\end{itemize}
+
+\subsection*{Expectation?}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item ``E[X|Y]'' → \S7.1
+\item ``Total Expectation'' → \S7.1
+\item ``Conditional variance'' → \S7.1
+\end{itemize}
+
+\columnbreak
+
+\section*{\textcolor{red}{⚠️ CRITICAL TRAPS}}
+
+\fbox{\parbox{\linewidth}{
+\textbf{``Mean $\theta=3$'' (Exp)}\\
+$\Rightarrow \lambda = 1/3$ NOT 3!
+}}
+
+\vspace{0.2cm}
+
+\fbox{\parbox{\linewidth}{
+\textbf{``Independent components'' (MVN)}\\
+$\Rightarrow \rho = 0$ = INDEPENDENT!
+}}
+
+\vspace{0.2cm}
+
+\fbox{\parbox{\linewidth}{
+\textbf{``$\psi(t)$'' = MGF}\\
+(Professor's notation)
+}}
+
+\section*{\textcolor{blue}{KEY TEMPLATES}}
+
+\subsection*{A: Gaussian Vector}
+$Y_1 = aX_1 + X_2$, $Y_2 = X_1 + bX_2$\\
+Independence: $\text{Cov}=0 \Rightarrow b=-a$
+
+\subsection*{B: CLT Games}
+$S_n \approx N(n\mu, n\sigma^2)$\\
+Find E[X], Var(X) for single trial
+
+\subsection*{C: Exponential + CLT}
+$\bar{X} \approx N(1/\lambda, 1/(n\lambda^2))$\\
+\textbf{Mean $\theta$ → $\lambda = 1/\theta$!}
+
+\subsection*{D: Lognormal}
+$E[e^X] = e^{\mu + \sigma^2/2}$ for $X \sim N(\mu,\sigma^2)$\\
+$P(S>K) = 1 - \Phi\left(\frac{\ln(K/S_0)-\mu}{\sigma}\right)$
+
+\subsection*{E: Bayesian Discrete}
+$P(\theta_i|x) = \frac{P(x|\theta_i)P(\theta_i)}{\sum_j P(x|\theta_j)P(\theta_j)}$
+
+\subsection*{F: BVN Conditional}
+$Y|X=x \sim N(\mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X), (1-\rho^2)\sigma_Y^2)$
+
+\columnbreak
+
+\section*{\textcolor{blue}{FAST FORMULAS}}
+
+\subsection*{Top 10 for Finals}
+\begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $P(A|B) = P(A \cap B)/P(B)$
+\item Bayes: $P(H|E) \propto P(E|H)P(H)$
+\item $E[X] = \sum xP(X=x)$
+\item Var: $E[X^2] - (E[X])^2$
+\item CLT: $Z = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}}$
+\item BVN sum: $\sigma^2_{X+Y} = \sigma^2_X + \sigma^2_Y + 2\rho\sigma_X\sigma_Y$
+\item $E[e^X] = e^{\mu+\sigma^2/2}$ (lognormal)
+\item Max: $P(\max \leq a) = [F(a)]^n$
+\item Min: $P(\min > a) = [1-F(a)]^n$
+\item Total Exp: $E[X] = E[E[X|Y]]$
+\end{enumerate}
+
+\section*{\textcolor{blue}{NORMAL TABLE SHORTCUTS}}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $\Phi(0) = 0.5$
+\item $\Phi(1) \approx 0.841$
+\item $\Phi(1.645) = 0.95$
+\item $\Phi(1.96) = 0.975$
+\item $\Phi(2) \approx 0.977$
+\item $\Phi(2.576) = 0.995$
+\end{itemize}
+
+\section*{\textcolor{red}{CHECKLIST}}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item[$\square$] ``Gaussian'' = Normal
+\item[$\square$] Check $\lambda$ vs mean
+\item[$\square$] MVN: $\rho=0 \Leftrightarrow$ indep
+\item[$\square$] Continuity correction
+\item[$\square$] $|J|$ absolute value
+\item[$\square$] Normalize posterior
+\end{itemize}
+
+\end{multicols}
+
+\newpage
+
+\begin{center}
+{\LARGE \textbf{PROBLEM TYPE → SOLUTION PATH}}
+\end{center}
+
+\begin{multicols}{3}
+
+\section*{\textcolor{blue}{NORMAL/GAUSSIAN}}
+
+\subsection*{Single Variable}
+$X \sim N(\mu, \sigma^2)$
+\begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Standardize: $Z = (X-\mu)/\sigma$
+\item Use $\Phi$ table
+\item $P(X > a) = 1 - \Phi((a-\mu)/\sigma)$
+\end{enumerate}
+
+\subsection*{Linear Transform}
+$Y = aX + b$ where $X \sim N(\mu,\sigma^2)$\\
+$\Rightarrow Y \sim N(a\mu+b, a^2\sigma^2)$
+
+\subsection*{Sum of Normals}
+$X \sim N(\mu_1,\sigma_1^2)$, $Y \sim N(\mu_2,\sigma_2^2)$ indep\\
+$\Rightarrow X+Y \sim N(\mu_1+\mu_2, \sigma_1^2+\sigma_2^2)$
+
+\subsection*{Bivariate Normal}
+$(X,Y)$ jointly normal, correlation $\rho$:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $aX+bY$ is normal
+\item $\text{Var}(aX+bY) = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\rho\sigma_X\sigma_Y$
+\item $\rho = 0 \Leftrightarrow$ independent (MVN only!)
+\end{itemize}
+
+\section*{\textcolor{blue}{CLT PROBLEMS}}
+
+\subsection*{Standard Setup}
+$X_1,...,X_n$ i.i.d., E[X]=μ, Var(X)=σ²
+
+\begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $\bar{X} \approx N(\mu, \sigma^2/n)$
+\item $S_n = \sum X_i \approx N(n\mu, n\sigma^2)$
+\item Standardize: $Z = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}}$
+\end{enumerate}
+
+\subsection*{Game/Coin Problems}
+\begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Define $X_i$ = single game payoff
+\item List PMF: $P(X_i = x)$
+\item Calculate $\mu = E[X_i]$
+\item Calculate $\sigma^2 = E[X^2] - \mu^2$
+\item Total: $S_n \approx N(n\mu, n\sigma^2)$
+\end{enumerate}
+
+\subsection*{Finding n}
+Want $P(\bar{X} > c) \geq p$:
+$$n \geq \left(\frac{z^* \sigma}{c - \mu}\right)^2$$
+where $z^*$ from $\Phi(z^*) = 1-p$
+
+\columnbreak
+
+\section*{\textcolor{blue}{BAYESIAN}}
+
+\subsection*{Discrete Prior}
+\begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item List $\theta_1, \theta_2, ...$
+\item Priors: $P(\theta_i)$
+\item Likelihoods: $P(\text{data}|\theta_i)$
+\item Posterior: $\propto P(\text{data}|\theta_i)P(\theta_i)$
+\item Normalize: sum = 1
+\end{enumerate}
+
+\subsection*{Monty Hall}
+\textbf{Sober Monty:} Knows car location\\
+- Switch wins 2/3\\
+
+\textbf{Dizzy Monty:} Random choice\\
+- No advantage
+
+\subsection*{Conjugate Priors}
+Beta($\alpha,\beta$) + Binomial(n,x) =\\
+Beta($\alpha+x, \beta+n-x$)
+
+\subsection*{Posterior Mean}
+Beta($\alpha,\beta$): $E[\theta] = \frac{\alpha}{\alpha+\beta}$
+
+\section*{\textcolor{blue}{LOGNORMAL}}
+
+If $Y = e^X$ where $X \sim N(\mu,\sigma^2)$:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $E[Y] = e^{\mu + \sigma^2/2}$
+\item $P(Y > K) = P(X > \ln K)$
+\item $P(Y \leq k) = \Phi\left(\frac{\ln k - \mu}{\sigma}\right)$
+\end{itemize}
+
+\subsection*{Stock Price}
+$S = S_0 e^Z$ where $Z \sim N(r-\sigma^2/2, \sigma^2)$\\
+$E[e^{-r}S] = S_0$ (risk-neutral!)
+
+\subsection*{Product}
+$X, Y$ lognormal indep\\
+$XY$ is lognormal\\
+$\ln(XY) = \ln X + \ln Y$
+
+\columnbreak
+
+\section*{\textcolor{blue}{ORDER STATISTICS}}
+
+$X_1,...,X_n$ i.i.d. with CDF $F$
+
+\subsection*{Maximum}
+$$P(\max \leq a) = [F(a)]^n$$
+$$P(\max > a) = 1 - [F(a)]^n$$
+
+\subsection*{Minimum}
+$$P(\min > a) = [1-F(a)]^n$$
+$$P(\min \leq a) = 1 - [1-F(a)]^n$$
+
+\subsection*{Uniform(0,1)}
+$E[X_{(n)}] = n/(n+1)$\\
+$E[X_{(1)}] = 1/(n+1)$
+
+\section*{\textcolor{blue}{CONDITIONAL}}
+
+\subsection*{Conditional Expectation}
+$E[X|Y=y] = \int x f(x|y) dx$\\
+$E[X] = E[E[X|Y]]$
+
+\subsection*{Total Variance}
+$\text{Var}(X) = E[\text{Var}(X|Y)] + \text{Var}(E[X|Y])$
+
+\subsection*{BVN Conditional}
+$Y|X=x \sim N(\mu_{Y|X}, \sigma^2_{Y|X})$\\
+$\mu_{Y|X} = \mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X)$\\
+$\sigma^2_{Y|X} = \sigma_Y^2(1-\rho^2)$
+
+\section*{\textcolor{red}{EXAM STRATEGY}}
+\begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Read ALL problems first (5 min)
+\item Start with easiest/most familiar
+\item 30 min per question max
+\item Write formulas even if stuck
+\item Check units/reasonableness
+\end{enumerate}
+
+\end{multicols}
+
+\end{document}
+
