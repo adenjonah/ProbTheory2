@@ -54,6 +54,24 @@
 \item \textbf{``Mean $\theta = 3$'' (Exp)} $\Rightarrow$ $\lambda = 1/3$ NOT 3!
 \item For MVN ONLY: $\rho = 0 \Leftrightarrow$ independent
 \item $\psi(t)$ = MGF (professor's notation)
+\item \textbf{``Jointly normal''} = Same as Gaussian vector/MVN
+\item \textbf{``Rate parameter''} vs \textbf{``Scale parameter''}: Exp has $\lambda$ (rate), mean $= 1/\lambda$
+\item \textbf{``Variance $\sigma^2$''} vs \textbf{``Standard deviation $\sigma$''}: $N(\mu,\sigma^2)$ uses variance!
+\item \textbf{``Proportion''} or \textbf{``probability parameter''} $\rightarrow$ Beta distribution
+\item \textbf{``Failures before success''} = Geometric (our convention)
+\item \textbf{``Trials until success''} = Geometric + 1 (alternate convention)
+\end{itemize}
+
+\subsection*{QUICK CALCULATION SHORTCUTS}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \textbf{Variance shortcut:} $\text{Var}(X) = E[X^2] - (E[X])^2$ (faster than definition!)
+\item \textbf{Sum of i.i.d.:} $E[\sum X_i] = n\mu$, $\text{Var}(\sum X_i) = n\sigma^2$
+\item \textbf{Sample mean:} $E[\bar{X}] = \mu$, $\text{Var}(\bar{X}) = \sigma^2/n$
+\item \textbf{Linear transform:} $E[aX+b] = aE[X]+b$, $\text{Var}(aX+b) = a^2\text{Var}(X)$
+\item \textbf{Covariance of sum:} $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
+\item \textbf{Independent:} $\text{Cov}(X,Y) = 0$, so $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y)$
+\item \textbf{Standardize:} $Z = (X-\mu)/\sigma \sim N(0,1)$
+\item \textbf{De-standardize:} $X = \mu + \sigma Z$
 \end{itemize}
 
 \subsection*{VISUAL DECISION TREE (Start Here!)}
@@ -118,7 +136,7 @@ START: What type of problem?
 \end{itemize}
 }
 
-\subsection*{Top 20 Critical Formulas}
+\subsection*{Top 20+ Critical Formulas}
 \begin{enumerate}[leftmargin=*,itemsep=0pt,topsep=0pt]
 \item \formula{P(A|B) = \frac{P(A \cap B)}{P(B)}}
 \item \formula{P(H|E) = \frac{P(E|H)P(H)}{P(E)}} (Bayes)
@@ -130,6 +148,7 @@ START: What type of problem?
 \item \formula{\rho = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}}
 \item \formula{P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}} (Binomial)
 \item \formula{P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}} (Poisson)
+\item \formula{f(x) = \lambda e^{-\lambda x}, x > 0} (Exponential)
 \item \formula{f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}} (Normal)
 \item \formula{Z = \frac{X-\mu}{\sigma}} (Standardization)
 \item \formula{M(t) = E[e^{tX}]} (MGF)
@@ -142,6 +161,15 @@ START: What type of problem?
 \item \formula{f_{UV}(u,v) = f_{XY}(x,y)|J|} (Jacobian)
 \end{enumerate}
 
+\subsection*{Exponential Quick Reference}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item PDF: $f(x) = \lambda e^{-\lambda x}$, CDF: $F(x) = 1 - e^{-\lambda x}$
+\item Mean: $E[X] = 1/\lambda$, Var: $1/\lambda^2$, SD: $1/\lambda$
+\item \warning{Mean $\theta = 3 \Rightarrow \lambda = 1/3$}
+\item Memoryless: $P(X > s+t | X > s) = P(X > t)$
+\item $P(X > x) = e^{-\lambda x}$
+\end{itemize}
+
 \subsection*{Common Mistakes Checklist}
 \begin{itemize}[leftmargin=*,itemsep=0pt]
 \item[$\square$] Forgot continuity correction for discrete$\rightarrow$normal
@@ -152,6 +180,24 @@ START: What type of problem?
 \item[$\square$] Used Binomial instead of Hypergeometric
 \item[$\square$] Forgot absolute value of Jacobian
 \item[$\square$] Assumed correlation implies causation
+\item[$\square$] Used $\lambda$ instead of $1/\lambda$ for Exp mean
+\item[$\square$] Forgot that $\text{Var}(aX) = a^2\text{Var}(X)$ (not $a$)
+\item[$\square$] Used wrong variance formula: $\sigma^2/n$ vs $\sigma^2 \cdot n$
+\item[$\square$] Forgot to square $\sigma$ in variance formula
+\item[$\square$] Assumed uncorrelated means independent (only true for MVN!)
+\item[$\square$] Used $P(X=x) > 0$ for continuous (it's always 0!)
+\item[$\square$] Forgot that MGF of sum = product of MGFs (independent only!)
+\item[$\square$] Mixed up $\Phi(z)$ and $1-\Phi(z)$ for tail probabilities
+\item[$\square$] Forgot that $\Phi(-z) = 1 - \Phi(z)$ (symmetry)
+\item[$\square$] Used $z_{0.05} = 1.96$ instead of $z_{0.025} = 1.96$ for 95\% CI
+\end{itemize}
+
+\subsection*{Standard Normal Table Quick Values}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item $\Phi(0) = 0.5$, $\Phi(1) = 0.8413$, $\Phi(2) = 0.9772$, $\Phi(3) = 0.9987$
+\item $\Phi(-z) = 1 - \Phi(z)$ (symmetry property)
+\item $z_{0.10} = 1.282$, $z_{0.05} = 1.645$, $z_{0.025} = 1.96$, $z_{0.01} = 2.326$, $z_{0.005} = 2.576$
+\item 68-95-99.7 rule: $P(|Z| < 1) = 0.68$, $P(|Z| < 2) = 0.95$, $P(|Z| < 3) = 0.997$
 \end{itemize}
 
 % ============================================================
@@ -159,6 +205,7 @@ START: What type of problem?
 % ============================================================
 
 \subsection*{1.1 Probability Axioms}
+\textbf{Terms:} $S$ = sample space (all outcomes), $A, B$ = events (subsets of $S$), $P(A)$ = probability of $A$, $A^c$ = complement (not $A$), $A \cap B$ = intersection (both), $A \cup B$ = union (either)
 \begin{itemize}[leftmargin=*]
 \item \concept{Definition:} A probability measure satisfies:
   \begin{enumerate}
@@ -166,79 +213,243 @@ START: What type of problem?
   \item Non-negativity: $P(A) \geq 0$
   \item Additivity: $P(A \cup B) = P(A) + P(B)$ if $A \cap B = \emptyset$
   \end{enumerate}
-\item \concept{Key Formula:} \formula{P(A \cup B) = P(A) + P(B) - P(A \cap B)}
-\item \concept{When to Use:} Basic probability calculations
+\item \concept{Key Formulas:}
+  \begin{itemize}
+  \item \formula{P(A \cup B) = P(A) + P(B) - P(A \cap B)}
+  \item \formula{P(A^c) = 1 - P(A)}
+  \item \formula{P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)}
+  \end{itemize}
+\item \concept{When to Use:} Basic probability calculations, ``or'' problems
 \item \concept{Solution Steps:}
   \begin{enumerate}
-  \item Identify sample space $S$
-  \item Count favorable outcomes
-  \item Apply formula
+  \item Identify sample space $S$ and list all outcomes
+  \item Define events $A$, $B$ clearly
+  \item Check if events are mutually exclusive ($A \cap B = \emptyset$?)
+  \item If YES: $P(A \cup B) = P(A) + P(B)$
+  \item If NO: Use inclusion-exclusion
+  \item Count favorable outcomes or calculate probabilities
   \end{enumerate}
-\item \concept{Example:} Two dice: $P(\text{sum}=7) = 6/36 = 1/6$
-\item \concept{Common Pitfalls:} Forgetting the intersection term
-\item \note{Equally likely: $P(A) = |A|/|S|$}
+\item \concept{Worked Example 1:} Two dice rolled. Find $P(\text{sum} = 7)$.
+  \begin{itemize}
+  \item Sample space: $|S| = 36$ equally likely outcomes
+  \item Favorable: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ = 6 outcomes
+  \item $P(\text{sum}=7) = 6/36 = 1/6$
+  \end{itemize}
+\item \concept{Worked Example 2:} $P(A) = 0.4$, $P(B) = 0.5$, $P(A \cap B) = 0.2$. Find $P(A \cup B)$.
+  \begin{itemize}
+  \item $P(A \cup B) = 0.4 + 0.5 - 0.2 = 0.7$
+  \item Also: $P(A^c \cap B^c) = P((A \cup B)^c) = 1 - 0.7 = 0.3$
+  \end{itemize}
+\item \concept{Worked Example 3:} Roll a die. $A = \{\text{even}\}$, $B = \{>3\}$. Find $P(A \cup B)$.
+  \begin{itemize}
+  \item $A = \{2,4,6\}$, $P(A) = 3/6 = 1/2$
+  \item $B = \{4,5,6\}$, $P(B) = 3/6 = 1/2$
+  \item $A \cap B = \{4,6\}$, $P(A \cap B) = 2/6 = 1/3$
+  \item $P(A \cup B) = 1/2 + 1/2 - 1/3 = 2/3$
+  \end{itemize}
+\item \concept{Common Pitfalls:}
+  \begin{itemize}
+  \item Forgetting the intersection term when events overlap
+  \item Assuming events are mutually exclusive without checking
+  \item Not listing sample space carefully
+  \end{itemize}
+\item \note{Equally likely: $P(A) = |A|/|S|$. DeMorgan: $(A \cup B)^c = A^c \cap B^c$}
 \end{itemize}
 
 \subsection*{1.2 Conditional Probability}
+\textbf{Terms:} $P(A|B)$ = probability of $A$ given $B$ occurred, $A$ = target event, $B$ = conditioning event (what we know happened)
 \begin{itemize}[leftmargin=*]
 \item \concept{Definition:} Probability of $A$ given $B$ occurred
-\item \concept{Key Formula:} \formula{P(A|B) = \frac{P(A \cap B)}{P(B)}, \text{ if } P(B) > 0}
-\item \concept{When to Use:} "Given that", "if we know", "conditional on"
+\item \concept{Key Formulas:}
+  \begin{itemize}
+  \item \formula{P(A|B) = \frac{P(A \cap B)}{P(B)}, \text{ if } P(B) > 0}
+  \item \formula{P(A \cap B) = P(B)P(A|B) = P(A)P(B|A)} (Multiplication Rule)
+  \item \formula{P(A \cap B \cap C) = P(A)P(B|A)P(C|A \cap B)} (Chain Rule)
+  \end{itemize}
+\item \concept{When to Use:} ``Given that'', ``if we know'', ``conditional on'', ``among those who''
 \item \concept{Solution Steps:}
   \begin{enumerate}
-  \item Identify condition $B$ and target $A$
-  \item Find $P(A \cap B)$ and $P(B)$
-  \item Apply formula
+  \item Identify: What is the \textbf{condition} $B$? What is the \textbf{target} $A$?
+  \item Method 1 (Definition): Find $P(A \cap B)$ and $P(B)$ separately, divide
+  \item Method 2 (Reduced sample space): Restrict to outcomes in $B$, count $A$ within $B$
+  \item Check: Does answer make sense? Is it between 0 and 1?
   \end{enumerate}
-\item \concept{Example:} Roll dice, sum odd. $P(\text{sum}<8|\text{odd}) = 2/3$
-\item \concept{Common Pitfalls:} Confusing $P(A|B)$ with $P(B|A)$
-\item \note{Multiplication Rule: $P(A \cap B) = P(B)P(A|B)$}
-\end{itemize}
+\item \concept{Worked Example 1:} Roll two dice. Find $P(\text{sum} < 8 | \text{sum is odd})$.
+  \begin{itemize}
+  \item $B = \{\text{sum odd}\}$: outcomes with sum 3,5,7,9,11 $\Rightarrow |B| = 18$
+  \item $A = \{\text{sum} < 8\}$: outcomes with sum 3,5,7 $\Rightarrow |A \cap B| = 12$
+  \item $P(A|B) = 12/18 = 2/3$
+  \end{itemize}
+\item \concept{Worked Example 2:} Draw 2 cards without replacement. $P(\text{2nd is Ace}|\text{1st is Ace})$?
+  \begin{itemize}
+  \item After drawing 1 Ace: 51 cards remain, 3 are Aces
+  \item $P(\text{2nd Ace}|\text{1st Ace}) = 3/51 = 1/17$
+  \end{itemize}
+\item \concept{Worked Example 3:} $P(A) = 0.3$, $P(B) = 0.4$, $P(A|B) = 0.5$. Find $P(B|A)$.
+  \begin{itemize}
+  \item First find $P(A \cap B) = P(B) \cdot P(A|B) = 0.4 \times 0.5 = 0.2$
+  \item Then $P(B|A) = P(A \cap B)/P(A) = 0.2/0.3 = 2/3$
+  \end{itemize}
+\item \concept{Common Pitfalls:}
+  \begin{itemize}
+  \item \warning{Confusing $P(A|B)$ with $P(B|A)$} -- These are usually different!
+  \item Forgetting that conditioning changes the sample space
+  \item Using $P(A \cap B) = P(A)P(B)$ when events are NOT independent
+  \end{itemize}
+\item \note{$P(A|B) = P(A)$ iff $A$ and $B$ are independent. $P(A|B) + P(A^c|B) = 1$}
 
 \subsection*{1.3 Bayes' Theorem}
+\textbf{Terms:} $H_i$ = hypothesis $i$, $E$ = evidence (observed data), $P(H_i)$ = prior (belief before evidence), $P(E|H_i)$ = likelihood (prob of evidence given hypothesis), $P(H_i|E)$ = posterior (updated belief after evidence)
 \begin{itemize}[leftmargin=*]
-\item \concept{Definition:} Update probability given evidence
-\item \concept{Key Formula:} \formula{P(H_i|E) = \frac{P(E|H_i)P(H_i)}{\sum_j P(E|H_j)P(H_j)}}
-\item \concept{When to Use:} "Update", "posterior", "given evidence"
-\item \concept{Solution Steps:}
+\item \concept{Definition:} Update probability given evidence (prior $\to$ posterior)
+\item \concept{Key Formulas:}
+  \begin{itemize}
+  \item \formula{P(H_i|E) = \frac{P(E|H_i)P(H_i)}{\sum_j P(E|H_j)P(H_j)}} (Full Bayes)
+  \item \formula{P(H|E) = \frac{P(E|H)P(H)}{P(E)}} (Two hypothesis case)
+  \item \formula{P(E) = \sum_j P(E|H_j)P(H_j)} (Law of Total Probability)
+  \end{itemize}
+\item \concept{Terminology:}
+  \begin{itemize}
+  \item \textbf{Prior:} $P(H_i)$ = belief before evidence
+  \item \textbf{Likelihood:} $P(E|H_i)$ = prob of evidence if hypothesis true
+  \item \textbf{Posterior:} $P(H_i|E)$ = updated belief after evidence
+  \end{itemize}
+\item \concept{When to Use:} ``Update'', ``posterior'', ``given evidence'', ``test positive'', ``defective''
+\item \concept{Solution Steps (Table Method):}
   \begin{enumerate}
-  \item List hypotheses $H_i$ with priors $P(H_i)$
-  \item Find likelihoods $P(E|H_i)$
-  \item Apply Bayes' formula
-  \item Normalize if needed
+  \item List all hypotheses $H_1, H_2, ...$ in rows
+  \item Column 1: Prior $P(H_i)$
+  \item Column 2: Likelihood $P(E|H_i)$ -- \textbf{prob of evidence GIVEN hypothesis}
+  \item Column 3: Joint $= P(H_i) \times P(E|H_i)$
+  \item Sum Column 3 to get $P(E)$ (denominator)
+  \item Column 4: Posterior $= \text{Joint}/P(E)$
+  \item Verify: Posteriors sum to 1
   \end{enumerate}
-\item \concept{Example:} Monty Hall: Switch wins 2/3 of time
-\item \concept{Common Pitfalls:} Wrong likelihood, forgetting to normalize
-\item \note{Total Probability: $P(A) = \sum P(A|B_i)P(B_i)$}
+\item \concept{Worked Example:} Disease test. 1\% have disease. Test: 95\% true positive, 10\% false positive. Person tests positive. $P(\text{disease}|\text{+})$?
+  \begin{itemize}
+  \item $H_1$: Disease, $P(H_1) = 0.01$, $P(+|H_1) = 0.95$, Joint $= 0.0095$
+  \item $H_2$: No disease, $P(H_2) = 0.99$, $P(+|H_2) = 0.10$, Joint $= 0.099$
+  \item $P(+) = 0.0095 + 0.099 = 0.1085$
+  \item $P(\text{disease}|+) = 0.0095/0.1085 = 0.0875 \approx 8.8\%$
+  \end{itemize}
+\item \concept{Worked Example 2:} Two urns. Urn A: 3 red, 2 blue. Urn B: 1 red, 4 blue. Pick urn uniformly, draw red ball. $P(\text{Urn A}|\text{red})$?
+  \begin{itemize}
+  \item $P(A) = P(B) = 1/2$ (prior)
+  \item $P(\text{red}|A) = 3/5$, $P(\text{red}|B) = 1/5$
+  \item $P(\text{red}) = (1/2)(3/5) + (1/2)(1/5) = 4/10 = 2/5$
+  \item $P(A|\text{red}) = \frac{(3/5)(1/2)}{2/5} = \frac{3/10}{2/5} = 3/4$
+  \end{itemize}
+\item \concept{Common Pitfalls:}
+  \begin{itemize}
+  \item \warning{Confusing likelihood $P(E|H)$ with posterior $P(H|E)$}
+  \item Forgetting to normalize (posteriors must sum to 1)
+  \item Using prior as likelihood
+  \end{itemize}
+\item \note{Law of Total Probability: $P(A) = \sum_i P(A|B_i)P(B_i)$ where $B_i$ partition sample space}
 \end{itemize}
 
 \subsection*{1.4 Independence}
+\textbf{Terms:} Independent = one event doesn't affect the other's probability, Pairwise independent = any two events in a set are independent, Mutually independent = all combinations of events are independent, $A \cap B$ = both $A$ and $B$ occur
 \begin{itemize}[leftmargin=*]
 \item \concept{Definition:} $A$ and $B$ independent if $P(A \cap B) = P(A)P(B)$
-\item \concept{Key Formula:} \formula{P(A|B) = P(A) \text{ iff independent}}
-\item \concept{When to Use:} Testing if events affect each other
-\item \concept{Solution Steps:}
+\item \concept{Equivalent Conditions (any one implies others):}
+  \begin{itemize}
+  \item $P(A \cap B) = P(A)P(B)$
+  \item $P(A|B) = P(A)$ (knowing $B$ doesn't change $A$)
+  \item $P(B|A) = P(B)$ (knowing $A$ doesn't change $B$)
+  \end{itemize}
+\item \concept{When to Use:} ``Are events independent?'', ``does A affect B?'', ``with/without replacement''
+\item \concept{Solution Steps to TEST Independence:}
   \begin{enumerate}
-  \item Calculate $P(A)$, $P(B)$, $P(A \cap B)$
-  \item Check if $P(A \cap B) = P(A) \cdot P(B)$
-  \item State conclusion
+  \item Calculate $P(A)$, $P(B)$ separately
+  \item Calculate $P(A \cap B)$ directly
+  \item Check: Is $P(A \cap B) = P(A) \cdot P(B)$?
+  \item If YES: Independent. If NO: Dependent.
   \end{enumerate}
-\item \concept{Example:} Card draws with replacement are independent
-\item \concept{Common Pitfalls:} Assuming independence without checking
-\item \note{Pairwise $\neq$ Mutual independence}
+\item \concept{Worked Example 1:} Roll die. $A = \{\text{even}\}$, $B = \{1,2,3,4\}$. Independent?
+  \begin{itemize}
+  \item $P(A) = 3/6 = 1/2$, $P(B) = 4/6 = 2/3$
+  \item $A \cap B = \{2,4\}$, so $P(A \cap B) = 2/6 = 1/3$
+  \item Check: $P(A)P(B) = (1/2)(2/3) = 1/3 = P(A \cap B)$ \checkmark
+  \item \textbf{Conclusion: Independent!}
+  \end{itemize}
+\item \concept{Worked Example 2:} Roll die. $A = \{\text{even}\}$, $C = \{6\}$. Independent?
+  \begin{itemize}
+  \item $P(A) = 1/2$, $P(C) = 1/6$
+  \item $A \cap C = \{6\}$, so $P(A \cap C) = 1/6$
+  \item Check: $P(A)P(C) = (1/2)(1/6) = 1/12 \neq 1/6$
+  \item \textbf{Conclusion: Dependent!}
+  \end{itemize}
+\item \concept{Types of Independence:}
+  \begin{itemize}
+  \item \textbf{Pairwise:} Each pair is independent
+  \item \textbf{Mutual:} $P(A \cap B \cap C) = P(A)P(B)P(C)$ AND all pairs
+  \item \warning{Pairwise independence does NOT imply mutual independence!}
+  \end{itemize}
+\item \concept{Independence for Random Variables:}
+  \begin{itemize}
+  \item $X, Y$ independent iff $f(x,y) = f_X(x) \cdot f_Y(y)$ for all $x,y$
+  \item If independent: $E[XY] = E[X]E[Y]$, $\text{Cov}(X,Y) = 0$
+  \item \warning{$\text{Cov}(X,Y) = 0$ does NOT imply independence (except for Normal!)}
+  \end{itemize}
+\item \concept{Common Pitfalls:}
+  \begin{itemize}
+  \item Assuming independence without verification
+  \item Confusing ``mutually exclusive'' with ``independent'' (opposites!)
+  \item Assuming zero correlation implies independence
+  \end{itemize}
+\item \note{Mutually exclusive $\Rightarrow$ dependent (unless one has prob 0). If $A \cap B = \emptyset$, then $P(A \cap B) = 0 \neq P(A)P(B)$ unless $P(A)=0$ or $P(B)=0$.}
 \end{itemize}
 
 \subsection*{1.5 Counting Methods}
+\textbf{Terms:} $n$ = total items, $k$ = items chosen, $n!$ = factorial ($n \times (n-1) \times \cdots \times 1$), $P(n,k)$ = permutations (order matters), $\binom{n}{k}$ = combinations (order doesn't matter), Replacement = item can be chosen again
 \begin{itemize}[leftmargin=*]
-\item \concept{Permutations:} Order matters
-  \formula{P(n,k) = \frac{n!}{(n-k)!}}
-\item \concept{Combinations:} Order doesn't matter
-  \formula{C(n,k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}}
-\item \concept{Multinomial:} Multiple categories
-  \formula{\frac{n!}{n_1!n_2!\cdots n_k!}}
-\item \concept{When to Use:} "How many ways", "arrangements", "selections"
-\item \concept{Example:} 6-card poker hands from 52 cards: $\binom{52}{6}$
-\item \note{With replacement: $n^k$; Without: $P(n,k)$ or $C(n,k)$}
+\item \concept{Decision Tree:} Does order matter? With/without replacement?
+  \begin{itemize}
+  \item Order matters + with replacement: $n^k$
+  \item Order matters + without replacement: $P(n,k) = \frac{n!}{(n-k)!}$
+  \item Order doesn't matter + without replacement: $\binom{n}{k}$
+  \item Order doesn't matter + with replacement: $\binom{n+k-1}{k}$ (stars and bars)
+  \end{itemize}
+\item \concept{Permutations (Order matters):}
+  \formula{P(n,k) = \frac{n!}{(n-k)!} = n(n-1)(n-2)\cdots(n-k+1)}
+\item \concept{Combinations (Order doesn't matter):}
+  \formula{\binom{n}{k} = \frac{n!}{k!(n-k)!} = \frac{P(n,k)}{k!}}
+\item \concept{Multinomial (Partition into groups):}
+  \formula{\binom{n}{n_1, n_2, \ldots, n_k} = \frac{n!}{n_1!n_2!\cdots n_k!}}
+\item \concept{Useful Identities:}
+  \begin{itemize}
+  \item $\binom{n}{k} = \binom{n}{n-k}$ (symmetry)
+  \item $\binom{n}{0} = \binom{n}{n} = 1$
+  \item $\binom{n}{1} = n$
+  \item $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$ (Pascal's triangle)
+  \end{itemize}
+\item \concept{Worked Example 1:} How many ways to arrange letters in ``MISSISSIPPI''?
+  \begin{itemize}
+  \item 11 letters: M(1), I(4), S(4), P(2)
+  \item Answer: $\frac{11!}{1! \cdot 4! \cdot 4! \cdot 2!} = 34650$
+  \end{itemize}
+\item \concept{Worked Example 2:} Committee of 5 from 10 people. How many ways?
+  \begin{itemize}
+  \item Order doesn't matter, no replacement
+  \item Answer: $\binom{10}{5} = \frac{10!}{5!5!} = 252$
+  \end{itemize}
+\item \concept{Worked Example 3:} 3-digit codes using digits 0-9 with repetition allowed?
+  \begin{itemize}
+  \item Order matters, with replacement
+  \item Answer: $10^3 = 1000$
+  \end{itemize}
+\item \concept{Worked Example 4:} Choose 3 from $\{A,B,C,D,E\}$ where order matters, no repetition?
+  \begin{itemize}
+  \item Permutation: $P(5,3) = 5 \times 4 \times 3 = 60$
+  \end{itemize}
+\item \concept{Common Pitfalls:}
+  \begin{itemize}
+  \item Confusing permutation vs combination (order matters?)
+  \item Forgetting ``without replacement'' constraint
+  \item Double counting in complex problems
+  \end{itemize}
+\item \note{Probability: $P = \frac{\text{favorable}}{\text{total}} = \frac{\text{count ways for event}}{\text{count all outcomes}}$}
 \end{itemize}
 
 % ============================================================
@@ -246,75 +457,273 @@ START: What type of problem?
 % ============================================================
 
 \subsection*{2.1 PMF and CDF}
+\textbf{Terms:} PMF = Probability Mass Function $p(x) = P(X=x)$, CDF = Cumulative Distribution Function $F(x) = P(X \leq x)$, $E[X]$ = expected value (mean), Var$(X)$ = variance, SD$(X)$ = standard deviation, LOTUS = Law of the Unconscious Statistician
 \begin{itemize}[leftmargin=*]
-\item \concept{PMF:} $p(x) = P(X = x)$, where $\sum p(x) = 1$
-\item \concept{CDF:} $F(x) = P(X \leq x) = \sum_{k \leq x} p(k)$
-\item \concept{Expectation:} \formula{E[X] = \sum x \cdot P(X=x)}
-\item \concept{Variance:} \formula{\text{Var}(X) = E[X^2] - (E[X])^2}
-\item \concept{Properties:} CDF is right-continuous, non-decreasing
-\item \note{$P(a < X \leq b) = F(b) - F(a)$}
+\item \concept{PMF (Probability Mass Function):}
+  \begin{itemize}
+  \item $p(x) = P(X = x)$ for each possible value $x$
+  \item Must satisfy: $p(x) \geq 0$ and $\sum_{\text{all } x} p(x) = 1$
+  \end{itemize}
+\item \concept{CDF (Cumulative Distribution Function):}
+  \begin{itemize}
+  \item $F(x) = P(X \leq x) = \sum_{k \leq x} p(k)$
+  \item Properties: Right-continuous, non-decreasing, $\lim_{x\to-\infty}F(x)=0$, $\lim_{x\to\infty}F(x)=1$
+  \end{itemize}
+\item \concept{Key Formulas:}
+  \begin{itemize}
+  \item \formula{E[X] = \sum_x x \cdot P(X=x)}
+  \item \formula{E[g(X)] = \sum_x g(x) \cdot P(X=x)} (LOTUS)
+  \item \formula{\text{Var}(X) = E[X^2] - (E[X])^2}
+  \item \formula{\text{SD}(X) = \sqrt{\text{Var}(X)}}
+  \end{itemize}
+\item \concept{CDF to Probability Conversions:}
+  \begin{itemize}
+  \item $P(X \leq a) = F(a)$
+  \item $P(X < a) = F(a^-) = \lim_{x \to a^-} F(x)$ (left limit)
+  \item $P(X > a) = 1 - F(a)$
+  \item $P(X \geq a) = 1 - F(a^-)$
+  \item $P(a < X \leq b) = F(b) - F(a)$
+  \item $P(X = a) = F(a) - F(a^-)$ (jump at $a$)
+  \end{itemize}
+\item \concept{Worked Example:} $X$ takes values $\{1, 2, 3\}$ with $P(X=k) = k/6$.
+  \begin{itemize}
+  \item Verify: $1/6 + 2/6 + 3/6 = 1$ \checkmark
+  \item $E[X] = 1(1/6) + 2(2/6) + 3(3/6) = 1/6 + 4/6 + 9/6 = 14/6 = 7/3$
+  \item $E[X^2] = 1(1/6) + 4(2/6) + 9(3/6) = 1/6 + 8/6 + 27/6 = 36/6 = 6$
+  \item $\text{Var}(X) = 6 - (7/3)^2 = 6 - 49/9 = 54/9 - 49/9 = 5/9$
+  \item CDF: $F(1) = 1/6$, $F(2) = 1/6 + 2/6 = 1/2$, $F(3) = 1$
+  \end{itemize}
+\item \concept{How to Construct PMF from Word Problem:}
+  \begin{enumerate}
+  \item List all possible values $X$ can take
+  \item For each value, calculate $P(X = x)$
+  \item Verify probabilities sum to 1
+  \item Present as table or formula
+  \end{enumerate}
+\item \note{For discrete RV: $P(X=a) > 0$ possible. For continuous: $P(X=a) = 0$ always!}
 \end{itemize}
 
 \subsection*{2.2 Binomial Distribution (a.k.a. Binomial($n,p$), ``n trials'')}
+\textbf{Terms:} $n$ = number of trials, $p$ = probability of success on each trial, $q = 1-p$ = probability of failure, $k$ = number of successes, Bernoulli trial = single trial with success/failure outcome, MGF = Moment Generating Function
 \begin{itemize}[leftmargin=*]
-\item \concept{SYNONYMS:} ``n trials'', ``success/failure'', ``fixed number of trials''
-\item \concept{Definition:} Number of successes in $n$ independent trials
-\item \concept{PMF:} \formula{P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}}
-\item \concept{Mean:} $E[X] = np$
-\item \concept{Variance:} $\text{Var}(X) = np(1-p)$
-\item \concept{MGF:} $M(t) = (1-p+pe^t)^n$
-\item \concept{When to Use:} Fixed $n$, constant $p$, independent trials
-\item \concept{Example:} Flip coin 10 times, $P(X=6)$ heads with $p=0.5$
-\item \warning{Check conditions before using!}
-\item \note{Normal approximation when $np(1-p) > 10$}
+\item \concept{SYNONYMS:} ``n trials'', ``success/failure'', ``fixed number of trials'', ``with replacement''
+\item \concept{Definition:} Number of successes in $n$ independent Bernoulli trials with success prob $p$
+\item \concept{PMF:} \formula{P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}, \quad k = 0, 1, ..., n}
+\item \concept{Parameters and Moments:}
+  \begin{itemize}
+  \item Mean: $E[X] = np$
+  \item Variance: $\text{Var}(X) = np(1-p) = npq$ where $q = 1-p$
+  \item Mode: $\lfloor (n+1)p \rfloor$ or $\lfloor (n+1)p \rfloor - 1$
+  \item MGF: $M(t) = (1-p+pe^t)^n = (q + pe^t)^n$
+  \end{itemize}
+\item \concept{Conditions for Binomial (MUST ALL HOLD):}
+  \begin{enumerate}
+  \item Fixed number of trials $n$
+  \item Each trial: success or failure (binary)
+  \item Constant probability $p$ for each trial
+  \item Trials are independent
+  \end{enumerate}
+\item \concept{Worked Example 1:} Flip fair coin 10 times. $P(\text{exactly 6 heads})$?
+  \begin{itemize}
+  \item $n = 10$, $p = 0.5$, $k = 6$
+  \item $P(X=6) = \binom{10}{6}(0.5)^6(0.5)^4 = 210 \cdot (0.5)^{10} = 210/1024 \approx 0.205$
+  \end{itemize}
+\item \concept{Worked Example 2:} 20\% of items defective. Sample 15 items with replacement. $P(\text{at most 2 defective})$?
+  \begin{itemize}
+  \item $X \sim \text{Binomial}(15, 0.2)$
+  \item $P(X \leq 2) = P(X=0) + P(X=1) + P(X=2)$
+  \item $P(X=0) = \binom{15}{0}(0.2)^0(0.8)^{15} = (0.8)^{15} \approx 0.035$
+  \item $P(X=1) = \binom{15}{1}(0.2)^1(0.8)^{14} = 15(0.2)(0.8)^{14} \approx 0.132$
+  \item $P(X=2) = \binom{15}{2}(0.2)^2(0.8)^{13} = 105(0.04)(0.8)^{13} \approx 0.231$
+  \item $P(X \leq 2) \approx 0.398$
+  \end{itemize}
+\item \concept{When to Use Normal Approximation:}
+  \begin{itemize}
+  \item Rule of thumb: $np \geq 10$ AND $n(1-p) \geq 10$
+  \item Then $X \approx N(np, np(1-p))$
+  \item Apply continuity correction: $P(X \leq k) \approx P(Y < k + 0.5)$
+  \end{itemize}
+\item \warning{NOT Binomial if: sampling without replacement (use Hypergeometric), varying $p$, dependent trials}
+\item \note{Sum of independent Binomials with same $p$: $\text{Bin}(n_1, p) + \text{Bin}(n_2, p) = \text{Bin}(n_1+n_2, p)$}
 \end{itemize}
 
 \subsection*{2.3 Poisson Distribution (a.k.a. Poisson($\lambda$), Counting Process)}
+\textbf{Terms:} $\lambda$ = rate parameter (avg events per unit time/space), $k$ = number of events observed, Rate = average number of occurrences per unit, Interval = fixed region of time/space, Inter-arrival time = time between consecutive events
 \begin{itemize}[leftmargin=*]
-\item \concept{SYNONYMS:} ``arrival process'', ``counting process'', ``rare events'', ``rate $\lambda$''
-\item \concept{Definition:} Count of rare events in fixed interval
-\item \concept{PMF:} \formula{P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}}
-\item \concept{Mean:} $E[X] = \lambda$
-\item \concept{Variance:} $\text{Var}(X) = \lambda$
-\item \concept{MGF:} $M(t) = e^{\lambda(e^t-1)}$
-\item \concept{When to Use:} Rate $\lambda$ per unit time/space
-\item \concept{Example:} Arrivals per hour, defects per batch
-\item \concept{Property:} Sum of independent Poissons is Poisson
-\item \note{Approximates Binomial when $n$ large, $p$ small, $np = \lambda$}
+\item \concept{SYNONYMS:} ``arrival process'', ``counting process'', ``rare events'', ``rate $\lambda$'', ``per unit time''
+\item \concept{Definition:} Count of events in a fixed interval when events occur at constant average rate
+\item \concept{PMF:} \formula{P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad k = 0, 1, 2, ...}
+\item \concept{Parameters and Moments:}
+  \begin{itemize}
+  \item Parameter: $\lambda > 0$ = average rate (events per unit)
+  \item Mean: $E[X] = \lambda$
+  \item Variance: $\text{Var}(X) = \lambda$ (mean = variance!)
+  \item MGF: $M(t) = e^{\lambda(e^t-1)}$
+  \end{itemize}
+\item \concept{Key Properties:}
+  \begin{itemize}
+  \item Sum of independent Poissons: $\text{Pois}(\lambda_1) + \text{Pois}(\lambda_2) = \text{Pois}(\lambda_1 + \lambda_2)$
+  \item Scaling: If rate is $\lambda$ per hour, rate for $t$ hours is $\lambda t$
+  \item Inter-arrival times: $\text{Exp}(\lambda)$ (see Section 3.4)
+  \end{itemize}
+\item \concept{Worked Example 1:} Calls arrive at rate 5 per hour. $P(\text{exactly 3 calls in 1 hour})$?
+  \begin{itemize}
+  \item $X \sim \text{Poisson}(5)$
+  \item $P(X=3) = \frac{e^{-5} \cdot 5^3}{3!} = \frac{e^{-5} \cdot 125}{6} \approx 0.140$
+  \end{itemize}
+\item \concept{Worked Example 2:} Same rate. $P(\text{at least 2 calls in 30 min})$?
+  \begin{itemize}
+  \item Rate for 30 min: $\lambda = 5 \times 0.5 = 2.5$
+  \item $Y \sim \text{Poisson}(2.5)$
+  \item $P(Y \geq 2) = 1 - P(Y=0) - P(Y=1)$
+  \item $P(Y=0) = e^{-2.5} \approx 0.082$
+  \item $P(Y=1) = e^{-2.5}(2.5) \approx 0.205$
+  \item $P(Y \geq 2) \approx 1 - 0.082 - 0.205 = 0.713$
+  \end{itemize}
+\item \concept{Poisson Approximation to Binomial:}
+  \begin{itemize}
+  \item When $n$ large, $p$ small, $\lambda = np$ moderate
+  \item Rule: $n \geq 20$, $p \leq 0.05$, $np \leq 10$
+  \item Then $\text{Bin}(n,p) \approx \text{Pois}(np)$
+  \end{itemize}
+\item \concept{Worked Example 3:} 1000 items, each defective with prob 0.002. Approximate $P(\text{at least 1 defective})$.
+  \begin{itemize}
+  \item Use Poisson with $\lambda = 1000 \times 0.002 = 2$
+  \item $P(X \geq 1) = 1 - P(X=0) = 1 - e^{-2} \approx 1 - 0.135 = 0.865$
+  \end{itemize}
+\item \note{If mean $\neq$ variance in data, Poisson may not be good fit. Check: $E[X] = \text{Var}(X) = \lambda$}
 \end{itemize}
 
 \subsection*{2.4 Geometric Distribution (a.k.a. ``First success'', Memoryless Discrete)}
+\textbf{Terms:} $p$ = probability of success on each trial, $q = 1-p$ = probability of failure, $k$ = count (failures before success OR total trials), Memoryless = past failures don't affect future probability, Tail probability = $P(X \geq k)$
 \begin{itemize}[leftmargin=*]
-\item \concept{SYNONYMS:} ``first success'', ``waiting for success'', ``trials until success''
-\item \concept{Definition:} Number of failures before first success
-\item \concept{PMF:} \formula{P(X=k) = p(1-p)^k, \quad k=0,1,2,...}
-\item \concept{Mean:} $E[X] = (1-p)/p$
-\item \concept{Variance:} $\text{Var}(X) = (1-p)/p^2$
-\item \concept{Memoryless:} $P(X=m+n|X \geq m) = P(X=n)$
-\item \concept{When to Use:} "First success", "waiting time"
-\item \concept{Example:} Roll die until first 6 appears
-\item \note{Alternative parameterization: trials until success}
+\item \concept{SYNONYMS:} ``first success'', ``waiting for success'', ``trials until success'', ``how many tries''
+\item \warning{TWO CONVENTIONS -- know which one is used!}
+  \begin{itemize}
+  \item \textbf{Our convention:} $X$ = \# failures before first success, $k = 0, 1, 2, ...$
+  \item \textbf{Alt convention:} $Y$ = \# trials until first success, $Y = X + 1$, $k = 1, 2, 3, ...$
+  \end{itemize}
+\item \concept{PMF (failures before success):}
+  \formula{P(X=k) = p(1-p)^k, \quad k=0,1,2,...}
+\item \concept{PMF (trials until success):}
+  \formula{P(Y=k) = p(1-p)^{k-1}, \quad k=1,2,3,...}
+\item \concept{Parameters (failures convention):}
+  \begin{itemize}
+  \item Mean: $E[X] = (1-p)/p = q/p$
+  \item Variance: $\text{Var}(X) = (1-p)/p^2 = q/p^2$
+  \item MGF: $M(t) = \frac{p}{1 - (1-p)e^t}$ for $t < -\ln(1-p)$
+  \end{itemize}
+\item \concept{Parameters (trials convention):}
+  \begin{itemize}
+  \item Mean: $E[Y] = 1/p$
+  \item Variance: $\text{Var}(Y) = (1-p)/p^2$
+  \end{itemize}
+\item \concept{Memoryless Property (UNIQUE to Geometric among discrete):}
+  \formula{P(X > m + n | X > m) = P(X > n)}
+  \begin{itemize}
+  \item ``Past failures don't affect future probability''
+  \item Given you've had $m$ failures, probability of $n$ more is same as starting fresh
+  \end{itemize}
+\item \concept{Useful Tail Probability:}
+  \formula{P(X \geq k) = (1-p)^k = q^k}
+\item \concept{Worked Example 1:} Roll fair die until first 6. Expected \# of rolls?
+  \begin{itemize}
+  \item $p = 1/6$ (success = rolling 6)
+  \item Using trials convention: $E[Y] = 1/p = 6$ rolls
+  \end{itemize}
+\item \concept{Worked Example 2:} Flip biased coin ($P(H) = 0.3$) until first head. $P(\text{need exactly 4 flips})$?
+  \begin{itemize}
+  \item Need 3 tails, then 1 head
+  \item $P(Y=4) = (0.7)^3(0.3) = 0.343 \times 0.3 = 0.103$
+  \end{itemize}
+\item \concept{Worked Example 3:} Same as above. Given no head in first 5 flips, expected additional flips?
+  \begin{itemize}
+  \item By memoryless property: same as starting fresh!
+  \item Expected additional = $1/0.3 = 10/3 \approx 3.33$ flips
+  \end{itemize}
+\item \note{CDF: $P(X \leq k) = 1 - (1-p)^{k+1}$ (failures convention)}
 \end{itemize}
 
 \subsection*{2.5 Negative Binomial}
+\textbf{Terms:} $r$ = number of successes needed (target), $p$ = probability of success on each trial, $k$ = number of failures before $r$-th success, Pascal distribution = alternative name
 \begin{itemize}[leftmargin=*]
-\item \concept{Definition:} Failures before $r$-th success
-\item \concept{PMF:} \formula{P(X=k) = \binom{k+r-1}{k}p^r(1-p)^k}
-\item \concept{Mean:} $E[X] = r(1-p)/p$
-\item \concept{Variance:} $\text{Var}(X) = r(1-p)/p^2$
-\item \concept{When to Use:} "$r$-th success", extended geometric
-\item \note{Geometric is special case with $r=1$}
+\item \concept{SYNONYMS:} ``$r$-th success'', ``wait for $r$ successes'', ``Pascal distribution''
+\item \concept{Definition:} Number of failures before $r$-th success
+\item \concept{PMF:} \formula{P(X=k) = \binom{k+r-1}{k}p^r(1-p)^k, \quad k = 0, 1, 2, ...}
+  \begin{itemize}
+  \item Interpretation: $\binom{k+r-1}{k}$ = ways to arrange $k$ failures in first $k+r-1$ trials
+  \item Last trial must be success (the $r$-th success)
+  \end{itemize}
+\item \concept{Parameters:}
+  \begin{itemize}
+  \item Mean: $E[X] = r(1-p)/p = rq/p$
+  \item Variance: $\text{Var}(X) = r(1-p)/p^2 = rq/p^2$
+  \item MGF: $M(t) = \left(\frac{p}{1 - (1-p)e^t}\right)^r$
+  \end{itemize}
+\item \concept{Relationship to Geometric:}
+  \begin{itemize}
+  \item Geometric = Negative Binomial with $r = 1$
+  \item Sum of $r$ i.i.d. Geometric($p$) = Negative Binomial($r, p$)
+  \end{itemize}
+\item \concept{Worked Example:} Flip coin ($p = 0.4$). $P(\text{exactly 5 failures before 3rd success})$?
+  \begin{itemize}
+  \item $X \sim \text{NegBin}(3, 0.4)$, find $P(X = 5)$
+  \item $P(X=5) = \binom{5+3-1}{5}(0.4)^3(0.6)^5 = \binom{7}{5}(0.064)(0.07776)$
+  \item $= 21 \times 0.064 \times 0.07776 \approx 0.104$
+  \end{itemize}
+\item \concept{Alternative (trials) convention:}
+  \begin{itemize}
+  \item $Y$ = trials until $r$-th success, $Y = X + r$
+  \item Mean: $E[Y] = r/p$
+  \end{itemize}
+\item \note{Useful for quality control: ``How many items until $r$ defectives?''}
 \end{itemize}
 
 \subsection*{2.6 Hypergeometric Distribution}
+\textbf{Terms:} $N$ = population size (total items), $K$ = number of ``success'' items in population, $n$ = sample size (items drawn), $k$ = successes in sample, Without replacement = once drawn, item cannot be drawn again
 \begin{itemize}[leftmargin=*]
-\item \concept{Definition:} Sampling without replacement
+\item \concept{SYNONYMS:} ``without replacement'', ``finite population sampling'', ``lottery''
+\item \concept{Definition:} Number of successes when sampling $n$ items without replacement from population of $N$ items containing $K$ successes
 \item \concept{PMF:} \formula{P(X=k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}}
-\item \concept{Parameters:} $N$ total, $K$ success, $n$ sample, $k$ observed
-\item \concept{Mean:} $E[X] = n \cdot K/N$
-\item \concept{When to Use:} Finite population, no replacement
-\item \concept{Example:} Draw 5 cards, probability of 3 aces
-\item \warning{Different from Binomial (with replacement)}
+  \begin{itemize}
+  \item $\binom{K}{k}$ = ways to choose $k$ successes from $K$ available
+  \item $\binom{N-K}{n-k}$ = ways to choose $n-k$ failures from $N-K$ available
+  \item $\binom{N}{n}$ = total ways to choose $n$ from $N$
+  \end{itemize}
+\item \concept{Parameters:}
+  \begin{itemize}
+  \item $N$ = population size
+  \item $K$ = number of successes in population
+  \item $n$ = sample size
+  \item $k$ = observed successes in sample (what we count)
+  \end{itemize}
+\item \concept{Valid Range:} $\max(0, n-(N-K)) \leq k \leq \min(n, K)$
+\item \concept{Moments:}
+  \begin{itemize}
+  \item Mean: $E[X] = n \cdot \frac{K}{N}$
+  \item Variance: $\text{Var}(X) = n \cdot \frac{K}{N} \cdot \frac{N-K}{N} \cdot \frac{N-n}{N-1}$
+  \item Note: Variance has finite population correction factor $\frac{N-n}{N-1}$
+  \end{itemize}
+\item \concept{Worked Example 1:} Deck of 52 cards. Draw 5 cards. $P(\text{exactly 2 aces})$?
+  \begin{itemize}
+  \item $N = 52$, $K = 4$ (aces), $n = 5$, $k = 2$
+  \item $P(X=2) = \frac{\binom{4}{2}\binom{48}{3}}{\binom{52}{5}} = \frac{6 \times 17296}{2598960} \approx 0.040$
+  \end{itemize}
+\item \concept{Worked Example 2:} Box: 10 red, 15 blue balls. Draw 6 without replacement. $P(\text{at least 4 red})$?
+  \begin{itemize}
+  \item $N = 25$, $K = 10$, $n = 6$
+  \item $P(X \geq 4) = P(X=4) + P(X=5) + P(X=6)$
+  \item $P(X=4) = \frac{\binom{10}{4}\binom{15}{2}}{\binom{25}{6}} = \frac{210 \times 105}{177100} \approx 0.124$
+  \item Continue for $k=5, 6$ and sum
+  \end{itemize}
+\item \concept{Hypergeometric vs Binomial:}
+  \begin{itemize}
+  \item Hypergeometric: without replacement, trials dependent
+  \item Binomial: with replacement (or large population), trials independent
+  \item Approximation: If $n/N < 0.05$, Hypergeometric $\approx$ Binomial$(n, K/N)$
+  \end{itemize}
+\item \warning{Use Hypergeometric when: finite population, no replacement, population size matters}
+\item \note{Hypergeometric mean = Binomial mean (same formula), but variance is smaller due to finite population correction}
 \end{itemize}
 
 % ============================================================
@@ -322,92 +731,325 @@ START: What type of problem?
 % ============================================================
 
 \subsection*{3.1 PDF and CDF}
+\textbf{Terms:} PDF = Probability Density Function $f(x)$, CDF = Cumulative Distribution Function $F(x) = P(X \leq x)$, $E[X]$ = expected value, Var$(X)$ = variance, LOTUS = Law of the Unconscious Statistician, Quantile $x_p$ = value where $F(x_p) = p$
 \begin{itemize}[leftmargin=*]
-\item \concept{PDF:} $f(x) \geq 0$, $\int_{-\infty}^{\infty} f(x)dx = 1$
-\item \concept{CDF:} \formula{F(x) = P(X \leq x) = \int_{-\infty}^x f(t)dt}
-\item \concept{Probability:} \formula{P(a < X < b) = \int_a^b f(x)dx}
-\item \concept{Expectation:} \formula{E[X] = \int_{-\infty}^{\infty} x f(x)dx}
-\item \concept{Variance:} \formula{\text{Var}(X) = \int (x-\mu)^2 f(x)dx}
-\item \concept{Relation:} $f(x) = F'(x)$ where derivative exists
-\item \note{$P(X = a) = 0$ for continuous RV}
+\item \concept{PDF (Probability Density Function):}
+  \begin{itemize}
+  \item $f(x) \geq 0$ for all $x$
+  \item $\int_{-\infty}^{\infty} f(x)dx = 1$ (normalization)
+  \item NOT a probability! $f(x)$ can be $> 1$
+  \item $f(x)dx \approx P(x < X < x + dx)$ (infinitesimal probability)
+  \end{itemize}
+\item \concept{CDF (Cumulative Distribution Function):}
+  \formula{F(x) = P(X \leq x) = \int_{-\infty}^x f(t)dt}
+  \begin{itemize}
+  \item Properties: $0 \leq F(x) \leq 1$, non-decreasing, continuous
+  \item $\lim_{x \to -\infty} F(x) = 0$, $\lim_{x \to \infty} F(x) = 1$
+  \end{itemize}
+\item \concept{Key Relationships:}
+  \begin{itemize}
+  \item PDF from CDF: $f(x) = F'(x)$ (derivative)
+  \item CDF from PDF: $F(x) = \int_{-\infty}^x f(t)dt$
+  \end{itemize}
+\item \concept{Probability Calculations:}
+  \begin{itemize}
+  \item \formula{P(a < X < b) = \int_a^b f(x)dx = F(b) - F(a)}
+  \item $P(X > a) = 1 - F(a)$
+  \item $P(X < a) = F(a)$ (same as $P(X \leq a)$ for continuous!)
+  \item \warning{$P(X = a) = 0$ for any specific value $a$!}
+  \end{itemize}
+\item \concept{Expectation and Variance:}
+  \begin{itemize}
+  \item \formula{E[X] = \int_{-\infty}^{\infty} x f(x)dx}
+  \item \formula{E[g(X)] = \int_{-\infty}^{\infty} g(x) f(x)dx} (LOTUS)
+  \item \formula{\text{Var}(X) = E[X^2] - (E[X])^2} (computational formula - USE THIS!)
+  \item \formula{\text{Var}(X) = \int_{-\infty}^{\infty} (x-\mu)^2 f(x)dx} (definition)
+  \end{itemize}
+\item \concept{Worked Example:} $f(x) = 2x$ for $0 \leq x \leq 1$, else 0.
+  \begin{itemize}
+  \item Verify: $\int_0^1 2x\,dx = [x^2]_0^1 = 1$ \checkmark
+  \item CDF: $F(x) = \int_0^x 2t\,dt = x^2$ for $0 \leq x \leq 1$
+  \item $P(0.5 < X < 0.8) = F(0.8) - F(0.5) = 0.64 - 0.25 = 0.39$
+  \item $E[X] = \int_0^1 x \cdot 2x\,dx = \int_0^1 2x^2\,dx = [2x^3/3]_0^1 = 2/3$
+  \item $E[X^2] = \int_0^1 x^2 \cdot 2x\,dx = \int_0^1 2x^3\,dx = [x^4/2]_0^1 = 1/2$
+  \item $\text{Var}(X) = 1/2 - (2/3)^2 = 1/2 - 4/9 = 1/18$
+  \end{itemize}
+\item \concept{Finding Constant $c$ Procedure:}
+  \begin{enumerate}
+  \item Given $f(x) = c \cdot g(x)$ on some region
+  \item Set $\int_{\text{region}} c \cdot g(x)\,dx = 1$
+  \item Solve for $c$
+  \end{enumerate}
+\item \note{Quantile: $x_p$ where $F(x_p) = p$. Median: $x_{0.5}$, Quartiles: $x_{0.25}$, $x_{0.75}$}
 \end{itemize}
 
 \subsection*{3.2 Uniform Distribution}
+\textbf{Terms:} $a$ = lower bound, $b$ = upper bound, $U(a,b)$ = Uniform on interval $[a,b]$, Standard Uniform = $U(0,1)$, Maximum entropy = most ``spread out'' distribution given constraints
 \begin{itemize}[leftmargin=*]
-\item \concept{Definition:} Equally likely over interval $[a,b]$
+\item \concept{SYNONYMS:} ``equally likely'', ``random point'', ``uniform random''
+\item \concept{Definition:} All values in $[a,b]$ equally likely
+\item \concept{Notation:} $X \sim \text{Uniform}(a,b)$ or $X \sim U(a,b)$
 \item \concept{PDF:} \formula{f(x) = \frac{1}{b-a}, \quad a \leq x \leq b}
-\item \concept{CDF:} $F(x) = \frac{x-a}{b-a}$ for $a \leq x \leq b$
-\item \concept{Mean:} $E[X] = \frac{a+b}{2}$
-\item \concept{Variance:} $\text{Var}(X) = \frac{(b-a)^2}{12}$
-\item \concept{When to Use:} "Equally likely", "random point"
-\item \concept{Example:} Random number between 0 and 1
-\item \note{Probability proportional to interval length}
+  \begin{itemize}
+  \item $f(x) = 0$ for $x < a$ or $x > b$
+  \end{itemize}
+\item \concept{CDF:}
+  \formula{F(x) = \begin{cases} 0 & x < a \\ \frac{x-a}{b-a} & a \leq x \leq b \\ 1 & x > b \end{cases}}
+\item \concept{Parameters:}
+  \begin{itemize}
+  \item Mean: $E[X] = \frac{a+b}{2}$ (midpoint)
+  \item Variance: $\text{Var}(X) = \frac{(b-a)^2}{12}$
+  \item MGF: $M(t) = \frac{e^{tb} - e^{ta}}{t(b-a)}$
+  \end{itemize}
+\item \concept{Key Property:}
+  \formula{P(c < X < d) = \frac{d-c}{b-a}}
+  \begin{itemize}
+  \item Probability is proportional to length of interval!
+  \end{itemize}
+\item \concept{Standard Uniform $U(0,1)$:}
+  \begin{itemize}
+  \item $f(x) = 1$ for $0 \leq x \leq 1$
+  \item $F(x) = x$ for $0 \leq x \leq 1$
+  \item $E[X] = 0.5$, $\text{Var}(X) = 1/12$
+  \item Used in simulation: $F^{-1}(U)$ generates random variable with CDF $F$
+  \end{itemize}
+\item \concept{Worked Example 1:} Bus arrives uniformly between 8:00-8:30. $P(\text{wait} < 10 \text{ min})$ if you arrive at 8:15?
+  \begin{itemize}
+  \item If bus arrives before 8:15, you missed it (assume you want wait $<$ 10 min)
+  \item Actually: Bus arrival time $\sim U(0, 30)$ min after 8:00
+  \item You arrive at 15 min. You wait $<$ 10 min if bus arrives in (15, 25)
+  \item $P(15 < X < 25) = (25-15)/30 = 10/30 = 1/3$
+  \end{itemize}
+\item \concept{Worked Example 2:} $X \sim U(2, 8)$. Find $P(X > 5)$ and $E[X^2]$.
+  \begin{itemize}
+  \item $P(X > 5) = (8-5)/(8-2) = 3/6 = 1/2$
+  \item $E[X] = (2+8)/2 = 5$
+  \item $\text{Var}(X) = (8-2)^2/12 = 36/12 = 3$
+  \item $E[X^2] = \text{Var}(X) + (E[X])^2 = 3 + 25 = 28$
+  \end{itemize}
+\item \concept{Linear Transformation:}
+  \begin{itemize}
+  \item If $U \sim U(0,1)$, then $X = a + (b-a)U \sim U(a,b)$
+  \item Conversely: $U = (X-a)/(b-a) \sim U(0,1)$
+  \end{itemize}
+\item \note{Uniform is the ``maximum entropy'' distribution on a bounded interval}
 \end{itemize}
 
 \subsection*{3.3 Normal Distribution (a.k.a. Gaussian, N($\mu$,$\sigma^2$))} \postmidterm{High Priority!}
+\textbf{Terms:} $\mu$ = mean (center), $\sigma^2$ = variance (spread), $\sigma$ = standard deviation, $Z$ = standard normal $N(0,1)$, $\Phi(z)$ = CDF of standard normal, $\phi(z)$ = PDF of standard normal, Standardization = convert to $Z = (X-\mu)/\sigma$
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} \textbf{Gaussian} = \textbf{Normal} = N($\mu$,$\sigma^2$) = ``bell curve''
-\item \concept{Definition:} Bell curve, most important continuous distribution
-\item \concept{PDF:} \formula{f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}}
+\item \warning{``Gaussian'' means Normal! Don't be confused by terminology!}
+\item \concept{PDF:} \formula{f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}, \quad -\infty < x < \infty}
 \item \concept{Notation:} $X \sim N(\mu, \sigma^2)$
-\item \concept{Standardization:} \formula{Z = \frac{X-\mu}{\sigma} \sim N(0,1)}
-\item \concept{Properties:}
   \begin{itemize}
-  \item Linear combination: $aX+b \sim N(a\mu+b, a^2\sigma^2)$
-  \item Sum of normals: normal
-  \item 68-95-99.7 rule for $\pm 1,2,3$ std dev
+  \item $\mu$ = mean (center of distribution)
+  \item $\sigma^2$ = variance (spread), $\sigma$ = standard deviation
+  \item \warning{$N(\mu, \sigma^2)$ uses VARIANCE, not std dev!}
+  \end{itemize}
+\item \concept{Standard Normal $Z \sim N(0,1)$:}
+  \begin{itemize}
+  \item PDF: $\phi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$
+  \item CDF: $\Phi(z) = P(Z \leq z)$ (use table)
+  \item Symmetry: $\Phi(-z) = 1 - \Phi(z)$
+  \end{itemize}
+\item \concept{Standardization (CRITICAL SKILL):}
+  \formula{Z = \frac{X-\mu}{\sigma} \sim N(0,1)}
+  \begin{itemize}
+  \item Convert any normal to standard normal
+  \item De-standardize: $X = \mu + \sigma Z$
+  \end{itemize}
+\item \concept{Step-by-Step: Finding $P(X < a)$:}
+  \begin{enumerate}
+  \item Standardize: $z = \frac{a - \mu}{\sigma}$
+  \item Look up $\Phi(z)$ in table
+  \item That's your answer!
+  \end{enumerate}
+\item \concept{Step-by-Step: Finding $P(a < X < b)$:}
+  \begin{enumerate}
+  \item Standardize both: $z_a = \frac{a-\mu}{\sigma}$, $z_b = \frac{b-\mu}{\sigma}$
+  \item $P(a < X < b) = \Phi(z_b) - \Phi(z_a)$
+  \end{enumerate}
+\item \concept{Worked Example 1:} $X \sim N(100, 225)$. Find $P(X < 115)$.
+  \begin{itemize}
+  \item Note: $\sigma^2 = 225$, so $\sigma = 15$
+  \item $z = (115 - 100)/15 = 1$
+  \item $P(X < 115) = \Phi(1) = 0.8413$
+  \end{itemize}
+\item \concept{Worked Example 2:} $X \sim N(50, 16)$. Find $P(45 < X < 55)$.
+  \begin{itemize}
+  \item $\sigma = 4$
+  \item $z_1 = (45-50)/4 = -1.25$, $z_2 = (55-50)/4 = 1.25$
+  \item $P(45 < X < 55) = \Phi(1.25) - \Phi(-1.25) = 0.8944 - 0.1056 = 0.7888$
+  \end{itemize}
+\item \concept{Worked Example 3:} $X \sim N(70, 100)$. Find $c$ such that $P(X > c) = 0.05$.
+  \begin{itemize}
+  \item Need $P(X \leq c) = 0.95$
+  \item From table: $z = 1.645$ gives $\Phi(z) = 0.95$
+  \item $c = \mu + z\sigma = 70 + 1.645(10) = 86.45$
+  \end{itemize}
+\item \concept{Linear Transformation Property:}
+  \formula{\text{If } X \sim N(\mu, \sigma^2), \text{ then } aX + b \sim N(a\mu + b, a^2\sigma^2)}
+\item \concept{Sum of Independent Normals:}
+  \formula{X + Y \sim N(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)}
+  \begin{itemize}
+  \item More generally: $aX + bY \sim N(a\mu_X + b\mu_Y, a^2\sigma_X^2 + b^2\sigma_Y^2)$
+  \item \warning{Requires independence! For dependent, see Sec 4.5}
+  \end{itemize}
+\item \concept{68-95-99.7 Rule:}
+  \begin{itemize}
+  \item $P(\mu - \sigma < X < \mu + \sigma) \approx 0.68$
+  \item $P(\mu - 2\sigma < X < \mu + 2\sigma) \approx 0.95$
+  \item $P(\mu - 3\sigma < X < \mu + 3\sigma) \approx 0.997$
   \end{itemize}
 \item \concept{MGF:} $M(t) = e^{\mu t + \sigma^2 t^2/2}$
-\item \concept{Example:} Heights, measurement errors, CLT limit
-\item \note{Use $\Phi(z)$ table for standard normal CDF}
+\item \note{If $X \sim N(\mu, \sigma^2)$, then $E[X] = \mu$, $E[X^2] = \sigma^2 + \mu^2$}
 \end{itemize}
 
 \subsection*{3.4 Exponential Distribution (a.k.a. Exp($\lambda$), Memoryless)}
+\textbf{Terms:} $\lambda$ = rate parameter (events per unit time), $1/\lambda$ = mean (avg waiting time), $s, t$ = time values in memoryless property, Memoryless = $P(X > s+t | X > s) = P(X > t)$, Survival function = $P(X > x) = e^{-\lambda x}$, Inter-arrival time = time between consecutive Poisson events
 \begin{itemize}[leftmargin=*]
-\item \concept{SYNONYMS:} Exp($\lambda$), ``waiting time'', ``memoryless'', ``inter-arrival time''
-\item \warning{``Mean $\theta=3$'' means $\lambda = 1/3$ NOT $\lambda=3$!}
-\item \concept{Definition:} Waiting time until event
+\item \concept{SYNONYMS:} Exp($\lambda$), ``waiting time'', ``memoryless'', ``inter-arrival time'', ``lifetime''
+\item \warning{PARAMETER TRAP -- Know how to convert!}
+  \begin{itemize}
+  \item \textbf{``Rate $\lambda = 3$''} means $\lambda = 3$, Mean $= 1/3$
+  \item \textbf{``Mean $\theta = 3$''} means Mean $= 3$, so $\lambda = 1/3$
+  \item Formula: $\lambda = 1/\text{mean}$, Mean $= 1/\lambda$
+  \end{itemize}
 \item \concept{PDF:} \formula{f(x) = \lambda e^{-\lambda x}, \quad x > 0}
-\item \concept{CDF:} $F(x) = 1 - e^{-\lambda x}$
-\item \concept{Mean:} $E[X] = 1/\lambda$
-\item \concept{Variance:} $\text{Var}(X) = 1/\lambda^2$
-\item \concept{Memoryless:} \formula{P(X > s+t | X > s) = P(X > t)}
-\item \concept{MGF:} $M(t) = \frac{\lambda}{\lambda - t}$ for $t < \lambda$
-\item \concept{When to Use:} Time between Poisson events
-\item \concept{Example:} Service times, component lifetime
-\item \note{Min of exponentials is exponential}
+\item \concept{CDF:} \formula{F(x) = 1 - e^{-\lambda x}, \quad x \geq 0}
+\item \concept{Survival Function:} $P(X > x) = e^{-\lambda x}$
+\item \concept{Parameters:}
+  \begin{itemize}
+  \item Mean: $E[X] = 1/\lambda$
+  \item Variance: $\text{Var}(X) = 1/\lambda^2$
+  \item Median: $\ln(2)/\lambda \approx 0.693/\lambda$
+  \item MGF: $M(t) = \frac{\lambda}{\lambda - t}$ for $t < \lambda$
+  \end{itemize}
+\item \concept{Memoryless Property (UNIQUE to Exponential among continuous):}
+  \formula{P(X > s+t \,|\, X > s) = P(X > t)}
+  \begin{itemize}
+  \item ``Given survived $s$, additional survival is same as starting fresh''
+  \item Proof: $\frac{P(X > s+t)}{P(X > s)} = \frac{e^{-\lambda(s+t)}}{e^{-\lambda s}} = e^{-\lambda t} = P(X > t)$
+  \end{itemize}
+\item \concept{Relationship to Poisson:}
+  \begin{itemize}
+  \item If events arrive as Poisson($\lambda$), time between events is Exp($\lambda$)
+  \item If $X \sim$ Exp($\lambda$) = time until event, then \# events in time $t$ is Poisson($\lambda t$)
+  \end{itemize}
+\item \concept{Worked Example 1:} Service time Exp with mean 5 min. $P(\text{service} > 8 \text{ min})$?
+  \begin{itemize}
+  \item Mean $= 5$, so $\lambda = 1/5 = 0.2$
+  \item $P(X > 8) = e^{-0.2 \times 8} = e^{-1.6} \approx 0.202$
+  \end{itemize}
+\item \concept{Worked Example 2:} Same service. Given waited 3 min, $P(\text{wait at least 5 more min})$?
+  \begin{itemize}
+  \item By memoryless property: $P(X > 8 | X > 3) = P(X > 5)$
+  \item $P(X > 5) = e^{-0.2 \times 5} = e^{-1} \approx 0.368$
+  \end{itemize}
+\item \concept{Worked Example 3:} Component lifetime Exp($\lambda = 0.01$). Expected lifetime? $P(\text{survives} > 200 \text{ hours})$?
+  \begin{itemize}
+  \item $E[X] = 1/0.01 = 100$ hours
+  \item $P(X > 200) = e^{-0.01 \times 200} = e^{-2} \approx 0.135$
+  \end{itemize}
+\item \concept{Minimum of Independent Exponentials:}
+  \formula{\min(X_1, ..., X_n) \sim \text{Exp}(\lambda_1 + \lambda_2 + ... + \lambda_n)}
+  \begin{itemize}
+  \item Proof: $P(\min > t) = P(\text{all} > t) = \prod e^{-\lambda_i t} = e^{-(\sum \lambda_i)t}$
+  \end{itemize}
+\item \concept{Sum of Exponentials:}
+  \begin{itemize}
+  \item $\sum_{i=1}^n \text{Exp}(\lambda)$ (same rate) $\sim$ Gamma$(n, \lambda)$
+  \end{itemize}
+\item \note{Hazard rate is constant: $h(x) = f(x)/(1-F(x)) = \lambda$. This defines memorylessness!}
 \end{itemize}
 
 \subsection*{3.5 Gamma Distribution (a.k.a. Gamma($r,\lambda$), Erlang)}
+\textbf{Terms:} $r$ = shape parameter (\# of events to wait for), $\lambda$ = rate parameter, $\Gamma(r)$ = Gamma function (generalizes factorial), Erlang = Gamma with integer $r$, Chi-square = special Gamma with $r=n/2$, $\lambda=1/2$
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} ``sum of exponentials'', ``time until $r$-th event'', Erlang (integer $r$)
-\item \concept{Definition:} Sum of exponentials, generalization
+\item \concept{Definition:} Generalization of Exponential; time until $r$-th Poisson event
 \item \concept{PDF:} \formula{f(x) = \frac{\lambda^r}{\Gamma(r)}x^{r-1}e^{-\lambda x}, \quad x > 0}
-\item \concept{Mean:} $E[X] = r/\lambda$
-\item \concept{Variance:} $\text{Var}(X) = r/\lambda^2$
+\item \concept{Parameters:}
+  \begin{itemize}
+  \item $r > 0$ = shape parameter
+  \item $\lambda > 0$ = rate parameter
+  \item Mean: $E[X] = r/\lambda$
+  \item Variance: $\text{Var}(X) = r/\lambda^2$
+  \item MGF: $M(t) = \left(\frac{\lambda}{\lambda - t}\right)^r$ for $t < \lambda$
+  \end{itemize}
+\item \concept{Gamma Function:}
+  \begin{itemize}
+  \item $\Gamma(r) = \int_0^\infty x^{r-1}e^{-x}dx$
+  \item $\Gamma(n) = (n-1)!$ for positive integer $n$
+  \item $\Gamma(1) = 1$, $\Gamma(1/2) = \sqrt{\pi}$
+  \item Recursion: $\Gamma(r+1) = r \cdot \Gamma(r)$
+  \end{itemize}
 \item \concept{Special Cases:}
   \begin{itemize}
-  \item $r=1$: Exponential($\lambda$)
-  \item $r=n/2, \lambda=1/2$: Chi-square with $n$ df
+  \item $r = 1$: Gamma$(1, \lambda)$ = Exponential$(\lambda)$
+  \item $r = n/2$, $\lambda = 1/2$: Chi-square with $n$ degrees of freedom
+  \item Integer $r$: Called Erlang distribution
   \end{itemize}
-\item \concept{When to Use:} Time until $r$-th event
-\item \note{$\Gamma(n) = (n-1)!$ for integer $n$}
+\item \concept{Key Property:}
+  \formula{\sum_{i=1}^n X_i \sim \text{Gamma}(n, \lambda) \text{ if } X_i \stackrel{iid}{\sim} \text{Exp}(\lambda)}
+\item \concept{Worked Example:} Time for 5 customers to arrive if arrivals are Poisson with rate 2/hour.
+  \begin{itemize}
+  \item Time until 5th arrival $\sim$ Gamma$(5, 2)$
+  \item $E[T] = 5/2 = 2.5$ hours
+  \item $\text{Var}(T) = 5/4 = 1.25$ hours$^2$
+  \end{itemize}
+\item \concept{Sum of Gammas (same $\lambda$):}
+  \formula{\text{Gamma}(r_1, \lambda) + \text{Gamma}(r_2, \lambda) = \text{Gamma}(r_1 + r_2, \lambda)}
+\item \note{Gamma is conjugate prior for Poisson rate parameter (Bayesian)}
 \end{itemize}
 
 \subsection*{3.6 Beta Distribution (a.k.a. Beta($\alpha,\beta$), Conjugate Prior)}
+\textbf{Terms:} $\alpha$ = shape parameter (``prior successes'' + 1), $\beta$ = shape parameter (``prior failures'' + 1), $B(\alpha,\beta)$ = Beta function (normalizing constant), Conjugate prior = posterior is same distribution family as prior, Jeffreys prior = ``uninformative'' prior
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} ``prior for probability'', ``proportion model'', ``conjugate to Binomial''
-\item \concept{Definition:} Models probabilities/proportions
-\item \concept{PDF:} \formula{f(x) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}}
-\item \concept{Support:} $0 < x < 1$
-\item \concept{Mean:} $E[X] = \frac{\alpha}{\alpha+\beta}$
-\item \concept{Variance:} $\text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$
+\item \concept{Definition:} Models probabilities/proportions on $(0,1)$
+\item \concept{PDF:} \formula{f(x) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}, \quad 0 < x < 1}
+\item \concept{Alternative notation:} $f(x) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}$
+  \begin{itemize}
+  \item where $B(\alpha,\beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} = \int_0^1 x^{\alpha-1}(1-x)^{\beta-1}dx$
+  \end{itemize}
+\item \concept{Parameters:}
+  \begin{itemize}
+  \item $\alpha > 0$, $\beta > 0$ = shape parameters
+  \item Mean: $E[X] = \frac{\alpha}{\alpha+\beta}$
+  \item Mode: $\frac{\alpha-1}{\alpha+\beta-2}$ (for $\alpha, \beta > 1$)
+  \item Variance: $\text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$
+  \end{itemize}
 \item \concept{Special Cases:}
   \begin{itemize}
-  \item $\alpha=\beta=1$: Uniform(0,1)
-  \item Conjugate prior for Binomial
+  \item $\alpha = \beta = 1$: Uniform$(0,1)$
+  \item $\alpha = \beta$: Symmetric around 0.5
+  \item $\alpha > \beta$: Skewed right (mode $> 0.5$)
+  \item $\alpha < \beta$: Skewed left (mode $< 0.5$)
+  \item $\alpha = \beta = 0.5$: Arcsine distribution
   \end{itemize}
-\item \finance{Used in Bayesian statistics}
+\item \concept{Shape Interpretation:}
+  \begin{itemize}
+  \item $\alpha - 1$ = ``prior successes''
+  \item $\beta - 1$ = ``prior failures''
+  \item Large $\alpha + \beta$ = more concentrated around mean
+  \end{itemize}
+\item \concept{Conjugate Prior for Binomial (CRITICAL for Bayesian):}
+  \begin{itemize}
+  \item Prior: $p \sim \text{Beta}(\alpha, \beta)$
+  \item Data: $k$ successes in $n$ trials (Binomial)
+  \item Posterior: $p | \text{data} \sim \text{Beta}(\alpha + k, \beta + n - k)$
+  \item ``Add successes to $\alpha$, failures to $\beta$''
+  \end{itemize}
+\item \concept{Worked Example:} Prior belief: $p \sim \text{Beta}(2, 2)$. Observe 3 successes in 5 trials.
+  \begin{itemize}
+  \item Posterior: $p | \text{data} \sim \text{Beta}(2+3, 2+2) = \text{Beta}(5, 4)$
+  \item Prior mean: $2/(2+2) = 0.5$
+  \item Posterior mean: $5/(5+4) = 5/9 \approx 0.556$
+  \end{itemize}
+\item \concept{Jeffreys Prior:} $\text{Beta}(1/2, 1/2)$ = ``uninformative'' prior for probability
+\item \note{Beta function: $B(\alpha,\beta) = B(\beta,\alpha)$ (symmetric)}
 \end{itemize}
 
 % ============================================================
@@ -415,327 +1057,1130 @@ START: What type of problem?
 % ============================================================
 
 \subsection*{4.1 Joint Distributions}
+\textbf{Terms:} Joint PMF/PDF = $f(x,y)$ describes both variables together, Joint CDF = $F(x,y) = P(X \leq x, Y \leq y)$, Support = region where $f(x,y) > 0$, Double integral = integrate over 2D region
 \begin{itemize}[leftmargin=*]
-\item \concept{Joint PMF (Discrete):} $p(x,y) = P(X=x, Y=y)$
-\item \concept{Joint PDF (Continuous):} $f(x,y) \geq 0$
-\item \concept{Normalization:} \formula{\int\int f(x,y)dxdy = 1}
+\item \concept{Joint PMF (Discrete):}
+  \begin{itemize}
+  \item $p(x,y) = P(X=x, Y=y)$
+  \item Requirements: $p(x,y) \geq 0$, $\sum_x \sum_y p(x,y) = 1$
+  \end{itemize}
+\item \concept{Joint PDF (Continuous):}
+  \begin{itemize}
+  \item $f(x,y) \geq 0$ and $\int\int f(x,y)dxdy = 1$
+  \item $P((X,Y) \in A) = \iint_A f(x,y)dxdy$
+  \end{itemize}
 \item \concept{Joint CDF:} \formula{F(x,y) = P(X \leq x, Y \leq y)}
-\item \concept{When to Use:} Two or more random variables together
-\item \concept{Solution Steps:}
+  \begin{itemize}
+  \item Continuous: $F(x,y) = \int_{-\infty}^x \int_{-\infty}^y f(s,t)\,dt\,ds$
+  \item PDF from CDF: $f(x,y) = \frac{\partial^2 F(x,y)}{\partial x \partial y}$
+  \end{itemize}
+\item \concept{Procedure: Finding Constant $c$:}
   \begin{enumerate}
-  \item Verify normalization (integral = 1)
-  \item Find constant $c$ if needed
-  \item Calculate probabilities over regions
+  \item Set up double integral over support region
+  \item Integrate: $\int\int c \cdot g(x,y)\,dx\,dy = 1$
+  \item Solve for $c$
   \end{enumerate}
-\item \concept{Example:} $f(x,y) = c(x^2 + xy)$ on $[0,1]^2$, find $c = 12/7$
-\item \warning{Check bounds carefully for integration!}
+\item \concept{Worked Example 1:} $f(x,y) = c(x^2 + xy)$ on $[0,1] \times [0,1]$. Find $c$.
+  \begin{itemize}
+  \item $\int_0^1 \int_0^1 c(x^2 + xy)\,dx\,dy = 1$
+  \item Inner integral: $\int_0^1 (x^2 + xy)\,dx = [\frac{x^3}{3} + \frac{x^2 y}{2}]_0^1 = \frac{1}{3} + \frac{y}{2}$
+  \item Outer integral: $\int_0^1 (\frac{1}{3} + \frac{y}{2})\,dy = \frac{1}{3} + \frac{1}{4} = \frac{7}{12}$
+  \item So $c \cdot \frac{7}{12} = 1 \Rightarrow c = \frac{12}{7}$
+  \end{itemize}
+\item \concept{Worked Example 2:} $f(x,y) = c$ on triangle $0 < x < y < 1$. Find $c$.
+  \begin{itemize}
+  \item Region: $0 < x < 1$, $x < y < 1$
+  \item $\int_0^1 \int_x^1 c\,dy\,dx = c \int_0^1 (1-x)\,dx = c \cdot \frac{1}{2} = 1$
+  \item $c = 2$
+  \end{itemize}
+\item \concept{Probability Over Region:}
+  \begin{enumerate}
+  \item Identify region $A$ carefully (draw it!)
+  \item Set up double integral with correct limits
+  \item Integrate: $P((X,Y) \in A) = \iint_A f(x,y)\,dx\,dy$
+  \end{enumerate}
+\item \concept{Common Integration Regions:}
+  \begin{itemize}
+  \item Rectangle: $\int_a^b \int_c^d f(x,y)\,dy\,dx$
+  \item Triangle ($y > x$): $\int_0^1 \int_x^1 f(x,y)\,dy\,dx$
+  \item Circle: Convert to polar coordinates
+  \end{itemize}
+\item \warning{Always draw the region! Check integration limits match the support!}
+\item \note{Order of integration can be switched (Fubini's theorem) if integral converges}
 \end{itemize}
 
 \subsection*{4.2 Marginal and Conditional Distributions}
+\textbf{Terms:} Marginal = distribution of one variable alone (integrate/sum out the other), $f_X(x)$ = marginal PDF of $X$, Conditional = $f_{Y|X}(y|x)$ = PDF of $Y$ given $X=x$, ``Integrate out'' = integrate over all values of unwanted variable
 \begin{itemize}[leftmargin=*]
-\item \concept{Marginal PDF:} \formula{f_X(x) = \int_{-\infty}^{\infty} f(x,y)dy}
-\item \concept{Marginal PMF:} $p_X(x) = \sum_y p(x,y)$
-\item \concept{Conditional PDF:} \formula{f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)}}
-\item \concept{Properties:} Conditional is a valid PDF/PMF
-\item \concept{Solution Steps:}
+\item \concept{Marginal Distributions -- ``Integrate out'' the other variable:}
+  \begin{itemize}
+  \item \formula{f_X(x) = \int_{-\infty}^{\infty} f(x,y)\,dy} (continuous)
+  \item \formula{p_X(x) = \sum_y p(x,y)} (discrete)
+  \item Similarly: $f_Y(y) = \int f(x,y)\,dx$
+  \end{itemize}
+\item \concept{Conditional PDF:}
+  \formula{f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)}, \quad \text{provided } f_X(x) > 0}
+  \begin{itemize}
+  \item This is a valid PDF in $y$ (integrates to 1 in $y$)
+  \item Read as: ``density of $Y$ given $X = x$''
+  \end{itemize}
+\item \concept{Step-by-Step: Finding Marginal $f_X(x)$:}
   \begin{enumerate}
-  \item Find marginal by integrating/summing out other variable
-  \item For conditional, divide joint by marginal
-  \item Verify it integrates to 1
+  \item Look at joint PDF support region
+  \item For fixed $x$, determine what values of $y$ are allowed
+  \item Integrate joint over those $y$ values: $f_X(x) = \int_{y_{\min}(x)}^{y_{\max}(x)} f(x,y)\,dy$
+  \item State the support of $f_X(x)$
   \end{enumerate}
-\item \concept{Example:} Uniform on triangle, find conditional
-\item \note{Bounds change for conditional distributions}
+\item \concept{Worked Example:} Joint: $f(x,y) = 2$ on $0 < x < y < 1$.
+  \begin{itemize}
+  \item \textbf{Marginal of $X$:} For fixed $x \in (0,1)$, $y$ ranges from $x$ to $1$
+    \begin{itemize}
+    \item $f_X(x) = \int_x^1 2\,dy = 2(1-x)$ for $0 < x < 1$
+    \end{itemize}
+  \item \textbf{Marginal of $Y$:} For fixed $y \in (0,1)$, $x$ ranges from $0$ to $y$
+    \begin{itemize}
+    \item $f_Y(y) = \int_0^y 2\,dx = 2y$ for $0 < y < 1$
+    \end{itemize}
+  \item \textbf{Conditional $Y|X=x$:}
+    \begin{itemize}
+    \item $f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)} = \frac{2}{2(1-x)} = \frac{1}{1-x}$ for $x < y < 1$
+    \item This is Uniform$(x, 1)$!
+    \end{itemize}
+  \item \textbf{Conditional $X|Y=y$:}
+    \begin{itemize}
+    \item $f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)} = \frac{2}{2y} = \frac{1}{y}$ for $0 < x < y$
+    \item This is Uniform$(0, y)$!
+    \end{itemize}
+  \end{itemize}
+\item \concept{Worked Example 2:} $f(x,y) = \frac{12}{7}(x^2 + xy)$ on $[0,1]^2$. Find $f_X(x)$.
+  \begin{itemize}
+  \item $f_X(x) = \int_0^1 \frac{12}{7}(x^2 + xy)\,dy = \frac{12}{7}[x^2 y + \frac{xy^2}{2}]_0^1 = \frac{12}{7}(x^2 + \frac{x}{2})$
+  \item $f_X(x) = \frac{12}{7}x(x + \frac{1}{2}) = \frac{6x(2x+1)}{7}$ for $0 < x < 1$
+  \end{itemize}
+\item \concept{Key Properties:}
+  \begin{itemize}
+  \item $\int f_{Y|X}(y|x)\,dy = 1$ (valid density)
+  \item $f(x,y) = f_{Y|X}(y|x) \cdot f_X(x) = f_{X|Y}(x|y) \cdot f_Y(y)$
+  \end{itemize}
+\item \warning{Bounds in marginal integral depend on the support region -- draw it!}
+\item \note{Conditional expectation: $E[Y|X=x] = \int y \cdot f_{Y|X}(y|x)\,dy$}
 \end{itemize}
 
 \subsection*{4.3 Independence of Random Variables}
+\textbf{Terms:} Independent = $f(x,y) = f_X(x) \cdot f_Y(y)$ for all $x,y$, i.i.d. = independent and identically distributed, Uncorrelated = $\text{Cov}(X,Y) = 0$ (weaker than independence), Dependent = not independent
 \begin{itemize}[leftmargin=*]
-\item \concept{Definition:} $X,Y$ independent iff $f(x,y) = f_X(x) \cdot f_Y(y)$
-\item \concept{Test for Independence:}
+\item \concept{Definition:} $X,Y$ independent iff \formula{f(x,y) = f_X(x) \cdot f_Y(y) \text{ for ALL } x, y}
+\item \concept{Equivalent Conditions:}
+  \begin{itemize}
+  \item Joint = product of marginals
+  \item $f_{Y|X}(y|x) = f_Y(y)$ (conditioning doesn't change distribution)
+  \item $F(x,y) = F_X(x) \cdot F_Y(y)$
+  \end{itemize}
+\item \concept{Step-by-Step: Testing Independence:}
   \begin{enumerate}
-  \item Find joint distribution
-  \item Find both marginals
-  \item Check if product equals joint for ALL $(x,y)$
+  \item Find joint PDF/PMF $f(x,y)$
+  \item Find marginal $f_X(x)$ by integrating out $y$
+  \item Find marginal $f_Y(y)$ by integrating out $x$
+  \item Check: Does $f(x,y) = f_X(x) \cdot f_Y(y)$ for ALL $(x,y)$ in support?
+  \item If YES at all points: Independent. If NO anywhere: Dependent.
   \end{enumerate}
+\item \concept{Quick Check for Independence:}
+  \begin{itemize}
+  \item Can $f(x,y)$ be written as $g(x) \cdot h(y)$?
+  \item AND support must be a rectangle (product of intervals)?
+  \item If both YES $\Rightarrow$ likely independent (verify by checking)
+  \end{itemize}
+\item \concept{Worked Example 1:} $f(x,y) = e^{-x-y}$ for $x > 0$, $y > 0$.
+  \begin{itemize}
+  \item Can factor: $f(x,y) = e^{-x} \cdot e^{-y}$
+  \item Support: $(0,\infty) \times (0,\infty)$ = rectangle \checkmark
+  \item Marginals: $f_X(x) = e^{-x}$, $f_Y(y) = e^{-y}$ (both Exp(1))
+  \item Check: $f_X(x) \cdot f_Y(y) = e^{-x} \cdot e^{-y} = e^{-x-y} = f(x,y)$ \checkmark
+  \item \textbf{Independent!}
+  \end{itemize}
+\item \concept{Worked Example 2:} $f(x,y) = 2$ for $0 < x < y < 1$.
+  \begin{itemize}
+  \item Support: Triangle (NOT a rectangle!)
+  \item Therefore: \textbf{NOT independent!} (no need to compute marginals)
+  \item Intuition: Knowing $X$ constrains possible values of $Y$
+  \end{itemize}
+\item \concept{Worked Example 3:} $f(x,y) = \frac{12}{7}(x^2 + xy)$ on $[0,1]^2$.
+  \begin{itemize}
+  \item Support is rectangle, but can we factor?
+  \item $x^2 + xy = x(x + y)$ -- cannot write as $g(x)h(y)$
+  \item \textbf{NOT independent!}
+  \end{itemize}
 \item \concept{Consequences of Independence:}
   \begin{itemize}
-  \item $E[XY] = E[X]E[Y]$
-  \item $\text{Cov}(X,Y) = 0$ (but not vice versa!)
-  \item $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y)$
+  \item $E[XY] = E[X] \cdot E[Y]$
+  \item $E[g(X)h(Y)] = E[g(X)] \cdot E[h(Y)]$
+  \item $\text{Cov}(X,Y) = 0$
+  \item $\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)$
+  \item $M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$
   \end{itemize}
-\item \warning{Zero covariance $\neq$ independence (except for normal)}
-\item \note{For normal: independent $\Leftrightarrow \rho = 0$}
+\item \warning{$\text{Cov}(X,Y) = 0$ does NOT imply independence!}
+  \begin{itemize}
+  \item Counterexample: $X \sim N(0,1)$, $Y = X^2$. Then $\text{Cov}(X,Y) = E[X^3] = 0$, but clearly dependent!
+  \item \textbf{EXCEPTION:} For jointly normal (bivariate normal), $\rho = 0 \Leftrightarrow$ independent!
+  \end{itemize}
+\item \note{i.i.d. = independent AND identically distributed}
 \end{itemize}
 
 \subsection*{4.4 Covariance and Correlation}
+\textbf{Terms:} Cov$(X,Y)$ = covariance (measures linear relationship), $\rho_{XY}$ = correlation (unitless, $-1 \leq \rho \leq 1$), $\sigma_X$ = standard deviation of $X$, $E[XY]$ = expected value of product, Uncorrelated = $\rho = 0$
 \begin{itemize}[leftmargin=*]
-\item \concept{Covariance:} \formula{\text{Cov}(X,Y) = E[(X-\mu_X)(Y-\mu_Y)] = E[XY] - E[X]E[Y]}
-\item \concept{Correlation:} \formula{\rho_{XY} = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}, \quad -1 \leq \rho \leq 1}
-\item \concept{Properties:}
+\item \concept{Covariance Definition:}
+  \formula{\text{Cov}(X,Y) = E[(X-\mu_X)(Y-\mu_Y)]}
+\item \concept{Computational Formula (USE THIS!):}
+  \formula{\text{Cov}(X,Y) = E[XY] - E[X]E[Y]}
+\item \concept{Correlation:}
+  \formula{\rho_{XY} = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}, \quad -1 \leq \rho \leq 1}
+  \begin{itemize}
+  \item $\rho = 1$: Perfect positive linear relationship
+  \item $\rho = -1$: Perfect negative linear relationship
+  \item $\rho = 0$: No linear relationship (uncorrelated)
+  \end{itemize}
+\item \concept{Step-by-Step: Computing Covariance:}
+  \begin{enumerate}
+  \item Find $E[X] = \int\int x \cdot f(x,y)\,dx\,dy$
+  \item Find $E[Y] = \int\int y \cdot f(x,y)\,dx\,dy$
+  \item Find $E[XY] = \int\int xy \cdot f(x,y)\,dx\,dy$
+  \item Compute: $\text{Cov}(X,Y) = E[XY] - E[X]E[Y]$
+  \end{enumerate}
+\item \concept{Step-by-Step: Computing Correlation:}
+  \begin{enumerate}
+  \item Find $\text{Cov}(X,Y)$ (steps above)
+  \item Find $E[X^2]$, compute $\text{Var}(X) = E[X^2] - (E[X])^2$, then $\sigma_X = \sqrt{\text{Var}(X)}$
+  \item Similarly find $\sigma_Y$
+  \item Compute: $\rho = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}$
+  \end{enumerate}
+\item \concept{Key Properties of Covariance:}
   \begin{itemize}
   \item $\text{Cov}(X,X) = \text{Var}(X)$
+  \item $\text{Cov}(X,Y) = \text{Cov}(Y,X)$ (symmetric)
   \item $\text{Cov}(aX+b, cY+d) = ac \cdot \text{Cov}(X,Y)$
-  \item $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
+  \item $\text{Cov}(X+Y, Z) = \text{Cov}(X,Z) + \text{Cov}(Y,Z)$
+  \item If independent: $\text{Cov}(X,Y) = 0$
   \end{itemize}
-\item \concept{Solution Steps:}
-  \begin{enumerate}
-  \item Find $E[X]$, $E[Y]$, $E[XY]$
-  \item Apply covariance formula
-  \item For correlation, also find $\sigma_X$, $\sigma_Y$
-  \end{enumerate}
-\item \concept{Example:} HW4: Joint PDF, find $\rho$
-\item \finance{Portfolio variance uses covariance matrix}
+\item \concept{Variance of Sum:}
+  \formula{\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)}
+  \formula{\text{Var}(X-Y) = \text{Var}(X) + \text{Var}(Y) - 2\text{Cov}(X,Y)}
+  \formula{\text{Var}(aX+bY) = a^2\text{Var}(X) + b^2\text{Var}(Y) + 2ab\text{Cov}(X,Y)}
+\item \concept{Worked Example:} $f(x,y) = \frac{12}{7}(x^2 + xy)$ on $[0,1]^2$. Find $\rho$.
+  \begin{itemize}
+  \item $E[X] = \frac{12}{7}\int_0^1\int_0^1 x(x^2+xy)\,dy\,dx = \frac{12}{7} \cdot \frac{5}{12} = \frac{5}{7}$
+  \item $E[Y] = \frac{12}{7}\int_0^1\int_0^1 y(x^2+xy)\,dx\,dy = \frac{12}{7} \cdot \frac{11}{24} = \frac{11}{14}$
+  \item $E[XY] = \frac{12}{7}\int_0^1\int_0^1 xy(x^2+xy)\,dx\,dy = \frac{12}{7} \cdot \frac{5}{12} = \frac{5}{7}$
+  \item $\text{Cov}(X,Y) = \frac{5}{7} - \frac{5}{7} \cdot \frac{11}{14} = \frac{5}{7}(1 - \frac{11}{14}) = \frac{5}{7} \cdot \frac{3}{14} = \frac{15}{98}$
+  \item Then find variances and compute $\rho$
+  \end{itemize}
+\item \finance{Portfolio: $\text{Var}(aX + bY) = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\rho\sigma_X\sigma_Y$}
+\item \note{Correlation is unitless and scale-invariant: $\rho_{aX+b, cY+d} = \text{sign}(ac) \cdot \rho_{XY}$}
 \end{itemize}
 
 \subsection*{4.5 Bivariate Normal (a.k.a. Gaussian Vector, MVN, Jointly Normal)} \postmidterm{Critical!}
+\textbf{Terms:} $\boldsymbol{\mu}$ = mean vector, $\boldsymbol{\Sigma}$ = covariance matrix, $\rho$ = correlation between $X$ and $Y$, MVN = Multivariate Normal, Gaussian = Normal, Jointly Normal = both variables follow bivariate normal together, Independent components = $\rho = 0$ (diagonal $\boldsymbol{\Sigma}$)
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} \textbf{Gaussian vector} = \textbf{MVN} = \textbf{Multivariate Normal} = ``Jointly Normal''
-\item \warning{``Independent components'' = $\rho = 0$ = \textbf{independence} (for MVN ONLY!)}
-\item \concept{Definition:} $(X,Y)$ jointly normal with parameters $\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho$
-\item \concept{Properties:}
+\item \warning{KEY TERMINOLOGY:}
   \begin{itemize}
-  \item Linear combinations are normal
-  \item Marginals are normal: $X \sim N(\mu_X, \sigma_X^2)$
-  \item Independence $\Leftrightarrow \rho = 0$ (unique to normal!)
-  \item Conditional is normal: $X|Y=y \sim N(\mu_{X|Y}, \sigma_{X|Y}^2)$
+  \item \textbf{``Gaussian''} = Normal!
+  \item \textbf{``Gaussian vector''} = Multivariate Normal!
+  \item \textbf{``Independent components''} = $\rho = 0$ = \textbf{INDEPENDENT} (for MVN only!)
   \end{itemize}
-\item \concept{Conditional Mean:} \formula{\mu_{X|Y} = \mu_X + \rho\frac{\sigma_X}{\sigma_Y}(y - \mu_Y)}
-\item \concept{Conditional Variance:} \formula{\sigma_{X|Y}^2 = \sigma_X^2(1-\rho^2)}
-\item \concept{Example:} HW5 Problem 1: Find $P(X+Y > 0)$
-\item \note{$aX + bY$ is normal with specific mean/variance}
+\item \concept{5 Parameters:} $\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho$
 \end{itemize}
+
+\textbf{MEAN VECTOR AND COVARIANCE MATRIX:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Mean Vector:}
+  \formula{\boldsymbol{\mu} = \begin{pmatrix} \mu_X \\ \mu_Y \end{pmatrix} = \begin{pmatrix} E[X] \\ E[Y] \end{pmatrix}}
+\item \concept{Covariance Matrix:}
+  \formula{\boldsymbol{\Sigma} = \begin{pmatrix} \sigma_X^2 & \text{Cov}(X,Y) \\ \text{Cov}(X,Y) & \sigma_Y^2 \end{pmatrix} = \begin{pmatrix} \sigma_X^2 & \rho\sigma_X\sigma_Y \\ \rho\sigma_X\sigma_Y & \sigma_Y^2 \end{pmatrix}}
+\item \concept{Procedure: Construct Covariance Matrix from Parameters:}
+  \begin{enumerate}
+  \item Given: $\sigma_X^2$, $\sigma_Y^2$, $\rho$
+  \item Compute off-diagonal: $\text{Cov}(X,Y) = \rho \cdot \sigma_X \cdot \sigma_Y$
+  \item Fill matrix: diagonal = variances, off-diagonal = covariance
+  \end{enumerate}
+\item \concept{Worked Example:} $X \sim N(1, 4)$, $Y \sim N(-2, 9)$, $\rho = -0.5$
+  \begin{itemize}
+  \item $\sigma_X = 2$, $\sigma_Y = 3$
+  \item $\text{Cov}(X,Y) = (-0.5)(2)(3) = -3$
+  \item $\boldsymbol{\mu} = \begin{pmatrix} 1 \\ -2 \end{pmatrix}$, $\boldsymbol{\Sigma} = \begin{pmatrix} 4 & -3 \\ -3 & 9 \end{pmatrix}$
+  \end{itemize}
+\end{itemize}
+
+\textbf{INDEPENDENT COMPONENTS (Critical!):}
+\begin{itemize}[leftmargin=*]
+\item \concept{For MVN ONLY:} $\rho = 0 \Leftrightarrow X, Y$ independent
+\item \concept{Covariance Matrix for Independent:}
+  \formula{\boldsymbol{\Sigma} = \begin{pmatrix} \sigma_X^2 & 0 \\ 0 & \sigma_Y^2 \end{pmatrix}} (diagonal!)
+\item \concept{Procedure: Create Gaussian Vector with Independent Components:}
+  \begin{enumerate}
+  \item Start with $X_1, X_2 \stackrel{iid}{\sim} N(0,1)$
+  \item Define $Y_1 = a X_1 + b X_2$, $Y_2 = c X_1 + d X_2$
+  \item For independence: Set $\text{Cov}(Y_1, Y_2) = 0$
+  \item $\text{Cov}(Y_1, Y_2) = ac \cdot \text{Var}(X_1) + bd \cdot \text{Var}(X_2) = ac + bd$
+  \item Solve $ac + bd = 0$ for desired relationship
+  \item Result: $(Y_1, Y_2)$ is Gaussian vector with independent components
+  \end{enumerate}
+\item \concept{Worked Example:} $Y_1 = aX_1 + X_2$, $Y_2 = X_1 + bX_2$ where $X_1, X_2 \stackrel{iid}{\sim} N(0,1)$.
+  \begin{itemize}
+  \item Find $b$ such that $Y_1, Y_2$ are independent.
+  \item $\text{Cov}(Y_1, Y_2) = a \cdot 1 \cdot 1 + 1 \cdot b \cdot 1 = a + b$
+  \item For independence: $a + b = 0 \Rightarrow b = -a$
+  \item Marginals: $Y_1 \sim N(0, a^2 + 1)$, $Y_2 \sim N(0, 1 + a^2)$
+  \item Joint density: $f(y_1, y_2) = f_{Y_1}(y_1) \cdot f_{Y_2}(y_2)$ (product of marginals)
+  \end{itemize}
+\end{itemize}
+
+\textbf{LINEAR COMBINATIONS:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Key Property:} Any linear combination of jointly normal RVs is normal!
+\item \concept{For $Z = aX + bY$:}
+  \begin{itemize}
+  \item \formula{E[Z] = a\mu_X + b\mu_Y}
+  \item \formula{\text{Var}(Z) = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\rho\sigma_X\sigma_Y}
+  \item \formula{Z \sim N(a\mu_X + b\mu_Y, a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\rho\sigma_X\sigma_Y)}
+  \end{itemize}
+\item \concept{Step-by-Step: Find $P(aX + bY > c)$:}
+  \begin{enumerate}
+  \item Let $Z = aX + bY$
+  \item Compute $\mu_Z = a\mu_X + b\mu_Y$
+  \item Compute $\sigma_Z^2 = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\rho\sigma_X\sigma_Y$
+  \item $Z \sim N(\mu_Z, \sigma_Z^2)$
+  \item Standardize: $P(Z > c) = P\left(\frac{Z - \mu_Z}{\sigma_Z} > \frac{c - \mu_Z}{\sigma_Z}\right) = 1 - \Phi\left(\frac{c - \mu_Z}{\sigma_Z}\right)$
+  \end{enumerate}
+\item \concept{Worked Example:} $X \sim N(1, 2)$, $Y \sim N(-2, 3)$, $\rho = -2/3$. Find $P(X + Y > 0)$.
+  \begin{itemize}
+  \item $Z = X + Y$: $a = b = 1$
+  \item $\mu_Z = 1 + (-2) = -1$
+  \item $\sigma_X = \sqrt{2}$, $\sigma_Y = \sqrt{3}$
+  \item $\sigma_Z^2 = 2 + 3 + 2(1)(1)(-2/3)(\sqrt{2})(\sqrt{3}) = 5 - \frac{4\sqrt{6}}{3} \approx 1.73$
+  \item $P(Z > 0) = 1 - \Phi\left(\frac{0 - (-1)}{\sqrt{1.73}}\right) = 1 - \Phi(0.76) \approx 0.224$
+  \end{itemize}
+\end{itemize}
+
+\textbf{CONDITIONAL DISTRIBUTIONS:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Conditional Distribution $Y|X=x$:}
+  \formula{Y|X=x \sim N\left(\mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x - \mu_X), \sigma_Y^2(1-\rho^2)\right)}
+\item \concept{Conditional Mean (regression line):}
+  \formula{E[Y|X=x] = \mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x - \mu_X)}
+\item \concept{Conditional Variance (constant!):}
+  \formula{\text{Var}(Y|X) = \sigma_Y^2(1-\rho^2)}
+  \begin{itemize}
+  \item Does NOT depend on $x$! Always the same.
+  \item When $|\rho| = 1$: Variance = 0 (perfect prediction)
+  \item When $\rho = 0$: Variance = $\sigma_Y^2$ (no information from $X$)
+  \end{itemize}
+\item \concept{Worked Example:} $X \sim N(0, 1)$, $Y \sim N(0, 4)$, $\rho = 0.8$. Find $E[Y|X=2]$ and $\text{Var}(Y|X)$.
+  \begin{itemize}
+  \item $E[Y|X=2] = 0 + 0.8 \cdot \frac{2}{1} \cdot (2 - 0) = 3.2$
+  \item $\text{Var}(Y|X) = 4(1 - 0.64) = 4(0.36) = 1.44$
+  \item $Y|X=2 \sim N(3.2, 1.44)$
+  \end{itemize}
+\item \concept{Special Case: $\rho = 0$:}
+  \begin{itemize}
+  \item $E[Y|X=x] = \mu_Y$ (doesn't depend on $x$!)
+  \item $\text{Var}(Y|X) = \sigma_Y^2$
+  \item Conditional = Marginal (by independence)
+  \end{itemize}
+\end{itemize}
+\note{For BVN: uncorrelated $\Leftrightarrow$ independent. This is UNIQUE to normal distributions!}
 
 \subsection*{4.6 Transformations (a.k.a. Jacobian Method, CDF Method)} \postmidterm{Complex!}
+\textbf{Terms:} Transformation = $Y = g(X)$, Jacobian $J$ = determinant of matrix of partial derivatives, CDF method = find CDF then differentiate, Monotonic = strictly increasing or decreasing, $g^{-1}$ = inverse function
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} ``change of variables'', ``find distribution of $Y=g(X)$'', ``Jacobian''
-\item \concept{Single Variable:} $Y = g(X)$
-  \begin{itemize}
-  \item CDF Method: Find $F_Y(y) = P(g(X) \leq y)$
-  \item PDF Method: $f_Y(y) = f_X(g^{-1}(y))|dg^{-1}/dy|$
-  \end{itemize}
-\item \concept{Jacobian Method:} $(U,V) = g(X,Y)$
-  \formula{f_{UV}(u,v) = f_{XY}(x(u,v), y(u,v)) \cdot |J|}
-  where \formula{J = \begin{vmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{vmatrix}}
-\item \concept{Solution Steps:}
-  \begin{enumerate}
-  \item Define transformation
-  \item Find inverse transformation
-  \item Compute Jacobian determinant
-  \item Apply formula with absolute value
-  \item Check new bounds
-  \end{enumerate}
-\item \warning{Don't forget absolute value of Jacobian!}
-\item \concept{Example:} Polar coordinates: $X = R\cos\Theta$, $Y = R\sin\Theta$
 \end{itemize}
 
-\subsection*{4.7 Order Statistics (a.k.a. Max/Min of i.i.d., $X_{(k)}$)}
+\textbf{SINGLE VARIABLE TRANSFORMATIONS:}
 \begin{itemize}[leftmargin=*]
-\item \concept{SYNONYMS:} ``maximum'', ``minimum'', ``$k$-th smallest'', ``range''
-\item \concept{Definition:} $X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}$
-\item \concept{Maximum:} \formula{F_{X_{(n)}}(x) = [F(x)]^n}
-\item \concept{Minimum:} \formula{F_{X_{(1)}}(x) = 1 - [1-F(x)]^n}
-\item \concept{PDF of $k$-th order statistic:}
-  \formula{f_{X_{(k)}}(x) = \frac{n!}{(k-1)!(n-k)!}[F(x)]^{k-1}[1-F(x)]^{n-k}f(x)}
-\item \concept{Example:} Max of 3 uniform(0,1) variables
-\item \note{Range = $X_{(n)} - X_{(1)}$}
+\item \concept{CDF Method (General):} For $Y = g(X)$:
+  \begin{enumerate}
+  \item Find CDF: $F_Y(y) = P(Y \leq y) = P(g(X) \leq y)$
+  \item Express in terms of $X$: Solve $g(X) \leq y$ for $X$
+  \item Use CDF of $X$ to evaluate
+  \item Differentiate: $f_Y(y) = F_Y'(y)$
+  \end{enumerate}
+\item \concept{PDF Method (Monotonic $g$):}
+  \formula{f_Y(y) = f_X(g^{-1}(y)) \cdot \left|\frac{d}{dy}g^{-1}(y)\right|}
+\item \concept{Worked Example:} $X \sim U(0,1)$. Find PDF of $Y = X^2$.
+  \begin{itemize}
+  \item CDF Method: $F_Y(y) = P(X^2 \leq y) = P(X \leq \sqrt{y}) = \sqrt{y}$ for $0 < y < 1$
+  \item Differentiate: $f_Y(y) = \frac{1}{2\sqrt{y}}$ for $0 < y < 1$
+  \item Verify: $\int_0^1 \frac{1}{2\sqrt{y}}dy = [\sqrt{y}]_0^1 = 1$ \checkmark
+  \end{itemize}
+\item \concept{Worked Example:} $X \sim \text{Exp}(\lambda)$. Find PDF of $Y = e^X$.
+  \begin{itemize}
+  \item $X = \ln Y$, so $g^{-1}(y) = \ln y$, $\frac{d}{dy}\ln y = 1/y$
+  \item $f_Y(y) = \lambda e^{-\lambda \ln y} \cdot \frac{1}{y} = \lambda y^{-\lambda - 1}$ for $y > 1$
+  \end{itemize}
 \end{itemize}
+
+\textbf{TWO-VARIABLE TRANSFORMATIONS (Jacobian):}
+\begin{itemize}[leftmargin=*]
+\item \concept{Setup:} $(X,Y) \to (U,V)$ via $U = g_1(X,Y)$, $V = g_2(X,Y)$
+\item \concept{Jacobian Method:}
+  \formula{f_{UV}(u,v) = f_{XY}(x(u,v), y(u,v)) \cdot |J|}
+\item \concept{Jacobian Determinant:}
+  \formula{J = \det\begin{pmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{pmatrix} = \frac{\partial x}{\partial u}\frac{\partial y}{\partial v} - \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}}
+\item \concept{Step-by-Step Procedure:}
+  \begin{enumerate}
+  \item Write transformation: $u = g_1(x,y)$, $v = g_2(x,y)$
+  \item Find inverse: $x = x(u,v)$, $y = y(u,v)$
+  \item Compute all 4 partial derivatives
+  \item Calculate $|J|$ (ABSOLUTE VALUE!)
+  \item Substitute: $f_{UV}(u,v) = f_{XY}(x(u,v), y(u,v)) \cdot |J|$
+  \item Determine new support region
+  \end{enumerate}
+\item \concept{Worked Example: Polar Coordinates:}
+  \begin{itemize}
+  \item $X = R\cos\Theta$, $Y = R\sin\Theta$ (inverse: $R = \sqrt{X^2+Y^2}$, $\Theta = \arctan(Y/X)$)
+  \item Jacobian: $J = \det\begin{pmatrix} \cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta \end{pmatrix} = r\cos^2\theta + r\sin^2\theta = r$
+  \item $|J| = r$
+  \item If $(X,Y)$ uniform on unit disk: $f_{XY}(x,y) = \frac{1}{\pi}$
+  \item Then $f_{R,\Theta}(r,\theta) = \frac{1}{\pi} \cdot r = \frac{r}{\pi}$ for $0 < r < 1$, $0 < \theta < 2\pi$
+  \end{itemize}
+\item \concept{Sum and Difference:} $U = X + Y$, $V = X - Y$
+  \begin{itemize}
+  \item Inverse: $X = (U+V)/2$, $Y = (U-V)/2$
+  \item $|J| = |-1/2| = 1/2$
+  \end{itemize}
+\end{itemize}
+\warning{Always take ABSOLUTE VALUE of Jacobian! $|J|$ not $J$}
+\note{For marginal of $U$: integrate $f_{UV}(u,v)$ over $v$}
+
+\subsection*{4.7 Order Statistics (a.k.a. Max/Min of i.i.d., $X_{(k)}$)}
+\textbf{Terms:} $X_{(1)}$ = minimum (smallest), $X_{(n)}$ = maximum (largest), $X_{(k)}$ = $k$-th order statistic ($k$-th smallest), Range = $X_{(n)} - X_{(1)}$, i.i.d. = independent and identically distributed
+\begin{itemize}[leftmargin=*]
+\item \concept{SYNONYMS:} ``maximum'', ``minimum'', ``$k$-th smallest'', ``range'', ``largest'', ``smallest''
+\item \concept{Definition:} Sort $X_1, ..., X_n$ to get $X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}$
+  \begin{itemize}
+  \item $X_{(1)}$ = minimum
+  \item $X_{(n)}$ = maximum
+  \item $X_{(k)}$ = $k$-th smallest (order statistic)
+  \end{itemize}
+\end{itemize}
+
+\textbf{MAXIMUM (Most Common):}
+\begin{itemize}[leftmargin=*]
+\item \concept{CDF of Maximum:} If $X_1, ..., X_n$ i.i.d. with CDF $F$:
+  \formula{F_{X_{(n)}}(x) = P(\max \leq x) = P(\text{all} \leq x) = [F(x)]^n}
+\item \concept{PDF of Maximum:}
+  \formula{f_{X_{(n)}}(x) = n[F(x)]^{n-1}f(x)}
+\item \concept{Probability Max Exceeds $a$:}
+  \formula{P(X_{(n)} > a) = 1 - [F(a)]^n}
+\item \concept{Worked Example:} $X_1, X_2, X_3 \stackrel{iid}{\sim} U(0,1)$. Find PDF of max.
+  \begin{itemize}
+  \item $F(x) = x$ for $0 < x < 1$
+  \item $F_{X_{(3)}}(x) = x^3$
+  \item $f_{X_{(3)}}(x) = 3x^2$ for $0 < x < 1$
+  \item $E[X_{(3)}] = \int_0^1 x \cdot 3x^2 dx = 3/4$
+  \end{itemize}
+\end{itemize}
+
+\textbf{MINIMUM:}
+\begin{itemize}[leftmargin=*]
+\item \concept{CDF of Minimum:}
+  \formula{F_{X_{(1)}}(x) = P(\min \leq x) = 1 - P(\text{all} > x) = 1 - [1-F(x)]^n}
+\item \concept{PDF of Minimum:}
+  \formula{f_{X_{(1)}}(x) = n[1-F(x)]^{n-1}f(x)}
+\item \concept{Worked Example:} $X_1, ..., X_n \stackrel{iid}{\sim} \text{Exp}(\lambda)$. Find distribution of min.
+  \begin{itemize}
+  \item $F(x) = 1 - e^{-\lambda x}$, so $1 - F(x) = e^{-\lambda x}$
+  \item $P(X_{(1)} > x) = [e^{-\lambda x}]^n = e^{-n\lambda x}$
+  \item $X_{(1)} \sim \text{Exp}(n\lambda)$ -- minimum of Exp is Exp with sum of rates!
+  \end{itemize}
+\end{itemize}
+
+\textbf{GENERAL $k$-th ORDER STATISTIC:}
+\begin{itemize}[leftmargin=*]
+\item \concept{PDF of $X_{(k)}$:}
+  \formula{f_{X_{(k)}}(x) = \frac{n!}{(k-1)!(n-k)!}[F(x)]^{k-1}[1-F(x)]^{n-k}f(x)}
+\item \concept{Interpretation:} $k-1$ values below $x$, one at $x$, $n-k$ above $x$
+\item \concept{For Uniform(0,1):}
+  \begin{itemize}
+  \item $X_{(k)} \sim \text{Beta}(k, n-k+1)$
+  \item $E[X_{(k)}] = \frac{k}{n+1}$
+  \end{itemize}
+\end{itemize}
+
+\textbf{USEFUL RESULTS:}
+\begin{itemize}[leftmargin=*]
+\item For $U(0,1)$: $E[X_{(1)}] = \frac{1}{n+1}$, $E[X_{(n)}] = \frac{n}{n+1}$
+\item Range: $R = X_{(n)} - X_{(1)}$, $E[R] = \frac{n-1}{n+1}$ for $U(0,1)$
+\item Median of $n$ i.i.d. samples: $X_{((n+1)/2)}$ if $n$ odd
+\end{itemize}
+\note{Order stats are useful for quality control, reliability (min lifetime), auctions (max bid)}
 
 % ============================================================
 \section*{\textcolor{sectioncolor}{5. MOMENT GENERATING FUNCTIONS}} \postmidterm{Post-M2}
 % ============================================================
 
 \subsection*{5.1 Definition and Properties (Prof. uses $\psi(t)$ for MGF)}
+\textbf{Terms:} MGF = Moment Generating Function $M_X(t) = E[e^{tX}]$, $\psi(t)$ = professor's notation for MGF, Moment = $E[X^k]$, $M^{(k)}(0)$ = $k$-th derivative evaluated at $t=0$
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} MGF = $M_X(t)$ = $\psi(t)$ (professor's notation)
-\item \concept{Definition:} \formula{M_X(t) = \psi(t) = E[e^{tX}] = \begin{cases} \sum e^{tx}p(x) & \text{discrete} \\ \int e^{tx}f(x)dx & \text{continuous} \end{cases}}
-\item \concept{Moments:} \formula{E[X^k] = M^{(k)}(0)} (k-th derivative at 0)
-\item \concept{Properties:}
+\item \warning{Professor uses $\psi(t)$ for MGF -- same thing as $M_X(t)$!}
+\item \concept{Definition:}
+  \formula{M_X(t) = \psi(t) = E[e^{tX}] = \begin{cases} \sum_x e^{tx}p(x) & \text{discrete} \\ \int_{-\infty}^{\infty} e^{tx}f(x)dx & \text{continuous} \end{cases}}
+\item \concept{Why MGFs are Useful:}
   \begin{itemize}
-  \item Uniqueness: Same MGF $\Rightarrow$ same distribution
-  \item Linear: $M_{aX+b}(t) = e^{bt}M_X(at)$
-  \item Sum of independent: $M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$
+  \item Uniquely determines distribution
+  \item Easy to find moments
+  \item Product rule for sums of independent RVs
+  \item Can identify distribution by matching MGF
   \end{itemize}
-\item \concept{Common MGFs:}
-  \begin{itemize}
-  \item Binomial: $(1-p+pe^t)^n$
-  \item Poisson: $e^{\lambda(e^t-1)}$
-  \item Normal: $e^{\mu t + \sigma^2 t^2/2}$
-  \item Exponential: $\lambda/(\lambda-t)$, $t < \lambda$
-  \end{itemize}
-\item \concept{Example:} Find distribution of sum using MGFs
-\item \note{Not all distributions have MGF (e.g., Cauchy)}
 \end{itemize}
 
-\subsection*{5.2 Using MGFs for Sums}
+\textbf{FINDING MOMENTS FROM MGF:}
 \begin{itemize}[leftmargin=*]
-\item \concept{Method:} For independent $X_1, ..., X_n$:
+\item \concept{Moment Formula:}
+  \formula{E[X^k] = M_X^{(k)}(0) = \left.\frac{d^k}{dt^k}M_X(t)\right|_{t=0}}
+\item \concept{Step-by-Step:}
   \begin{enumerate}
-  \item Find individual MGFs: $M_{X_i}(t)$
-  \item Multiply: $M_S(t) = \prod M_{X_i}(t)$
-  \item Match with known MGF to identify distribution
+  \item Differentiate MGF $k$ times with respect to $t$
+  \item Evaluate at $t = 0$
+  \item Result is $E[X^k]$
   \end{enumerate}
-\item \concept{Example Applications:}
+\item \concept{Worked Example:} $X \sim \text{Exp}(\lambda)$. MGF: $M(t) = \frac{\lambda}{\lambda - t}$.
   \begin{itemize}
-  \item Sum of normals is normal
-  \item Sum of Poissons is Poisson
-  \item Sum of gammas (same $\lambda$) is gamma
+  \item $M'(t) = \frac{\lambda}{(\lambda-t)^2}$, so $E[X] = M'(0) = \frac{\lambda}{\lambda^2} = \frac{1}{\lambda}$
+  \item $M''(t) = \frac{2\lambda}{(\lambda-t)^3}$, so $E[X^2] = M''(0) = \frac{2\lambda}{\lambda^3} = \frac{2}{\lambda^2}$
+  \item $\text{Var}(X) = E[X^2] - (E[X])^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$
   \end{itemize}
-\item \concept{Example:} $X_i \sim \text{Exp}(\lambda)$ independent, then $\sum X_i \sim \text{Gamma}(n, \lambda)$
-\item \note{Powerful for proving CLT}
 \end{itemize}
+
+\textbf{KEY PROPERTIES:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Uniqueness:} If $M_X(t) = M_Y(t)$ for all $t$ near 0, then $X$ and $Y$ have same distribution
+\item \concept{Linear Transform:}
+  \formula{M_{aX+b}(t) = e^{bt} \cdot M_X(at)}
+\item \concept{Sum of Independent RVs:}
+  \formula{M_{X+Y}(t) = M_X(t) \cdot M_Y(t)} (only if independent!)
+\item \concept{Sum of $n$ i.i.d.:}
+  \formula{M_{S_n}(t) = [M_X(t)]^n \text{ where } S_n = X_1 + ... + X_n}
+\end{itemize}
+
+\textbf{COMMON MGF TABLE:}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item Bernoulli($p$): $1 - p + pe^t$
+\item Binomial($n,p$): $(1 - p + pe^t)^n$
+\item Poisson($\lambda$): $e^{\lambda(e^t - 1)}$
+\item Geometric($p$): $\frac{p}{1 - (1-p)e^t}$
+\item Uniform($a,b$): $\frac{e^{tb} - e^{ta}}{t(b-a)}$
+\item Normal($\mu,\sigma^2$): $e^{\mu t + \sigma^2 t^2/2}$
+\item Exponential($\lambda$): $\frac{\lambda}{\lambda - t}$ for $t < \lambda$
+\item Gamma($r,\lambda$): $\left(\frac{\lambda}{\lambda - t}\right)^r$ for $t < \lambda$
+\end{itemize}
+\note{Not all distributions have MGF (e.g., Cauchy). MGF must exist in neighborhood of $t=0$.}
+
+\subsection*{5.2 Using MGFs for Sums}
+\textbf{Terms:} $S_n = X_1 + \cdots + X_n$ = sum of i.i.d. RVs, Closure = sum of same-family distributions stays in that family, Product rule = $M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$ for independent $X,Y$
+\begin{itemize}[leftmargin=*]
+\item \concept{Main Technique:} Use MGF product rule to identify distribution of sum
+\end{itemize}
+
+\textbf{STEP-BY-STEP PROCEDURE:}
+\begin{enumerate}[leftmargin=*]
+\item Let $S = X_1 + X_2 + ... + X_n$ (independent)
+\item Find MGF of each: $M_{X_i}(t)$
+\item Multiply: $M_S(t) = M_{X_1}(t) \cdot M_{X_2}(t) \cdot ... \cdot M_{X_n}(t)$
+\item For i.i.d.: $M_S(t) = [M_X(t)]^n$
+\item Simplify the product
+\item Match with known MGF from table $\Rightarrow$ identify distribution
+\end{enumerate}
+
+\textbf{IMPORTANT CLOSURE PROPERTIES:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Sum of Normals:}
+  \begin{itemize}
+  \item $X \sim N(\mu_1, \sigma_1^2)$, $Y \sim N(\mu_2, \sigma_2^2)$ independent
+  \item $M_X(t) \cdot M_Y(t) = e^{\mu_1 t + \sigma_1^2 t^2/2} \cdot e^{\mu_2 t + \sigma_2^2 t^2/2}$
+  \item $= e^{(\mu_1+\mu_2)t + (\sigma_1^2 + \sigma_2^2)t^2/2}$
+  \item $\Rightarrow X + Y \sim N(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)$
+  \end{itemize}
+\item \concept{Sum of Poissons:}
+  \begin{itemize}
+  \item $X \sim \text{Pois}(\lambda_1)$, $Y \sim \text{Pois}(\lambda_2)$ independent
+  \item $M_X(t) \cdot M_Y(t) = e^{\lambda_1(e^t-1)} \cdot e^{\lambda_2(e^t-1)} = e^{(\lambda_1+\lambda_2)(e^t-1)}$
+  \item $\Rightarrow X + Y \sim \text{Pois}(\lambda_1 + \lambda_2)$
+  \end{itemize}
+\item \concept{Sum of Exponentials (same rate):}
+  \begin{itemize}
+  \item $X_1, ..., X_n \stackrel{iid}{\sim} \text{Exp}(\lambda)$
+  \item $M_S(t) = \left(\frac{\lambda}{\lambda-t}\right)^n$
+  \item $\Rightarrow S = \sum X_i \sim \text{Gamma}(n, \lambda)$
+  \end{itemize}
+\item \concept{Sum of Gammas (same rate):}
+  \begin{itemize}
+  \item $X \sim \text{Gamma}(r_1, \lambda)$, $Y \sim \text{Gamma}(r_2, \lambda)$ independent
+  \item $\Rightarrow X + Y \sim \text{Gamma}(r_1 + r_2, \lambda)$
+  \end{itemize}
+\item \concept{Sum of Binomials (same $p$):}
+  \begin{itemize}
+  \item $X \sim \text{Bin}(n_1, p)$, $Y \sim \text{Bin}(n_2, p)$ independent
+  \item $\Rightarrow X + Y \sim \text{Bin}(n_1 + n_2, p)$
+  \end{itemize}
+\end{itemize}
+
+\textbf{WORKED EXAMPLE:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Problem:} $X_1, X_2, X_3 \stackrel{iid}{\sim} \text{Exp}(2)$. Find distribution of $S = X_1 + X_2 + X_3$.
+\item \concept{Solution:}
+  \begin{itemize}
+  \item MGF of Exp(2): $M_X(t) = \frac{2}{2-t}$
+  \item MGF of sum: $M_S(t) = \left(\frac{2}{2-t}\right)^3$
+  \item This matches Gamma$(3, 2)$ MGF
+  \item $\Rightarrow S \sim \text{Gamma}(3, 2)$
+  \item Check: $E[S] = 3/2$, $\text{Var}(S) = 3/4$
+  \end{itemize}
+\end{itemize}
+\warning{MGF product only works for INDEPENDENT random variables!}
+\note{MGF technique is key for proving Central Limit Theorem}
 
 % ============================================================
 \section*{\textcolor{sectioncolor}{6. LIMIT THEOREMS}} \postmidterm{Critical for Final!}
 % ============================================================
 
 \subsection*{6.1 Central Limit Theorem (a.k.a. CLT, Normal Approximation)} \postmidterm{Most Important!}
+\textbf{Terms:} CLT = Central Limit Theorem, $\bar{X}_n$ = sample mean, $S_n$ = sum of $n$ i.i.d. RVs, $\mu$ = mean of one observation, $\sigma^2$ = variance of one observation, $\xrightarrow{d}$ = converges in distribution
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} CLT, ``approximate'', ``large n'', ``as $n \to \infty$'', ``normal approximation''
-\item \concept{TRIGGER WORDS:} ``i.i.d.'', ``sample mean'', ``total/sum of n games'', ``average of n''
-\item \concept{Statement:} If $X_1, ..., X_n$ are iid with mean $\mu$, variance $\sigma^2$:
-  \formula{\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1) \text{ as } n \to \infty}
-\item \concept{Equivalent:} \formula{\bar{X}_n \approx N\left(\mu, \frac{\sigma^2}{n}\right) \text{ for large } n}
-\item \concept{When to Use:}
-  \begin{itemize}
-  \item Large sample size (typically $n \geq 30$)
-  \item Sum or average of many random variables
-  \item Approximating discrete by continuous
-  \end{itemize}
-\item \concept{Solution Steps:}
-  \begin{enumerate}
-  \item Verify conditions (iid, finite variance)
-  \item Identify $\mu = E[X_i]$, $\sigma^2 = \text{Var}(X_i)$
-  \item Standardize: $Z = (\bar{X} - \mu)/(\sigma/\sqrt{n})$
-  \item Use normal table
-  \end{enumerate}
-\item \concept{Example:} 400 games, win \$3 with $p=0.25$, find $P(\text{total} > 240)$
-\item \warning{Apply continuity correction for discrete!}
+\item \concept{TRIGGER WORDS:} ``i.i.d.'', ``sample mean'', ``total/sum of n games'', ``average of n'', ``400 games''
 \end{itemize}
+
+\textbf{CLT STATEMENT:}
+\begin{itemize}[leftmargin=*]
+\item If $X_1, ..., X_n$ are i.i.d. with mean $\mu$ and variance $\sigma^2 < \infty$:
+\item \concept{For Sample Mean:}
+  \formula{\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i \approx N\left(\mu, \frac{\sigma^2}{n}\right)}
+\item \concept{For Sum/Total:}
+  \formula{S_n = \sum_{i=1}^n X_i \approx N(n\mu, n\sigma^2)}
+\item \concept{Standardized Form:}
+  \formula{Z = \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} = \frac{S_n - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} N(0,1)}
+\end{itemize}
+
+\textbf{STEP-BY-STEP PROCEDURE (Sample Mean):}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Identify:} $X_i$ = single observation/trial
+\item \textbf{Compute:} $\mu = E[X_i]$ (mean of ONE observation)
+\item \textbf{Compute:} $\sigma^2 = \text{Var}(X_i)$ (variance of ONE observation)
+\item \textbf{CLT:} $\bar{X} \approx N(\mu, \sigma^2/n)$
+\item \textbf{Standardize:} $Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}}$
+\item \textbf{Calculate:} $P(\bar{X} > c) = P(Z > \frac{c-\mu}{\sigma/\sqrt{n}}) = 1 - \Phi(\frac{c-\mu}{\sigma/\sqrt{n}})$
+\end{enumerate}
+
+\textbf{STEP-BY-STEP PROCEDURE (Sum/Total):}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Identify:} $X_i$ = single observation/game outcome
+\item \textbf{Compute:} $\mu = E[X_i]$, $\sigma^2 = \text{Var}(X_i)$
+\item \textbf{CLT:} $S_n = \sum X_i \approx N(n\mu, n\sigma^2)$
+\item \textbf{Standardize:} $Z = \frac{S_n - n\mu}{\sigma\sqrt{n}}$
+\item \textbf{Calculate:} Use normal table
+\end{enumerate}
+
+\textbf{WORKED EXAMPLE:} 400 games. Win \$3 (prob 1/4), lose \$1 (prob 1/4), else \$0 (prob 1/2).
+\begin{itemize}[leftmargin=*]
+\item \textbf{Step 1:} $X_i$ = profit from one game
+\item \textbf{Step 2:} $E[X] = 3(1/4) + (-1)(1/4) + 0(1/2) = 3/4 - 1/4 = 1/2$
+\item \textbf{Step 3:} $E[X^2] = 9(1/4) + 1(1/4) + 0 = 10/4 = 5/2$
+\item \textbf{Step 4:} $\text{Var}(X) = 5/2 - 1/4 = 10/4 - 1/4 = 9/4$, so $\sigma = 3/2$
+\item \textbf{Step 5:} Total $S_{400} \approx N(400 \cdot 1/2, 400 \cdot 9/4) = N(200, 900)$
+\item \textbf{Step 6:} $P(S_{400} > 240) = P(Z > \frac{240-200}{30}) = P(Z > 4/3) = 1 - \Phi(1.33) \approx 0.092$
+\end{itemize}
+
+\textbf{WHEN TO USE CLT:}
+\begin{itemize}[leftmargin=*]
+\item $n \geq 30$ (rule of thumb)
+\item For skewed distributions, may need larger $n$
+\item Works for ANY distribution with finite variance
+\end{itemize}
+\warning{For discrete RVs, apply continuity correction (see 6.2)!}
 
 \subsection*{6.2 Normal Approximations}
+\textbf{Terms:} Continuity correction = adjust by $\pm 0.5$ when approximating discrete with continuous, Normal approximation = use $N(\mu,\sigma^2)$ to approximate discrete distribution, Rule of thumb = $np \geq 10$ and $n(1-p) \geq 10$ for Binomial
+
+\textbf{BINOMIAL APPROXIMATION:}
 \begin{itemize}[leftmargin=*]
-\item \concept{Binomial Approximation:} If $X \sim \text{Binomial}(n,p)$ with $np(1-p) > 10$:
+\item \concept{When to Use:} $X \sim \text{Binomial}(n, p)$ with $np \geq 10$ AND $n(1-p) \geq 10$
+\item \concept{Approximation:}
   \formula{X \approx N(np, np(1-p))}
-\item \concept{Poisson Approximation:} If $X \sim \text{Poisson}(\lambda)$ with $\lambda > 30$:
-  \formula{X \approx N(\lambda, \lambda)}
-\item \concept{Continuity Correction:} For discrete $X$:
+\item \concept{Worked Example:} $X \sim \text{Bin}(100, 0.3)$. Find $P(X > 35)$.
   \begin{itemize}
-  \item $P(X = k) \approx P(k-0.5 < Y < k+0.5)$
-  \item $P(X \leq k) \approx P(Y < k+0.5)$
-  \item $P(X < k) \approx P(Y < k-0.5)$
+  \item Check: $np = 30 \geq 10$ \checkmark, $n(1-p) = 70 \geq 10$ \checkmark
+  \item $\mu = np = 30$, $\sigma^2 = np(1-p) = 21$, $\sigma = \sqrt{21} \approx 4.58$
+  \item With continuity correction: $P(X > 35) = P(X \geq 36) \approx P(Y > 35.5)$
+  \item $Z = (35.5 - 30)/4.58 = 1.20$
+  \item $P(X > 35) \approx 1 - \Phi(1.20) = 0.115$
   \end{itemize}
-\item \concept{Example:} Binomial(100, 0.3), find $P(X > 35)$
-\item \note{Correction improves accuracy significantly}
 \end{itemize}
 
-\subsection*{6.3 Law of Large Numbers (LLN)}
+\textbf{POISSON APPROXIMATION:}
 \begin{itemize}[leftmargin=*]
-\item \concept{Weak LLN:} $\bar{X}_n \xrightarrow{P} \mu$ (convergence in probability)
-\item \concept{Strong LLN:} $\bar{X}_n \xrightarrow{a.s.} \mu$ (almost sure convergence)
-\item \concept{Interpretation:} Sample mean converges to true mean
-\item \concept{Conditions:}
+\item \concept{When to Use:} $X \sim \text{Poisson}(\lambda)$ with $\lambda \geq 30$
+\item \concept{Approximation:} \formula{X \approx N(\lambda, \lambda)}
   \begin{itemize}
-  \item Weak: Finite mean, pairwise uncorrelated
-  \item Strong: Finite mean (iid case)
+  \item Mean = Variance = $\lambda$ for Poisson
   \end{itemize}
-\item \concept{Example:} Casino games, long-run frequency
-\item \note{Foundation for frequentist probability}
+\end{itemize}
+
+\textbf{CONTINUITY CORRECTION (Critical for Discrete!):}
+\begin{itemize}[leftmargin=*]
+\item \concept{Why:} Discrete integer $\to$ continuous normal; adjust by $\pm 0.5$
+\item \concept{Rules (let $Y$ = normal approximation):}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Discrete Prob} & \textbf{Normal Approx} \\
+\hline
+$P(X = k)$ & $P(k - 0.5 < Y < k + 0.5)$ \\
+$P(X \leq k)$ & $P(Y < k + 0.5)$ \\
+$P(X < k)$ & $P(Y < k - 0.5)$ \\
+$P(X \geq k)$ & $P(Y > k - 0.5)$ \\
+$P(X > k)$ & $P(Y > k + 0.5)$ \\
+$P(a \leq X \leq b)$ & $P(a - 0.5 < Y < b + 0.5)$ \\
+\hline
+\end{tabular}
+\end{center}
+\item \concept{Memory Aid:}
+  \begin{itemize}
+  \item ``$\leq k$'' includes $k$, so go to $k + 0.5$
+  \item ``$< k$'' excludes $k$, so stop at $k - 0.5$
+  \item ``$\geq k$'' includes $k$, so start at $k - 0.5$
+  \item ``$> k$'' excludes $k$, so start at $k + 0.5$
+  \end{itemize}
+\item \concept{Worked Example:} $X \sim \text{Bin}(50, 0.4)$. Find $P(X = 20)$.
+  \begin{itemize}
+  \item $\mu = 20$, $\sigma = \sqrt{50 \times 0.4 \times 0.6} = \sqrt{12} \approx 3.46$
+  \item $P(X = 20) \approx P(19.5 < Y < 20.5)$
+  \item $= \Phi(\frac{20.5-20}{3.46}) - \Phi(\frac{19.5-20}{3.46}) = \Phi(0.14) - \Phi(-0.14)$
+  \item $= 0.556 - 0.444 = 0.112$
+  \end{itemize}
+\end{itemize}
+\warning{Forgetting continuity correction is a common exam mistake!}
+
+\subsection*{6.3 Law of Large Numbers (LLN)}
+\textbf{Terms:} LLN = Law of Large Numbers, $\xrightarrow{P}$ = converges in probability, $\xrightarrow{a.s.}$ = almost sure convergence, Weak LLN = convergence in probability, Strong LLN = almost sure convergence
+\begin{itemize}[leftmargin=*]
+\item \concept{Statement:} As $n \to \infty$, sample mean $\to$ true mean
+\item \concept{Weak LLN:}
+  \formula{\bar{X}_n \xrightarrow{P} \mu} (convergence in probability)
+  \begin{itemize}
+  \item For any $\epsilon > 0$: $\lim_{n\to\infty} P(|\bar{X}_n - \mu| > \epsilon) = 0$
+  \end{itemize}
+\item \concept{Strong LLN:}
+  \formula{\bar{X}_n \xrightarrow{a.s.} \mu} (almost sure convergence)
+  \begin{itemize}
+  \item $P(\lim_{n\to\infty} \bar{X}_n = \mu) = 1$
+  \end{itemize}
+\item \concept{Intuition:}
+  \begin{itemize}
+  \item Flip fair coin many times: proportion of heads $\to 0.5$
+  \item Casino: average winnings per game $\to$ expected value
+  \item Sample mean is consistent estimator of population mean
+  \end{itemize}
+\item \concept{LLN vs CLT:}
+  \begin{itemize}
+  \item \textbf{LLN:} WHERE does $\bar{X}_n$ converge? (Answer: to $\mu$)
+  \item \textbf{CLT:} HOW is $\bar{X}_n$ distributed? (Answer: approximately normal)
+  \end{itemize}
+\item \concept{Worked Example:} Roll die 1000 times. By LLN, average roll $\approx E[X] = 3.5$
+\item \note{LLN justifies using relative frequency as probability estimate}
 \end{itemize}
 
 \subsection*{6.4 Confidence Intervals}
+\textbf{Terms:} CI = Confidence Interval, $(1-\alpha)$ = confidence level (e.g., 95\%), $\alpha$ = significance level, $z_{\alpha/2}$ = critical value from standard normal, SE = standard error $= \sigma/\sqrt{n}$, ME = margin of error
 \begin{itemize}[leftmargin=*]
-\item \concept{Definition:} Interval estimate with specified confidence level
-\item \concept{For Mean (known $\sigma$):} \formula{\bar{X} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}}
-\item \concept{Common Values:}
-  \begin{itemize}
-  \item 90\% CI: $z_{0.05} = 1.645$
-  \item 95\% CI: $z_{0.025} = 1.96$
-  \item 99\% CI: $z_{0.005} = 2.576$
-  \end{itemize}
-\item \concept{Interpretation:} 95\% of such intervals contain true parameter
-\item \concept{Width:} $2 \cdot z_{\alpha/2} \cdot \sigma/\sqrt{n}$
-\item \warning{NOT "95\% chance parameter is in interval"}
-\item \note{Larger $n$ $\Rightarrow$ narrower interval}
+\item \concept{Definition:} Interval estimate with specified confidence level $(1-\alpha)$
+\item \concept{CI for Mean (known $\sigma$):}
+  \formula{\left(\bar{X} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}, \quad \bar{X} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}\right)}
+  \formula{\text{or } \bar{X} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}}
 \end{itemize}
+
+\textbf{CRITICAL VALUES:}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Confidence & $\alpha$ & $z_{\alpha/2}$ \\
+\hline
+90\% & 0.10 & 1.645 \\
+95\% & 0.05 & 1.96 \\
+99\% & 0.01 & 2.576 \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{STEP-BY-STEP PROCEDURE:}
+\begin{enumerate}[leftmargin=*]
+\item Identify confidence level $(1-\alpha)$ and find $z_{\alpha/2}$
+\item Compute sample mean $\bar{X}$
+\item Compute standard error: $SE = \sigma/\sqrt{n}$
+\item Margin of error: $ME = z_{\alpha/2} \cdot SE$
+\item CI: $(\bar{X} - ME, \bar{X} + ME)$
+\end{enumerate}
+
+\textbf{WORKED EXAMPLE:} $n = 100$, $\bar{X} = 52$, $\sigma = 10$ (known). Find 95\% CI.
+\begin{itemize}[leftmargin=*]
+\item $z_{0.025} = 1.96$
+\item $SE = 10/\sqrt{100} = 1$
+\item $ME = 1.96 \times 1 = 1.96$
+\item 95\% CI: $(52 - 1.96, 52 + 1.96) = (50.04, 53.96)$
+\end{itemize}
+
+\textbf{INTERPRETATION (Critical!):}
+\begin{itemize}[leftmargin=*]
+\item \concept{CORRECT:} ``95\% of intervals constructed this way contain $\mu$''
+\item \warning{WRONG:} ``95\% probability that $\mu$ is in this interval''
+\item The parameter $\mu$ is fixed; the interval is random
+\end{itemize}
+
+\textbf{SAMPLE SIZE DETERMINATION:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Given desired margin of error $E$:}
+  \formula{n \geq \left(\frac{z_{\alpha/2} \cdot \sigma}{E}\right)^2}
+\item \concept{Example:} Want 95\% CI with margin $\pm 2$, $\sigma = 10$.
+  \begin{itemize}
+  \item $n \geq (1.96 \times 10/2)^2 = (9.8)^2 = 96.04$
+  \item Need $n \geq 97$
+  \end{itemize}
+\end{itemize}
+
+\textbf{CI PROPERTIES:}
+\begin{itemize}[leftmargin=*]
+\item Larger $n$ $\Rightarrow$ narrower CI (more precision)
+\item Higher confidence $\Rightarrow$ wider CI (more certainty requires wider net)
+\item Width $= 2 \times z_{\alpha/2} \times \sigma/\sqrt{n}$
+\end{itemize}
+\note{CI width halves when $n$ quadruples (due to $\sqrt{n}$)}
 
 % ============================================================
 \section*{\textcolor{sectioncolor}{7. SPECIAL TOPICS \& APPLICATIONS}} \postmidterm{Post-M2}
 % ============================================================
 
 \subsection*{7.1 Conditional Expectation (a.k.a. $E[X|Y]$, Total Expectation)} \postmidterm{Conceptual!}
+\textbf{Terms:} $E[X|Y=y]$ = conditional expectation (a number), $E[X|Y]$ = conditional expectation (a random variable, function of $Y$), Tower property = $E[X] = E[E[X|Y]]$, Total expectation = law of iterated expectations
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} ``$E[X|Y]$'', ``average given'', ``expected value given''
-\item \concept{TRIGGER WORDS:} ``$E[X|Y=y]$'', ``break down by cases'', ``tower property''
-\item \concept{Definition:}
-  \begin{itemize}
-  \item Discrete: $E[X|Y=y] = \sum x \cdot P(X=x|Y=y)$
-  \item Continuous: $E[X|Y=y] = \int x \cdot f_{X|Y}(x|y)dx$
-  \end{itemize}
-\item \concept{Law of Total Expectation:} \formula{E[X] = E[E[X|Y]]}
-\item \concept{Properties:}
-  \begin{itemize}
-  \item Linearity: $E[aX+bZ|Y] = aE[X|Y] + bE[Z|Y]$
-  \item Taking out known: $E[h(Y)X|Y] = h(Y)E[X|Y]$
-  \item Independence: $E[X|Y] = E[X]$ if independent
-  \end{itemize}
-\item \concept{Law of Total Variance:} \formula{\text{Var}(X) = E[\text{Var}(X|Y)] + \text{Var}(E[X|Y])}
-\item \concept{Example:} Breaking sticks problem
-\item \note{$E[X|Y]$ is a function of $Y$, not a number!}
+\item \concept{TRIGGER WORDS:} ``$E[X|Y=y]$'', ``break down by cases'', ``tower property'', ``given''
 \end{itemize}
 
+\textbf{DEFINITION:}
+\begin{itemize}[leftmargin=*]
+\item \concept{$E[X|Y=y]$ (a number):}
+  \begin{itemize}
+  \item Discrete: $E[X|Y=y] = \sum_x x \cdot P(X=x|Y=y)$
+  \item Continuous: $E[X|Y=y] = \int_{-\infty}^{\infty} x \cdot f_{X|Y}(x|y)\,dx$
+  \end{itemize}
+\item \concept{$E[X|Y]$ (a random variable):}
+  \begin{itemize}
+  \item $E[X|Y]$ is a function of $Y$, so it's a random variable!
+  \item Substitute $Y$ for $y$ in $E[X|Y=y]$
+  \end{itemize}
+\end{itemize}
+
+\textbf{LAW OF TOTAL EXPECTATION (Tower Property):}
+\begin{itemize}[leftmargin=*]
+\item \formula{E[X] = E[E[X|Y]]}
+\item \concept{Discrete version:} $E[X] = \sum_y E[X|Y=y] \cdot P(Y=y)$
+\item \concept{Continuous version:} $E[X] = \int E[X|Y=y] \cdot f_Y(y)\,dy$
+\item \concept{Intuition:} Average of conditional averages = overall average
+\end{itemize}
+
+\textbf{STEP-BY-STEP: Computing $E[X]$ via Conditioning:}
+\begin{enumerate}[leftmargin=*]
+\item Choose what to condition on (often a natural ``first stage'')
+\item Compute $E[X|Y=y]$ for each value of $Y$
+\item Apply: $E[X] = \sum_y E[X|Y=y] \cdot P(Y=y)$ or integral
+\end{enumerate}
+
+\textbf{WORKED EXAMPLE:} Roll die. If outcome is $Y$, flip $Y$ coins. Let $X$ = \# heads.
+\begin{itemize}[leftmargin=*]
+\item $X|Y=y \sim \text{Bin}(y, 1/2)$, so $E[X|Y=y] = y/2$
+\item $E[X|Y] = Y/2$ (random variable)
+\item $E[X] = E[Y/2] = E[Y]/2 = 3.5/2 = 1.75$
+\end{itemize}
+
+\textbf{LAW OF TOTAL VARIANCE:}
+\begin{itemize}[leftmargin=*]
+\item \formula{\text{Var}(X) = E[\text{Var}(X|Y)] + \text{Var}(E[X|Y])}
+\item \concept{Interpretation:}
+  \begin{itemize}
+  \item $E[\text{Var}(X|Y)]$ = average within-group variance
+  \item $\text{Var}(E[X|Y])$ = variance of group means
+  \end{itemize}
+\end{itemize}
+
+\textbf{KEY PROPERTIES:}
+\begin{itemize}[leftmargin=*]
+\item Linearity: $E[aX + bZ | Y] = aE[X|Y] + bE[Z|Y]$
+\item Taking out known: $E[h(Y) \cdot X | Y] = h(Y) \cdot E[X|Y]$
+\item If $X, Y$ independent: $E[X|Y] = E[X]$
+\item Tower: $E[E[X|Y,Z]|Y] = E[X|Y]$
+\end{itemize}
+\note{$E[X|Y]$ is the best predictor of $X$ given $Y$ (minimizes MSE)}
+
 \subsection*{7.2 Bayesian Statistics (a.k.a. Prior/Posterior, Conjugate Priors)} \postmidterm{Professor's Favorite!}
+\textbf{Terms:} Prior $\pi(\theta)$ = belief before data, Likelihood $L(x|\theta)$ = prob of data given parameter, Posterior $\pi(\theta|x)$ = updated belief after data, Conjugate prior = posterior is same family as prior, MAP = Maximum A Posteriori (mode of posterior)
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} ``prior'', ``posterior'', ``update belief'', ``given evidence'', ``conjugate''
 \item \concept{TRIGGER WORDS:} ``defective rate'', ``unknown parameter'', ``given data'', ``Monty Hall''
-\item \concept{Bayesian Framework:}
-  \formula{\pi(\theta|x) = \frac{L(x|\theta)\pi(\theta)}{\int L(x|\theta)\pi(\theta)d\theta}}
-  where Prior $\times$ Likelihood $\rightarrow$ Posterior
-\item \concept{Conjugate Priors:}
-  \begin{itemize}
-  \item Beta-Binomial: $\text{Beta}(\alpha,\beta) \rightarrow \text{Beta}(\alpha+x, \beta+n-x)$
-  \item Gamma-Poisson: $\text{Gamma}(\alpha,\beta) \rightarrow \text{Gamma}(\alpha+\sum x_i, \beta+n)$
-  \item Normal-Normal: With known variance
-  \end{itemize}
-\item \concept{Solution Steps:}
-  \begin{enumerate}
-  \item Specify prior $\pi(\theta)$
-  \item Write likelihood $L(x|\theta)$
-  \item Compute posterior (use conjugacy if possible)
-  \item Normalize if needed
-  \end{enumerate}
-\item \concept{Example:} HW6 Monty Hall Bayesian analysis
-\item \finance{Used in risk assessment, portfolio optimization}
 \end{itemize}
 
+\textbf{BAYESIAN FRAMEWORK:}
+\begin{itemize}[leftmargin=*]
+\item \formula{\text{Posterior} \propto \text{Likelihood} \times \text{Prior}}
+\item \formula{\pi(\theta|x) = \frac{L(x|\theta)\pi(\theta)}{\int L(x|\theta)\pi(\theta)d\theta}}
+\item \concept{Components:}
+  \begin{itemize}
+  \item $\pi(\theta)$ = Prior: belief about $\theta$ BEFORE seeing data
+  \item $L(x|\theta) = P(\text{data}|\theta)$ = Likelihood: prob of data given parameter
+  \item $\pi(\theta|x)$ = Posterior: updated belief AFTER seeing data
+  \item $d\theta$ = ``integrate over all possible values of $\theta$'' (the denominator)
+  \item $\int L(x|\theta)\pi(\theta)d\theta$ = normalizing constant (makes posterior integrate to 1)
+  \end{itemize}
+\end{itemize}
+
+\textbf{WHAT IS A KERNEL? (Critical for Recognition!)}
+\begin{itemize}[leftmargin=*]
+\item \concept{Kernel:} The part of a PDF that depends on the variable (ignoring constants)
+\item \concept{How to use:} Match the $\theta$-dependent part to a known distribution
+\item \concept{Common Kernels to Recognize:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\theta^{a-1}(1-\theta)^{b-1}$ $\Rightarrow$ Beta$(a,b)$ (for $0 < \theta < 1$)
+  \item $\theta^{a-1}e^{-b\theta}$ $\Rightarrow$ Gamma$(a,b)$ (for $\theta > 0$)
+  \item $e^{-(\theta-\mu)^2/(2\sigma^2)}$ $\Rightarrow$ Normal$(\mu,\sigma^2)$
+  \item $e^{-\lambda\theta}$ $\Rightarrow$ Exponential$(\lambda)$ (for $\theta > 0$)
+  \end{itemize}
+\item \concept{Example:} If posterior $\propto \theta^4(1-\theta)^7$, recognize as Beta$(5,8)$
+\end{itemize}
+
+\textbf{HOW TO NORMALIZE (when kernel not recognized):}
+\begin{enumerate}[leftmargin=*]
+\item Compute $c = \int L(x|\theta)\pi(\theta)d\theta$ over support of $\theta$
+\item Posterior PDF = $\frac{1}{c} \cdot L(x|\theta)\pi(\theta)$
+\item \textbf{Shortcut:} If you recognize the kernel, the normalizing constant is known!
+  \begin{itemize}[itemsep=0pt]
+  \item Beta$(a,b)$: constant = $\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)} = B(a,b)$
+  \item Gamma$(a,b)$: constant = $\frac{\Gamma(a)}{b^a}$
+  \end{itemize}
+\end{enumerate}
+
+\textbf{STEP-BY-STEP: Bayesian Update (Continuous Prior):}
+\begin{enumerate}[leftmargin=*]
+\item Specify prior distribution $\pi(\theta)$
+\item Write likelihood function $L(x|\theta)$
+\item Multiply: $\pi(\theta|x) \propto L(x|\theta) \cdot \pi(\theta)$
+\item Collect all $\theta$-dependent terms (the kernel)
+\item Recognize the kernel $\Rightarrow$ identify distribution family and parameters
+\item Or normalize: divide by $\int L(x|\theta)\pi(\theta)d\theta$
+\end{enumerate}
+
+\textbf{CONJUGATE PRIORS (Posterior same family as prior):}\\
+\textit{Key: $n$ = \# observations, $x$ = \# successes, $\sum x_i$ = sum of data}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \textbf{Binomial$(n,\theta)$ + Beta$(\alpha,\beta)$:} Posterior = Beta$(\alpha+x, \beta+n-x)$
+  \begin{itemize}[itemsep=0pt]
+  \item $\alpha$ += successes, $\beta$ += failures
+  \end{itemize}
+\item \textbf{Poisson$(\theta)$ + Gamma$(\alpha,\beta)$:} Posterior = Gamma$(\alpha+\sum x_i, \beta+n)$
+  \begin{itemize}[itemsep=0pt]
+  \item $\alpha$ += total count, $\beta$ += \# observations
+  \end{itemize}
+\item \textbf{Exp$(\theta)$ + Gamma$(\alpha,\beta)$:} Posterior = Gamma$(\alpha+n, \beta+\sum x_i)$
+  \begin{itemize}[itemsep=0pt]
+  \item $\alpha$ += \# observations, $\beta$ += sum of data
+  \end{itemize}
+\item \textbf{Normal$(\theta,\sigma^2)$ + Normal$(\mu_0,\tau^2)$:} Posterior = Normal (precision-weighted avg)
+  \begin{itemize}[itemsep=0pt]
+  \item Posterior mean = $\frac{\tau^2 \bar{x} + (\sigma^2/n)\mu_0}{\tau^2 + \sigma^2/n}$
+  \end{itemize}
+\end{itemize}
+
+\textbf{FULL WORKED EXAMPLE: Beta-Binomial Update:}\\
+\textit{Problem: Estimate defect rate $\theta$. Prior belief: $\theta \sim \text{Beta}(2, 3)$. Observe 7 defectives in 20 items.}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Prior:} $\theta \sim \text{Beta}(\alpha=2, \beta=3)$
+  \begin{itemize}[itemsep=0pt]
+  \item Prior mean: $E[\theta] = \frac{\alpha}{\alpha+\beta} = \frac{2}{5} = 0.4$
+  \item Prior variance: $\text{Var}(\theta) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)} = \frac{6}{25 \cdot 6} = 0.04$
+  \end{itemize}
+\item \textbf{Likelihood:} $X|\theta \sim \text{Binomial}(n=20, \theta)$, observed $x=7$
+  \[L(\theta) = \binom{20}{7}\theta^7(1-\theta)^{13} \propto \theta^7(1-\theta)^{13}\]
+\item \textbf{Posterior $\propto$ Likelihood $\times$ Prior:}
+  \[\pi(\theta|x) \propto \theta^7(1-\theta)^{13} \cdot \theta^{2-1}(1-\theta)^{3-1} = \theta^{8}(1-\theta)^{15}\]
+\item \textbf{Recognize kernel:} $\theta^{8}(1-\theta)^{15} = \theta^{9-1}(1-\theta)^{16-1}$ $\Rightarrow$ Beta$(9, 16)$
+\item \textbf{Posterior:} $\theta|x \sim \text{Beta}(\alpha'=2+7=9, \beta'=3+13=16)$
+  \begin{itemize}[itemsep=0pt]
+  \item Posterior mean: $E[\theta|x] = \frac{9}{9+16} = \frac{9}{25} = 0.36$
+  \item Posterior variance: $\text{Var}(\theta|x) = \frac{9 \cdot 16}{25^2 \cdot 26} = \frac{144}{16250} \approx 0.0089$
+  \end{itemize}
+\item \textbf{Interpretation:} Data (35\% defective) pulled estimate down from 0.4 to 0.36. Variance decreased (more certain after seeing data).
+\end{enumerate}
+
+\textbf{DISCRETE PRIOR (Finite hypotheses):}
+\begin{itemize}[leftmargin=*]
+\item When $\theta \in \{\theta_1, \theta_2, ..., \theta_k\}$
+\item Use Bayes' theorem: $P(\theta_i|x) = \frac{P(x|\theta_i)P(\theta_i)}{\sum_j P(x|\theta_j)P(\theta_j)}$
+\item Same as Section 1.3 but with parameter interpretation
+\end{itemize}
+
+\textbf{POSTERIOR MEAN AND MAP:}
+\begin{itemize}[leftmargin=*]
+\item Posterior Mean: $E[\theta|x] = \int \theta \cdot \pi(\theta|x)d\theta$
+\item MAP (Maximum A Posteriori): Mode of posterior
+\item For Beta$(\alpha,\beta)$: Mean $= \frac{\alpha}{\alpha+\beta}$, Mode $= \frac{\alpha-1}{\alpha+\beta-2}$
+\end{itemize}
+\note{Conjugate priors make computation easy -- posterior is same family as prior!}
+
 \subsection*{7.3 Lognormal Distribution (a.k.a. $\ln X \sim N(\mu,\sigma^2)$)} \postmidterm{Finance Applications!}
+\textbf{Terms:} Lognormal = $Y = e^X$ where $X \sim N(\mu,\sigma^2)$, $\mu$ = mean of $\ln Y$, $\sigma^2$ = variance of $\ln Y$, Log return = $\ln(S_T/S_0)$, Geometric Brownian Motion = stock price model
 \begin{itemize}[leftmargin=*]
 \item \concept{SYNONYMS:} Lognormal, ``$\log X$ is normal'', ``$e^X$ where $X \sim N$'', ``stock price model''
 \item \concept{TRIGGER WORDS:} ``stock price'', ``$S = S_0 e^Z$'', ``log returns'', ``always positive''
-\item \concept{Definition:} $Y = e^X$ where $X \sim N(\mu, \sigma^2)$
-\item \concept{Properties:}
-  \begin{itemize}
-  \item Always positive (good for prices)
-  \item Right-skewed
-  \item Mean: $E[Y] = e^{\mu + \sigma^2/2}$
-  \item Variance: $\text{Var}(Y) = e^{2\mu+\sigma^2}(e^{\sigma^2}-1)$
-  \item Median: $e^\mu$
-  \end{itemize}
-\item \concept{Stock Price Model:} $S_t = S_0 \exp(X_t)$ where $X_t \sim N(\mu t, \sigma^2 t)$
-\item \concept{Example:} HW5 Problem 2, Practice Final stock problems
-\item \finance{Black-Scholes model foundation}
-\item \note{Log returns are normal, prices are lognormal}
 \end{itemize}
 
-\subsection*{7.4 Additional Important Concepts}
+\textbf{DEFINITION AND PROPERTIES:}
 \begin{itemize}[leftmargin=*]
-\item \concept{Indicator Random Variables:}
+\item \concept{Definition:} If $X \sim N(\mu, \sigma^2)$, then $Y = e^X$ is Lognormal
+\item \concept{Equivalently:} $\ln Y \sim N(\mu, \sigma^2)$
+\item \concept{Key Parameters:}
   \begin{itemize}
-  \item $I_A = 1$ if $A$ occurs, 0 otherwise
-  \item $E[I_A] = P(A)$
-  \item Useful for counting: $\sum I_{A_i}$
+  \item Mean: \formula{E[Y] = e^{\mu + \sigma^2/2}}
+  \item Variance: $\text{Var}(Y) = e^{2\mu + \sigma^2}(e^{\sigma^2} - 1)$
+  \item Median: $e^\mu$ (note: median $\neq$ mean due to skewness)
+  \item Mode: $e^{\mu - \sigma^2}$
   \end{itemize}
-\item \concept{Jensen's Inequality:} For convex $g$: $E[g(X)] \geq g(E[X])$
-\item \concept{Chebyshev's Inequality:} $P(|X-\mu| \geq k\sigma) \leq 1/k^2$
-\item \concept{Probability Integral Transform:} $F(X) \sim \text{Uniform}(0,1)$
+\item \concept{Properties:}
+  \begin{itemize}
+  \item Always positive: $Y > 0$
+  \item Right-skewed
+  \item Product of lognormals is lognormal
+  \end{itemize}
+\end{itemize}
+
+\textbf{CRITICAL FORMULA:}
+\begin{itemize}[leftmargin=*]
+\item \formula{E[e^X] = e^{\mu + \sigma^2/2} \text{ when } X \sim N(\mu, \sigma^2)}
+\item This is THE key formula for lognormal problems!
+\end{itemize}
+
+\textbf{STOCK PRICE MODEL:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Model:} $S_T = S_0 e^Z$ where $Z \sim N(\mu, \sigma^2)$
+\item \concept{Risk-Neutral:} Often $Z \sim N((r - \sigma^2/2)T, \sigma^2 T)$ where $r$ = risk-free rate
+\item \concept{Key Result:} $E[e^{-rT}S_T] = S_0$ (discounted expected price = current price)
+\end{itemize}
+
+\textbf{GENERALIZED LOGNORMAL STOCK PRICE WALKTHROUGH:}\\
+\textit{Given: $S = S_0 e^Z$ where $Z \sim N(r - \sigma^2/2, \sigma^2)$, with $S_0$, $r$, $\sigma$ given.}
+
+\textbf{Part A: Computing $E[e^{-r}S]$ (Discounted Expected Value):}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Recognize:} MGF of standard normal is $E[e^{tW}] = e^{t^2/2}$ for $W \sim N(0,1)$
+\item \textbf{Rewrite Z:} $Z = (r - \sigma^2/2) + \sigma \cdot N(0,1)$
+\item \textbf{Compute:}
+  \begin{align*}
+  E[e^{-r}S] &= e^{-r}S_0 E[e^Z] = e^{-r}S_0 E[e^{(r-\sigma^2/2) + \sigma N(0,1)}] \\
+  &= e^{-r}S_0 e^{(r-\sigma^2/2)} E[e^{\sigma N(0,1)}] \\
+  &= e^{-r}S_0 e^{(r-\sigma^2/2)} e^{\sigma^2/2} = S_0
+  \end{align*}
+\item \textbf{Key insight:} Discounted expected price equals current price (risk-neutral pricing)
+\end{enumerate}
+
+\textbf{Part B: Computing $P(S > K)$ (Probability Exceeds Threshold):}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Setup:} $P(S > K) = P(S_0 e^Z > K)$
+\item \textbf{Take log:} $P(Z > \ln(K/S_0))$
+\item \textbf{Standardize:} Since $Z \sim N(r - \sigma^2/2, \sigma^2)$:
+  \[P\left(\frac{Z - (r-\sigma^2/2)}{\sigma} > \frac{\ln(K/S_0) - (r-\sigma^2/2)}{\sigma}\right)\]
+\item \textbf{Use symmetry:} Let $d = \frac{\ln(K/S_0) - (r-\sigma^2/2)}{\sigma}$
+  \[P(N(0,1) > d) = 1 - \Phi(d) = \Phi(-d)\]
+\item \textbf{Final formula:}
+  \formula{P(S > K) = \Phi\left(\frac{(r-\sigma^2/2) - \ln(K/S_0)}{\sigma}\right) = \Phi\left(\frac{\ln(S_0/K) + r - \sigma^2/2}{\sigma}\right)}
+\end{enumerate}
+
+\textbf{Quick Reference for $S = S_0 e^Z$, $Z \sim N(r-\sigma^2/2, \sigma^2)$:}
+\begin{itemize}[leftmargin=*]
+\item $E[S] = S_0 e^r$ (expected price grows at rate $r$)
+\item $E[e^{-r}S] = S_0$ (discounted expected = current price)
+\item $P(S > K) = \Phi\left(\frac{\ln(S_0/K) + r - \sigma^2/2}{\sigma}\right)$
+\end{itemize}
+
+\textbf{STEP-BY-STEP: Finding $P(S > K)$ (General):}
+\begin{enumerate}[leftmargin=*]
+\item Write $S = S_0 e^Z$ where $Z \sim N(\mu, \sigma^2)$
+\item $P(S > K) = P(S_0 e^Z > K) = P(e^Z > K/S_0)$
+\item $= P(Z > \ln(K/S_0))$
+\item $= 1 - \Phi\left(\frac{\ln(K/S_0) - \mu}{\sigma}\right)$
+\end{enumerate}
+
+\textbf{WORKED EXAMPLE:}
+\begin{itemize}[leftmargin=*]
+\item $S_0 = 100$, $Z \sim N(0.03, 0.04)$ (so $\mu = 0.03$, $\sigma = 0.2$)
+\item \textbf{Find $E[S]$:}
+  \begin{itemize}
+  \item $E[S] = S_0 \cdot E[e^Z] = 100 \cdot e^{0.03 + 0.04/2} = 100 \cdot e^{0.05} \approx 105.13$
+  \end{itemize}
+\item \textbf{Find $P(S > 110)$:}
+  \begin{itemize}
+  \item $P(Z > \ln(110/100)) = P(Z > 0.0953)$
+  \item $= P\left(\frac{Z - 0.03}{0.2} > \frac{0.0953 - 0.03}{0.2}\right) = P(W > 0.327)$
+  \item $= 1 - \Phi(0.327) \approx 0.372$
+  \end{itemize}
+\end{itemize}
+\finance{Lognormal is foundation of Black-Scholes option pricing}
+\note{Log returns $\ln(S_T/S_0) = Z$ are normal; prices $S_T$ are lognormal}
+
+\subsection*{7.4 Additional Important Concepts}
+\textbf{Terms:} $I_A$ = indicator of event $A$ (1 if $A$ occurs, 0 otherwise), Markov inequality = $P(X \geq a) \leq E[X]/a$, Chebyshev inequality = $P(|X-\mu| \geq k\sigma) \leq 1/k^2$, Jensen inequality = $E[g(X)] \geq g(E[X])$ for convex $g$
+
+\textbf{INDICATOR RANDOM VARIABLES:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Definition:} $I_A = \begin{cases} 1 & \text{if } A \text{ occurs} \\ 0 & \text{otherwise} \end{cases}$
+\item \concept{Key Properties:}
+  \begin{itemize}
+  \item $E[I_A] = P(A)$
+  \item $I_A^2 = I_A$ (since 0 and 1 squared are themselves)
+  \item $\text{Var}(I_A) = P(A)(1-P(A))$
+  \item $I_A \cdot I_B = I_{A \cap B}$
+  \end{itemize}
+\item \concept{Useful for Counting:} If $X = $ count of events $A_1, ..., A_n$:
+  \begin{itemize}
+  \item $X = \sum_{i=1}^n I_{A_i}$
+  \item $E[X] = \sum_{i=1}^n E[I_{A_i}] = \sum_{i=1}^n P(A_i)$
+  \end{itemize}
+\item \concept{Example:} Expected number of matches in a random derangement
+\end{itemize}
+
+\textbf{IMPORTANT INEQUALITIES:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Markov's Inequality:} For $X \geq 0$ and $a > 0$:
+  \formula{P(X \geq a) \leq \frac{E[X]}{a}}
+\item \concept{Chebyshev's Inequality:} For any $k > 0$:
+  \formula{P(|X - \mu| \geq k\sigma) \leq \frac{1}{k^2}}
+  \begin{itemize}
+  \item Equivalently: $P(|X - \mu| \geq c) \leq \frac{\sigma^2}{c^2}$
+  \item At least 75\% of data within 2 std devs
+  \item At least 89\% within 3 std devs
+  \end{itemize}
+\item \concept{Jensen's Inequality:} If $g$ is convex:
+  \formula{E[g(X)] \geq g(E[X])}
+  \begin{itemize}
+  \item For concave $g$: $E[g(X)] \leq g(E[X])$
+  \item Example: $E[X^2] \geq (E[X])^2$ (since $x^2$ is convex)
+  \item Example: $E[\ln X] \leq \ln(E[X])$ (since $\ln$ is concave)
+  \end{itemize}
+\end{itemize}
+
+\textbf{PROBABILITY INTEGRAL TRANSFORM:}
+\begin{itemize}[leftmargin=*]
+\item \concept{Theorem:} If $X$ has continuous CDF $F$, then $F(X) \sim U(0,1)$
+\item \concept{Inverse:} If $U \sim U(0,1)$, then $F^{-1}(U)$ has CDF $F$
+\item \concept{Application:} Generate random variables from any distribution using uniform
 \end{itemize}
 
 % ============================================================
@@ -949,36 +2394,54 @@ START: What type of problem?
 % ============================================================
 
 \subsection*{Template A: Gaussian Vector Problems}
-\textbf{When you see:} ``Gaussian vector'', ``independent components'', ``MVN''
+\textbf{When you see:} ``Gaussian vector'', ``independent components'', ``MVN'', ``jointly normal''
 
-\textbf{Steps:}
+\textbf{Step-by-Step Procedure:}
 \begin{enumerate}[itemsep=0pt]
-\item \textbf{Recognize:} ``Gaussian'' = Normal!
-\item \textbf{``Independent components''} means $\rho = 0$ and for MVN: \textbf{independent!}
-\item \textbf{Find Cov:} Set $\text{Cov}(Y_1, Y_2) = 0$ to find parameters
-\item \textbf{Joint density:} Product of marginals (since independent)
+\item \textbf{Recognize terminology:} ``Gaussian'' = Normal, ``Gaussian vector'' = MVN
+\item \textbf{For independent components:} Set $\rho = 0$ (equivalently $\text{Cov}(Y_1, Y_2) = 0$)
+\item \textbf{Compute covariance:} Use $\text{Cov}(aX+bY, cX+dY) = ac\text{Var}(X) + bd\text{Var}(Y) + (ad+bc)\text{Cov}(X,Y)$
+\item \textbf{For i.i.d. $N(0,1)$:} $\text{Cov}(Y_1, Y_2) = $ sum of products of coefficients
+\item \textbf{Solve for parameter:} Set covariance = 0
+\item \textbf{Write joint density:} Product of marginal densities (since independent)
 \end{enumerate}
 
-\textbf{Key Formula:} For $Y_1 = aX_1 + X_2$, $Y_2 = X_1 + bX_2$ (iid $N(0,1)$):\\
-$\text{Cov}(Y_1,Y_2) = a\text{Var}(X_1) + b\text{Var}(X_2) = a + b$\\
-Independence requires: $b = -a$
+\textbf{Key Formula:} For $Y_1 = aX_1 + X_2$, $Y_2 = X_1 + bX_2$ where $X_1, X_2 \stackrel{iid}{\sim} N(0,1)$:
+\begin{itemize}[itemsep=0pt]
+\item $\text{Cov}(Y_1,Y_2) = a \cdot 1 \cdot 1 + 1 \cdot b \cdot 1 = a + b$ (since $\text{Var}(X_i) = 1$, $\text{Cov}(X_1,X_2) = 0$)
+\item Independence requires: $a + b = 0 \Rightarrow b = -a$
+\item Marginals: $Y_1 \sim N(0, a^2 + 1)$, $Y_2 \sim N(0, 1 + a^2)$
+\item Joint density: $f(y_1, y_2) = \frac{1}{2\pi(a^2+1)} \exp\left(-\frac{y_1^2 + y_2^2}{2(a^2+1)}\right)$
+\end{itemize}
+
+\textbf{Verification:} Check that joint = product of marginals!
 
 \subsection*{Template B: CLT Game/Coin Problems}
-\textbf{When you see:} ``400 games'', ``total winnings'', ``approximate''
+\textbf{When you see:} ``400 games'', ``total winnings'', ``approximate'', ``n trials''
 
-\textbf{Steps:}
+\textbf{Complete Step-by-Step:}
 \begin{enumerate}[itemsep=0pt]
-\item \textbf{Define:} $X_i$ = single trial outcome
-\item \textbf{PMF:} List outcomes and probabilities
-\item \textbf{Compute:} $E[X_i] = \sum x \cdot P(X=x)$
-\item \textbf{Compute:} $\text{Var}(X_i) = E[X^2] - (E[X])^2$
-\item \textbf{CLT:} $S_n = \sum X_i \approx N(n\mu, n\sigma^2)$
-\item \textbf{Standardize:} $Z = \frac{S_n - n\mu}{\sigma\sqrt{n}}$
+\item \textbf{Define RV:} $X_i$ = outcome/profit from single game $i$
+\item \textbf{List PMF:} Create table of all outcomes with probabilities
+\item \textbf{Compute $E[X]$:} $E[X_i] = \sum_x x \cdot P(X=x)$
+\item \textbf{Compute $E[X^2]$:} $E[X_i^2] = \sum_x x^2 \cdot P(X=x)$
+\item \textbf{Compute $\text{Var}(X)$:} $\text{Var}(X_i) = E[X^2] - (E[X])^2$
+\item \textbf{Apply CLT for sum:} $S_n = \sum_{i=1}^n X_i \approx N(n\mu, n\sigma^2)$
+\item \textbf{Standardize:} $Z = \frac{S_n - n\mu}{\sigma\sqrt{n}} \sim N(0,1)$
+\item \textbf{Calculate probability:} Use normal table
+\item \textbf{Apply continuity correction if needed:} For discrete $S_n$
 \end{enumerate}
 
-\textbf{Example:} Win \$3 if HH ($p=1/4$), lose \$1 if TT ($p=1/4$), else \$0 ($p=1/2$)\\
-$E[X] = 3(1/4) - 1(1/4) + 0(1/2) = 1/2$\\
-$E[X^2] = 9(1/4) + 1(1/4) = 10/4$, $\text{Var}(X) = 10/4 - 1/4 = 9/4$
+\textbf{Full Worked Example:} Win \$3 if HH, lose \$1 if TT, else \$0. Play 400 times.
+\begin{itemize}[itemsep=0pt]
+\item PMF: $P(X=3) = 1/4$, $P(X=-1) = 1/4$, $P(X=0) = 1/2$
+\item $E[X] = 3(1/4) + (-1)(1/4) + 0(1/2) = 3/4 - 1/4 = 1/2$
+\item $E[X^2] = 9(1/4) + 1(1/4) + 0 = 10/4$
+\item $\text{Var}(X) = 10/4 - (1/2)^2 = 10/4 - 1/4 = 9/4$, $\sigma = 3/2$
+\item $S_{400} \approx N(400 \cdot 1/2, 400 \cdot 9/4) = N(200, 900)$
+\item $P(S > 240) = P(Z > \frac{240-200}{30}) = P(Z > 1.33) \approx 0.092$
+\end{itemize}
+\textbf{Verification:} Does $n\mu = 200$ make sense? (Expected to win \$200 in 400 games at \$0.50/game) \checkmark
 
 \subsection*{Template C: Exponential + CLT}
 \textbf{When you see:} ``i.i.d. Exp'', ``mean $\theta$'', ``average''
@@ -1019,12 +2482,33 @@ $E[e^{-r}S] = e^{-r}S_0 E[e^Z] = e^{-r}S_0 e^{(r-\sigma^2/2) + \sigma^2/2} = S_0
 \end{enumerate}
 
 \subsection*{Template F: Bivariate Normal Conditional}
-\textbf{When you see:} ``bivariate normal'', ``$Y|X=x$'', ``conditional distribution''
+\textbf{When you see:} ``bivariate normal'', ``$Y|X=x$'', ``conditional distribution'', ``given $X=x$''
 
-\textbf{Formula:}
+\textbf{Main Formula:}
 \formula{Y|X=x \sim N\left(\mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X), (1-\rho^2)\sigma_Y^2\right)}
 
-\textbf{Special Case:} If $\rho = 0$, then $Y|X=x \sim N(\mu_Y, \sigma_Y^2)$ (unchanged!)
+\textbf{Step-by-Step Procedure:}
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{Identify parameters:} $\mu_X, \mu_Y, \sigma_X, \sigma_Y, \rho$
+\item \textbf{Conditional mean:} $E[Y|X=x] = \mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x - \mu_X)$
+\item \textbf{Conditional variance:} $\text{Var}(Y|X) = \sigma_Y^2(1-\rho^2)$ (constant in $x$!)
+\item \textbf{Write distribution:} $Y|X=x \sim N(\text{cond. mean}, \text{cond. var})$
+\end{enumerate}
+
+\textbf{Worked Example:} $(X,Y)$ bivariate normal with $\mu_X=0$, $\mu_Y=0$, $\sigma_X=1$, $\sigma_Y=2$, $\rho=0.6$.
+\begin{itemize}[itemsep=0pt]
+\item Find $Y|X=3$:
+\item Cond. mean: $0 + 0.6 \cdot \frac{2}{1} \cdot (3-0) = 3.6$
+\item Cond. variance: $4 \cdot (1-0.36) = 4 \cdot 0.64 = 2.56$
+\item $Y|X=3 \sim N(3.6, 2.56)$
+\item $P(Y > 5|X=3) = P(Z > \frac{5-3.6}{1.6}) = P(Z > 0.875) \approx 0.19$
+\end{itemize}
+
+\textbf{Special Cases:}
+\begin{itemize}[itemsep=0pt]
+\item $\rho = 0$: $Y|X=x \sim N(\mu_Y, \sigma_Y^2)$ (independent, conditioning doesn't help)
+\item $\rho = \pm 1$: $\text{Var}(Y|X) = 0$ (perfect prediction, $Y$ determined by $X$)
+\end{itemize}
 
 \subsection*{Template G: Linear Combination Independence}
 \textbf{When you see:} ``$Y_1 = aX_1 + X_2$'', ``$Y_2 = X_1 + bX_2$'', ``independent components''
@@ -1160,6 +2644,8 @@ $E[e^{-r}S] = e^{-r}S_0 E[e^Z] = e^{-r}S_0 e^{(r-\sigma^2/2) + \sigma^2/2} = S_0
 \item $P(H|E) = P(E|H)P(H)/P(E)$ (Bayes)
 \item $C(n,k) = n!/(k!(n-k)!)$
 \item $P(n,k) = n!/(n-k)!$
+\item Independent: $P(A \cap B) = P(A)P(B)$
+\item DeMorgan: $(A \cup B)^c = A^c \cap B^c$
 \end{itemize}
 
 \subsection*{Expectation \& Variance}
@@ -1167,12 +2653,15 @@ $E[e^{-r}S] = e^{-r}S_0 E[e^Z] = e^{-r}S_0 e^{(r-\sigma^2/2) + \sigma^2/2} = S_0
 \item $E[X] = \sum x p(x)$ or $\int x f(x) dx$
 \item $E[g(X)] = \sum g(x) p(x)$ or $\int g(x) f(x) dx$
 \item $E[aX + b] = aE[X] + b$
-\item $E[X + Y] = E[X] + E[Y]$
+\item $E[X + Y] = E[X] + E[Y]$ (always!)
+\item $E[XY] = E[X]E[Y]$ (only if independent)
 \item $\text{Var}(X) = E[X^2] - (E[X])^2$
 \item $\text{Var}(aX + b) = a^2 \text{Var}(X)$
 \item $\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
+\item If indep: $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y)$
 \item $\text{Cov}(X,Y) = E[XY] - E[X]E[Y]$
 \item $\rho = \text{Cov}(X,Y)/(\sigma_X \sigma_Y)$
+\item $\text{Var}(aX + bY) = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\text{Cov}(X,Y)$
 \end{itemize}
 
 \subsection*{Conditional Expectation}
@@ -1181,6 +2670,7 @@ $E[e^{-r}S] = e^{-r}S_0 E[e^Z] = e^{-r}S_0 e^{(r-\sigma^2/2) + \sigma^2/2} = S_0
 \item $E[X] = E[E[X|Y]]$ (Total Expectation)
 \item $E[h(Y)X|Y] = h(Y)E[X|Y]$
 \item $\text{Var}(X) = E[\text{Var}(X|Y)] + \text{Var}(E[X|Y])$
+\item If indep: $E[X|Y] = E[X]$
 \end{itemize}
 
 \subsection*{MGF \& Limit Theorems}
@@ -1188,8 +2678,26 @@ $E[e^{-r}S] = e^{-r}S_0 E[e^Z] = e^{-r}S_0 e^{(r-\sigma^2/2) + \sigma^2/2} = S_0
 \item $M_X(t) = E[e^{tX}]$
 \item $E[X^k] = M^{(k)}(0)$
 \item $M_{X+Y}(t) = M_X(t) M_Y(t)$ (if independent)
+\item $M_{aX+b}(t) = e^{bt}M_X(at)$
 \item CLT: $\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1)$
+\item For sum: $S_n \approx N(n\mu, n\sigma^2)$
+\item For mean: $\bar{X} \approx N(\mu, \sigma^2/n)$
 \item CI: $\bar{X} \pm z_{\alpha/2} \sigma/\sqrt{n}$
+\end{itemize}
+
+\subsection*{Bivariate Normal}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item $E[Y|X=x] = \mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X)$
+\item $\text{Var}(Y|X) = \sigma_Y^2(1-\rho^2)$
+\item $\rho = 0 \Leftrightarrow$ independent (MVN only!)
+\item $aX+bY \sim N(a\mu_X+b\mu_Y, a^2\sigma_X^2+b^2\sigma_Y^2+2ab\rho\sigma_X\sigma_Y)$
+\end{itemize}
+
+\subsection*{Lognormal}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item If $X \sim N(\mu,\sigma^2)$, then $Y=e^X$ is lognormal
+\item $E[e^X] = e^{\mu + \sigma^2/2}$
+\item $P(Y > K) = 1 - \Phi(\frac{\ln K - \mu}{\sigma})$
 \end{itemize}
 \end{multicols}
 
@@ -1312,6 +2820,316 @@ Beta($\alpha,\beta$) & $x^{\alpha-1}(1-x)^{\beta-1}/B(\alpha,\beta)$ & $\alpha/(
 \item If stuck, write down relevant formulas and what you know
 \item Check units/reasonableness of final answers
 \end{itemize}
+
+\subsection*{Last-Minute Reminders}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \textbf{Exp mean trap:} Mean $\theta = 3 \Rightarrow \lambda = 1/3$
+\item \textbf{Normal notation:} $N(\mu, \sigma^2)$ uses variance, not std dev
+\item \textbf{Standardize:} $Z = (X-\mu)/\sigma$, NOT $(X-\mu)/\sigma^2$
+\item \textbf{CLT:} $\text{Var}(\bar{X}) = \sigma^2/n$, $\text{Var}(S_n) = n\sigma^2$
+\item \textbf{MVN only:} $\rho = 0 \Leftrightarrow$ independent
+\item \textbf{Jacobian:} Use ABSOLUTE VALUE $|J|$
+\item \textbf{BVN Conditional:} Variance doesn't depend on $x$!
+\item \textbf{Bayesian:} Posterior $\propto$ Likelihood $\times$ Prior
+\item \textbf{Lognormal:} $E[e^X] = e^{\mu + \sigma^2/2}$
+\item \textbf{Max CDF:} $F_{\max}(x) = [F(x)]^n$
+\item \textbf{Min survival:} $P(\min > x) = [1-F(x)]^n$
+\end{itemize}
+
+\subsection*{Problem Approach Strategy}
+\begin{enumerate}[leftmargin=*,itemsep=0pt]
+\item Read problem carefully - identify KEY WORDS
+\item Match to template or section using decision tree
+\item Write down given information and what's asked
+\item Write relevant formulas BEFORE computing
+\item Show all steps (partial credit!)
+\item Check: Is answer reasonable? Between 0 and 1 for probabilities?
+\end{enumerate}
+
+\end{multicols}
+
+% ============================================================
+\section*{\textcolor{sectioncolor}{APPENDIX E: PROPERTIES OF E, Var, Cov, SD}}
+% ============================================================
+
+\begin{multicols}{2}
+
+\subsection*{Expected Value Properties}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{Linearity (ALWAYS holds):}
+  \begin{itemize}[itemsep=0pt]
+  \item $E[aX + b] = aE[X] + b$
+  \item $E[X + Y] = E[X] + E[Y]$ (no independence needed!)
+  \item $E[aX + bY + c] = aE[X] + bE[Y] + c$
+  \item $E[\sum_{i=1}^n X_i] = \sum_{i=1}^n E[X_i]$
+  \end{itemize}
+\item \concept{Constants:}
+  \begin{itemize}[itemsep=0pt]
+  \item $E[c] = c$ (constant has expected value = itself)
+  \item $E[cX] = cE[X]$
+  \end{itemize}
+\item \concept{Product (ONLY if independent):}
+  \begin{itemize}[itemsep=0pt]
+  \item $E[XY] = E[X]E[Y]$ \textbf{only if $X, Y$ independent!}
+  \item $E[g(X)h(Y)] = E[g(X)]E[h(Y)]$ if independent
+  \item \warning{If dependent: $E[XY] \neq E[X]E[Y]$ in general!}
+  \end{itemize}
+\item \concept{LOTUS (Law of the Unconscious Statistician):}
+  \begin{itemize}[itemsep=0pt]
+  \item $E[g(X)] = \sum_x g(x)P(X=x)$ (discrete)
+  \item $E[g(X)] = \int g(x)f(x)dx$ (continuous)
+  \item Don't need distribution of $g(X)$, just distribution of $X$!
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Variance Properties}
+\warning{SCALARS SQUARE when factored out of Var!}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{Computational Formula:}
+  \formula{\text{Var}(X) = E[X^2] - (E[X])^2}
+\item \concept{Linear Transform:}
+  \formula{\text{Var}(aX + b) = a^2 \text{Var}(X)}
+  \begin{itemize}[itemsep=0pt]
+  \item \warning{NOT $a\text{Var}(X)$! The constant SQUARES!}
+  \item $\text{Var}(2X) = 4\text{Var}(X)$, NOT $2\text{Var}(X)$
+  \item $\text{Var}(X + 5) = \text{Var}(X)$ (adding constant doesn't change variance)
+  \item $\text{Var}(-X) = \text{Var}(X)$
+  \end{itemize}
+\item \concept{Constants:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\text{Var}(c) = 0$ (constant has no variance)
+  \item $\text{Var}(X + c) = \text{Var}(X)$
+  \end{itemize}
+\item \concept{Sum of Random Variables:}
+  \formula{\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)}
+  \formula{\text{Var}(X - Y) = \text{Var}(X) + \text{Var}(Y) - 2\text{Cov}(X,Y)}
+  \begin{itemize}[itemsep=0pt]
+  \item If independent: $\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)$
+  \item If independent: $\text{Var}(X - Y) = \text{Var}(X) + \text{Var}(Y)$ (still +!)
+  \end{itemize}
+\item \concept{General Linear Combination:}
+  \formula{\text{Var}(aX + bY) = a^2\text{Var}(X) + b^2\text{Var}(Y) + 2ab\text{Cov}(X,Y)}
+  \begin{itemize}[itemsep=0pt]
+  \item If independent: $\text{Var}(aX + bY) = a^2\text{Var}(X) + b^2\text{Var}(Y)$
+  \end{itemize}
+\item \concept{Sum of i.i.d.:}
+  \formula{\text{Var}\left(\sum_{i=1}^n X_i\right) = n\sigma^2}
+\item \concept{Sample Mean:}
+  \formula{\text{Var}(\bar{X}) = \text{Var}\left(\frac{1}{n}\sum X_i\right) = \frac{1}{n^2} \cdot n\sigma^2 = \frac{\sigma^2}{n}}
+\item \concept{Non-negativity:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\text{Var}(X) \geq 0$ always
+  \item $\text{Var}(X) = 0$ iff $X$ is constant
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Standard Deviation Properties}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{Definition:} $\sigma_X = \text{SD}(X) = \sqrt{\text{Var}(X)}$
+\item \concept{Linear Transform:}
+  \formula{\text{SD}(aX + b) = |a| \cdot \text{SD}(X)}
+  \begin{itemize}[itemsep=0pt]
+  \item $\text{SD}(2X) = 2 \cdot \text{SD}(X)$ (absolute value of scalar)
+  \item $\text{SD}(-X) = \text{SD}(X)$
+  \item $\text{SD}(X + 5) = \text{SD}(X)$
+  \end{itemize}
+\item \concept{Sample Mean:}
+  \formula{\text{SD}(\bar{X}) = \frac{\sigma}{\sqrt{n}}}
+  \begin{itemize}[itemsep=0pt]
+  \item Called ``Standard Error'' of the mean
+  \end{itemize}
+\item \warning{SD does NOT have nice additivity: $\text{SD}(X+Y) \neq \text{SD}(X) + \text{SD}(Y)$}
+\item \concept{For independent:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\text{SD}(X+Y) = \sqrt{\text{Var}(X) + \text{Var}(Y)} = \sqrt{\sigma_X^2 + \sigma_Y^2}$
+  \item Must go through variance, then take square root!
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Covariance Properties}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{Computational Formula:}
+  \formula{\text{Cov}(X,Y) = E[XY] - E[X]E[Y]}
+\item \concept{Definition Form:}
+  $\text{Cov}(X,Y) = E[(X-\mu_X)(Y-\mu_Y)]$
+\item \concept{Symmetry:}
+  $\text{Cov}(X,Y) = \text{Cov}(Y,X)$
+\item \concept{Self-Covariance:}
+  $\text{Cov}(X,X) = \text{Var}(X)$
+\item \concept{Linear Transform:}
+  \formula{\text{Cov}(aX + b, cY + d) = ac \cdot \text{Cov}(X,Y)}
+  \begin{itemize}[itemsep=0pt]
+  \item Adding constants doesn't affect covariance
+  \item Scalars multiply (not square!)
+  \end{itemize}
+\item \concept{Linearity in Each Argument:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\text{Cov}(X + Y, Z) = \text{Cov}(X,Z) + \text{Cov}(Y,Z)$
+  \item $\text{Cov}(aX, Y) = a\text{Cov}(X,Y)$
+  \end{itemize}
+\item \concept{Independence:}
+  \begin{itemize}[itemsep=0pt]
+  \item If independent: $\text{Cov}(X,Y) = 0$
+  \item \warning{Converse FALSE: $\text{Cov}(X,Y) = 0$ does NOT imply independence!}
+  \item \textbf{Exception:} For MVN, $\text{Cov}=0 \Leftrightarrow$ independent
+  \end{itemize}
+\item \concept{With Constants:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\text{Cov}(X, c) = 0$ for any constant $c$
+  \item $\text{Cov}(X + c, Y) = \text{Cov}(X, Y)$
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Correlation Properties}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{Definition:}
+  \formula{\rho_{XY} = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y} = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}}
+\item \concept{Bounds:} $-1 \leq \rho \leq 1$
+\item \concept{Linear Transform (Scale Invariant):}
+  \formula{\rho_{aX+b, cY+d} = \text{sign}(ac) \cdot \rho_{XY}}
+  \begin{itemize}[itemsep=0pt]
+  \item If $a, c > 0$: $\rho_{aX+b, cY+d} = \rho_{XY}$
+  \item If $a > 0, c < 0$: $\rho_{aX+b, cY+d} = -\rho_{XY}$
+  \end{itemize}
+\item \concept{Interpretation:}
+  \begin{itemize}[itemsep=0pt]
+  \item $\rho = 1$: Perfect positive linear relationship
+  \item $\rho = -1$: Perfect negative linear relationship
+  \item $\rho = 0$: No linear relationship (uncorrelated)
+  \end{itemize}
+\item \concept{Self-Correlation:} $\rho_{XX} = 1$
+\end{itemize}
+
+\subsection*{Key Relationships Summary}
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Operation} & \textbf{E[]} & \textbf{Var()} \\
+\hline
+$aX + b$ & $aE[X] + b$ & $a^2\text{Var}(X)$ \\
+$X + Y$ & $E[X] + E[Y]$ & $\text{Var}(X) + \text{Var}(Y) + 2\text{Cov}$ \\
+$X + Y$ (indep) & $E[X] + E[Y]$ & $\text{Var}(X) + \text{Var}(Y)$ \\
+$\sum X_i$ (i.i.d.) & $n\mu$ & $n\sigma^2$ \\
+$\bar{X}$ (i.i.d.) & $\mu$ & $\sigma^2/n$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Common Mistakes to Avoid}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item[$\square$] $\text{Var}(2X) = 2\text{Var}(X)$ \textcolor{red}{\textbf{WRONG!}} Correct: $4\text{Var}(X)$
+\item[$\square$] $\text{SD}(X+Y) = \text{SD}(X) + \text{SD}(Y)$ \textcolor{red}{\textbf{WRONG!}} (no additivity for SD)
+\item[$\square$] $E[XY] = E[X]E[Y]$ always \textcolor{red}{\textbf{WRONG!}} (only if independent)
+\item[$\square$] $\text{Var}(X-Y) = \text{Var}(X) - \text{Var}(Y)$ \textcolor{red}{\textbf{WRONG!}} It's + not -
+\item[$\square$] $\text{Cov}(X,Y) = 0 \Rightarrow$ independent \textcolor{red}{\textbf{WRONG!}} (only for MVN)
+\item[$\square$] $\text{Var}(\bar{X}) = \sigma^2$ \textcolor{red}{\textbf{WRONG!}} Correct: $\sigma^2/n$
+\item[$\square$] $\text{Var}(S_n) = \sigma^2/n$ \textcolor{red}{\textbf{WRONG!}} Correct: $n\sigma^2$
+\end{itemize}
+
+\subsection*{Covariance Matrix Definition}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{For 2D vector $(X, Y)$:}
+  \formula{\boldsymbol{\Sigma} = \begin{pmatrix} \text{Var}(X) & \text{Cov}(X,Y) \\ \text{Cov}(X,Y) & \text{Var}(Y) \end{pmatrix} = \begin{pmatrix} \sigma_X^2 & \rho\sigma_X\sigma_Y \\ \rho\sigma_X\sigma_Y & \sigma_Y^2 \end{pmatrix}}
+\item \concept{For $n$-dim vector $\mathbf{X} = (X_1, ..., X_n)$:}
+  \formula{\boldsymbol{\Sigma}_{ij} = \text{Cov}(X_i, X_j)}
+  \begin{itemize}[itemsep=0pt]
+  \item Diagonal: $\Sigma_{ii} = \text{Var}(X_i)$
+  \item Off-diagonal: $\Sigma_{ij} = \text{Cov}(X_i, X_j)$
+  \item Symmetric: $\Sigma_{ij} = \Sigma_{ji}$
+  \end{itemize}
+\item \concept{Independent components:} $\boldsymbol{\Sigma}$ is diagonal (off-diagonal = 0)
+\end{itemize}
+
+\subsection*{How to Find $E[X^2]$}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{From Variance Formula:} Rearranging $\text{Var}(X) = E[X^2] - (E[X])^2$:
+  \formula{E[X^2] = \text{Var}(X) + (E[X])^2}
+\item \concept{Step-by-Step:}
+  \begin{enumerate}[itemsep=0pt]
+  \item Find $E[X]$ (mean)
+  \item Find $\text{Var}(X)$ (from distribution or given)
+  \item Calculate: $E[X^2] = \text{Var}(X) + (E[X])^2$
+  \end{enumerate}
+\item \concept{Example:} $X \sim N(3, 4)$ (mean 3, variance 4)
+  \begin{itemize}[itemsep=0pt]
+  \item $E[X] = 3$, $\text{Var}(X) = 4$
+  \item $E[X^2] = 4 + 3^2 = 4 + 9 = 13$
+  \end{itemize}
+\item \concept{Example:} $X \sim \text{Exp}(\lambda = 2)$
+  \begin{itemize}[itemsep=0pt]
+  \item $E[X] = 1/2$, $\text{Var}(X) = 1/4$
+  \item $E[X^2] = 1/4 + (1/2)^2 = 1/4 + 1/4 = 1/2$
+  \end{itemize}
+\end{itemize}
+
+\subsection*{How to Calculate Standard Deviation}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{From Variance:}
+  \formula{\text{SD}(X) = \sigma = \sqrt{\text{Var}(X)}}
+\item \concept{Step-by-Step from Data/Distribution:}
+  \begin{enumerate}[itemsep=0pt]
+  \item Find $E[X]$ (mean)
+  \item Find $E[X^2]$
+  \item Compute $\text{Var}(X) = E[X^2] - (E[X])^2$
+  \item Take square root: $\text{SD}(X) = \sqrt{\text{Var}(X)}$
+  \end{enumerate}
+\item \concept{For named distributions:} Use formula table
+  \begin{itemize}[itemsep=0pt]
+  \item Normal$(\mu, \sigma^2)$: $\text{SD} = \sigma$
+  \item Exp$(\lambda)$: $\text{SD} = 1/\lambda$
+  \item Binomial$(n,p)$: $\text{SD} = \sqrt{np(1-p)}$
+  \item Poisson$(\lambda)$: $\text{SD} = \sqrt{\lambda}$
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Joint Density of a Gaussian Vector}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{Bivariate Normal $(X, Y)$:}
+  \formula{f(x,y) = \frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}} \exp\left(-\frac{Q}{2(1-\rho^2)}\right)}
+  where $Q = \frac{(x-\mu_X)^2}{\sigma_X^2} - \frac{2\rho(x-\mu_X)(y-\mu_Y)}{\sigma_X\sigma_Y} + \frac{(y-\mu_Y)^2}{\sigma_Y^2}$
+\item \concept{When $\rho = 0$ (independent):}
+  \formula{f(x,y) = f_X(x) \cdot f_Y(y) = \frac{1}{2\pi\sigma_X\sigma_Y}\exp\left(-\frac{(x-\mu_X)^2}{2\sigma_X^2} - \frac{(y-\mu_Y)^2}{2\sigma_Y^2}\right)}
+\item \concept{Matrix Form (General MVN):}
+  \formula{f(\mathbf{x}) = \frac{1}{(2\pi)^{n/2}|\boldsymbol{\Sigma}|^{1/2}} \exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)}
+\item \concept{Key Insight:} For independent components, joint = product of marginals
+\end{itemize}
+
+\subsection*{How to Find Conditional Distribution}
+\textbf{General Method (Any Joint Distribution):}
+\begin{enumerate}[leftmargin=*,itemsep=0pt]
+\item Find joint PDF: $f(x,y)$
+\item Find marginal of what you're conditioning on: $f_Y(y) = \int f(x,y)\,dx$
+\item Apply formula: $f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)}$
+\item Simplify and identify distribution
+\end{enumerate}
+
+\textbf{For Bivariate Normal (Use Formulas Directly!):}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item \concept{Conditional Distribution:}
+  \formula{X|Y=y \sim N\left(\mu_X + \rho\frac{\sigma_X}{\sigma_Y}(y-\mu_Y), \sigma_X^2(1-\rho^2)\right)}
+\item \concept{Step-by-Step:}
+  \begin{enumerate}[itemsep=0pt]
+  \item Identify: $\mu_X, \mu_Y, \sigma_X, \sigma_Y, \rho$
+  \item Conditional mean: $E[X|Y=y] = \mu_X + \rho\frac{\sigma_X}{\sigma_Y}(y - \mu_Y)$
+  \item Conditional variance: $\text{Var}(X|Y) = \sigma_X^2(1-\rho^2)$
+  \item Write: $X|Y=y \sim N(\text{cond mean}, \text{cond var})$
+  \end{enumerate}
+\item \concept{Worked Example:} $(X,Y)$ bivariate normal: $\mu_X=2$, $\mu_Y=5$, $\sigma_X=3$, $\sigma_Y=4$, $\rho=0.5$
+  \begin{itemize}[itemsep=0pt]
+  \item Find $X|Y=9$:
+  \item Cond. mean: $2 + 0.5 \cdot \frac{3}{4}(9-5) = 2 + 0.375 \cdot 4 = 3.5$
+  \item Cond. var: $9(1-0.25) = 9 \cdot 0.75 = 6.75$
+  \item $X|Y=9 \sim N(3.5, 6.75)$
+  \end{itemize}
+\end{itemize}
+
+\textbf{For Discrete (Table Method):}
+\begin{enumerate}[leftmargin=*,itemsep=0pt]
+\item Fix the conditioning value (e.g., $Y = y$)
+\item Take the row/column for that value from joint table
+\item Divide each entry by the marginal $P(Y=y)$
+\item Result is conditional PMF $P(X=x|Y=y)$
+\end{enumerate}
 
 \end{multicols}
 \end{document}
