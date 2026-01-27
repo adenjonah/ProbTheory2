@@ -15,7 +15,11 @@
 
 ```
 ProbTheory2/
-├── lecture slides/
+├── README.md                    # Navigation guide
+├── study-guides/                # Numbered study guides (00-17)
+├── problem-index/               # Problem reference materials
+├── cheatsheets/                 # LaTeX source for printable refs
+├── lectures/
 │   ├── chapter1.txt
 │   ├── chapter2.txt
 │   ├── chapter3.txt
@@ -30,27 +34,28 @@ ProbTheory2/
 │   │   └── hw3.txt
 │   ├── hw4/
 │   │   ├── hw4.tex (and variants)
-│   │   ├── hw4 answers verbose/
+│   │   ├── solutions/
 │   │   ├── solve_p1-5.py
 │   │   └── artifacts/
 │   ├── hw5/
 │   │   ├── hw5.tex (and variants)
-│   │   ├── hw5 answers verbose/
+│   │   ├── solutions/
 │   │   ├── solve_p*.py
 │   │   └── artifacts/
 │   └── hw6/
 │       ├── hw6.tex (and variants)
-│       ├── hw6 answers verbose/
+│       ├── solutions/
 │       ├── solve_p*.py
 │       └── artifacts/
-└── practice exams and notes/
-    ├── midterm1-practice.txt
-    ├── midterm2-practice.txt
-    ├── mid-2-prac-sol.txt
-    ├── final-practice.txt
-    ├── final-prac-sol.txt
-    ├── professor-provided-review.txt
-    └── Summary_2025.pdf
+├── practice-exams/
+│   ├── midterm1-practice.txt
+│   ├── midterm2-practice.txt
+│   ├── mid-2-prac-sol.txt
+│   ├── final-practice.txt
+│   ├── final-prac-sol.txt
+│   ├── professor-provided-review.txt
+│   └── Summary_2025.pdf
+└── output/                      # Compiled PDFs
 ```
 
 ---
@@ -58,7 +63,7 @@ ProbTheory2/
 ## 📖 LECTURE SLIDES
 
 ### Chapter 1: Introduction to Probability
-**File:** `lecture slides/chapter1.txt`
+**File:** `lectures/chapter1.txt`
 **Period:** Pre-Midterm 1
 **Topics:**
 - Sample spaces and events
@@ -70,7 +75,7 @@ ProbTheory2/
 - Examples: dice, cards, birthdays
 
 ### Chapter 2: Conditional Probability
-**File:** `lecture slides/chapter2.txt`
+**File:** `lectures/chapter2.txt`
 **Period:** Pre-Midterm 1
 **Topics:**
 - Definition of conditional probability
@@ -82,7 +87,7 @@ ProbTheory2/
 - Tree diagrams
 
 ### Chapter 3: Random Variables and Distributions
-**File:** `lecture slides/chapter3.txt`
+**File:** `lectures/chapter3.txt`
 **Period:** Between Midterms
 **Topics:**
 - Random variables (discrete and continuous)
@@ -94,7 +99,7 @@ ProbTheory2/
 - Transformations
 
 ### Chapter 4: Expectations of Random Variables
-**File:** `lecture slides/chapter4.txt`
+**File:** `lectures/chapter4.txt`
 **Period:** Between Midterms / Post-Midterm 2
 **Topics:**
 - Expectation (mean)
@@ -106,7 +111,7 @@ ProbTheory2/
 - Properties of expectation
 
 ### Chapter 5: Special Distributions 🔥
-**File:** `lecture slides/chapter5.txt`
+**File:** `lectures/chapter5.txt`
 **Period:** Post-Midterm 2 ⚠️ EMPHASIS
 **Topics:**
 - Bernoulli and Binomial distributions
@@ -157,7 +162,7 @@ ProbTheory2/
 ### HW4 - Joint Distributions & Multivariate
 **Files:** 
 - `homeworks/hw4/hw4.tex` (problem statements)
-- `homeworks/hw4/hw4 answers verbose/P*.tex` (detailed solutions)
+- `homeworks/hw4/solutions/P*.tex` (detailed solutions)
 - `homeworks/hw4/solve_p*.py` (Python solutions)
 **Period:** Between Midterms
 **Topics:**
@@ -172,7 +177,7 @@ ProbTheory2/
 ### HW5 - Bivariate Normal & CLT 🔥
 **Files:**
 - `homeworks/hw5/hw5.tex` (problem statements)
-- `homeworks/hw5/hw5 answers verbose/P*.tex` (detailed solutions)
+- `homeworks/hw5/solutions/P*.tex` (detailed solutions)
 - `homeworks/hw5/solve_p*.py` (Python solutions)
 **Period:** Post-Midterm 2 ⚠️ EMPHASIS
 **Topics:**
@@ -186,7 +191,7 @@ ProbTheory2/
 ### HW6 - CLT & Bayesian Statistics 🔥
 **Files:**
 - `homeworks/hw6/hw6.tex` (problem statements)
-- `homeworks/hw6/hw6 answers verbose/P*.tex` (detailed solutions)
+- `homeworks/hw6/solutions/P*.tex` (detailed solutions)
 - `homeworks/hw6/solve_p*.py` (Python solutions)
 **Period:** Post-Midterm 2 ⚠️ EMPHASIS
 **Topics:**
@@ -202,7 +207,7 @@ ProbTheory2/
 ## 📊 PRACTICE EXAMS
 
 ### Midterm 1 Practice
-**Files:** `practice exams and notes/midterm1-practice.txt`
+**Files:** `practice-exams/midterm1-practice.txt`
 **Topics:**
 - Dice rolling probabilities
 - Conditional probability statements
@@ -211,8 +216,8 @@ ProbTheory2/
 
 ### Midterm 2 Practice
 **Files:** 
-- `practice exams and notes/midterm2-practice.txt`
-- `practice exams and notes/mid-2-prac-sol.txt` (solutions)
+- `practice-exams/midterm2-practice.txt`
+- `practice-exams/mid-2-prac-sol.txt` (solutions)
 **Topics:**
 - Joint continuous distributions
 - Covariance and correlation
@@ -221,8 +226,8 @@ ProbTheory2/
 
 ### Final Practice 🔥
 **Files:**
-- `practice exams and notes/final-practice.txt`
-- `practice exams and notes/final-prac-sol.txt` (solutions)
+- `practice-exams/final-practice.txt`
+- `practice-exams/final-prac-sol.txt` (solutions)
 **Topics:** ⚠️ MOST RELEVANT
 - Coin game expected values
 - CLT applications (400 games)
@@ -232,7 +237,7 @@ ProbTheory2/
 - Bayesian updating
 
 ### Professor's Review Document
-**File:** `practice exams and notes/professor-provided-review.txt`
+**File:** `practice-exams/professor-provided-review.txt`
 **Topics:** Comprehensive summary covering:
 - Conditional Expectation
 - All special distributions
@@ -242,7 +247,7 @@ ProbTheory2/
 - Finance applications
 
 ### Summary Document
-**File:** `practice exams and notes/Summary_2025.pdf`
+**File:** `practice-exams/Summary_2025.pdf`
 **Type:** PDF comprehensive review guide
 
 ---
@@ -291,30 +296,30 @@ ProbTheory2/
 ## 📌 FILE QUICK REFERENCE BY TOPIC
 
 ### Probability Fundamentals
-- `lecture slides/chapter1.txt`
-- `lecture slides/chapter2.txt`
+- `lectures/chapter1.txt`
+- `lectures/chapter2.txt`
 - `homeworks/hw1/hw1.txt`
 - `homeworks/hw2/hw2.txt`
 
 ### Random Variables & Distributions
-- `lecture slides/chapter3.txt`
-- `lecture slides/chapter5.txt`
+- `lectures/chapter3.txt`
+- `lectures/chapter5.txt`
 - `homeworks/hw3/hw3.txt`
 
 ### Expectations & Moments
-- `lecture slides/chapter4.txt`
+- `lectures/chapter4.txt`
 - `homeworks/hw3/hw3.txt`
 - `homeworks/hw4/` (all files)
 
 ### Multivariate & Advanced Topics 🔥
-- `lecture slides/chapter5.txt` (Bivariate Normal)
+- `lectures/chapter5.txt` (Bivariate Normal)
 - `homeworks/hw4/` (Joint distributions)
 - `homeworks/hw5/` (Bivariate Normal, CLT)
 - `homeworks/hw6/` (CLT, Bayesian)
 
 ### Practice Problems
-- All files in `practice exams and notes/`
-- All `hw* answers verbose/` directories
+- All files in `practice-exams/`
+- All `solutions/` directories
 - All `solve_*.py` files
 
 ---
@@ -324,18 +329,18 @@ ProbTheory2/
 **HIGHEST PRIORITY FOR FINAL:**
 1. `homeworks/hw5/` - All files (Bivariate Normal, CLT, Lognormal)
 2. `homeworks/hw6/` - All files (CLT, Bayesian Statistics)
-3. `lecture slides/chapter5.txt` - Special Distributions
-4. `practice exams and notes/final-practice.txt` & solutions
-5. `practice exams and notes/professor-provided-review.txt`
+3. `lectures/chapter5.txt` - Special Distributions
+4. `practice-exams/final-practice.txt` & solutions
+5. `practice-exams/professor-provided-review.txt`
 
 ---
 
 ## 📊 SOLUTION RESOURCES
 
 ### LaTeX Solutions (Detailed)
-- `homeworks/hw4/hw4 answers verbose/*.tex` (14 files)
-- `homeworks/hw5/hw5 answers verbose/*.tex` (8 files)
-- `homeworks/hw6/hw6 answers verbose/*.tex` (12 files)
+- `homeworks/hw4/solutions/*.tex` (14 files)
+- `homeworks/hw5/solutions/*.tex` (8 files)
+- `homeworks/hw6/solutions/*.tex` (12 files)
 
 ### Python Solutions (Computational)
 - `homeworks/hw4/solve_p*.py` (5 files)
@@ -343,8 +348,8 @@ ProbTheory2/
 - `homeworks/hw6/solve_p*.py` (6 files)
 
 ### Practice Exam Solutions
-- `practice exams and notes/mid-2-prac-sol.txt`
-- `practice exams and notes/final-prac-sol.txt`
+- `practice-exams/mid-2-prac-sol.txt`
+- `practice-exams/final-prac-sol.txt`
 
 ---
 

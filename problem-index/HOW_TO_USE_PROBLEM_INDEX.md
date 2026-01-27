@@ -40,12 +40,12 @@
 
 | Document | Purpose | When to Use |
 |----------|---------|-------------|
-| `PROBLEM_DATABASE.md` | All problems with exact wording | Finding specific problems |
-| `PROBLEM_SOLUTION_PATHS.md` | Section/template mappings | Solution approach |
-| `PROBLEM_VARIATIONS.md` | How problems can change | Understanding patterns |
-| `COMPLETE_PROBLEM_INDEX.tex` | Master document (PDF-ready) | Printing/comprehensive review |
-| `VALIDATION_CHECKLIST.md` | Verification report | Checking completeness |
-| `FINAL_EXAM_CHEATSHEET.tex` | Formulas and concepts | During problem solving |
+| `problem-index/PROBLEM_DATABASE.md` | All problems with exact wording | Finding specific problems |
+| `problem-index/PROBLEM_SOLUTION_PATHS.md` | Section/template mappings | Solution approach |
+| `problem-index/PROBLEM_VARIATIONS.md` | How problems can change | Understanding patterns |
+| `cheatsheets/COMPLETE_PROBLEM_INDEX.tex` | Master document (PDF-ready) | Printing/comprehensive review |
+| `problem-index/VALIDATION_CHECKLIST.md` | Verification report | Checking completeness |
+| `cheatsheets/FINAL_EXAM_CHEATSHEET.tex` | Formulas and concepts | During problem solving |
 
 ## Critical Terminology Reminders
 
